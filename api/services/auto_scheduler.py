@@ -31,6 +31,7 @@ from api.services.sheets_service import (
     set_published_folder_link,
     clear_sheet_row_status
 )
+from api.services.google_sa import get_google_service
 
 # 固定台北時區
 TZ = pytz.timezone("Asia/Taipei")
