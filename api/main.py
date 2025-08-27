@@ -13,7 +13,8 @@ from api.services.auto_scheduler import (
     scan_and_schedule_from_mother,
     run_due_uploads,
     promote_published_and_move,
-    reconcile_sheet_and_drive_for_published
+    reconcile_sheet_and_drive_for_published,
+    reconcile_youtube_deletions_and_sheet
 )
 
 app = FastAPI(title="LINE Menu + Drive + Scheduler (Modularized)")
@@ -67,9 +68,6 @@ async def reconcile_ytsched_now():
 
 @app.post("/api/scheduler/reconcile-ytdel-sheet-now")
 def reconcile_ytdel_sheet_now():
-    """
-    手動同步 YT 刪除 → DB + Sheet
-    """
     res = reconcile_youtube_deletions_and_sheet(dry_run=False)
     return res
 
