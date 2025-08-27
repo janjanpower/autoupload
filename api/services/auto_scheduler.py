@@ -790,14 +790,12 @@ def reconcile_youtube_deletions_and_sheet(dry_run=True):
     """刪除已不存在於 YouTube 的影片，並同步更新 Google Sheet"""
     try:
         service = get_google_service(
-            "sheets",
-            "v4",
-            ["https://www.googleapis.com/auth/spreadsheets"]
+            "sheets", "v4", ["https://www.googleapis.com/auth/spreadsheets"]
         )
         sheet = service.spreadsheets()
 
-        SHEET_ID = settings.SHEET_ID  # 從 config 或 env 拿
-        TAB_NAME = "已發布"
+        SHEET_ID = settings.SHEET_ID
+        TAB_NAME = settings.TAB_NAME
 
         rows = get_sheet_values(sheet, SHEET_ID, TAB_NAME, "A2:D")
         to_delete = []
