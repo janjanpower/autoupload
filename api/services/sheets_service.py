@@ -3,6 +3,7 @@ import os, re
 SHEET_ID = os.getenv("SHEET_ID") or ""
 SHEET_TAB = os.getenv("SHEET_TAB") or "已發布"
 
+import logging
 import os, json, re
 from typing import List, Optional
 from datetime import datetime
@@ -249,3 +250,43 @@ def clear_sheet_row_status(row_idx: int, status: str = "已刪除"):
         body={"values": [["", status]]}
     ).execute()
 
+def get_sheet_values(sheet, spreadsheet_id: str, tab_name: str, range_: str):
+    """
+    從 Google Sheet 讀取範圍的值
+    """
+    try:
+        result = sheet.values().get(
+            spreadsheetId=spreadsheet_id,
+            range=f"{tab_name}!{range_}"
+        ).execute()
+        return result.get("values", [])
+    except Exception as e:
+        logging.exception("❌ get_sheet_values failed")
+        return []
+
+def delete_rows(sheet, spreadsheet_id: str, tab_name: str, row_indexes: list[int]):
+    """
+    刪除指定的多行（row_indexes 是從 2 開始的行號列表）
+    """
+    try:
+        requests = []
+        for idx in sorted(row_indexes, reverse=True):  # 從大到小刪
+            requests.append({
+                "deleteDimension": {
+                    "range": {
+                        "sheetId": 0,  # ⚠️ 這裡要替換成實際 Sheet 的 gid
+                        "dimension": "ROWS",
+                        "startIndex": idx - 1,  # 0-based index
+                        "endIndex": idx
+                    }
+                }
+            })
+        if requests:
+            body = {"requests": requests}
+            sheet.batchUpdate(
+                spreadsheetId=spreadsheet_id,
+                body=body
+            ).execute()
+    except Exception as e:
+        logging.exception("❌ delete_rows failed")
+        raise
