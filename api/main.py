@@ -65,6 +65,14 @@ async def reconcile_ytsched_now():
     except Exception as e:
         return {"ok": False, "error": str(e)}
 
+@app.post("/api/scheduler/reconcile-ytdel-sheet-now")
+def reconcile_ytdel_sheet_now():
+    """
+    手動同步 YT 刪除 → DB + Sheet
+    """
+    res = reconcile_youtube_deletions_and_sheet(dry_run=False)
+    return res
+
 @app.get("/api/scheduler/ready-dump")
 async def ready_dump():
     rows = scheduler_repo.debug_ready_snapshot(limit=100)

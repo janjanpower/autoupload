@@ -9,8 +9,8 @@ from datetime import datetime
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 from google.oauth2.service_account import Credentials
-
-SHEET_TAB = "已發布"  # 如你的分頁名不同，這裡改成你的實際名稱
+from api.services.google_sa import get_google_service
+from api.config import settings
 
 def _sheet_id() -> str:
     sid = os.getenv("SHEET_ID", "").strip()
@@ -237,3 +237,15 @@ def set_published_folder_link(row_index: int, folder_url: str) -> None:
         spreadsheetId=_sheet_id(),
         body={"valueInputOption": "USER_ENTERED", "data": data}
     ).execute()
+
+def clear_sheet_row_status(row_idx: int, status: str = "已刪除"):
+    """清空 C 欄並在 D 欄標記 '已刪除'"""
+    if not row_idx:
+        return
+    _sheets().values().update(
+        spreadsheetId=_sheet_id(),
+        range=f"{SHEET_TAB}!C{row_idx}:D{row_idx}",
+        valueInputOption="RAW",
+        body={"values": [["", status]]}
+    ).execute()
+
