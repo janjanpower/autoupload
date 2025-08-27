@@ -392,7 +392,7 @@ async def line_webhook(request: Request, background_tasks: BackgroundTasks):
 
                     # 5) 通知
                     url = f"https://youtu.be/{vid}"
-                    from .utils.timefmt import format_tw_with_weekday
+                    from api.utils.timefmt import format_tw_with_weekday
                     when = format_tw_with_weekday(dt_utc)
                     push_text(line_user_id, f"✅ 上傳完成：{folder['name']}\nYouTube URL :\n{url}\n⚠️將於 {when} 公開")
 
