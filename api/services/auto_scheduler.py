@@ -28,7 +28,8 @@ from api.services.sheets_service import (
     update_status_and_views,
     find_row_by_title_and_folder,
     mark_row_published,  # ← 發布後更新「已發布」＋超連結
-    set_published_folder_link
+    set_published_folder_link,
+    clear_sheet_row_status
 )
 
 # 固定台北時區
@@ -565,6 +566,7 @@ def reconcile_youtube_deletions():
             scheduler_repo.mark_deleted(r["id"])
 
 
+
 def refresh_today_views():
     """回填今日觀看數（F 欄）。"""
     if not scheduler_repo.acquire_lock(10103):
@@ -776,5 +778,44 @@ def reconcile_youtube_schedule_drift() -> dict:
                 out["undeleted"] += 1
             except Exception as e:
                 out["errors"].append(f"db-undelete id={rec_id}: {e}")
+
+    return out
+
+
+def reconcile_youtube_deletions_and_sheet(dry_run: bool = False) -> dict:
+    """
+    YT 排程被刪除 → DB 標記 deleted + Sheet 上的列也清空/標記 (例如 D 欄 = '已刪除')
+    """
+    try:
+        yt_list = {it["id"] for it in list_scheduled_youtube(max_pages=2)}
+    except Exception as e:
+        return {"status": "error", "errors": [str(e)]}
+
+    rows = scheduler_repo.list_future_uploaded()
+    out = {"checked": len(rows), "deleted": 0, "sheet_updated": 0, "errors": []}
+
+    for r in rows:
+        vid = r.get("youtube_video_id")
+        sid = r.get("id")
+        row_idx = int(r.get("sheet_row") or 0)
+
+        if vid and (vid not in yt_list):
+            try:
+                if not dry_run:
+                    scheduler_repo.mark_deleted(sid)
+                out["deleted"] += 1
+            except Exception as e:
+                out["errors"].append(f"db sid={sid}: {e}")
+                continue
+
+            if row_idx:
+                try:
+                    if not dry_run:
+                        # 這裡你可以自己定義 clear_sheet_row_status，
+                        # 或者呼叫 set_published_folder_link(row_idx, "已刪除")
+                        clear_sheet_row_status(row_idx, status="已刪除")
+                    out["sheet_updated"] += 1
+                except Exception as e:
+                    out["errors"].append(f"sheet sid={sid}: {e}")
 
     return out
