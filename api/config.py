@@ -30,7 +30,7 @@ class Settings:
     YT_REFRESH_TOKEN = os.getenv("YT_REFRESH_TOKEN", "")
     YT_DEFAULT_PRIVACY = os.getenv("YT_DEFAULT_PRIVACY", "private")
 
-    SHEET_ID :str = "你的 Google Sheet ID"
+    SHEET_ID :str = "1AbCdEfGhijkLmNoPqRstUvWxYz1234567890"
     TAB_NAME: str = "已發布"
 
     RAW_DB_URL = os.getenv("DATABASE_URL", "")
