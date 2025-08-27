@@ -1,0 +1,28 @@
+# Git
+.git
+.gitignore
+
+# Python caches & build
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Env & secrets
+.env
+*service-account*.json
+*credentials*.json
+*.pem
+*.key
+
+# Editors
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db

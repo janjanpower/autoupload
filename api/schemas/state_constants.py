@@ -1,0 +1,49 @@
+import pytz
+
+# 狀態常數
+S_IDLE = "IDLE"
+S_UPLOAD_TYPE = "UPLOAD_TYPE"
+S_PICK_FOLDER_FOR_UPLOAD = "PICK_FOLDER_UPLOAD"
+S_PREVIEW_META = "PREVIEW_META"
+S_WAIT_EDIT_META = "WAIT_EDIT_META"
+S_WAIT_SCHEDULE_TIME = "WAIT_SCHEDULE"
+S_PICK_FOLDER_MODIFY = "PICK_FOLDER_MODIFY"
+S_WAIT_EDIT_META_ONLY = "WAIT_EDIT_META_ONLY"
+S_MODIFY_SCHEDULE_PICK = "MODIFY_SCHEDULE_PICK"
+S_MODIFY_SCHEDULE_ACTION = "MODIFY_SCHEDULE_ACTION"
+S_PICK_PLATFORM = "PICK_PLATFORM"
+
+# 台北時區
+TZ = pytz.timezone("Asia/Taipei")
+
+# 文案
+# === REPLACE: 主選單文案 ===
+MENU_TEXT = (
+    "請選擇：\n"
+    "1. 上架\n"
+    "2. 影片清單\n"
+    "3. 修改檔案（標題/內文等）\n"
+    "4. 目前排程\n"
+    "5. 取消"
+)
+# 子選單文案
+SUBMENU_PLATFORM = (
+    "請選擇平台類型：\n"
+    "1. YouTube\n"
+    "2. 取消"
+)
+
+SUBMENU_UPLOAD = (
+    "請選擇上架類型：\n"
+    "1. 長片\n"
+    "2. 短影音\n"
+    "3. 取消"
+)
+
+# === ADD: 排程編輯用狀態常數（放在常數區） ===
+S_SCHEDULE_PICK = "S_SCHEDULE_PICK"           # 選一筆排程
+S_SCHEDULE_EDIT_MENU = "S_SCHEDULE_EDIT_MENU" # 選要修改哪個欄位
+S_SCHEDULE_EDIT_TITLE = "S_SCHEDULE_EDIT_TITLE"
+S_SCHEDULE_EDIT_DESC  = "S_SCHEDULE_EDIT_DESC"
+S_SCHEDULE_EDIT_TAGS  = "S_SCHEDULE_EDIT_TAGS"
+S_SCHEDULE_EDIT_TIME  = "S_SCHEDULE_EDIT_TIME"
