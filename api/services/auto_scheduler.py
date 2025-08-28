@@ -4,6 +4,9 @@ import os
 import re
 import io
 import logging
+import logging
+from google.oauth2.credentials import Credentials
+from googleapiclient.discovery import build
 import tempfile
 from typing import Dict, List, Optional, Tuple
 from datetime import datetime, timedelta, timezone
@@ -786,32 +789,68 @@ def reconcile_youtube_schedule_drift() -> dict:
     return out
 
 
+def _build_youtube_client():
+    """用 OAuth Refresh Token 建立 YouTube v3 client（讀取即可）"""
+    cid  = os.getenv("YT_CLIENT_ID")
+    csec = os.getenv("YT_CLIENT_SECRET")
+    rtok = os.getenv("YT_REFRESH_TOKEN")
+    if not all([cid, csec, rtok]):
+        raise RuntimeError("YT_CLIENT_ID / YT_CLIENT_SECRET / YT_REFRESH_TOKEN 未設定")
+    creds = Credentials(
+        token=None,
+        refresh_token=rtok,
+        client_id=cid,
+        client_secret=csec,
+        token_uri="https://oauth2.googleapis.com/token",
+        scopes=["https://www.googleapis.com/auth/youtube.readonly"],
+    )
+    return build("youtube", "v3", credentials=creds, cache_discovery=False)
+
 def reconcile_youtube_deletions_and_sheet(dry_run=True):
-    """刪除已不存在於 YouTube 的影片，並同步更新 Google Sheet"""
-    try:
-        service = get_google_service(
-            "sheets", "v4", ["https://www.googleapis.com/auth/spreadsheets"]
-        )
-        sheet = service.spreadsheets()
+    """
+    逐列檢查 Sheet 的 YouTube 影片是否仍存在：
+    - 若不存在（videos.list 回傳空 items），則刪除該列
+    - 不再依賴 C 欄 status == 'deleted'
+    """
+    SHEET_ID = os.getenv("SHEET_ID")
+    TAB_NAME = os.getenv("SHEET_TAB") or os.getenv("TAB_NAME") or "已發布"
+    if not SHEET_ID:
+        raise RuntimeError("環境變數 SHEET_ID 未設定")
 
-        SHEET_ID = settings.SHEET_ID
-        TAB_NAME = settings.TAB_NAME
+    # Google Sheets 服務（用 service account）
+    sheets_service = get_google_service(
+        "sheets", "v4", ["https://www.googleapis.com/auth/spreadsheets"]
+    )
+    sheet = sheets_service.spreadsheets()
 
-        rows = get_sheet_values(sheet, SHEET_ID, TAB_NAME, "A2:D")
-        to_delete = []
+    # YouTube 服務（用 OAuth refresh token）
+    yt = _build_youtube_client()
 
-        for idx, row in enumerate(rows, start=2):
-            yt_id = row[1] if len(row) > 1 else None
-            status = row[2] if len(row) > 2 else None
+    # 讀 A2:D（B 欄是 youtube_video_id）
+    rows = get_sheet_values(sheet, SHEET_ID, TAB_NAME, "A2:D")
+    if not rows:
+        return {"deleted_rows": [], "dry_run": dry_run, "reason": "no rows"}
 
-            if status == "deleted":
+    to_delete = []
+    # 逐列檢查
+    for idx, row in enumerate(rows, start=2):
+        yt_id = row[1].strip() if len(row) > 1 and row[1] else ""
+        if not yt_id:
+            # 沒有影片 ID 的列，直接列入刪除清單
+            to_delete.append(idx)
+            continue
+
+        try:
+            resp = yt.videos().list(part="id", id=yt_id).execute()
+            items = resp.get("items", [])
+            if not items:
+                # 影片已不存在
                 to_delete.append(idx)
+        except Exception:
+            logging.exception("YouTube 查詢失敗，暫時略過此列（row=%s, yt_id=%s）", idx, yt_id)
 
-        if not dry_run and to_delete:
-            delete_rows(sheet, SHEET_ID, TAB_NAME, to_delete)
+    # 執行刪除
+    if to_delete and not dry_run:
+        delete_rows(sheet, SHEET_ID, TAB_NAME, to_delete)
 
-        return {"deleted_rows": to_delete, "dry_run": dry_run}
-
-    except Exception as e:
-        logging.exception("❌ reconcile_youtube_deletions_and_sheet failed")
-        return {"error": str(e)}
+    return {"deleted_rows": to_delete, "dry_run": dry_run}
