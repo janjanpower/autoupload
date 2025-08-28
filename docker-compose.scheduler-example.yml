@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  scheduler:
+    build: .
+    env_file: .env
+    depends_on: [db]
+    command: python -m api.services.scheduler_runner
+    restart: unless-stopped
+    environment:
+      - RUN_SCHEDULER=1
+      - TZ=Asia/Taipei
