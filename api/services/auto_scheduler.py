@@ -4,22 +4,21 @@ import os
 import re
 import io
 import logging
-import logging
-from google.oauth2.credentials import Credentials
+
+
 from googleapiclient.discovery import build
 import tempfile
-from typing import Dict, List, Optional, Tuple
-from datetime import datetime, timedelta, timezone
+from typing import Dict, List, Optional, Tuple ,Set
+from datetime import datetime, timedelta
 
 import pytz
 from sqlalchemy import text as sql_text
-
+from sqlalchemy import create_engine, text
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 from apscheduler.triggers.interval import IntervalTrigger
-
+from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload, MediaIoBaseUpload
-
 # === 專案內匯入（全部用絕對匯入，避免相對路徑問題） ===
 from api.db import engine
 from api.core.youtube_client import get_youtube_client
@@ -789,68 +788,94 @@ def reconcile_youtube_schedule_drift() -> dict:
     return out
 
 
-def _build_youtube_client():
-    """用 OAuth Refresh Token 建立 YouTube v3 client（讀取即可）"""
-    cid  = os.getenv("YT_CLIENT_ID")
-    csec = os.getenv("YT_CLIENT_SECRET")
-    rtok = os.getenv("YT_REFRESH_TOKEN")
-    if not all([cid, csec, rtok]):
-        raise RuntimeError("YT_CLIENT_ID / YT_CLIENT_SECRET / YT_REFRESH_TOKEN 未設定")
-    creds = Credentials(
-        token=None,
-        refresh_token=rtok,
-        client_id=cid,
-        client_secret=csec,
-        token_uri="https://oauth2.googleapis.com/token",
-        scopes=["https://www.googleapis.com/auth/youtube.readonly"],
-    )
-    return build("youtube", "v3", credentials=creds, cache_discovery=False)
-
-def reconcile_youtube_deletions_and_sheet(dry_run=True):
+def _fetch_existing_youtube_ids_from_db() -> Set[str]:
     """
-    逐列檢查 Sheet 的 YouTube 影片是否仍存在：
-    - 若不存在（videos.list 回傳空 items），則刪除該列
-    - 不再依賴 C 欄 status == 'deleted'
+    從 DB 撈出目前存在的 youtube_video_id 當白名單。
     """
-    SHEET_ID = os.getenv("SHEET_ID")
-    TAB_NAME = os.getenv("SHEET_TAB") or os.getenv("TAB_NAME") or "已發布"
-    if not SHEET_ID:
-        raise RuntimeError("環境變數 SHEET_ID 未設定")
+    engine = create_engine(settings.DATABASE_URL)
+    sql = text("""
+        SELECT youtube_video_id
+        FROM public.video_schedules
+        WHERE youtube_video_id IS NOT NULL
+          AND youtube_video_id <> ''
+    """)
+    with engine.connect() as conn:
+        rows = conn.execute(sql).fetchall()
+    return {r[0] for r in rows}
 
-    # Google Sheets 服務（用 service account）
-    sheets_service = get_google_service(
+
+def _youtube_video_exists(y, vid: str) -> bool:
+    """
+    回傳影片是否還存在於 YouTube（含私密/不公開仍會回傳 items>0）。
+    被刪除、移除或 ID 不存在會回傳 False。
+    """
+    try:
+        resp = y.videos().list(part="id", id=vid).execute()
+        return bool(resp.get("items"))
+    except Exception as e:
+        logging.warning("YT exists check failed for %s: %s", vid, e)
+        return True
+
+
+
+def reconcile_youtube_deletions_and_sheet(dry_run: bool = True) -> dict:
+    """
+    對照 YouTube 與 DB，刪除 Google Sheet「已發布」分頁中不該存在的列。
+    規則：
+      - 若該列的 YouTube ID 不在 DB -> 列入刪除
+      - 或是該 ID 在 YouTube 已不存在 -> 列入刪除
+    """
+    assert settings.SHEET_ID,  "SHEET_ID is required"
+    assert settings.SHEET_TAB, "SHEET_TAB is required"
+
+    # Google Sheets 服務
+    sheets_srv = get_google_service(
         "sheets", "v4", ["https://www.googleapis.com/auth/spreadsheets"]
     )
-    sheet = sheets_service.spreadsheets()
+    sheet = sheets_srv.spreadsheets()
 
-    # YouTube 服務（用 OAuth refresh token）
-    yt = _build_youtube_client()
+    # YouTube 服務
+    yt = build("youtube", "v3", developerKey=settings.YOUTUBE_API_KEY)
 
-    # 讀 A2:D（B 欄是 youtube_video_id）
-    rows = get_sheet_values(sheet, SHEET_ID, TAB_NAME, "A2:D")
-    if not rows:
-        return {"deleted_rows": [], "dry_run": dry_run, "reason": "no rows"}
+    # 讀 Sheet：假設 A:標題  B:YouTubeID  C:狀態(可有可無)  D:其它
+    rows: List[List[str]] = get_sheet_values(
+        sheet, settings.SHEET_ID, settings.SHEET_TAB, "A2:D"
+    )
 
-    to_delete = []
-    # 逐列檢查
-    for idx, row in enumerate(rows, start=2):
-        yt_id = row[1].strip() if len(row) > 1 and row[1] else ""
+    # DB 現存影片 ID（白名單）
+    db_ids = _fetch_existing_youtube_ids_from_db()
+
+    to_delete_rows: List[int] = []
+    reasons: List[Tuple[int, str, str]] = []  # (row_index, yt_id, reason)
+    examined = 0
+
+    for idx, row in enumerate(rows, start=2):  # row 2 起算
+        examined += 1
+        yt_id = (row[1].strip() if len(row) > 1 else "")
         if not yt_id:
-            # 沒有影片 ID 的列，直接列入刪除清單
-            to_delete.append(idx)
+            # 沒 ID 的列就跳過（或依需求也可刪）
             continue
 
-        try:
-            resp = yt.videos().list(part="id", id=yt_id).execute()
-            items = resp.get("items", [])
-            if not items:
-                # 影片已不存在
-                to_delete.append(idx)
-        except Exception:
-            logging.exception("YouTube 查詢失敗，暫時略過此列（row=%s, yt_id=%s）", idx, yt_id)
+        reason = None
+        if yt_id not in db_ids:
+            reason = "missing_in_db"
+        else:
+            # DB 有，仍再確認 YT 是否還存在
+            if not _youtube_video_exists(yt, yt_id):
+                reason = "missing_on_youtube"
 
-    # 執行刪除
-    if to_delete and not dry_run:
-        delete_rows(sheet, SHEET_ID, TAB_NAME, to_delete)
+        if reason:
+            to_delete_rows.append(idx)
+            reasons.append((idx, yt_id, reason))
 
-    return {"deleted_rows": to_delete, "dry_run": dry_run}
+    # 真正刪除
+    if not dry_run and to_delete_rows:
+        delete_rows(sheet, settings.SHEET_ID, settings.SHEET_TAB, to_delete_rows)
+
+    return {
+        "examined": examined,
+        "deleted_rows": to_delete_rows,
+        "dry_run": dry_run,
+        "reasons_preview": reasons[:20],  # 回傳前 20 筆理由方便檢查
+        "total_marked": len(to_delete_rows),
+    }
