@@ -45,6 +45,7 @@ logger = logging.getLogger(__name__)
 PARENT_FOLDER_ID    = os.getenv("PARENT_FOLDER_ID", "")
 PUBLISHED_FOLDER_ID = os.getenv("PUBLISHED_FOLDER_ID", "")
 
+
 # -------------------- Drive helpers --------------------
 
 def _drive():
@@ -818,15 +819,24 @@ def _youtube_video_exists(y, vid: str) -> bool:
 
 
 
+_YT_ID_RE = re.compile(r"(?:v=|/shorts/|youtu\.be/|/embed/)([A-Za-z0-9_-]{11})|^([A-Za-z0-9_-]{11})$")
+def _extract_id(cell: str) -> str:
+    if not cell:
+        return ""
+    m = _YT_ID_RE.search(str(cell).strip())
+    return (m.group(1) or m.group(2)) if m else ""
+
 def reconcile_youtube_deletions_and_sheet(dry_run: bool = True) -> dict:
     """
-    對照 YouTube 與 DB，刪除 Google Sheet「已發布」分頁中不該存在的列。
+    對照 DB（真相）與 YouTube，刪除 Google Sheet「已發布」分頁中不該存在的列。
     規則：
-      - 若該列的 YouTube ID 不在 DB -> 列入刪除
+      - 該列（C 欄）解析出的 YouTube ID 不在 DB -> 列入刪除
       - 或是該 ID 在 YouTube 已不存在 -> 列入刪除
+    注意：若該列抓不到任何 YouTube ID/URL，為安全起見「跳過不刪」。
     """
     assert settings.SHEET_ID,  "SHEET_ID is required"
-    assert settings.SHEET_TAB, "SHEET_TAB is required"
+    tab = getattr(settings, "SHEET_TAB", None) or getattr(settings, "TAB_NAME", None)
+    assert tab, "SHEET_TAB (or TAB_NAME) is required"
 
     # Google Sheets 服務
     sheets_srv = get_google_service(
@@ -834,26 +844,31 @@ def reconcile_youtube_deletions_and_sheet(dry_run: bool = True) -> dict:
     )
     sheet = sheets_srv.spreadsheets()
 
-    # YouTube 服務
+    # YouTube 服務（若你只想比對 DB 不打 YouTube，可把這段與下方 _youtube_video_exists 移除）
     yt = build("youtube", "v3", developerKey=settings.YOUTUBE_API_KEY)
 
-    # 讀 Sheet：假設 A:標題  B:YouTubeID  C:狀態(可有可無)  D:其它
-    rows: List[List[str]] = get_sheet_values(
-        sheet, settings.SHEET_ID, settings.SHEET_TAB, "A2:D"
-    )
+    # 讀 Sheet：A:日期  B:標題  C:YOUTUBE ID/URL  D:資料夾位置 ...（讀寬一點避免越界）
+    rows: List[List[str]] = get_sheet_values(sheet, settings.SHEET_ID, tab, "A2:Z")
 
     # DB 現存影片 ID（白名單）
-    db_ids = _fetch_existing_youtube_ids_from_db()
+    db_ids = set(x for x in (_fetch_existing_youtube_ids_from_db() or []) if x)
 
     to_delete_rows: List[int] = []
-    reasons: List[Tuple[int, str, str]] = []  # (row_index, yt_id, reason)
+    reasons: List[Tuple[int, str, str]] = []  # (row_index, title, reason)
     examined = 0
 
-    for idx, row in enumerate(rows, start=2):  # row 2 起算
+    # 由環境變數決定 ID 欄位（預設 C 欄），但我們仍會做網址→ID 轉換
+    col_letter = (getattr(settings, "SHEET_YT_COL", os.getenv("SHEET_YT_COL", "C")) or "C").upper()
+    col_idx = max(0, ord(col_letter) - ord('A'))
+
+    for idx, row in enumerate(rows, start=2):  # 從第2列（跳過表頭）
         examined += 1
-        yt_id = (row[1].strip() if len(row) > 1 else "")
+        title = row[1].strip() if len(row) > 1 and row[1] else ""
+
+        yt_id = _extract_id(row[col_idx]) if len(row) > col_idx else ""
         if not yt_id:
-            # 沒 ID 的列就跳過（或依需求也可刪）
+            # 這列沒有任何可辨識的 YouTube 連結/ID → 不刪，留給人工
+            reasons.append((idx, title, "no_id_in_col"))
             continue
 
         reason = None
@@ -866,16 +881,35 @@ def reconcile_youtube_deletions_and_sheet(dry_run: bool = True) -> dict:
 
         if reason:
             to_delete_rows.append(idx)
-            reasons.append((idx, yt_id, reason))
+            reasons.append((idx, title, reason))
+
+    # ---- 安全閥：避免大量誤刪 ----
+    MAX_RATIO = float(os.getenv("RECONCILE_MAX_RATIO", "0.3"))  # >30% 中止
+    MAX_COUNT = int(os.getenv("RECONCILE_MAX_COUNT", "10"))     # 或一次最多 10 列
+    ratio = (len(to_delete_rows) / examined) if examined else 0.0
+
+    if not db_ids:
+        return {
+            "examined": examined, "deleted_rows": [],
+            "dry_run": True, "reasons_preview": reasons[:20],
+            "error": "DB empty; abort."
+        }
+
+    if ratio > MAX_RATIO or len(to_delete_rows) > MAX_COUNT:
+        return {
+            "examined": examined, "deleted_rows": [],
+            "dry_run": True, "reasons_preview": reasons[:20],
+            "error": f"Safety stop: would delete {len(to_delete_rows)}/{examined} rows"
+        }
 
     # 真正刪除
     if not dry_run and to_delete_rows:
-        delete_rows(sheet, settings.SHEET_ID, settings.SHEET_TAB, to_delete_rows)
+        delete_rows(sheet, settings.SHEET_ID, tab, to_delete_rows)
 
     return {
         "examined": examined,
         "deleted_rows": to_delete_rows,
         "dry_run": dry_run,
-        "reasons_preview": reasons[:20],  # 回傳前 20 筆理由方便檢查
+        "reasons_preview": reasons[:20],
         "total_marked": len(to_delete_rows),
     }

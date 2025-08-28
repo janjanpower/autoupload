@@ -27,6 +27,7 @@ class Settings:
     YT_CLIENT_SECRET   = os.getenv("YT_CLIENT_SECRET", "")
     YT_REFRESH_TOKEN   = os.getenv("YT_REFRESH_TOKEN", "")
     YT_DEFAULT_PRIVACY = os.getenv("YT_DEFAULT_PRIVACY", "private")
+    SHEET_YT_COL = os.getenv("SHEET_YT_COL", "C").strip()
 
     # ✅ 用環境變數提供；沒有就給空，避免假資料誤導
     SHEET_ID  = os.getenv("SHEET_ID", "")
