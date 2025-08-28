@@ -264,29 +264,37 @@ def get_sheet_values(sheet, spreadsheet_id: str, tab_name: str, range_: str):
         logging.exception("❌ get_sheet_values failed")
         return []
 
+def _get_sheet_gid(sheet, spreadsheet_id: str, tab_name: str) -> int:
+    meta = sheet.get(spreadsheetId=spreadsheet_id, includeGridData=False).execute()
+    for s in meta.get("sheets", []):
+        props = s.get("properties", {})
+        if props.get("title") == tab_name:
+            return int(props.get("sheetId"))
+    raise RuntimeError(f"Tab '{tab_name}' not found in spreadsheet")
+
 def delete_rows(sheet, spreadsheet_id: str, tab_name: str, row_indexes: list[int]):
     """
-    刪除指定的多行（row_indexes 是從 2 開始的行號列表）
+    刪除指定的多行（row_indexes 是從 2 開始的列號列表）
     """
     try:
+        if not row_indexes:
+            return
+        gid = _get_sheet_gid(sheet, spreadsheet_id, tab_name)  # ✅ 找到正確分頁的 gid
+
         requests = []
         for idx in sorted(row_indexes, reverse=True):  # 從大到小刪
             requests.append({
                 "deleteDimension": {
                     "range": {
-                        "sheetId": 0,  # ⚠️ 這裡要替換成實際 Sheet 的 gid
+                        "sheetId": gid,            # ✅ 用正確的 gid
                         "dimension": "ROWS",
-                        "startIndex": idx - 1,  # 0-based index
+                        "startIndex": idx - 1,     # 0-based
                         "endIndex": idx
                     }
                 }
             })
-        if requests:
-            body = {"requests": requests}
-            sheet.batchUpdate(
-                spreadsheetId=spreadsheet_id,
-                body=body
-            ).execute()
-    except Exception as e:
+        body = {"requests": requests}
+        sheet.batchUpdate(spreadsheetId=spreadsheet_id, body=body).execute()
+    except Exception:
         logging.exception("❌ delete_rows failed")
         raise

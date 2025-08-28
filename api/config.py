@@ -1,6 +1,4 @@
 import os, json
-
-# 可選：dotenv
 try:
     from dotenv import load_dotenv
     load_dotenv()
@@ -25,13 +23,15 @@ class Settings:
     SA_JSON_ENV     = os.getenv("GOOGLE_SA_JSON", "")
     LINE_SKIP_SIG   = os.getenv("LINE_SKIP_SIGNATURE", "0") == "1"
 
-    YT_CLIENT_ID     = os.getenv("YT_CLIENT_ID", "")
-    YT_CLIENT_SECRET = os.getenv("YT_CLIENT_SECRET", "")
-    YT_REFRESH_TOKEN = os.getenv("YT_REFRESH_TOKEN", "")
+    YT_CLIENT_ID       = os.getenv("YT_CLIENT_ID", "")
+    YT_CLIENT_SECRET   = os.getenv("YT_CLIENT_SECRET", "")
+    YT_REFRESH_TOKEN   = os.getenv("YT_REFRESH_TOKEN", "")
     YT_DEFAULT_PRIVACY = os.getenv("YT_DEFAULT_PRIVACY", "private")
 
-    SHEET_ID :str = "1AbCdEfGhijkLmNoPqRstUvWxYz1234567890"
-    TAB_NAME: str = "已發布"
+    # ✅ 用環境變數提供；沒有就給空，避免假資料誤導
+    SHEET_ID  = os.getenv("SHEET_ID", "")
+    # ✅ 兼容舊命名：優先 SHEET_TAB，退而求其次 TAB_NAME
+    SHEET_TAB = os.getenv("SHEET_TAB", os.getenv("TAB_NAME", "已發布"))
 
     RAW_DB_URL = os.getenv("DATABASE_URL", "")
 
