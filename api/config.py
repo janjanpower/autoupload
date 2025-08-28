@@ -33,7 +33,11 @@ class Settings:
     # ✅ 兼容舊命名：優先 SHEET_TAB，退而求其次 TAB_NAME
     SHEET_TAB = os.getenv("SHEET_TAB", os.getenv("TAB_NAME", "已發布"))
 
-    RAW_DB_URL = os.getenv("DATABASE_URL", "")
+    # ✅ DB：統一用 DATABASE_URL，並兼容舊變數
+    DATABASE_URL = os.getenv(
+        "DATABASE_URL",
+        os.getenv("RAW_DB_URL", os.getenv("DB_URL", ""))
+    )
 
     def sa_info(self):
         if not self.SA_JSON_ENV:
