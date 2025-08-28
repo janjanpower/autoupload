@@ -1,4 +1,4 @@
-@"
+gitignore
 __pycache__/
 *.py[cod]
 .venv/
@@ -16,6 +16,7 @@ dist/
 tmp/
 cache/
 .env
+.env.*
 *service-account*.json
 *credentials*.json
 *.pem
@@ -25,4 +26,5 @@ cache/
 *.rar
 *.tar
 *.gz
-"@ | Set-Content .gitignore
+.DS_Store
+Thumbs.db
