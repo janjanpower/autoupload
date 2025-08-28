@@ -22,7 +22,7 @@ class Settings:
     DRIVE_PARENT_ID = os.getenv("GOOGLE_DRIVE_PARENT_ID", "")
     SA_JSON_ENV     = os.getenv("GOOGLE_SA_JSON", "")
     LINE_SKIP_SIG   = os.getenv("LINE_SKIP_SIGNATURE", "0") == "1"
-
+    YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY", "")
     YT_CLIENT_ID       = os.getenv("YT_CLIENT_ID", "")
     YT_CLIENT_SECRET   = os.getenv("YT_CLIENT_SECRET", "")
     YT_REFRESH_TOKEN   = os.getenv("YT_REFRESH_TOKEN", "")
