@@ -692,7 +692,7 @@ def reconcile_youtube_schedule_drift() -> dict:
 
     # 呼叫 YouTube（失敗直接跳過，避免亂動 DB）
     try:
-        meta = list_videos_status_map(video_ids)
+        meta = _list_videos_status_map(video_ids)
     except Exception as e:
         return {
             "checked": len(video_ids),
