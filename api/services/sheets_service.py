@@ -347,3 +347,21 @@ def update_title(row: int, title: str) -> None:
         body={"values": [[title]]},
         valueInputOption="USER_ENTERED",
     ).execute()
+
+def set_youtube_link(row: int, video_id: str) -> None:
+    url = f"https://youtu.be/{video_id}"
+    formula = f'=HYPERLINK("{url}", "{video_id}")'
+    _sheets().values().update(
+        spreadsheetId=_sheet_id(),
+        range=f"{SHEET_TAB}!{COL_YT}{row}",
+        body={"values": [[formula]]},
+        valueInputOption="USER_ENTERED",
+    ).execute()
+
+def set_status(row: int, text: str) -> None:
+    _sheets().values().update(
+        spreadsheetId=_sheet_id(),
+        range=f"{SHEET_TAB}!{COL_STATUS}{row}",
+        body={"values": [[text]]},
+        valueInputOption="RAW",
+    ).execute()

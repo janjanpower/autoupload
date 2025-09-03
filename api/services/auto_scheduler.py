@@ -1,5 +1,6 @@
 # api/services/auto_scheduler.py
 
+import json
 import os
 import re
 import io
@@ -680,6 +681,8 @@ def reconcile_youtube_schedule_drift() -> dict:
       - 不在本批結果清單的 id → 本函式不標 deleted（交由原本刪除對帳任務處理）
     回傳：統計資訊
     """
+    print("=== DEBUG YouTube meta ===")
+    print(json.dumps(meta, ensure_ascii=False, indent=2))
     # 只掃「未來 60 天會發」與「近 7 天內新建/可能剛公開」的候選（避免全表掃描）
     with engine.begin() as conn:
         rows = conn.execute(sql_text("""
