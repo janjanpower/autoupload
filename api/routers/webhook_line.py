@@ -27,11 +27,8 @@ from api.services.drive_service import (
 from api.services.youtube_service import (
     youtube_upload_from_drive, update_thumbnail_from_drive, pick_thumbnail_in_folder, update_video_metadata
 )
-from api.services.sheets_service import (
-    append_published_row,
-    update_title_by_row,            # 由 sheets_service 提供相容 shim
-    find_row_by_title_and_folder,   # 由 sheets_service 提供相容 shim
-)
+from api.services.sheets_service import append_published_row
+
 from api.utils.meta_parser import parse_meta_text
 from api.utils.timefmt import parse_time_ymdhm, format_tw_with_weekday
 from api.utils.line_api import verify_signature, reply_text, push_text
@@ -622,31 +619,23 @@ async def line_webhook(request: Request, background_tasks: BackgroundTasks, x_li
                         # 1) 更新 YouTube
                         update_video_metadata(video_id=vid, title=new_title)
 
-                        # 2) 嘗試同步更新 Sheet B 欄
+                        # 2) 嘗試同步更新 Sheet
                         try:
-                            row_idx = 0
-                            try:
-                                rec = scheduler_repo.get_by_video_id(vid)
-                                if rec and rec.get("sheet_row"):
-                                    row_idx = int(rec["sheet_row"] or 0)
-                            except Exception:
-                                pass
-
-                            if not row_idx:
-                                try:
-                                    from api.services.youtube_service import get_youtube_client
-                                    yt = get_youtube_client()
-                                    resp = yt.videos().list(part="snippet", id=vid).execute()
-                                    old_title = ((resp.get("items") or [{}])[0].get("snippet") or {}).get("title", "") or ""
-                                except Exception:
-                                    old_title = ""
-                                if old_title:
-                                    row_idx = find_row_by_title_and_folder(old_title, None) or 0
-
+                            rec = scheduler_repo.get_by_video_id(vid)
+                            row_idx = int(rec.get("sheet_row") or 0) if rec else 0
                             if row_idx:
-                                update_title_by_row(row_idx, new_title)
-                        except Exception:
-                            pass
+                                from api.services.sheets_service import resolve_sheet_row, _svc, _a1, COL_TITLE, SHEET_ID, SHEET_TAB
+                                real_row = resolve_sheet_row(row_idx, youtube_id=vid)
+                                if real_row:
+                                    _svc().values().update(
+                                        spreadsheetId=SHEET_ID,
+                                        range=_a1(COL_TITLE, real_row),
+                                        body={"values": [[new_title]]},
+                                        valueInputOption="USER_ENTERED",
+                                    ).execute()
+                        except Exception as e:
+                            import logging
+                            logging.getLogger(__name__).warning("同步更新 Sheet 失敗：%s", e)
 
                         reset_state(line_user_id)
                         reply_text(reply_token, "✅ 已更新 YouTube 標題。")

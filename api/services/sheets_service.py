@@ -364,34 +364,3 @@ def delete_rows(sheet, spreadsheet_id: str, tab_name: str, row_indexes: List[int
     sheet.batchUpdate(spreadsheetId=spreadsheet_id, body={"requests": requests}).execute()
 
 
-def update_title_by_row(row_index: int, new_title: str) -> None:
-    """舊版相容：把第 row_index 列的標題（B 欄）更新為 new_title。"""
-    if not row_index:
-        return
-    _svc().values().update(
-        spreadsheetId=_need(SHEET_ID, "SHEET_ID"),
-        range=f"{SHEET_TAB}!{COL_TITLE}{row_index}",
-        valueInputOption="USER_ENTERED",
-        body={"values": [[new_title]]},
-    ).execute()
-
-
-def find_row_by_title_and_folder(title: Optional[str], folder_url: Optional[str]) -> Optional[int]:
-    """舊版相容：用 標題(B欄) + 資料夾連結(D欄) 嘗試找列號。"""
-    rows = _svc().values().get(
-        spreadsheetId=_need(SHEET_ID, "SHEET_ID"),
-        range=f"{SHEET_TAB}!A:G",
-    ).execute().get("values", [])
-
-    for idx, row in enumerate(rows, start=1):
-        if idx < 2:  # 跳過表頭
-            continue
-        t = (row[1] if len(row) > 1 else "").strip()  # B: 標題
-        d = (row[3] if len(row) > 3 else "").strip()  # D: 資料夾連結
-        if folder_url:
-            if t == (title or "") and (folder_url in d):
-                return idx
-        else:
-            if t == (title or ""):
-                return idx
-    return None
