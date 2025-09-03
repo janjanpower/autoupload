@@ -380,8 +380,9 @@ async def line_webhook(request: Request, background_tasks: BackgroundTasks):
                         )
                         if row_idx:
                             set_schedule_sheet_row(sid, row_idx)
-                    except Exception:
-                        pass
+                    except Exception as e:
+                        import logging
+                        logging.getLogger(__name__).exception("寫入 Sheet 失敗：%s", e)
 
 
                     # 4) 設定縮圖（可失敗，不影響主流程）
