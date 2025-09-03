@@ -239,21 +239,23 @@ def safe_update_metadata(video_id: str, title: str, description: str, tags: list
     ).execute()
 
 def set_published_folder_link(row: int, folder_url: str) -> None:
-    link_formula = f'=HYPERLINK("{folder_url}", "已發布資料夾")'
-
+    """將指定列的資料夾欄位改為已發布資料夾連結，並更新狀態。"""
+    # 寫入資料夾連結
     _sheets().values().update(
         spreadsheetId=_sheet_id(),
         range=f"{SHEET_TAB}!{COL_FOLDER}{row}",
-        body={"values": [[link_formula]]},
-        valueInputOption="USER_ENTERED",  # ⚠️ 這裡要改成 USER_ENTERED
+        body={"values": [[folder_url]]},
+        valueInputOption="RAW",
     ).execute()
 
+    # 寫入狀態
     _sheets().values().update(
         spreadsheetId=_sheet_id(),
         range=f"{SHEET_TAB}!{COL_STATUS}{row}",
         body={"values": [["已發布"]]},
         valueInputOption="RAW",
     ).execute()
+
 
 def clear_sheet_row_status(row_idx: int, status: str = "已刪除"):
     """清空 D 欄並在 E 欄標記 '已刪除'"""
