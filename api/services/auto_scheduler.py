@@ -30,7 +30,6 @@ set_youtube_link,
 set_status,
 set_published_folder_link,
 update_status_and_views,
-mark_row_published,
 get_sheet_values,
 delete_rows,
 update_title
@@ -391,27 +390,6 @@ def run_due_uploads():
                 logger.exception("上傳失敗 sid=%s：%s", sid, e)
     finally:
         scheduler_repo.release_lock(10101)
-
-def _promote_batch(yt, ids: List[str], id_to_rec: Dict[str, dict]):
-    """處理最多 50 個 video id：若已公開 → DB 標記 published ＋ Sheet: C 欄貼連結、D 欄=已發布。"""
-    if not ids:
-        return
-    resp = yt.videos().list(part="status", id=",".join(ids)).execute()
-    items = resp.get("items", [])
-    for it in items:
-        vid = it["id"]
-        status = it.get("status") or {}
-        if status.get("privacyStatus") != "public":
-            continue
-        rec = id_to_rec.get(vid)
-        if not rec:
-            continue
-        # 1) DB
-        scheduler_repo.mark_published(rec["id"])
-        # 2) Sheet
-        row_idx = int(rec.get("sheet_row") or 0)
-        if row_idx:
-            mark_row_published(row_idx, vid)
 
 # -----------------------------------------------------
 # Helpers
@@ -777,13 +755,25 @@ def reconcile_youtube_schedule_drift() -> dict:
             # 4) 寫回 Sheet（影片連結、狀態、資料夾連結、標題）
             if row_idx and folder_url:
                 try:
-                    # 4a) 寫入「影片連結 + 狀態=已發布」
-                    mark_row_published(row_idx, vid)
-                    # 4b) 寫入「資料夾連結」
-                    set_published_folder_link(row_idx, folder_url)
-                    # 4c) 寫入「標題」
+                    # 4a) 寫入「YouTube 連結 (C 欄)」
+                    set_youtube_link(row_idx, vid)
+
+                    # 4b) 寫入「狀態=已發布 (E 欄)」
+                    set_status(row_idx, "已發布", youtube_id=vid)
+
+                    # 4c) 寫入「資料夾連結 (D 欄)」
+                    set_published_folder_link(row_idx, folder_url, youtube_id=vid)
+
+                    # 4d) 寫入「標題 (B 欄)」
                     if title:
-                        update_title(row_idx, title)
+                        from api.services.sheets_service import _svc, _a1, COL_TITLE, SHEET_ID, SHEET_TAB
+                        _svc().values().update(
+                            spreadsheetId=SHEET_ID,
+                            range=_a1(COL_TITLE, row_idx),
+                            valueInputOption="USER_ENTERED",
+                            body={"values": [[title]]},
+                        ).execute()
+
                     out["sheet_updated"] += 1
                 except Exception as e:
                     out["errors"].append(f"sheet id={rec_id}: {e}")
