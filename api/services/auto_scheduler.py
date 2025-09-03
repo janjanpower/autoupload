@@ -708,8 +708,16 @@ def reconcile_youtube_schedule_drift() -> dict:
     try:
         meta = _list_videos_status_map(video_ids)
     except Exception as e:
-        # 不要改 DB，避免因 token 問題造成誤判
-        return {"checked": len(video_ids), "sched_aligned": 0, "published_fixed": 0, "undeleted": 0, "sheet_updated": 0, "moved": 0, "errors": [f"yt:{e}"]}
+    # 不要繼續執行，直接回傳
+        return {
+            "checked": len(video_ids),
+            "sched_aligned": 0,
+            "published_fixed": 0,
+            "undeleted": 0,
+            "sheet_updated": 0,
+            "moved": 0,
+            "errors": [f"yt:{e}"]
+        }
 
     out = {"checked": len(video_ids), "sched_aligned": 0, "published_fixed": 0, "undeleted": 0, "sheet_updated": 0, "moved": 0, "errors": []}
 
