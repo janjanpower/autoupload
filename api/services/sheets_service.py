@@ -3,6 +3,7 @@ import os, re
 SHEET_ID = os.getenv("SHEET_ID") or ""
 SHEET_TAB = os.getenv("SHEET_TAB") or "已發布"
 # 從環境讀欄位設定
+COL_TITLE = os.getenv("SHEET_TITLE_COL", "B")
 COL_YT = os.getenv("SHEET_YT_COL", "C")
 COL_FOLDER = os.getenv("SHEET_FOLDER_COL", "D")
 COL_STATUS = os.getenv("SHEET_STATUS_COL", "E")
@@ -336,4 +337,13 @@ def move_folder_to_published(folder_id: str, published_parent_id: str) -> None:
         addParents=published_parent_id,
         removeParents=old_parents,
         fields="id, parents",
+    ).execute()
+
+def update_title(row: int, title: str) -> None:
+    """更新 Google Sheet 上指定列的標題欄位"""
+    _sheets().values().update(
+        spreadsheetId=_sheet_id(),
+        range=f"{SHEET_TAB}!{COL_TITLE}{row}",
+        body={"values": [[title]]},
+        valueInputOption="USER_ENTERED",
     ).execute()

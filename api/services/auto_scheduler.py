@@ -33,7 +33,8 @@ from api.services.sheets_service import (
     set_published_folder_link,
     clear_sheet_row_status,
     get_sheet_values,
-    delete_rows
+    delete_rows,
+    update_title
 )
 
 from api.services.google_sa import get_google_service
@@ -741,7 +742,6 @@ def reconcile_youtube_schedule_drift() -> dict:
             except Exception:
                 pass
 
-        # B) public → 推進 published + 移資料夾 + 寫回 Sheet
         if privacy == "public" and r.get("status") != "published":
             # 1) DB 標記 published
             try:
@@ -755,7 +755,23 @@ def reconcile_youtube_schedule_drift() -> dict:
             except Exception as e:
                 out["errors"].append(f"db-published id={rec_id}: {e}")
 
-            # 2) 移資料夾，取得連結（失敗給預設 URL）
+            # 2) 取 YouTube 最新標題
+            title = None
+            try:
+                yt_meta = meta.get(vid, {})
+                snippet = yt_meta.get("snippet") or {}
+                title = snippet.get("title")
+                if title:
+                    with engine.begin() as conn:
+                        conn.execute(sql_text("""
+                            UPDATE video_schedules
+                            SET meta_text = :title
+                            WHERE id = :id
+                        """), {"title": title, "id": rec_id})
+            except Exception as e:
+                out["errors"].append(f"yt-title id={rec_id}: {e}")
+
+            # 3) 移資料夾，取得連結（失敗給預設 URL）
             folder_url = ""
             if fid:
                 try:
@@ -766,16 +782,19 @@ def reconcile_youtube_schedule_drift() -> dict:
                     out["errors"].append(f"move id={rec_id}: {e}")
                     folder_url = f"https://drive.google.com/drive/folders/{fid}"
 
-            # 3) 寫回 Sheet：若知道列號就直接寫；沒有就不在這裡猜（交由既有補帳邏輯）
+            # 4) 寫回 Sheet（影片連結、狀態、資料夾連結、標題）
             if row_idx and folder_url:
-                 try:
-                    # 3a) 寫入「影片 ID/連結 + 狀態=已發布」（C/E；實作在 sheets_service）
+                try:
+                    # 4a) 寫入「影片連結 + 狀態=已發布」
                     mark_row_published(row_idx, vid)
-                    # 3b) 寫入「資料夾連結」（D 欄；實作在 sheets_service）
+                    # 4b) 寫入「資料夾連結」
                     set_published_folder_link(row_idx, folder_url)
+                    # 4c) 寫入「標題」
+                    if title:
+                        update_title(row_idx, title)
                     out["sheet_updated"] += 1
-                 except Exception as e:
-                     out["errors"].append(f"sheet id={rec_id}: {e}")
+                except Exception as e:
+                    out["errors"].append(f"sheet id={rec_id}: {e}")
 
         # C) DB 誤標 deleted，但影片還在 → 拉回 uploaded
         if privacy in ("private", "unlisted", "public") and r.get("status") == "deleted":
