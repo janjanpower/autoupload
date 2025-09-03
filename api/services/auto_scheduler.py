@@ -24,19 +24,17 @@ from googleapiclient.http import MediaIoBaseDownload, MediaIoBaseUpload
 from sqlalchemy import text as sql_text, create_engine, text
 
 from api.services.sheets_service import (
-    append_published_row,
-    resolve_sheet_row,
-    set_youtube_link,
-    set_status,
-    set_published_folder_link,
-    update_status_and_views,
-    find_row_by_title_and_folder,
-    mark_row_published,
-    get_sheet_values,
-    delete_rows,
-    update_title_by_row
+append_published_row,
+resolve_sheet_row,
+set_youtube_link,
+set_status,
+set_published_folder_link,
+update_status_and_views,
+mark_row_published,
+get_sheet_values,
+delete_rows,
+update_title
 )
-
 
 # === 專案內匯入（全部用絕對匯入，避免相對路徑問題） ===
 
@@ -579,12 +577,19 @@ def refresh_today_views():
             items = resp.get("items", [])
             for it in items:
                 views = int((it.get("statistics") or {}).get("viewCount", "0"))
+                vid = it["id"]
                 title = (it.get("snippet") or {}).get("title", "")
-                row = find_row_by_title_and_folder(title, None)
+                # 用 resolve_sheet_row 定位
+                row = resolve_sheet_row(
+                    None,
+                    youtube_id=vid,
+                    expect_title=title
+                )
                 if row:
-                    update_status_and_views(row, today_views=views)
+                    update_status_and_views(row, today_views=views, youtube_id=vid, expect_title=title)
     finally:
         scheduler_repo.release_lock(10103)
+
 
 # -------------------- APScheduler：單例與註冊 --------------------
 
@@ -778,7 +783,7 @@ def reconcile_youtube_schedule_drift() -> dict:
                     set_published_folder_link(row_idx, folder_url)
                     # 4c) 寫入「標題」
                     if title:
-                        update_title_by_row(row_idx, title)
+                        update_title(row_idx, title)
                     out["sheet_updated"] += 1
                 except Exception as e:
                     out["errors"].append(f"sheet id={rec_id}: {e}")
