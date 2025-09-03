@@ -1,46 +1,31 @@
 # api/services/auto_scheduler.py
 
+import io
 import json
+import logging
 import os
 import re
-import io
-import logging
-
-
-from googleapiclient.discovery import build
 import tempfile
-from typing import Dict, List, Optional, Tuple ,Set
 from datetime import datetime, timedelta
+from typing import Dict, List, Optional, Tuple ,Set
 
 import pytz
-from sqlalchemy import text as sql_text
-from sqlalchemy import create_engine, text
+from api.config import settings
+from api.core.youtube_client import get_youtube_client
+from api.db import engine
+from api.services import scheduler_repo
+from api.services.drive_service import get_drive_service
+from api.services.google_sa import get_google_service
+from api.services.sheets_service import append_published_row, update_status_and_views, find_row_by_title_and_folder, mark_row_published, set_published_folder_link, get_sheet_values, delete_rows, update_title
+from api.services.youtube_service import update_thumbnail_from_drive, list_scheduled_youtube,list_videos_status_map
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 from apscheduler.triggers.interval import IntervalTrigger
-from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload, MediaIoBaseUpload
+from sqlalchemy import text as sql_text, create_engine, text
+
 
 # === 專案內匯入（全部用絕對匯入，避免相對路徑問題） ===
-from api.db import engine
-from api.core.youtube_client import get_youtube_client
-from api.services import scheduler_repo
-from api.services.drive_service import get_drive_service
-from api.services.youtube_service import update_thumbnail_from_drive, list_scheduled_youtube,list_videos_status_map
-from api.services.sheets_service import (
-    append_published_row,
-    update_status_and_views,
-    find_row_by_title_and_folder,
-    mark_row_published,  # ← 發布後更新「已發布」＋超連結
-    set_published_folder_link,
-    clear_sheet_row_status,
-    get_sheet_values,
-    delete_rows,
-    update_title
-)
-
-from api.services.google_sa import get_google_service
-from api.config import settings
 
 # 固定台北時區
 TZ = pytz.timezone("Asia/Taipei")
@@ -753,7 +738,8 @@ def reconcile_youtube_schedule_drift() -> dict:
             except Exception:
                 pass
 
-        if privacy == "public" and r.get("status") != "published":
+        if privacy.lower().strip() == "public" and r.get("status") != "published":
+            print("=== DEBUG: found public video ===", vid, r.get("status"))
             # 1) DB 標記 published
             try:
                 with engine.begin() as conn:
