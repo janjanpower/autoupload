@@ -35,6 +35,7 @@ from api.services.sheets_service import (
     get_sheet_values,
     delete_rows
 )
+
 from api.services.google_sa import get_google_service
 from api.config import settings
 
@@ -767,11 +768,14 @@ def reconcile_youtube_schedule_drift() -> dict:
 
             # 3) 寫回 Sheet：若知道列號就直接寫；沒有就不在這裡猜（交由既有補帳邏輯）
             if row_idx and folder_url:
-                try:
+                 try:
+                    # 3a) 寫入「影片 ID/連結 + 狀態=已發布」（C/E；實作在 sheets_service）
+                    mark_row_published(row_idx, vid)
+                    # 3b) 寫入「資料夾連結」（D 欄；實作在 sheets_service）
                     set_published_folder_link(row_idx, folder_url)
                     out["sheet_updated"] += 1
-                except Exception as e:
-                    out["errors"].append(f"sheet id={rec_id}: {e}")
+                 except Exception as e:
+                     out["errors"].append(f"sheet id={rec_id}: {e}")
 
         # C) DB 誤標 deleted，但影片還在 → 拉回 uploaded
         if privacy in ("private", "unlisted", "public") and r.get("status") == "deleted":
@@ -844,9 +848,7 @@ def reconcile_youtube_deletions_and_sheet(dry_run: bool = True) -> dict:
     )
     sheet = sheets_srv.spreadsheets()
 
-    # YouTube 服務（若你只想比對 DB 不打 YouTube，可把這段與下方 _youtube_video_exists 移除）
-    yt = build("youtube", "v3", developerKey=settings.YOUTUBE_API_KEY)
-
+    yt = get_youtube_client()
     # 讀 Sheet：A:日期  B:標題  C:YOUTUBE ID/URL  D:資料夾位置 ...（讀寬一點避免越界）
     rows: List[List[str]] = get_sheet_values(sheet, settings.SHEET_ID, tab, "A2:Z")
 

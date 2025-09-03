@@ -2,12 +2,16 @@
 import os, re
 SHEET_ID = os.getenv("SHEET_ID") or ""
 SHEET_TAB = os.getenv("SHEET_TAB") or "已發布"
-
+# 從環境讀欄位設定
+COL_YT = os.getenv("SHEET_YT_COL", "C")
+COL_FOLDER = os.getenv("SHEET_FOLDER_COL", "D")
+COL_STATUS = os.getenv("SHEET_STATUS_COL", "E")
 import logging
 import os, json, re
 from typing import List, Optional
 from datetime import datetime
 from googleapiclient.discovery import build
+from googleapiclient.discovery import build as gbuild
 from google.oauth2 import service_account
 from google.oauth2.service_account import Credentials
 from api.services.google_sa import get_google_service
@@ -81,22 +85,34 @@ def update_title_by_row(row_index: int, new_title: str) -> None:
         body={"values": [[new_title]]}
     ).execute()
 
-def mark_row_published(row_index: int, video_id: str) -> None:
-    if not row_index:
-        return
-    url = f"https://youtu.be/{video_id}"
-    _sheets().values().batchUpdate(
+def mark_row_published(row: int, video_id: str) -> None:
+    """將指定列標記為已發布，寫入 YouTube 連結與狀態。"""
+    youtube_url = f"https://www.youtube.com/watch?v={video_id}"
+
+    # 寫入 YouTube 連結
+    _sheets().values().update(
         spreadsheetId=_sheet_id(),
-        body={"valueInputOption": "USER_ENTERED",
-              "data": [
-                  {"range": f"{SHEET_TAB}!C{row_index}", "values": [[f'=HYPERLINK("{url}","{url}")']]},  # C：YT
-                  {"range": f"{SHEET_TAB}!E{row_index}", "values": [["已發布"]]},                         # E：狀態
-              ]}
+        range=f"{SHEET_TAB}!{COL_YT}{row}",
+        body={"values": [[youtube_url]]},
+        valueInputOption="RAW",
+    ).execute()
+
+    # 寫入狀態
+    _sheets().values().update(
+        spreadsheetId=_sheet_id(),
+        range=f"{SHEET_TAB}!{COL_STATUS}{row}",
+        body={"values": [["已發布"]]},
+        valueInputOption="RAW",
     ).execute()
 
 
 def _fetch_all_rows() -> List[List[str]]:
-    r = _sheets().values().get(spreadsheetId=_sheet_id(), range=f"{SHEET_TAB}!A:G").execute()
+    r = _sheets().values().get(
+        spreadsheetId=_sheet_id(),
+        range=f"{SHEET_TAB}!A:G"
+    ).execute()
+    return r.get("values", [])
+
 
 def _first_data_row_index() -> int:
     return 2
@@ -222,19 +238,22 @@ def safe_update_metadata(video_id: str, title: str, description: str, tags: list
         spreadsheetId=ssid, body={"valueInputOption":"RAW","data":data}
     ).execute()
 
-def set_published_folder_link(row_index: int, folder_url: str) -> None:
-    """
-    已發布後：把 D 欄寫入『資料夾連結』、E 欄寫入『已發布』。
-    """
-    if not row_index:
-        return
-    data = [
-        {"range": f"{SHEET_TAB}!D{row_index}", "values": [[f'=HYPERLINK("{folder_url}","{folder_url}")']]},
-        {"range": f"{SHEET_TAB}!E{row_index}", "values": [["已發布"]]},
-    ]
-    _sheets().values().batchUpdate(
+def set_published_folder_link(row: int, folder_url: str) -> None:
+    """將指定列的資料夾欄位改為已發布資料夾連結，並更新狀態。"""
+    # 寫入資料夾連結
+    _sheets().values().update(
         spreadsheetId=_sheet_id(),
-        body={"valueInputOption": "USER_ENTERED", "data": data}
+        range=f"{SHEET_TAB}!{COL_FOLDER}{row}",
+        body={"values": [[folder_url]]},
+        valueInputOption="RAW",
+    ).execute()
+
+    # 寫入狀態
+    _sheets().values().update(
+        spreadsheetId=_sheet_id(),
+        range=f"{SHEET_TAB}!{COL_STATUS}{row}",
+        body={"values": [["已發布"]]},
+        valueInputOption="RAW",
     ).execute()
 
 
@@ -298,3 +317,23 @@ def delete_rows(sheet, spreadsheet_id: str, tab_name: str, row_indexes: list[int
     except Exception:
         logging.exception("❌ delete_rows failed")
         raise
+def _drive():
+    creds = _get_sa_credentials([
+        "https://www.googleapis.com/auth/drive",
+        "https://www.googleapis.com/auth/spreadsheets",
+    ])
+    return gbuild("drive", "v3", credentials=creds, cache_discovery=False)
+
+def move_folder_to_published(folder_id: str, published_parent_id: str) -> None:
+    """把指定的資料夾移到已發布父層（會保留於單一父層）。"""
+    if not folder_id or not published_parent_id:
+        return
+    drv = _drive()
+    meta = drv.files().get(fileId=folder_id, fields="parents").execute()
+    old_parents = ",".join(meta.get("parents", []))
+    drv.files().update(
+        fileId=folder_id,
+        addParents=published_parent_id,
+        removeParents=old_parents,
+        fields="id, parents",
+    ).execute()
