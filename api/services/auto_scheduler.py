@@ -608,13 +608,14 @@ def reconcile_youtube_schedule_drift() -> dict:
     """
     比對 YouTube 後台與 DB，並同步：DB 狀態、搬資料夾、回寫 Sheet。
     ★ 已完全移除對 sheet_row 的依賴；用 youtube_video_id 在 Sheet C 欄定位。
+    ★ 即使 DB 已是 published，只要 YouTube 後台為 public，也會強制覆寫 Sheet。
     """
     with engine.begin() as conn:
         rows = conn.execute(sql_text("""
             SELECT id, folder_id, youtube_video_id, status, schedule_time, created_at
             FROM video_schedules
             WHERE youtube_video_id IS NOT NULL
-              AND status IN ('uploaded','scheduled','deleted')
+              AND status IN ('uploaded','scheduled','deleted','published')
               AND (
                     schedule_time IS NULL
                  OR schedule_time < (NOW() + INTERVAL '60 days')
@@ -627,14 +628,17 @@ def reconcile_youtube_schedule_drift() -> dict:
     id_map = {r["youtube_video_id"]: r for r in rows if r["youtube_video_id"]}
     video_ids = list(id_map.keys())
     if not video_ids:
-        return {"checked": 0, "sched_aligned": 0, "published_fixed": 0, "undeleted": 0, "sheet_updated": 0, "moved": 0, "errors": []}
+        return {"checked": 0, "sched_aligned": 0, "published_fixed": 0,
+                "undeleted": 0, "sheet_updated": 0, "moved": 0, "errors": []}
 
     try:
         meta = list_videos_status_map(video_ids)  # {vid: {"privacyStatus","publishAt","snippet":{title...}}}
     except Exception as e:
-        return {"checked": len(video_ids), "sched_aligned": 0, "published_fixed": 0, "undeleted": 0, "sheet_updated": 0, "moved": 0, "errors": [f"yt:{e}"]}
+        return {"checked": len(video_ids), "sched_aligned": 0, "published_fixed": 0,
+                "undeleted": 0, "sheet_updated": 0, "moved": 0, "errors": [f"yt:{e}"]}
 
-    out = {"checked": len(video_ids), "sched_aligned": 0, "published_fixed": 0, "undeleted": 0, "sheet_updated": 0, "moved": 0, "errors": []}
+    out = {"checked": len(video_ids), "sched_aligned": 0, "published_fixed": 0,
+           "undeleted": 0, "sheet_updated": 0, "moved": 0, "errors": []}
 
     for vid, r in id_map.items():
         m = meta.get(vid) or {}
@@ -661,11 +665,15 @@ def reconcile_youtube_schedule_drift() -> dict:
             except Exception as e:
                 out["errors"].append(f"db-sched id={rec_id}: {e}")
 
-        # B) public → DB 標 published、搬資料夾、回寫 Sheet（靠 youtube_id 定位）
-        if privacy == "public" and r.get("status") in ("uploaded", "scheduled"):
+        # B) public → DB 標 published（無論原本狀態），搬資料夾、回寫 Sheet
+        if privacy == "public":
             try:
                 with engine.begin() as conn:
-                    conn.execute(sql_text("UPDATE video_schedules SET status='published' WHERE id=:id"), {"id": rec_id})
+                    conn.execute(sql_text("""
+                        UPDATE video_schedules
+                        SET status = 'published'
+                        WHERE id = :id
+                    """), {"id": rec_id})
                 out["published_fixed"] += 1
             except Exception as e:
                 out["errors"].append(f"db-published id={rec_id}: {e}")
@@ -683,7 +691,7 @@ def reconcile_youtube_schedule_drift() -> dict:
 
             # 寫回 Sheet：C: yt、E: 已發布、D: 資料夾、B: 標題
             try:
-                set_youtube_link(0, vid)                            # 0=hint，內部會用 youtube_id 重新定位
+                set_youtube_link(0, vid)  # 0=hint，內部會用 youtube_id 重新定位
                 set_status(0, "已發布", youtube_id=vid, expect_title=title or None)
                 if folder_url:
                     set_published_folder_link(0, folder_url, youtube_id=vid, expect_title=title or None)
@@ -705,7 +713,8 @@ def reconcile_youtube_schedule_drift() -> dict:
         if privacy in ("private", "unlisted", "public") and r.get("status") == "deleted":
             try:
                 with engine.begin() as conn:
-                    conn.execute(sql_text("UPDATE video_schedules SET status='uploaded' WHERE id=:id"), {"id": rec_id})
+                    conn.execute(sql_text("UPDATE video_schedules SET status='uploaded' WHERE id=:id"),
+                                 {"id": rec_id})
                 out["undeleted"] += 1
             except Exception as e:
                 out["errors"].append(f"db-undelete id={rec_id}: {e}")
