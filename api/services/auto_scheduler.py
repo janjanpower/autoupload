@@ -629,31 +629,7 @@ def start_scheduler():
     if not sched.running:
         sched.start()
 
-# === NEW: 批次抓取影片狀態/時間/標題 ===
-def _list_videos_status_map(video_ids: List[str]) -> Dict[str, Dict[str, Optional[str]]]:
-    """
-    回傳 {videoId: {"privacyStatus": str|None, "publishAt": str|None, "title": str|None}}
-    任何錯誤直接丟出例外（上層會保守處理、不動 DB）
-    """
-    yt = get_youtube_client()
-    if yt is None or not video_ids:
-        return {}
-    out: Dict[str, Dict[str, Optional[str]]] = {}
-    for i in range(0, len(video_ids), 50):
-        chunk = video_ids[i:i+50]
-        resp = yt.videos().list(part="status,snippet", id=",".join(chunk)).execute()
-        for it in resp.get("items", []):
-            vid = it.get("id")
-            st = (it.get("status") or {})
-            sn = (it.get("snippet") or {})
-            if not vid:
-                continue
-            out[vid] = {
-                "privacyStatus": (st.get("privacyStatus") or "").lower() or None,
-                "publishAt": st.get("publishAt"),
-                "title": sn.get("title") or None,
-            }
-    return out
+
 
 # === NEW: 同步 YouTube 後台手動異動（時間/狀態）到 DB + Sheet/Drive ===
 def reconcile_youtube_schedule_drift() -> dict:
@@ -692,7 +668,7 @@ def reconcile_youtube_schedule_drift() -> dict:
 
     # 呼叫 YouTube（失敗直接跳過，避免亂動 DB）
     try:
-        meta = _list_videos_status_map(video_ids)
+        meta = list_videos_status_map(video_ids)
     except Exception as e:
         return {
             "checked": len(video_ids),
