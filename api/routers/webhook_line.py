@@ -7,7 +7,7 @@ LINE Webhook Router — 完整版（與新版 sheets_service 相容）
 - 保留你原有的上架／編輯流程與狀態機邏輯。
 """
 from __future__ import annotations
-
+import logging
 from datetime import datetime, timezone, timedelta
 from typing import Any, Dict, List, Optional
 import json, os
@@ -446,46 +446,31 @@ async def line_webhook(request: Request, background_tasks: BackgroundTasks, x_li
 
             def _do_upload():
                 try:
-                    # 1) 上傳到 YouTube，DB 記錄 youtube_video_id + 狀態
                     vid = youtube_upload_from_drive(folder["id"], meta_text, dt_utc, vtype)
                     update_uploaded(line_user_id, folder["id"], dt_utc, vid)
 
-                    # 2) 寫入 Google Sheet（新增一列），並「立刻」把 YouTube ID 填到 C 欄
+                    # ★ 寫入排程表
                     try:
-                        meta_info = parse_meta_text(meta_text or "")
-                        title = (meta_info.get("title") or folder["name"])
-                        tags  = ",".join(meta_info.get("tags", []))
-
-                        # 新增一列（A~G），先把 folder_url 留空、狀態「已排程」
-                        row_idx = append_published_row(
+                        meta = parse_meta_text(meta_text or "")
+                        append_published_row(
                             dt_local=dt_utc.astimezone(TZ),
-                            title=title,
-                            folder_url="",                 # 等公開與搬資料夾後再補
+                            title=(meta.get("title") or folder["name"]),
+                            folder_url="",                 # 先空白，等公開後再補
                             status="已排程",
-                            keywords=tags,
-                            today_views=0
+                            keywords=",".join(meta.get("tags", [])),
+                            today_views=0,
+                            youtube_id=vid
                         )
+                    except Exception as e:
+                        logging.getLogger(__name__).exception("寫入 Sheet 失敗：%s", e)
 
-                        # 重要：不再寫 DB.sheet_row；直接用 row_idx 把 C 欄寫入 YT ID
-                        if row_idx:
-                            try:
-                                # 這裡傳 row_idx，內部 resolver 會先用列號；之後所有更新都靠 youtube_id 重新定位
-                                set_youtube_link(row_idx, vid)
-                                # （可選）再確保狀態欄一致；append 已寫「已排程」，不呼叫也可
-                                # set_status(row_idx, "已排程", expect_title=title)
-                            except Exception:
-                                logging.exception("回寫 Sheet 的 YouTube ID 失敗")
-
-                    except Exception:
-                        logging.exception("寫入 Sheet 新列失敗")
-
-                    # 3) 設定縮圖（失敗不影響主流程）
+                    # 設定縮圖
                     try:
                         update_thumbnail_from_drive(vid, folder["id"])
                     except Exception:
                         pass
 
-                    # 4) 通知
+                    # 通知
                     url = f"https://youtu.be/{vid}"
                     when = format_tw_with_weekday(dt_utc)
                     push_text(line_user_id, f"✅ 上傳完成：{folder['name']}\nYouTube URL :\n{url}\n⚠️將於 {when} 公開")
@@ -493,6 +478,7 @@ async def line_webhook(request: Request, background_tasks: BackgroundTasks, x_li
                 except Exception as e:
                     update_error(line_user_id, folder["id"], dt_utc, e)
                     push_text(line_user_id, f"❌ 上傳失敗：{folder['name']}\n錯誤：{e}")
+
             if settings.YT_REFRESH_TOKEN:
                 background_tasks.add_task(_do_upload)
             else:
@@ -645,7 +631,7 @@ async def line_webhook(request: Request, background_tasks: BackgroundTasks, x_li
                                         valueInputOption="USER_ENTERED",
                                     ).execute()
                         except Exception as e:
-                            import logging
+
                             logging.getLogger(__name__).warning("同步更新 Sheet 失敗：%s", e)
 
                         reset_state(line_user_id)
