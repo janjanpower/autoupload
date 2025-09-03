@@ -52,17 +52,17 @@ def append_published_row(dt_local, title, folder_url, status, keywords, today_vi
     values = [[
         dt_local.strftime("%Y-%m-%d %H:%M"),
         title,
-        folder_url,
-        status,
-        keywords,
-        int(today_views or 0),
+        "",                 # C：YOUTUBE ID/URL 先留空
+        folder_url,         # D：資料夾位置
+        status,             # E：狀態
+        keywords,           # F：關鍵字
+        int(today_views or 0),  # G：今日流量
     ]]
-    rng = f"{SHEET_TAB}!A:F"
-    resp = _sheets().values().append(                 # ← 改用 _sheets()
-        spreadsheetId=_sheet_id(),                    # ← 改用 _sheet_id()
+    rng = f"{SHEET_TAB}!A:G"
+    resp = _sheets().values().append(
+        spreadsheetId=_sheet_id(),
         range=rng,
         valueInputOption="USER_ENTERED",
-        insertDataOption="INSERT_ROWS",
         body={"values": values}
     ).execute()
     updated_range = (resp.get("updates") or {}).get("updatedRange", "")
@@ -89,18 +89,14 @@ def mark_row_published(row_index: int, video_id: str) -> None:
         spreadsheetId=_sheet_id(),
         body={"valueInputOption": "USER_ENTERED",
               "data": [
-                  {"range": f"{SHEET_TAB}!C{row_index}", "values": [[f'=HYPERLINK("{url}","{url}")']]},
-                  {"range": f"{SHEET_TAB}!D{row_index}", "values": [["已發布"]]},
+                  {"range": f"{SHEET_TAB}!C{row_index}", "values": [[f'=HYPERLINK("{url}","{url}")']]},  # C：YT
+                  {"range": f"{SHEET_TAB}!E{row_index}", "values": [["已發布"]]},                         # E：狀態
               ]}
     ).execute()
 
 
 def _fetch_all_rows() -> List[List[str]]:
-    r = _sheets().values().get(
-        spreadsheetId=_sheet_id(),
-        range=f"{SHEET_TAB}!A:F"
-    ).execute()
-    return r.get("values", [])
+    r = _sheets().values().get(spreadsheetId=_sheet_id(), range=f"{SHEET_TAB}!A:G").execute()
 
 def _first_data_row_index() -> int:
     return 2
@@ -110,15 +106,16 @@ def find_row_by_title_and_folder(title: Optional[str], folder_url: Optional[str]
     for idx, row in enumerate(rows, start=1):
         if idx < _first_data_row_index():
             continue
-        t = (row[1] if len(row) > 1 else "").strip()
-        c = (row[2] if len(row) > 2 else "").strip()
+        t = (row[1] if len(row) > 1 else "").strip()  # B：標題
+        d = (row[3] if len(row) > 3 else "").strip()  # D：資料夾位置（←原本抓 C 要改成 D）
         if folder_url:
-            if t == (title or "") and (folder_url in c):
+            if t == (title or "") and (folder_url in d):
                 return idx
         else:
             if t == (title or ""):
                 return idx
     return None
+
 
 def update_status_and_views(row_index: int,
                             status: Optional[str] = None,
@@ -126,11 +123,11 @@ def update_status_and_views(row_index: int,
                             folder_url: Optional[str] = None):
     data = []
     if status is not None:
-        data.append({"range": f"{SHEET_TAB}!D{row_index}", "values": [[status]]})
+        data.append({"range": f"{SHEET_TAB}!E{row_index}", "values": [[status]]})
     if today_views is not None:
-        data.append({"range": f"{SHEET_TAB}!F{row_index}", "values": [[int(today_views)]]})
+        data.append({"range": f"{SHEET_TAB}!G{row_index}", "values": [[int(today_views)]]})
     if folder_url:
-        data.append({"range": f"{SHEET_TAB}!C{row_index}",
+        data.append({"range": f"{SHEET_TAB}!D{row_index}",
                      "values": [[f'=HYPERLINK("{folder_url}","{folder_url}")']]})
     if not data:
         return
@@ -138,6 +135,7 @@ def update_status_and_views(row_index: int,
         spreadsheetId=_sheet_id(),
         body={"valueInputOption": "USER_ENTERED", "data": data}
     ).execute()
+
 
 
 # 需要的環境變數：
@@ -226,29 +224,31 @@ def safe_update_metadata(video_id: str, title: str, description: str, tags: list
 
 def set_published_folder_link(row_index: int, folder_url: str) -> None:
     """
-    已發布後：把 C 欄寫入『資料夾連結』、D 欄寫入『已發布』。
+    已發布後：把 D 欄寫入『資料夾連結』、E 欄寫入『已發布』。
     """
     if not row_index:
         return
     data = [
-        {"range": f"{SHEET_TAB}!C{row_index}", "values": [[f'=HYPERLINK("{folder_url}","{folder_url}")']]},
-        {"range": f"{SHEET_TAB}!D{row_index}", "values": [["已發布"]]},
+        {"range": f"{SHEET_TAB}!D{row_index}", "values": [[f'=HYPERLINK("{folder_url}","{folder_url}")']]},
+        {"range": f"{SHEET_TAB}!E{row_index}", "values": [["已發布"]]},
     ]
     _sheets().values().batchUpdate(
         spreadsheetId=_sheet_id(),
         body={"valueInputOption": "USER_ENTERED", "data": data}
     ).execute()
 
+
 def clear_sheet_row_status(row_idx: int, status: str = "已刪除"):
-    """清空 C 欄並在 D 欄標記 '已刪除'"""
+    """清空 D 欄並在 E 欄標記 '已刪除'"""
     if not row_idx:
         return
     _sheets().values().update(
         spreadsheetId=_sheet_id(),
-        range=f"{SHEET_TAB}!C{row_idx}:D{row_idx}",
+        range=f"{SHEET_TAB}!D{row_idx}:E{row_idx}",
         valueInputOption="RAW",
         body={"values": [["", status]]}
     ).execute()
+
 
 def get_sheet_values(sheet, spreadsheet_id: str, tab_name: str, range_: str):
     """
