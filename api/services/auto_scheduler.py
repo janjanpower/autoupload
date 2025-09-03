@@ -669,6 +669,8 @@ def reconcile_youtube_schedule_drift() -> dict:
     # 呼叫 YouTube（失敗直接跳過，避免亂動 DB）
     try:
         meta = list_videos_status_map(video_ids)
+        print("=== DEBUG YouTube meta ===")
+        print(json.dumps(meta, ensure_ascii=False, indent=2))
     except Exception as e:
         return {
             "checked": len(video_ids),
@@ -679,6 +681,7 @@ def reconcile_youtube_schedule_drift() -> dict:
             "moved": 0,
             "errors": [f"yt:{e}"]
         }
+
 
     out = {"checked": len(video_ids), "sched_aligned": 0, "published_fixed": 0, "undeleted": 0, "sheet_updated": 0, "moved": 0, "errors": []}
 
@@ -714,9 +717,8 @@ def reconcile_youtube_schedule_drift() -> dict:
             except Exception:
                 pass
 
-        if privacy.lower().strip() == "public" and r.get("status") != "published":
-            print("=== DEBUG: found public video ===", vid, r.get("status"))
-            # 1) DB 標記 published
+        # B) public → 推進 published
+        if privacy == "public" and r.get("status") in ("uploaded", "scheduled"):
             try:
                 with engine.begin() as conn:
                     conn.execute(sql_text("""
@@ -727,6 +729,20 @@ def reconcile_youtube_schedule_drift() -> dict:
                 out["published_fixed"] += 1
             except Exception as e:
                 out["errors"].append(f"db-published id={rec_id}: {e}")
+
+            # 取標題
+            try:
+                yt_meta = meta.get(vid, {})
+                title = yt_meta.get("title")
+                if title:
+                    with engine.begin() as conn:
+                        conn.execute(sql_text("""
+                            UPDATE video_schedules
+                            SET meta_text = :title
+                            WHERE id = :id
+                        """), {"title": title, "id": rec_id})
+            except Exception as e:
+                out["errors"].append(f"yt-title id={rec_id}: {e}")
 
             # 2) 取 YouTube 最新標題
             title = None
