@@ -32,7 +32,6 @@ set_published_folder_link,
 update_status_and_views,
 get_sheet_values,
 delete_rows,
-update_title
 )
 
 # === 專案內匯入（全部用絕對匯入，避免相對路徑問題） ===
