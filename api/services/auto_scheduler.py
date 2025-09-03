@@ -731,17 +731,16 @@ def reconcile_youtube_schedule_drift() -> dict:
         if privacy in ("private", "unlisted") and pa:
             try:
                 api_dt = datetime.fromisoformat(pa.replace("Z", "+00:00"))
-                if (db_sched is None) or (abs((db_sched - api_dt).total_seconds()) > 60):
-                    try:
-                        with engine.begin() as conn:
-                            conn.execute(sql_text("""
-                                UPDATE video_schedules
-                                SET schedule_time = :t, status = 'uploaded'
-                                WHERE id = :id
-                            """), {"t": api_dt, "id": rec_id})
-                        out["sched_aligned"] += 1
-                    except Exception as e:
-                        out["errors"].append(f"db-sched id={rec_id}: {e}")
+                if (db_sched is None) or (abs((db_sched - api_dt).total_seconds()) > 60 or r["status"] != "scheduled"):
+                    with engine.begin() as conn:
+                        conn.execute(sql_text("""
+                            UPDATE video_schedules
+                            SET schedule_time = :t, status = 'scheduled'
+                            WHERE id = :id
+                        """), {"t": api_dt, "id": rec_id})
+                    out["sched_aligned"] += 1
+            except Exception as e:
+                out["errors"].append(f"db-sched id={rec_id}: {e}")
             except Exception:
                 pass
 
