@@ -20,12 +20,13 @@ from apscheduler.triggers.cron import CronTrigger
 from apscheduler.triggers.interval import IntervalTrigger
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload, MediaIoBaseUpload
+
 # === 專案內匯入（全部用絕對匯入，避免相對路徑問題） ===
 from api.db import engine
 from api.core.youtube_client import get_youtube_client
 from api.services import scheduler_repo
 from api.services.drive_service import get_drive_service
-from api.services.youtube_service import update_thumbnail_from_drive, list_scheduled_youtube
+from api.services.youtube_service import update_thumbnail_from_drive, list_scheduled_youtube,list_videos_status_map
 from api.services.sheets_service import (
     append_published_row,
     update_status_and_views,
@@ -706,9 +707,8 @@ def reconcile_youtube_schedule_drift() -> dict:
 
     # 呼叫 YouTube（失敗直接跳過，避免亂動 DB）
     try:
-        meta = _list_videos_status_map(video_ids)
+        meta = list_videos_status_map(video_ids)
     except Exception as e:
-    # 不要繼續執行，直接回傳
         return {
             "checked": len(video_ids),
             "sched_aligned": 0,
@@ -739,16 +739,17 @@ def reconcile_youtube_schedule_drift() -> dict:
         if privacy in ("private", "unlisted") and pa:
             try:
                 api_dt = datetime.fromisoformat(pa.replace("Z", "+00:00"))
-                if (db_sched is None) or (abs((db_sched - api_dt).total_seconds()) > 60 or r["status"] != "scheduled"):
-                    with engine.begin() as conn:
-                        conn.execute(sql_text("""
-                            UPDATE video_schedules
-                            SET schedule_time = :t, status = 'scheduled'
-                            WHERE id = :id
-                        """), {"t": api_dt, "id": rec_id})
-                    out["sched_aligned"] += 1
-            except Exception as e:
-                out["errors"].append(f"db-sched id={rec_id}: {e}")
+                if (db_sched is None) or (abs((db_sched - api_dt).total_seconds()) > 60):
+                    try:
+                        with engine.begin() as conn:
+                            conn.execute(sql_text("""
+                                UPDATE video_schedules
+                                SET schedule_time = :t, status = 'scheduled'
+                                WHERE id = :id
+                            """), {"t": api_dt, "id": rec_id})
+                        out["sched_aligned"] += 1
+                    except Exception as e:
+                        out["errors"].append(f"db-sched id={rec_id}: {e}")
             except Exception:
                 pass
 

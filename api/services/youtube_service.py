@@ -7,7 +7,7 @@ import random
 import shutil
 import tempfile
 from datetime import datetime, timezone
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Any
 
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload, MediaIoBaseUpload
@@ -426,3 +426,39 @@ def youtube_upload_from_drive(
         pass
 
     return video_id
+
+
+# --- add: public helper to fetch YT status/title in bulk ---
+
+
+def list_videos_status_map(video_ids: List[str]) -> Dict[str, Dict[str, Any]]:
+    """
+    Return { videoId: {privacyStatus, publishAt, title} }
+    - privacyStatus: "private" | "unlisted" | "public"
+    - publishAt: RFC3339 time if scheduled; some channels put it under status.publishAt, fallback snippet.publishAt
+    """
+    if not video_ids:
+        return {}
+
+    yt = get_youtube_client()  # already in your file; uses your OAuth creds
+    out: Dict[str, Dict[str, Any]] = {}
+
+    # YouTube API allows up to 50 ids per call
+    for i in range(0, len(video_ids), 50):
+        batch = video_ids[i:i+50]
+        resp = yt.videos().list(
+            part="status,snippet,contentDetails",
+            id=",".join(batch)
+        ).execute()
+
+        for item in resp.get("items", []):
+            vid = item.get("id")
+            status = item.get("status", {}) or {}
+            snippet = item.get("snippet", {}) or {}
+            out[vid] = {
+                "privacyStatus": status.get("privacyStatus"),
+                # primary: status.publishAt; fallback: snippet.publishAt (some responses place it here)
+                "publishAt": status.get("publishAt") or snippet.get("publishAt"),
+                "title": snippet.get("title"),
+            }
+    return out
