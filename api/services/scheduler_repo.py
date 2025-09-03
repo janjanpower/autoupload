@@ -7,11 +7,6 @@ from typing import List, Dict
 from sqlalchemy import text as sql_text
 from api.db import engine
 
-def set_schedule_sheet_row(schedule_id: int, row_index: int):
-    with engine.begin() as conn:
-        conn.execute(sql_text(
-            "UPDATE video_schedules SET sheet_row = :r WHERE id = :id"
-        ), {"r": row_index, "id": schedule_id})
 
 def list_future_uploaded() -> List[Dict]:
     """抓出未來時間點，且狀態是 uploaded/scheduled、且有 YT video id 的排程"""

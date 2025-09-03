@@ -537,7 +537,6 @@ def reconcile_youtube_deletions():
 
 
 def refresh_today_views():
-    """回填今日觀看數（F 欄）。"""
     if not scheduler_repo.acquire_lock(10103):
         return
     try:
@@ -550,20 +549,13 @@ def refresh_today_views():
         ids = [r["youtube_video_id"] for r in rows if r.get("youtube_video_id")]
         for i in range(0, len(ids), 50):
             chunk = ids[i:i+50]
-            resp = yt.videos().list(part="statistics,snippet", id=",".join(chunk)).execute()
-            items = resp.get("items", [])
-            for it in items:
+            resp = yt.videos().list(part="statistics", id=",".join(chunk)).execute()
+            for it in resp.get("items", []):
+                vid = it.get("id")
                 views = int((it.get("statistics") or {}).get("viewCount", "0"))
-                vid = it["id"]
-                title = (it.get("snippet") or {}).get("title", "")
-                # 用 resolve_sheet_row 定位
-                row = resolve_sheet_row(
-                    None,
-                    youtube_id=vid,
-                    expect_title=title
-                )
-                if row:
-                    update_status_and_views(row, today_views=views, youtube_id=vid, expect_title=title)
+                # 只靠 YouTube ID 定位列，避免跑錯
+                from api.services.sheets_service import update_status_and_views
+                update_status_and_views(0, today_views=views, youtube_id=vid)
     finally:
         scheduler_repo.release_lock(10103)
 
@@ -614,19 +606,12 @@ def start_scheduler():
 # === NEW: 同步 YouTube 後台手動異動（時間/狀態）到 DB + Sheet/Drive ===
 def reconcile_youtube_schedule_drift() -> dict:
     """
-    目的：你在 YouTube 後台手動改時間/提前公開後，DB 能自動跟上。
-    策略（保守）：
-      - API 失敗（例如 refresh token 掛掉）→ 直接跳過，不動 DB
-      - private/unlisted 且有 publishAt → 對齊 DB.schedule_time
-      - public → DB.status='published'，同時移資料夾、寫回 Sheet
-      - DB 是 deleted 但影片實際存在 → 拉回 uploaded
-      - 不在本批結果清單的 id → 本函式不標 deleted（交由原本刪除對帳任務處理）
-    回傳：統計資訊
+    比對 YouTube 後台與 DB，並同步：DB 狀態、搬資料夾、回寫 Sheet。
+    ★ 已完全移除對 sheet_row 的依賴；用 youtube_video_id 在 Sheet C 欄定位。
     """
-    # 只掃「未來 60 天會發」與「近 7 天內新建/可能剛公開」的候選（避免全表掃描）
     with engine.begin() as conn:
         rows = conn.execute(sql_text("""
-            SELECT id, folder_id, sheet_row, youtube_video_id, status, schedule_time
+            SELECT id, folder_id, youtube_video_id, status, schedule_time, created_at
             FROM video_schedules
             WHERE youtube_video_id IS NOT NULL
               AND status IN ('uploaded','scheduled','deleted')
@@ -644,152 +629,88 @@ def reconcile_youtube_schedule_drift() -> dict:
     if not video_ids:
         return {"checked": 0, "sched_aligned": 0, "published_fixed": 0, "undeleted": 0, "sheet_updated": 0, "moved": 0, "errors": []}
 
-    # 呼叫 YouTube（失敗直接跳過，避免亂動 DB）
     try:
-        meta = list_videos_status_map(video_ids)
-        print("=== DEBUG YouTube meta ===")
-        print(json.dumps(meta, ensure_ascii=False, indent=2))
+        meta = list_videos_status_map(video_ids)  # {vid: {"privacyStatus","publishAt","snippet":{title...}}}
     except Exception as e:
-        return {
-            "checked": len(video_ids),
-            "sched_aligned": 0,
-            "published_fixed": 0,
-            "undeleted": 0,
-            "sheet_updated": 0,
-            "moved": 0,
-            "errors": [f"yt:{e}"]
-        }
-
+        return {"checked": len(video_ids), "sched_aligned": 0, "published_fixed": 0, "undeleted": 0, "sheet_updated": 0, "moved": 0, "errors": [f"yt:{e}"]}
 
     out = {"checked": len(video_ids), "sched_aligned": 0, "published_fixed": 0, "undeleted": 0, "sheet_updated": 0, "moved": 0, "errors": []}
 
-    # 逐一比對 & 修正
     for vid, r in id_map.items():
-        m = meta.get(vid)
-        if not m:
-            # 這批沒看到該影片；在此函式不做刪除判定
-            continue
-
+        m = meta.get(vid) or {}
         privacy = (m.get("privacyStatus") or "").lower()
         pa = m.get("publishAt")
-        row_idx = int(r.get("sheet_row") or 0)
+        snippet = m.get("snippet") or {}
+        title = snippet.get("title") or ""
         fid = r.get("folder_id")
         rec_id = r.get("id")
         db_sched: Optional[datetime] = r.get("schedule_time")
 
-        # A) private/unlisted + 有 publishAt → 對齊 DB.schedule_time
+        # A) private/unlisted + 有 publishAt → 對齊 DB 的 schedule_time
         if privacy in ("private", "unlisted") and pa:
             try:
                 api_dt = datetime.fromisoformat(pa.replace("Z", "+00:00"))
                 if (db_sched is None) or (abs((db_sched - api_dt).total_seconds()) > 60):
-                    try:
-                        with engine.begin() as conn:
-                            conn.execute(sql_text("""
-                                UPDATE video_schedules
-                                SET schedule_time = :t, status = 'scheduled'
-                                WHERE id = :id
-                            """), {"t": api_dt, "id": rec_id})
-                        out["sched_aligned"] += 1
-                    except Exception as e:
-                        out["errors"].append(f"db-sched id={rec_id}: {e}")
-            except Exception:
-                pass
+                    with engine.begin() as conn:
+                        conn.execute(sql_text("""
+                            UPDATE video_schedules
+                            SET schedule_time = :t, status = 'scheduled'
+                            WHERE id = :id
+                        """), {"t": api_dt, "id": rec_id})
+                    out["sched_aligned"] += 1
+            except Exception as e:
+                out["errors"].append(f"db-sched id={rec_id}: {e}")
 
-        # B) public → 推進 published
+        # B) public → DB 標 published、搬資料夾、回寫 Sheet（靠 youtube_id 定位）
         if privacy == "public" and r.get("status") in ("uploaded", "scheduled"):
             try:
                 with engine.begin() as conn:
-                    conn.execute(sql_text("""
-                        UPDATE video_schedules
-                        SET status = 'published'
-                        WHERE id = :id
-                    """), {"id": rec_id})
+                    conn.execute(sql_text("UPDATE video_schedules SET status='published' WHERE id=:id"), {"id": rec_id})
                 out["published_fixed"] += 1
             except Exception as e:
                 out["errors"].append(f"db-published id={rec_id}: {e}")
 
-            # 取標題
-            try:
-                yt_meta = meta.get(vid, {})
-                title = yt_meta.get("title")
-                if title:
-                    with engine.begin() as conn:
-                        conn.execute(sql_text("""
-                            UPDATE video_schedules
-                            SET meta_text = :title
-                            WHERE id = :id
-                        """), {"title": title, "id": rec_id})
-            except Exception as e:
-                out["errors"].append(f"yt-title id={rec_id}: {e}")
-
-            # 2) 取 YouTube 最新標題
-            title = None
-            try:
-                yt_meta = meta.get(vid, {})
-                snippet = yt_meta.get("snippet") or {}
-                title = snippet.get("title")
-                if title:
-                    with engine.begin() as conn:
-                        conn.execute(sql_text("""
-                            UPDATE video_schedules
-                            SET meta_text = :title
-                            WHERE id = :id
-                        """), {"title": title, "id": rec_id})
-            except Exception as e:
-                out["errors"].append(f"yt-title id={rec_id}: {e}")
-
-            # 3) 移資料夾，取得連結（失敗給預設 URL）
-            folder_url = ""
+            # 搬資料夾（失敗則退回原資料夾 URL）
+            folder_url = f"https://drive.google.com/drive/folders/{fid}" if fid else ""
             if fid:
                 try:
-                    folder_url = _move_folder_to_published(fid)
-                    if folder_url:
+                    moved = _move_folder_to_published(fid)
+                    if moved:
+                        folder_url = moved
                         out["moved"] += 1
                 except Exception as e:
                     out["errors"].append(f"move id={rec_id}: {e}")
-                    folder_url = f"https://drive.google.com/drive/folders/{fid}"
 
-            # 4) 寫回 Sheet（影片連結、狀態、資料夾連結、標題）
-            if row_idx and folder_url:
-                try:
-                    # 4a) 寫入「YouTube 連結 (C 欄)」
-                    set_youtube_link(row_idx, vid)
-
-                    # 4b) 寫入「狀態=已發布 (E 欄)」
-                    set_status(row_idx, "已發布", youtube_id=vid)
-
-                    # 4c) 寫入「資料夾連結 (D 欄)」
-                    set_published_folder_link(row_idx, folder_url, youtube_id=vid)
-
-                    # 4d) 寫入「標題 (B 欄)」
-                    if title:
-                        from api.services.sheets_service import _svc, _a1, COL_TITLE, SHEET_ID, SHEET_TAB
+            # 寫回 Sheet：C: yt、E: 已發布、D: 資料夾、B: 標題
+            try:
+                set_youtube_link(0, vid)                            # 0=hint，內部會用 youtube_id 重新定位
+                set_status(0, "已發布", youtube_id=vid, expect_title=title or None)
+                if folder_url:
+                    set_published_folder_link(0, folder_url, youtube_id=vid, expect_title=title or None)
+                if title:
+                    row = resolve_sheet_row(None, youtube_id=vid)
+                    if row:
+                        from api.services.sheets_service import _svc, _a1, COL_TITLE, SHEET_ID
                         _svc().values().update(
                             spreadsheetId=SHEET_ID,
-                            range=_a1(COL_TITLE, row_idx),
+                            range=_a1(COL_TITLE, row),
                             valueInputOption="USER_ENTERED",
                             body={"values": [[title]]},
                         ).execute()
+                out["sheet_updated"] += 1
+            except Exception as e:
+                out["errors"].append(f"sheet id={rec_id}: {e}")
 
-                    out["sheet_updated"] += 1
-                except Exception as e:
-                    out["errors"].append(f"sheet id={rec_id}: {e}")
-
-        # C) DB 誤標 deleted，但影片還在 → 拉回 uploaded
+        # C) 誤標 deleted 但影片還在 → 拉回 uploaded
         if privacy in ("private", "unlisted", "public") and r.get("status") == "deleted":
             try:
                 with engine.begin() as conn:
-                    conn.execute(sql_text("""
-                        UPDATE video_schedules
-                        SET status = 'uploaded'
-                        WHERE id = :id
-                    """), {"id": rec_id})
+                    conn.execute(sql_text("UPDATE video_schedules SET status='uploaded' WHERE id=:id"), {"id": rec_id})
                 out["undeleted"] += 1
             except Exception as e:
                 out["errors"].append(f"db-undelete id={rec_id}: {e}")
 
     return out
-
 
 def _fetch_existing_youtube_ids_from_db() -> Set[str]:
     """

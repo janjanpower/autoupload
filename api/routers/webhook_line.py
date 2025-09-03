@@ -18,15 +18,14 @@ from sqlalchemy.engine import Row, RowMapping
 from api.config import settings
 from api.services import scheduler_repo
 from api.services.scheduler_repo import (
-    get_state, set_state, reset_state, insert_schedule, list_scheduled, list_all,
-    update_uploaded, update_error, cancel_schedule, update_schedule_time, set_schedule_sheet_row
+    get_state, set_state, reset_state, insert_schedule,update_uploaded, update_error
 )
 from api.services.drive_service import (
     list_child_folders, get_single_video_in_folder, find_text_file_in_folder, download_text, upload_text
 )
 from api.services.youtube_service import (
-    youtube_upload_from_drive, update_thumbnail_from_drive, pick_thumbnail_in_folder, update_video_metadata
-)
+    youtube_upload_from_drive, update_thumbnail_from_drive
+    )
 from api.services.sheets_service import append_published_row
 
 from api.utils.meta_parser import parse_meta_text
@@ -447,33 +446,46 @@ async def line_webhook(request: Request, background_tasks: BackgroundTasks, x_li
 
             def _do_upload():
                 try:
+                    # 1) 上傳到 YouTube，DB 記錄 youtube_video_id + 狀態
                     vid = youtube_upload_from_drive(folder["id"], meta_text, dt_utc, vtype)
                     update_uploaded(line_user_id, folder["id"], dt_utc, vid)
 
-                    # ★ 寫入排程表，接回列號並寫回 DB（很重要）
+                    # 2) 寫入 Google Sheet（新增一列），並「立刻」把 YouTube ID 填到 C 欄
                     try:
-                        meta = parse_meta_text(meta_text or "")
+                        meta_info = parse_meta_text(meta_text or "")
+                        title = (meta_info.get("title") or folder["name"])
+                        tags  = ",".join(meta_info.get("tags", []))
+
+                        # 新增一列（A~G），先把 folder_url 留空、狀態「已排程」
                         row_idx = append_published_row(
                             dt_local=dt_utc.astimezone(TZ),
-                            title=(meta.get("title") or folder["name"]),
-                            folder_url="",                 # 先空白，等公開後再補
+                            title=title,
+                            folder_url="",                 # 等公開與搬資料夾後再補
                             status="已排程",
-                            keywords=",".join(meta.get("tags", [])),
+                            keywords=tags,
                             today_views=0
                         )
-                        if row_idx:
-                            set_schedule_sheet_row(sid, row_idx)
-                    except Exception as e:
-                        import logging
-                        logging.getLogger(__name__).exception("寫入 Sheet 失敗：%s", e)
 
-                    # 4) 設定縮圖（可失敗，不影響主流程）
+                        # 重要：不再寫 DB.sheet_row；直接用 row_idx 把 C 欄寫入 YT ID
+                        if row_idx:
+                            try:
+                                # 這裡傳 row_idx，內部 resolver 會先用列號；之後所有更新都靠 youtube_id 重新定位
+                                set_youtube_link(row_idx, vid)
+                                # （可選）再確保狀態欄一致；append 已寫「已排程」，不呼叫也可
+                                # set_status(row_idx, "已排程", expect_title=title)
+                            except Exception:
+                                logging.exception("回寫 Sheet 的 YouTube ID 失敗")
+
+                    except Exception:
+                        logging.exception("寫入 Sheet 新列失敗")
+
+                    # 3) 設定縮圖（失敗不影響主流程）
                     try:
                         update_thumbnail_from_drive(vid, folder["id"])
                     except Exception:
                         pass
 
-                    # 5) 通知
+                    # 4) 通知
                     url = f"https://youtu.be/{vid}"
                     when = format_tw_with_weekday(dt_utc)
                     push_text(line_user_id, f"✅ 上傳完成：{folder['name']}\nYouTube URL :\n{url}\n⚠️將於 {when} 公開")
@@ -481,7 +493,6 @@ async def line_webhook(request: Request, background_tasks: BackgroundTasks, x_li
                 except Exception as e:
                     update_error(line_user_id, folder["id"], dt_utc, e)
                     push_text(line_user_id, f"❌ 上傳失敗：{folder['name']}\n錯誤：{e}")
-
             if settings.YT_REFRESH_TOKEN:
                 background_tasks.add_task(_do_upload)
             else:
