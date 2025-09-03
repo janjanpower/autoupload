@@ -24,18 +24,19 @@ from googleapiclient.http import MediaIoBaseDownload, MediaIoBaseUpload
 from sqlalchemy import text as sql_text, create_engine, text
 
 from api.services.sheets_service import (
-append_published_row,
-resolve_sheet_row,
-set_youtube_link,
-set_status,
-set_published_folder_link,
-update_status_and_views,
-find_row_by_title_and_folder,
-mark_row_published,
-get_sheet_values,
-delete_rows,
-update_title
+    append_published_row,
+    resolve_sheet_row,
+    set_youtube_link,
+    set_status,
+    set_published_folder_link,
+    update_status_and_views,
+    find_row_by_title_and_folder,
+    mark_row_published,
+    get_sheet_values,
+    delete_rows,
+    update_title_by_row
 )
+
 
 # === 專案內匯入（全部用絕對匯入，避免相對路徑問題） ===
 
@@ -777,7 +778,7 @@ def reconcile_youtube_schedule_drift() -> dict:
                     set_published_folder_link(row_idx, folder_url)
                     # 4c) 寫入「標題」
                     if title:
-                        update_title(row_idx, title)
+                        update_title_by_row(row_idx, title)
                     out["sheet_updated"] += 1
                 except Exception as e:
                     out["errors"].append(f"sheet id={rec_id}: {e}")
