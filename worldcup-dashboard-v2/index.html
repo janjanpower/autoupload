@@ -240,6 +240,7 @@ function drawBracket(){
 function loadTargets(){target.innerHTML=Object.values(GROUPS).flat().map(t=>`<option>${t}</option>`).join('');loadTeamMatches()}
 function loadTeamMatches(){let t=target.value,ms=MATCHES.filter(m=>!m.done&&(m.h===t||m.a===t)).sort((a,b)=>a.date.localeCompare(b.date));targetMatch.innerHTML=ms.map(m=>`<option value=${m.id}>${d(m.date)} ${m.h} vs ${m.a}</option>`).join('');drawTargetSnapshot()}
 function drawTargetSnapshot(){
+  if(!STATE)return;
   const s=STRATEGY_ENGINE.snapshot(target.value,STATE.standings,STATE.bracket);
   targetSnapshot.innerHTML=[['小組排名',s.row?`${s.group}${s.rank}`:'-'],['目前身份',s.seed],['路線強度',s.qualified?s.route:'-'],['首輪對手',s.path?s.path.opp.seed+' '+s.path.opp.team:'無']].map(x=>`<div class=card><div class=muted>${x[0]}</div><b>${x[1]}</b></div>`).join('');
 }
@@ -295,7 +296,7 @@ const AUTO_REFRESH={
 };
 async function init(){
   try{const res=await fetch('data/matches.json',{cache:'no-store'});if(res.ok)mergeScores(await res.json());else mergeScores({matches:[]})}catch(_){mergeScores({matches:[]})}
-  drawScores();loadTargets();recalculate();runMonteCarlo();
+  drawScores();recalculate();loadTargets();runMonteCarlo();
   AUTO_REFRESH.start();
 }
 init();
