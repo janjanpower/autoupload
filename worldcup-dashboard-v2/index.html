@@ -391,7 +391,8 @@ async function analyzeWithLocalQwen(){
   const pack=simulateScenarioState(),box=document.getElementById('aiStrategyResult');
   if(!pack||!box)return;
   const endpointEl=document.getElementById('ollamaEndpoint'),modelEl=document.getElementById('ollamaModel');
-  const endpoint=(endpointEl?.value||'http://localhost:11434/api/chat').trim(),model=(modelEl?.value||'qwen2.5:3b-instruct').trim();
+  const endpoint=(endpointEl?.value||'http://localhost:11434/api/chat').trim(),model=normalizeLocalModel(modelEl?.value);
+  if(modelEl)modelEl.value=model;
   localStorage.setItem('ollamaEndpoint',endpoint);localStorage.setItem('ollamaModel',model);
   box.className='routeCard aiResult muted';box.textContent='本機 Qwen 分析中...';
   try{
@@ -522,11 +523,17 @@ const AUTO_REFRESH={
     this.timer=setInterval(()=>this.check(),60000);
   }
 };
+const DEFAULT_OLLAMA_MODEL='qwen2.5:3b-instruct';
+function normalizeLocalModel(model){
+  const value=(model||'').trim();
+  if(!value||value==='qwen2.5:7b')return DEFAULT_OLLAMA_MODEL;
+  return value;
+}
 async function init(){
   try{const res=await fetch('data/matches.json',{cache:'no-store'});if(res.ok)mergeScores(await res.json());else mergeScores({matches:[]})}catch(_){mergeScores({matches:[]})}
   const endpointEl=document.getElementById('ollamaEndpoint'),modelEl=document.getElementById('ollamaModel');
   if(endpointEl&&localStorage.getItem('ollamaEndpoint'))endpointEl.value=localStorage.getItem('ollamaEndpoint');
-  if(modelEl&&localStorage.getItem('ollamaModel'))modelEl.value=localStorage.getItem('ollamaModel');
+  if(modelEl){modelEl.value=normalizeLocalModel(localStorage.getItem('ollamaModel')||modelEl.value);localStorage.setItem('ollamaModel',modelEl.value)}
   drawScores();recalculate();loadTargets();
   AUTO_REFRESH.start();
 }
