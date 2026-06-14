@@ -79,10 +79,7 @@
   </section>
 
   <section id="sandbox" class="panel">
-    <div class="card toolbar">
-      <label>隊伍 <select id="target" onchange="loadTeamMatches()"></select></label>
-      <label>比賽 <select id="targetMatch" onchange="loadScenarioMatch()"></select></label>
-    </div>
+    <datalist id="teamOptions"></datalist>
     <div id="scoreControl" class="card"></div>
     <div class="card aiPanel" id="creatorAiPanel" hidden>
       <h3>策略分析(僅限建立者)</h3>
@@ -116,7 +113,7 @@ const THIRD_RULE={M74:['A','B','C','D','F'],M77:['C','D','F','G','H'],M79:['C','
 const R16_TEMPLATE=[['M89','M73','M75'],['M90','M74','M77'],['M91','M76','M78'],['M92','M79','M80'],['M93','M83','M84'],['M94','M81','M82'],['M95','M86','M88'],['M96','M85','M87']];
 const QF_TEMPLATE=[['M97','M89','M90'],['M98','M93','M94'],['M99','M91','M92'],['M100','M95','M96']];
 const TREE_FINAL_TEMPLATE=[['M101','M97','M98'],['M102','M99','M100'],['FINAL','M101','M102']];
-let MATCHES=SEED.map(x=>({...x})),KNOCKOUT_MATCHES=[],TEAM_META={},STATE=null,SCENARIO_SCORE={hg:0,ag:0},STANDING_FILTER='';
+let MATCHES=SEED.map(x=>({...x})),KNOCKOUT_MATCHES=[],TEAM_META={},STATE=null,SCENARIOS=[],STANDING_FILTER='';
 
 function tab(id,b){document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));document.getElementById(id).classList.add('on');b.classList.add('on');recalculate()}
 function round(id,b){document.querySelectorAll('.round').forEach(x=>x.style.display='none');document.querySelectorAll('.subtab').forEach(x=>x.classList.remove('on'));document.getElementById(id).style.display='block';b.classList.add('on')}
@@ -359,24 +356,81 @@ function drawBracket(){
   renderTree('4');
   setTimeout(drawTreeLines,20);
 }
-function loadTargets(){const teams=Object.values(GROUPS).flat();target.innerHTML=teams.map(t=>`<option>${t}</option>`).join('');if(!target.value)target.value=teams[0];loadTeamMatches()}
-function loadTeamMatches(){let t=target.value,ms=MATCHES.filter(m=>!m.done&&(m.h===t||m.a===t)).sort((a,b)=>matchSortKey(a)-matchSortKey(b)||a.id-b.id);targetMatch.innerHTML=ms.map(m=>`<option value=${m.id}>${matchDateLabel(m)} ${matchTimeLabel(m)} ${m.h} vs ${m.a}</option>`).join('');if(ms.length&&!targetMatch.value)targetMatch.value=String(ms[0].id);loadScenarioMatch()}
-function currentScenarioMatch(){return MATCHES.find(m=>m.id===+targetMatch.value)||null}
-function loadScenarioMatch(){const m=currentScenarioMatch();if(!m){scoreControl.innerHTML='<div class=muted>這支隊伍目前沒有未開賽小組賽。</div>';scenarioImpact.innerHTML='';return}SCENARIO_SCORE={hg:m.hg??0,ag:m.ag??0};renderScoreControl();runScenarioImpact()}
-function adjustScenario(side,delta){SCENARIO_SCORE[side]=Math.max(0,SCENARIO_SCORE[side]+delta);renderScoreControl();runScenarioImpact()}
-function setScenario(hg,ag){SCENARIO_SCORE={hg,ag};renderScoreControl();runScenarioImpact()}
+function allTeams(){return Object.values(GROUPS).flat()}
+function loadTargets(){
+  teamOptions.innerHTML=allTeams().map(t=>`<option value="${t}"></option>`).join('');
+  if(!SCENARIOS.length)addScenario(allTeams()[0],false);
+  renderScoreControl();runScenarioImpact();
+}
+function teamExists(name){return allTeams().includes(name)}
+function teamMatches(team){
+  return MATCHES.filter(m=>!m.done&&(m.h===team||m.a===team)).sort((a,b)=>matchSortKey(a)-matchSortKey(b)||a.id-b.id);
+}
+function selectedScenarioIds(){return new Set(SCENARIOS.map(s=>s.matchId).filter(Boolean))}
+function firstMatchForTeam(team,exclude=new Set()){
+  return teamMatches(team).find(m=>!exclude.has(m.id))||teamMatches(team)[0]||MATCHES.find(m=>!m.done&&!exclude.has(m.id))||MATCHES.find(m=>!m.done)||null;
+}
+function primaryScenario(){return SCENARIOS[0]||null}
+function primaryScenarioTeam(){return primaryScenario()?.team||allTeams()[0]}
+function currentScenarioMatch(index=0){const s=SCENARIOS[index];return s?MATCHES.find(m=>m.id===+s.matchId)||null:null}
+function scenarioMatchWithScore(s){
+  const m=MATCHES.find(x=>x.id===+s.matchId);return m?{...m,hg:s.hg,ag:s.ag}:null;
+}
+function syncScenarioToMatch(s,m){
+  if(!m)return s;
+  s.matchId=m.id;s.hg=m.hg??0;s.ag=m.ag??0;
+  if(!m.h&&!m.a)return s;
+  if(!s.team||!teamExists(s.team)||![m.h,m.a].includes(s.team))s.team=m.h;
+  return s;
+}
+function addScenario(team=primaryScenarioTeam(),rerender=true){
+  const used=selectedScenarioIds(),base=SCENARIOS[0]?currentScenarioMatch(0):null;
+  let match=null;
+  if(base)match=MATCHES.filter(m=>!m.done&&m.g===base.g&&!used.has(m.id)).sort((a,b)=>matchSortKey(a)-matchSortKey(b)||a.id-b.id)[0]||null;
+  match=match||firstMatchForTeam(team,used);
+  const scenario=syncScenarioToMatch({team},match);
+  SCENARIOS.push(scenario);
+  if(rerender){renderScoreControl();runScenarioImpact()}
+}
+function removeScenario(index){
+  if(SCENARIOS.length<=1)return;
+  SCENARIOS.splice(index,1);renderScoreControl();runScenarioImpact();
+}
+function selectScenarioTeam(index,value){
+  const team=teamExists(value)?value:allTeams().find(t=>t.includes(value))||SCENARIOS[index]?.team||allTeams()[0];
+  const exclude=selectedScenarioIds();exclude.delete(SCENARIOS[index]?.matchId);
+  SCENARIOS[index]=syncScenarioToMatch({team},firstMatchForTeam(team,exclude));
+  renderScoreControl();runScenarioImpact();
+}
+function selectScenarioMatch(index,value){
+  const m=MATCHES.find(x=>x.id===+value);if(!m)return;
+  SCENARIOS[index]=syncScenarioToMatch({...SCENARIOS[index]},m);
+  renderScoreControl();runScenarioImpact();
+}
+function adjustScenario(index,side,delta){
+  const s=SCENARIOS[index];if(!s)return;
+  s[side]=Math.max(0,(s[side]??0)+delta);renderScoreControl();runScenarioImpact();
+}
+function renderScenarioCard(s,index){
+  const m=currentScenarioMatch(index),matches=teamMatches(s.team);
+  if(!m)return `<div class=routeCard><div class=muted>找不到可推演賽事</div></div>`;
+  const options=matches.map(x=>`<option value="${x.id}" ${x.id===m.id?'selected':''}>${matchDateLabel(x)} ${matchTimeLabel(x)}｜${x.g}組｜${x.h} vs ${x.a}</option>`).join('');
+  const remove=SCENARIOS.length>1?`<button onclick="removeScenario(${index})">移除</button>`:'';
+  return `<div class=routeCard><div class="toolbar"><label>隊伍 <input list=teamOptions value="${escapeHtml(s.team)}" onchange="selectScenarioTeam(${index},this.value)" placeholder="搜尋隊伍"></label><label>比賽 <select onchange="selectScenarioMatch(${index},this.value)">${options}</select></label>${remove}</div><h3>${matchDateLabel(m)} ${matchTimeLabel(m)}｜${m.g}組</h3><div class=stepper><div><div class="team scenarioTeam">${teamDisplay(m.h)}</div><div class=scoreBox><button onclick="adjustScenario(${index},'hg',-1)">−</button><div class=scoreNum>${s.hg}</div><button onclick="adjustScenario(${index},'hg',1)">＋</button></div></div><div class=vs>VS</div><div><div class="team scenarioTeam">${teamDisplay(m.a)}</div><div class=scoreBox><button onclick="adjustScenario(${index},'ag',-1)">−</button><div class=scoreNum>${s.ag}</div><button onclick="adjustScenario(${index},'ag',1)">＋</button></div></div></div></div>`;
+}
 function renderScoreControl(){
-  const m=currentScenarioMatch();if(!m)return;
-  scoreControl.innerHTML=`<h3>${matchDateLabel(m)} ${matchTimeLabel(m)}｜${m.g}組｜${m.h} vs ${m.a}</h3><div class=stepper><div><div class="team scenarioTeam">${m.h}</div><div class=scoreBox><button onclick="adjustScenario('hg',-1)">−</button><div class=scoreNum>${SCENARIO_SCORE.hg}</div><button onclick="adjustScenario('hg',1)">＋</button></div></div><div class=vs>VS</div><div><div class="team scenarioTeam">${m.a}</div><div class=scoreBox><button onclick="adjustScenario('ag',-1)">−</button><div class=scoreNum>${SCENARIO_SCORE.ag}</div><button onclick="adjustScenario('ag',1)">＋</button></div></div></div>`;
+  if(!SCENARIOS.length){scoreControl.innerHTML='<div class=muted>目前沒有可推演賽事。</div>';return}
+  scoreControl.innerHTML=`<h3>同步沙盤比分</h3>${SCENARIOS.map(renderScenarioCard).join('')}<button onclick="addScenario()">＋</button>`;
 }
 function currentTournamentPhase(){return MATCHES.some(m=>!m.done)?'group':'r32'}
 function simulateScenarioState(){
-  const m=currentScenarioMatch();if(!m)return null;
+  if(!SCENARIOS.length)return null;
   const sim=MATCHES.map(x=>({...x}));
-  const target=sim.find(x=>x.id===m.id);
-  target.hg=SCENARIO_SCORE.hg;target.ag=SCENARIO_SCORE.ag;
+  SCENARIOS.forEach(s=>{const target=sim.find(x=>x.id===+s.matchId);if(target){target.hg=s.hg;target.ag=s.ag}});
+  const target=sim.find(x=>x.id===+SCENARIOS[0].matchId);
+  if(!target)return null;
   const standings=ANNEX_C_ENGINE.calculate(sim),thirdRanking=THIRD_PLACE_ENGINE.ranking(standings),thirdMap=THIRD_PLACE_ENGINE.assign(standings),bracket=BRACKET_ENGINE.r32(standings);
-  return{standings,thirdRanking,thirdMap,bracket,match:target};
+  return{standings,thirdRanking,thirdMap,bracket,match:target,scenarios:SCENARIOS.map(scenarioMatchWithScore).filter(Boolean)};
 }
 function isLocalCreator(){
   return ['localhost','127.0.0.1','::1'].includes(location.hostname);
@@ -399,12 +453,13 @@ function qwenTeamStatus(team,st,br){
   };
 }
 function localQwenPayload(pack){
-  const group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],snap=STRATEGY_ENGINE.snapshot(target.value,pack.standings,pack.bracket);
+  const selectedTeam=primaryScenarioTeam(),group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],snap=STRATEGY_ENGINE.snapshot(selectedTeam,pack.standings,pack.bracket);
   const contextEl=document.getElementById('aiContext');
   return{
-    selectedTeam:target.value,
-    match:{group,home:pack.match.h,away:pack.match.a,date:pack.match.date,hypotheticalScore:SCENARIO_SCORE,notYetPlayed:!isPlayed(currentScenarioMatch())},
-    selectedTeamStatus:{actual:qwenTeamStatus(target.value,STATE.standings,STATE.bracket),scenario:qwenTeamStatus(target.value,pack.standings,pack.bracket)},
+    selectedTeam,
+    match:{group,home:pack.match.h,away:pack.match.a,date:pack.match.date,hypotheticalScore:{hg:SCENARIOS[0]?.hg??0,ag:SCENARIOS[0]?.ag??0},notYetPlayed:!isPlayed(currentScenarioMatch(0))},
+    scenarioMatches:pack.scenarios.map(m=>({group:m.g,home:m.h,away:m.a,date:m.date,hypotheticalScore:{hg:m.hg,ag:m.ag},notYetPlayed:!isPlayed(MATCHES.find(x=>x.id===m.id))})),
+    selectedTeamStatus:{actual:qwenTeamStatus(selectedTeam,STATE.standings,STATE.bracket),scenario:qwenTeamStatus(selectedTeam,pack.standings,pack.bracket)},
     actualFocusGroups:Object.fromEntries(groups.map(g=>[g,compactGroupRows(STATE.standings,g)])),
     scenarioFocusGroups:Object.fromEntries(groups.map(g=>[g,compactGroupRows(pack.standings,g)])),
     actualBestThird:STATE.thirdRanking.map((x,i)=>({rank:i+1,seed:x.seed,team:x.team,points:x.Pts,goalDiff:x.GD,goalsFor:x.GF,status:i<8?'暫列前8':'暫列後4'})),
@@ -423,6 +478,7 @@ function localQwenPrompt(payload){
 - match.hypotheticalScore 是沙盤假設比分，不是已完賽結果。
 - actualFocusGroups / actualBestThird 才是目前實際積分。
 - scenarioFocusGroups / scenarioBestThird 只能用來分析「如果這個比分發生」的影響，不能當成目前已發生的積分。
+- scenarioMatches 是多場同步沙盤；分析策略時要把所有假設比分一起考慮，不要只看第一場。
 - 若 match.notYetPlayed 為 true，不可以把這場 hypotheticalScore 算成已發生賽果，只能分析策略影響。
 - 2026 世界盃小組前兩名直接晉級；最佳第三名只適用於「小組第三名」。
 - 若 selectedTeamStatus.scenario.groupRank 是 1 或 2，不要說這隊要爭取最佳第三名；請改談保住前二、種子順位、32強對手與路線強度。
@@ -442,7 +498,7 @@ ${JSON.stringify(payload,null,2)}`;
 }
 function researchQueryUrl(pack){
   const endpoint=(document.getElementById('researchEndpoint')?.value||'http://127.0.0.1:8777/api/research').trim();
-  const params=new URLSearchParams({home:pack.match.h,away:pack.match.a,selected:target.value,date:pack.match.date||''});
+  const params=new URLSearchParams({home:pack.match.h,away:pack.match.a,selected:primaryScenarioTeam(),date:pack.match.date||''});
   return `${endpoint}${endpoint.includes('?')?'&':'?'}${params.toString()}`;
 }
 async function fetchLocalResearch(pack){
@@ -520,9 +576,13 @@ function impactCard(x){
   return `<div class=impactCard><h4><span class=${tone.cls}>${tone.icon} ${x.team}</span><span class="chip ${tone.cls}">${tone.label}</span></h4><div>${deltaChip('排名',x.before.rank||0,x.after.rank||0,true)} ${deltaChip('積分',br.Pts??0,ar.Pts??0)} ${deltaChip('淨勝球',br.GD??0,ar.GD??0)} ${seedChip(x.before.seed,x.after.seed)} ${third}</div><div class=muted>${routeSummary(x.after)}</div></div>`;
 }
 function tieRiskRows(pack){
-  const m=pack.match,rows=pack.standings[m.g],groups={};
-  rows.forEach(x=>{groups[x.Pts]=groups[x.Pts]||[];groups[x.Pts].push(x)});
-  return Object.values(groups).filter(xs=>xs.length>1).map(xs=>`<span class="chip warn">${m.g}組同積分 ${xs[0].Pts}：${xs.map(x=>`${x.team} 淨勝球 ${x.GD}`).join(' / ')}</span>`).join('')||'<span class=chip>目前無同積分群組</span>';
+  const scenarioGroups=[...new Set((pack.scenarios||[pack.match]).map(m=>m.g))],chips=[];
+  scenarioGroups.forEach(g=>{
+    const byPts={},rows=pack.standings[g]||[];
+    rows.forEach(x=>{byPts[x.Pts]=byPts[x.Pts]||[];byPts[x.Pts].push(x)});
+    Object.values(byPts).filter(xs=>xs.length>1).forEach(xs=>chips.push(`<span class="chip warn">${g}組同積分 ${xs[0].Pts}：${xs.map(x=>`${x.team} 淨勝球 ${x.GD}`).join(' / ')}</span>`));
+  });
+  return chips.join('')||'<span class=chip>目前無同積分群組</span>';
 }
 function fixedSeedGroup(seed){return seed&&seed!=='3'?seed[0]:null}
 function pairedGroupsForGroup(group){
@@ -585,7 +645,7 @@ function pairingLinesForGroups(st,groups,match){
   });
 }
 function groupDuelAnalysis(pack){
-  const group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],focus=new Set([pack.match.h,pack.match.a,target.value]);
+  const group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],focus=new Set([primaryScenarioTeam(),...pack.scenarios.flatMap(m=>[m.h,m.a])]);
   const panels=groups.map(g=>groupStatCard(g,rankedGroupRows(pack.standings,g),focus,pack.match,rankedGroupRows(STATE.standings,g)));
   const lines=pairingLinesForGroups(pack.standings,groups,pack.match);
   const bridge=`<div class=duelPanel>${(lines.length?lines:[`<div class=duelLine><span class=duelMatchId>${group}組</span><div class=muted>目前沒有固定配對小組</div></div>`]).join('')}</div>`;
@@ -594,14 +654,15 @@ function groupDuelAnalysis(pack){
 function runScenarioImpact(){
   if(!STATE||!scenarioImpact)return;
   const pack=simulateScenarioState();if(!pack){scenarioImpact.innerHTML='';return}
-  const m=pack.match,teams=Object.values(GROUPS).flat(),focus=new Set([m.h,m.a,target.value]);
+  const m=pack.match,teams=Object.values(GROUPS).flat(),focus=new Set([primaryScenarioTeam(),...pack.scenarios.flatMap(x=>[x.h,x.a])]);
   const impacts=teams.map(t=>impactForTeam(t,pack)).filter(x=>x.score>0||focus.has(x.team)).sort((a,b)=>(focus.has(b.team)-focus.has(a.team))||b.score-a.score).slice(0,12);
-  const selected=impactForTeam(target.value,pack);
+  const selected=impactForTeam(primaryScenarioTeam(),pack);
   const phase=currentTournamentPhase();
   const mode=phase==='group'?'小組賽分析':selected.after.qualified?'32強分析':'淘汰賽分析';
   const strategy=phase==='group'?groupDuelAnalysis(pack):`<div class=impactGrid>${impacts.map(impactCard).join('')}</div>`;
   const thirdCard=`<div class=card><h3>最佳第三名</h3><div class=muted>依上方沙盤比分即時重算，尚未完賽不代表確定晉級。</div>${thirdRankingTable(pack.thirdRanking)}</div>`;
-  scenarioImpact.innerHTML=`<div class=card><h3>${mode}</h3><div class=routeCard><b>${m.h} ${SCENARIO_SCORE.hg}:${SCENARIO_SCORE.ag} ${m.a}</b></div><div>${tieRiskRows(pack)}</div></div>${strategy}${thirdCard}`;
+  const summary=pack.scenarios.map(x=>`<div class=routeCard><b>${teamDisplay(x.h)} ${x.hg}:${x.ag} ${teamDisplay(x.a)}</b></div>`).join('');
+  scenarioImpact.innerHTML=`<div class=card><h3>${mode}</h3>${summary}<div>${tieRiskRows(pack)}</div></div>${strategy}${thirdCard}`;
 }
 function recalculate(){
   saveInputs();
