@@ -83,7 +83,7 @@
       <label>比賽 <select id="targetMatch" onchange="loadScenarioMatch()"></select></label>
     </div>
     <div id="scoreControl" class="card"></div>
-    <div class="card aiPanel">
+    <div class="card aiPanel" id="creatorAiPanel" hidden>
       <h3>策略分析(僅限建立者)</h3>
       <div class="toolbar aiControls">
         <label>Ollama 端點 <input id="ollamaEndpoint" value="http://localhost:11434/api/chat"></label>
@@ -355,16 +355,24 @@ function simulateScenarioState(){
   const standings=ANNEX_C_ENGINE.calculate(sim),thirdRanking=THIRD_PLACE_ENGINE.ranking(standings),thirdMap=THIRD_PLACE_ENGINE.assign(standings),bracket=BRACKET_ENGINE.r32(standings);
   return{standings,thirdRanking,thirdMap,bracket,match:target};
 }
+function isLocalCreator(){
+  return ['localhost','127.0.0.1','::1'].includes(location.hostname);
+}
 function escapeHtml(text){return String(text??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function compactGroupRows(st,group){
+  return rankedGroupRows(st,group).map(x=>({rank:x.rank,team:x.team,points:x.Pts,wins:x.W,losses:x.L,draws:x.D,goalsFor:x.GF,goalsAgainst:x.GA,goalDiff:x.GD,seed:x.seed}));
+}
 function localQwenPayload(pack){
   const group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],snap=STRATEGY_ENGINE.snapshot(target.value,pack.standings,pack.bracket);
   const contextEl=document.getElementById('aiContext');
   return{
     selectedTeam:target.value,
-    match:{group,home:pack.match.h,away:pack.match.a,date:pack.match.date,score:SCENARIO_SCORE},
-    focusGroups:Object.fromEntries(groups.map(g=>[g,rankedGroupRows(pack.standings,g).map(x=>({rank:x.rank,team:x.team,points:x.Pts,wins:x.W,losses:x.L,draws:x.D,goalsFor:x.GF,goalsAgainst:x.GA,goalDiff:x.GD,seed:x.seed}))])),
-    bestThird:pack.thirdRanking.map((x,i)=>({rank:i+1,seed:x.seed,team:x.team,points:x.Pts,goalDiff:x.GD,goalsFor:x.GF,status:i<8?'暫列前8':'暫列後4'})),
-    route:snap.path?{match:snap.path.match.id,self:snap.path.self.seed,opponentSeed:snap.path.opp.seed,opponent:snap.path.opp.team,routeStrength:snap.route}:null,
+    match:{group,home:pack.match.h,away:pack.match.a,date:pack.match.date,hypotheticalScore:SCENARIO_SCORE,notYetPlayed:!isPlayed(currentScenarioMatch())},
+    actualFocusGroups:Object.fromEntries(groups.map(g=>[g,compactGroupRows(STATE.standings,g)])),
+    scenarioFocusGroups:Object.fromEntries(groups.map(g=>[g,compactGroupRows(pack.standings,g)])),
+    actualBestThird:STATE.thirdRanking.map((x,i)=>({rank:i+1,seed:x.seed,team:x.team,points:x.Pts,goalDiff:x.GD,goalsFor:x.GF,status:i<8?'暫列前8':'暫列後4'})),
+    scenarioBestThird:pack.thirdRanking.map((x,i)=>({rank:i+1,seed:x.seed,team:x.team,points:x.Pts,goalDiff:x.GD,goalsFor:x.GF,status:i<8?'暫列前8':'暫列後4'})),
+    scenarioRoute:snap.path?{match:snap.path.match.id,self:snap.path.self.seed,opponentSeed:snap.path.opp.seed,opponent:snap.path.opp.team,routeStrength:snap.route}:null,
     extraContext:(contextEl?.value||'').trim()
   };
 }
@@ -374,6 +382,9 @@ function localQwenPrompt(payload){
 限制：
 - 你無法即時上網，若有新聞、傷兵、教練發言，只能使用 extraContext。
 - 不要宣稱已查到即時新聞。
+- match.hypotheticalScore 是沙盤假設比分，不是已完賽結果。
+- actualFocusGroups / actualBestThird 才是目前實際積分。
+- scenarioFocusGroups / scenarioBestThird 只能用來分析「如果這個比分發生」的影響，不能當成目前已發生的積分。
 - 回答請用繁體中文。
 
 請輸出：
@@ -389,6 +400,7 @@ ${JSON.stringify(payload,null,2)}`;
 }
 async function analyzeWithLocalQwen(){
   const pack=simulateScenarioState(),box=document.getElementById('aiStrategyResult');
+  if(!isLocalCreator())return;
   if(!pack||!box)return;
   const endpointEl=document.getElementById('ollamaEndpoint'),modelEl=document.getElementById('ollamaModel');
   const endpoint=(endpointEl?.value||'http://localhost:11434/api/chat').trim(),model=normalizeLocalModel(modelEl?.value);
@@ -402,7 +414,7 @@ async function analyzeWithLocalQwen(){
     box.className='routeCard aiResult';box.innerHTML=escapeHtml(content);
   }catch(err){
     box.className='routeCard aiResult bad';
-    box.innerHTML=`連不到本機 Qwen。請確認：\n1. Ollama 正在執行：http://localhost:11434/api/tags\n2. 模型已存在：ollama pull ${escapeHtml(model)}\n3. 如果你在 GitHub Pages 上使用，Ollama 必須允許來源：https://janjanpower.github.io\n4. 設定後要完整重啟 Ollama\n\nWindows 可用：\nsetx OLLAMA_ORIGINS \"http://localhost:8765,https://janjanpower.github.io\"\n\n錯誤：${escapeHtml(err.message)}`;
+    box.innerHTML=`連不到本機 Qwen。請確認：\n1. 請用本機網址開啟：http://localhost:8765/worldcup-dashboard-v2/index.html\n2. Ollama 正在執行：http://localhost:11434/api/tags\n3. 模型已存在：ollama pull ${escapeHtml(model)}\n4. 如果被 CORS 擋住，請完整重啟 Ollama 後再試\n\n錯誤：${escapeHtml(err.message)}`;
   }
 }
 function thirdIndex(st,team){return THIRD_PLACE_ENGINE.ranking(st).findIndex(x=>x.team===team)}
@@ -531,6 +543,11 @@ function normalizeLocalModel(model){
 }
 async function init(){
   try{const res=await fetch('data/matches.json',{cache:'no-store'});if(res.ok)mergeScores(await res.json());else mergeScores({matches:[]})}catch(_){mergeScores({matches:[]})}
+  const aiPanel=document.getElementById('creatorAiPanel');
+  if(aiPanel){
+    if(isLocalCreator())aiPanel.hidden=false;
+    else aiPanel.remove();
+  }
   const endpointEl=document.getElementById('ollamaEndpoint'),modelEl=document.getElementById('ollamaModel');
   if(endpointEl&&localStorage.getItem('ollamaEndpoint'))endpointEl.value=localStorage.getItem('ollamaEndpoint');
   if(modelEl){modelEl.value=normalizeLocalModel(localStorage.getItem('ollamaModel')||modelEl.value);localStorage.setItem('ollamaModel',modelEl.value)}
