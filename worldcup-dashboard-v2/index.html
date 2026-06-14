@@ -167,13 +167,9 @@ function liveElapsedInfo(m){
     return{period,minute:minute<=45?minute:Math.min(90,minute),added,source:'api'};
   }
   if(m.status==='PAUSED')return{period:'中場',minute:45,added:0,source:'status'};
+  if(['IN_PLAY','LIVE'].includes(m.status))return{period:'LIVE',minute:null,added:0,source:'status'};
   const start=matchStart(m);if(!start)return null;
-  const elapsed=Math.max(1,Math.floor((Date.now()-start.getTime())/60000)+1);
-  if(elapsed<=45)return{period:'上半',minute:elapsed,added:0};
-  if(elapsed<=60)return{period:'上半',minute:45,added:elapsed-45};
-  const second=Math.min(90,Math.max(46,elapsed-15));
-  if(elapsed<=105)return{period:'下半',minute:second,added:0};
-  return{period:'下半',minute:90,added:elapsed-105};
+  return{period:'LIVE',minute:null,added:0,source:'fallback'};
 }
 function liveHalfScoreText(m){
   if(!isLive(m))return '';
@@ -184,6 +180,7 @@ function liveClockText(m){
   const info=liveElapsedInfo(m);if(!info)return '';
   if(info.period==='上半')return info.added?`45+${info.added}′`:`${info.minute}′`;
   if(info.period==='中場')return '中場';
+  if(info.period==='LIVE')return 'LIVE';
   return info.added?`${info.period}加時 +${info.added}′`:`${info.period} ${info.minute}′`;
 }
 function liveInfoBadges(m){

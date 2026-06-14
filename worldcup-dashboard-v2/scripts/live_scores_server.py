@@ -11,6 +11,7 @@ import json
 import os
 import pathlib
 import sys
+import unicodedata
 import urllib.request
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -21,6 +22,25 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "matches.json"
 API_URL = os.getenv("FOOTBALL_DATA_URL", "https://api.football-data.org/v4/competitions/WC/matches")
 TEAMS_API_URL = os.getenv("FOOTBALL_DATA_TEAMS_URL", "https://api.football-data.org/v4/competitions/WC/teams")
+API_FOOTBALL_LIVE_URL = os.getenv("API_FOOTBALL_LIVE_URL", "https://v3.football.api-sports.io/fixtures?live=all")
+LIVE_STATUSES = {"1H", "HT", "2H", "ET", "BT", "P", "LIVE"}
+API_FOOTBALL_STATUS_MAP = {
+    "1H": "IN_PLAY",
+    "HT": "PAUSED",
+    "2H": "IN_PLAY",
+    "ET": "IN_PLAY",
+    "BT": "PAUSED",
+    "P": "PAUSED",
+    "LIVE": "IN_PLAY",
+    "FT": "FINISHED",
+    "AET": "FINISHED",
+    "PEN": "FINISHED",
+    "NS": "SCHEDULED",
+    "TBD": "SCHEDULED",
+    "PST": "POSTPONED",
+    "CANC": "CANCELLED",
+    "ABD": "SUSPENDED",
+}
 
 
 def load_current() -> dict:
@@ -33,6 +53,22 @@ def fetch_json(url: str, token: str) -> dict:
     req = urllib.request.Request(url, headers={"X-Auth-Token": token})
     with urllib.request.urlopen(req, timeout=20) as res:
         return json.loads(res.read().decode("utf-8"))
+
+
+def fetch_api_football_json(url: str, token: str) -> dict:
+    req = urllib.request.Request(url, headers={"x-apisports-key": token})
+    with urllib.request.urlopen(req, timeout=20) as res:
+        return json.loads(res.read().decode("utf-8"))
+
+
+def norm_team(name: str | None) -> str:
+    text = unicodedata.normalize("NFKD", name or "")
+    text = "".join(ch for ch in text if not unicodedata.combining(ch))
+    return "".join(ch.lower() for ch in text if ch.isalnum())
+
+
+def score_value(value: object) -> int | None:
+    return value if isinstance(value, int) else None
 
 
 def normalize_matches(raw: dict, current: dict) -> dict:
@@ -78,6 +114,67 @@ def normalize_matches(raw: dict, current: dict) -> dict:
     }
 
 
+def api_football_match_patch(fixture: dict) -> dict | None:
+    teams = fixture.get("teams") or {}
+    home = (teams.get("home") or {}).get("name")
+    away = (teams.get("away") or {}).get("name")
+    if not home or not away:
+        return None
+    status = ((fixture.get("fixture") or {}).get("status") or {})
+    short = status.get("short") or ""
+    goals = fixture.get("goals") or {}
+    score = fixture.get("score") or {}
+    halftime = score.get("halftime") or {}
+    return {
+        "home": home,
+        "away": away,
+        "status": API_FOOTBALL_STATUS_MAP.get(short, short or "IN_PLAY"),
+        "home_score": score_value(goals.get("home")),
+        "away_score": score_value(goals.get("away")),
+        "home_half_score": score_value(halftime.get("home")),
+        "away_half_score": score_value(halftime.get("away")),
+        "minute": status.get("elapsed"),
+        "added_time": status.get("extra"),
+        "api_football_status": short,
+    }
+
+
+def merge_api_football_live(payload: dict, token: str) -> dict:
+    if not token:
+        return payload
+    raw = fetch_api_football_json(API_FOOTBALL_LIVE_URL, token)
+    patches = [
+        patch
+        for patch in (api_football_match_patch(row) for row in raw.get("response", []))
+        if patch and patch.get("api_football_status") in LIVE_STATUSES
+    ]
+    by_pair = {(norm_team(m.get("home")), norm_team(m.get("away"))): m for m in payload.get("matches", [])}
+    applied = 0
+    for patch in patches:
+        match = by_pair.get((norm_team(patch["home"]), norm_team(patch["away"])))
+        if not match:
+            match = by_pair.get((norm_team(patch["away"]), norm_team(patch["home"])))
+            if not match:
+                continue
+            patch = {
+                **patch,
+                "home_score": patch.get("away_score"),
+                "away_score": patch.get("home_score"),
+                "home_half_score": patch.get("away_half_score"),
+                "away_half_score": patch.get("home_half_score"),
+            }
+        for key in ("home_score", "away_score", "home_half_score", "away_half_score", "minute", "added_time"):
+            if patch.get(key) is not None:
+                match[key] = patch[key]
+        match["status"] = patch.get("status") or match.get("status")
+        match["api_football_status"] = patch.get("api_football_status")
+        applied += 1
+    payload["updated_at"] = datetime.now(timezone.utc).isoformat()
+    payload["source"] = f"{payload.get('source', 'seed')} + API-Football live"
+    payload["api_football_live_matches"] = applied
+    return payload
+
+
 def normalize_teams(raw: dict, current: dict) -> list[dict]:
     teams = []
     for team in raw.get("teams", []):
@@ -97,15 +194,26 @@ def normalize_teams(raw: dict, current: dict) -> list[dict]:
 
 def live_payload() -> dict:
     token = os.getenv("FOOTBALL_DATA_TOKEN", "").strip()
-    if not token:
-        raise RuntimeError("FOOTBALL_DATA_TOKEN is not set")
+    api_football_token = os.getenv("API_FOOTBALL_KEY", "").strip()
+    if not token and not api_football_token:
+        raise RuntimeError("FOOTBALL_DATA_TOKEN or API_FOOTBALL_KEY is not set")
     current = load_current()
-    payload = normalize_matches(fetch_json(API_URL, token), current)
-    try:
-        payload["teams"] = normalize_teams(fetch_json(TEAMS_API_URL, token), current)
-    except Exception as exc:
-        payload["teams"] = current.get("teams", [])
-        payload["teams_error"] = str(exc)
+    if token:
+        payload = normalize_matches(fetch_json(API_URL, token), current)
+        try:
+            payload["teams"] = normalize_teams(fetch_json(TEAMS_API_URL, token), current)
+        except Exception as exc:
+            payload["teams"] = current.get("teams", [])
+            payload["teams_error"] = str(exc)
+    else:
+        payload = {
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "source": "local seed",
+            "matches": current.get("matches", []),
+            "teams": current.get("teams", []),
+        }
+    if api_football_token:
+        payload = merge_api_football_live(payload, api_football_token)
     return payload
 
 
