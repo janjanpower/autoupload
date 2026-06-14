@@ -962,7 +962,11 @@ function reverseSolutionLine(solution){
 }
 function applyReverseCombo(index){
   const combo=REVERSE_COMBOS[index];if(!combo)return;
-  combo.edits.forEach(edit=>{
+  const applyGroup=teamGroup(primaryScenarioTeam())||currentScenarioMatch(0)?.g;
+  combo.edits.filter(edit=>{
+    const match=MATCHES.find(x=>x.id===edit.id);
+    return match&&match.g===applyGroup;
+  }).forEach(edit=>{
     const match=MATCHES.find(x=>x.id===edit.id);if(!match)return;
     const existing=SCENARIOS.find(s=>+s.matchId===match.id);
     if(existing){
@@ -989,7 +993,7 @@ function reverseResultsCard(results,combos){
   const body=combos.length
     ? combos.map(reverseComboCard).join('')
     : `<div class="routeCard bad">${failed||'合理比分池內'}沒有找到可行組合；可能需要極端比分，或其他未列入沙盤的小組結果也一起改變。</div>`;
-  return `<div class=card><h3>反推比分組合</h3>${summaries}<div class=muted>點選任一組合可帶入上方同步沙盤比分。</div>${body}</div>`;
+  return `<div class=card><h3>反推比分組合</h3>${summaries}<div class=muted>點選任一組合只會帶入目前選擇隊伍小組的比分。</div>${body}</div>`;
 }
 function reverseScenarioScores(){
   const pack=simulateScenarioState();if(!pack)return;
