@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-14T22:52:03.532041+00:00",
+  "updated_at": "2026-06-14T23:56:49.226504+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -110,7 +110,7 @@
       "away": "Ecuador",
       "home_score": null,
       "away_score": null,
-      "status": "TIMED"
+      "status": "SCHEDULED"
     },
     {
       "id": 12,
