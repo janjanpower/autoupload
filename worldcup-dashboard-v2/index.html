@@ -16,7 +16,7 @@
     .panel.on{display:block}.card{background:#07101e;border:1px solid #26364f;border-radius:14px;padding:12px;margin:10px 0}
     table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}th,td{border-bottom:1px solid #26364f;padding:8px;text-align:center}
     th{background:#0f172a;color:#cbd5e1}.team{text-align:center}input,select{background:#111827;color:#fff;border:1px solid #334155;border-radius:6px;padding:6px}.score{width:54px;text-align:center}
-    .done{background:#14532d;color:#bbf7d0}.live{background:#1e3a8a;color:#bfdbfe}.todo{background:#3b2f0b;color:#fde68a}
+    .done{background:#14532d;color:#bbf7d0}.live{background:#1e3a8a;color:#bfdbfe}.todo{background:#3b2f0b;color:#fde68a}.up{color:#bef264}.down{color:#fecaca}.flat{color:#cbd5e1}
     .pill{display:inline-block;border-radius:999px;padding:3px 8px;font-size:12px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .r1{background:rgba(22,163,74,.24)}.r2{background:rgba(37,99,235,.24)}.r3{background:rgba(202,138,4,.22)}.r4{background:rgba(71,85,105,.22)}
     .standingRow{cursor:pointer}.standingDetail{display:none;background:#020617;color:#cbd5e1}.standingDetail.on{display:table-row}.detailBox{text-align:left;line-height:1.65;padding:10px}
@@ -28,9 +28,10 @@
     .nodeTitle{display:flex;justify-content:space-between;color:#94a3b8;font-size:10px;margin-bottom:4px}.nTeam{height:26px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:5px;align-items:center;background:#172033;border:1px solid #30405f;border-radius:7px;margin:4px 0;padding:0 5px;font-size:11px}
     .nSeed{font-weight:900}.teamName{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.champ{background:linear-gradient(180deg,#fff0a3,#f59e0b);color:#111;border:0}.champ .nTeam{background:rgba(255,255,255,.7);color:#111;border-color:#b45309;grid-template-columns:1fr}
     .scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.scenario{background:#0f172a;border:1px solid #344054;border-radius:14px;padding:12px}.bar{height:8px;background:#1e293b;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:#60a5fa}.prob{display:grid;grid-template-columns:1fr 52px;gap:8px;margin:6px 0}
-    .chain{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:start;border-top:1px solid #26364f;padding:8px 0}.mini{font-size:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi b{font-size:22px}.nextCard{display:grid;gap:8px}.nextRow{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;align-items:start;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px}.nextRow span{min-width:0;overflow:hidden;text-overflow:ellipsis}
-    @media(max-width:1100px){.grid,.bracket,.two,.scenarios,.kpi{grid-template-columns:1fr}.roundView{overflow-x:auto;padding-bottom:8px}.treeStage{width:1180px;height:820px;min-height:820px}.node{min-width:104px;width:11.8%}.nTeam{grid-template-columns:34px minmax(0,1fr);font-size:10px}}
-    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px 18px}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px;border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table{min-width:0}th,td{padding:7px 5px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.kpi b{font-size:18px}.treeStage{width:1120px}.node{min-width:100px}.badge{font-size:11px}}
+    .matchList{display:grid;gap:7px}.matchRow{display:grid;grid-template-columns:54px 36px minmax(86px,1fr) 112px minmax(86px,1fr) 74px;gap:6px;align-items:center;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:7px}.matchRow .teamName{text-align:center}.inlineScore{display:grid;grid-template-columns:1fr 12px 1fr;gap:3px;align-items:center}.inlineScore input{width:44px;text-align:center;padding:5px}
+    .stepper{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:center}.scoreBox{display:grid;grid-template-columns:34px 42px 34px;gap:6px;align-items:center;justify-content:center}.scoreBox button{padding:7px 0;border-radius:10px}.scoreNum{font-size:28px;font-weight:900;text-align:center}.vs{color:#94a3b8;font-weight:900}.quickScores{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.impactGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.impactCard{background:#0f172a;border:1px solid #344054;border-radius:12px;padding:10px}.impactCard h4{margin:0 0 8px;display:flex;justify-content:space-between;gap:8px}.chip{display:inline-block;border-radius:999px;padding:3px 7px;margin:2px;background:#111827;border:1px solid #344054;font-size:12px}.chip.good{border-color:#4ade80}.chip.bad{border-color:#fca5a5}.chip.warn{border-color:#fde68a}.routeCard{background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px;margin:7px 0}.routeCard .line{grid-template-columns:60px minmax(0,1fr)}.chain{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:start;border-top:1px solid #26364f;padding:8px 0}.mini{font-size:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi b{font-size:22px}.nextCard{display:grid;gap:8px}.nextRow{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;align-items:start;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px}.nextRow span{min-width:0;overflow:hidden;text-overflow:ellipsis}
+    @media(max-width:1100px){.grid,.bracket,.two,.scenarios,.kpi,.impactGrid{grid-template-columns:1fr}.roundView{overflow-x:auto;padding-bottom:8px}.treeStage{width:1180px;height:820px;min-height:820px}.node{min-width:104px;width:11.8%}.nTeam{grid-template-columns:34px minmax(0,1fr);font-size:10px}}
+    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px 18px}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px;border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table{min-width:0}th,td{padding:7px 5px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.kpi b{font-size:18px}.treeStage{width:1120px}.node{min-width:100px}.badge,.chip{font-size:11px}.matchRow{grid-template-columns:38px 26px minmax(64px,1fr) 78px minmax(64px,1fr) 52px;font-size:11px;padding:6px;gap:4px}.inlineScore{grid-template-columns:1fr 8px 1fr}.inlineScore input{width:31px;padding:4px}.stepper{grid-template-columns:1fr}.scoreNum{font-size:24px}}
   </style>
 </head>
 <body>
@@ -51,7 +52,6 @@
     <div class="card toolbar">
       <button onclick="clearFuture()">清除未開賽預測比分</button>
       <button onclick="recalculate()">重新計算</button>
-      <span id="dataMeta" class="muted"></span>
     </div>
     <div id="scoreBoard"></div>
   </section>
@@ -81,18 +81,12 @@
 
   <section id="sandbox" class="panel">
     <div class="card toolbar">
-      <label>隊伍 <select id="target" onchange="loadTeamMatches();runMonteCarlo()"></select></label>
-      <label>比賽 <select id="targetMatch"></select></label>
-      <label>Monte Carlo <input id="mcRuns" class="score" value="400" min="80" max="1200" type="number"></label>
-      <button onclick="runMatrix()">產生比分矩陣建議</button>
-      <button onclick="runMonteCarlo()">重跑對手機率</button>
+      <label>隊伍 <select id="target" onchange="loadTeamMatches()"></select></label>
+      <label>比賽 <select id="targetMatch" onchange="loadScenarioMatch()"></select></label>
     </div>
+    <div id="scoreControl" class="card"></div>
     <div id="targetSnapshot" class="kpi"></div>
-    <div class="two">
-      <div id="monteCarlo" class="card"></div>
-      <div id="strategySummary" class="card"></div>
-    </div>
-    <div id="matrix"></div>
+    <div id="scenarioImpact"></div>
   </section>
 
 </div>
@@ -110,7 +104,7 @@ const THIRD_RULE={M74:['A','B','C','D','F'],M77:['C','D','F','G','H'],M79:['C','
 const R16_TEMPLATE=[['M89','M73','M75'],['M90','M74','M77'],['M91','M76','M78'],['M92','M79','M80'],['M93','M83','M84'],['M94','M81','M82'],['M95','M86','M88'],['M96','M85','M87']];
 const QF_TEMPLATE=[['M97','M89','M90'],['M98','M93','M94'],['M99','M91','M92'],['M100','M95','M96']];
 const TREE_FINAL_TEMPLATE=[['M101','M97','M98'],['M102','M99','M100'],['FINAL','M101','M102']];
-let MATCHES=SEED.map(x=>({...x})),STATE=null,DATA_META='seed data',SELECTED_THIRD_TEAM='';
+let MATCHES=SEED.map(x=>({...x})),STATE=null,SELECTED_THIRD_TEAM='',SCENARIO_SCORE={hg:0,ag:0};
 
 function tab(id,b){document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));document.getElementById(id).classList.add('on');b.classList.add('on');recalculate()}
 function round(id,b){document.querySelectorAll('.round').forEach(x=>x.style.display='none');document.querySelectorAll('.subtab').forEach(x=>x.classList.remove('on'));document.getElementById(id).style.display='block';b.classList.add('on')}
@@ -135,7 +129,6 @@ function mergeScores(payload){
     const status=remote.status||seed.status;
     return {...seed,hg:hg??null,ag:ag??null,status,done:['FINISHED','AWARDED'].includes(status)};
   });
-  DATA_META=`資料來源：${payload.source||'seed'}｜更新：${payload.updated_at||'尚未更新'}`;
 }
 
 const ANNEX_C_ENGINE={
@@ -216,8 +209,7 @@ const STRATEGY_ENGINE={
 
 function drawScores(){
   const dates=[...new Set(MATCHES.map(x=>x.date))];
-  scoreBoard.innerHTML=dates.map(dt=>`<div class=card><h3>${d(dt)} 賽程</h3><table><thead><tr><th>日期</th><th>組</th><th>主隊</th><th>主分</th><th>客分</th><th>客隊</th><th>狀態</th></tr></thead><tbody>${MATCHES.filter(x=>x.date===dt).map(m=>`<tr><td>${d(m.date)}</td><td>${m.g}</td><td class=team>${m.h}</td><td><input class=score id=h${m.id} value='${m.hg??''}' ${m.done?'disabled':''} onchange='saveInputs();recalculate()'></td><td><input class=score id=a${m.id} value='${m.ag??''}' ${m.done?'disabled':''} onchange='saveInputs();recalculate()'></td><td class=team>${m.a}</td><td><span class='pill ${statusClass(m)}'>${statusText(m)}</span></td></tr>`).join('')}</tbody></table></div>`).join('');
-  dataMeta.textContent=DATA_META;
+  scoreBoard.innerHTML=dates.map(dt=>`<div class=card><h3>${d(dt)} 賽程</h3><div class=matchList>${MATCHES.filter(x=>x.date===dt).map(m=>`<div class=matchRow><b>${d(m.date)}</b><span>${m.g}</span><span class=teamName>${m.h}</span><span class=inlineScore><input id=h${m.id} value='${m.hg??''}' ${m.done?'disabled':''} onchange='saveInputs();recalculate()'><b>:</b><input id=a${m.id} value='${m.ag??''}' ${m.done?'disabled':''} onchange='saveInputs();recalculate()'></span><span class=teamName>${m.a}</span><span class='pill ${statusClass(m)}'>${statusText(m)}</span></div>`).join('')}</div></div>`).join('');
 }
 function drawStandings(){
   standingBoard.innerHTML=Object.keys(STATE.standings).map(g=>`<div class=card><h3>${g}組</h3><table><thead><tr><th>名</th><th>隊伍</th><th>局</th><th>積分</th><th>淨勝球</th></tr></thead><tbody>${STATE.standings[g].map((x,i)=>`<tr class="r${i+1} standingRow" onclick="toggleStandingDetail('${g}${i}')"><td>${i+1}</td><td>${x.team}${x.rankNote?' <span class=warn>*</span>':''}</td><td>${x.P}</td><td><b>${x.Pts}</b></td><td>${x.GD}</td></tr><tr id="standingDetail${g}${i}" class=standingDetail><td colspan=5><div class=detailBox>進球 ${x.GF}｜失球 ${x.GA}｜淨勝球 ${x.GD}</div></td></tr>`).join('')}</tbody></table></div>`).join('');
@@ -240,9 +232,9 @@ function drawThirdTeamPanel(team){
   if(!STATE||!thirdAssign)return;
   const snap=STRATEGY_ENGINE.snapshot(team,STATE.standings,STATE.bracket),third=STATE.thirdRanking.find(x=>x.team===team),groupRow=snap.row;
   const current=groupRow?`${snap.group}組第${snap.rank}｜${groupRow.Pts}分｜淨勝球 ${groupRow.GD}｜進球 ${groupRow.GF}`:'目前沒有排名資料';
-  const route=snap.path?`${snap.path.match.id}｜${snap.path.self.seed} vs ${snap.path.opp.seed} ${snap.path.opp.team}`:'目前推算未進32強';
   const provisional=third?`第三名排序：${STATE.thirdRanking.findIndex(x=>x.team===team)+1}｜${STATE.thirdRanking.findIndex(x=>x.team===team)<8?'暫列前8':'暫列後4'}`:'非第三名，目前依小組排名推算路線';
-  thirdAssign.innerHTML=`<div class=nextCard><div class=nextRow><b>${team}</b><span>${current}<br><span class=muted>${provisional}</span></span></div>${sharedScheduleCard('下一場',nextGroupMatch(team))}<div class=nextRow><b>可能對手</b><span>${route}<br><span class=muted>依目前比分即時計算，尚未完賽不代表確定晉級。</span></span></div></div>`;
+  const card=snap.path?`<div class=routeCard><b>${snap.path.match.id}</b><div class=line><span class=seed>${snap.path.self.seed}</span><span>${team}</span></div><div class=line><span class=seed>${snap.path.opp.seed}</span><span>${snap.path.opp.team}</span></div></div>`:`<div class=routeCard><b>暫列淘汰區</b><div class=muted>目前推算未進32強</div></div>`;
+  thirdAssign.innerHTML=`<div class=nextCard><div class=nextRow><b>${team}</b><span>${current}<br><span class=muted>${provisional}</span></span></div>${sharedScheduleCard('下一場',nextGroupMatch(team))}${card}<div class=muted>依目前比分即時計算，尚未完賽不代表確定晉級。</div></div>`;
 }
 function qualifiedSeed(team){
   const g=Object.keys(STATE.standings).find(k=>STATE.standings[k].some(x=>x.team===team));
@@ -328,30 +320,84 @@ function drawBracket(){
   renderTree('16');
   setTimeout(drawTreeLines,20);
 }
-function loadTargets(){target.innerHTML=Object.values(GROUPS).flat().map(t=>`<option>${t}</option>`).join('');loadTeamMatches()}
-function loadTeamMatches(){let t=target.value,ms=MATCHES.filter(m=>!m.done&&(m.h===t||m.a===t)).sort((a,b)=>a.date.localeCompare(b.date));targetMatch.innerHTML=ms.map(m=>`<option value=${m.id}>${d(m.date)} ${m.h} vs ${m.a}</option>`).join('');drawTargetSnapshot()}
+function loadTargets(){const teams=Object.values(GROUPS).flat();target.innerHTML=teams.map(t=>`<option>${t}</option>`).join('');if(!target.value)target.value=teams[0];loadTeamMatches()}
+function loadTeamMatches(){let t=target.value,ms=MATCHES.filter(m=>!m.done&&(m.h===t||m.a===t)).sort((a,b)=>a.date.localeCompare(b.date)||a.id-b.id);targetMatch.innerHTML=ms.map(m=>`<option value=${m.id}>${d(m.date)} ${m.h} vs ${m.a}</option>`).join('');if(ms.length&&!targetMatch.value)targetMatch.value=String(ms[0].id);loadScenarioMatch()}
+function currentScenarioMatch(){return MATCHES.find(m=>m.id===+targetMatch.value)||null}
+function loadScenarioMatch(){const m=currentScenarioMatch();if(!m){scoreControl.innerHTML='<div class=muted>這支隊伍目前沒有未開賽小組賽。</div>';scenarioImpact.innerHTML='';drawTargetSnapshot();return}SCENARIO_SCORE={hg:m.hg??0,ag:m.ag??0};renderScoreControl();runScenarioImpact()}
+function adjustScenario(side,delta){SCENARIO_SCORE[side]=Math.max(0,SCENARIO_SCORE[side]+delta);renderScoreControl();runScenarioImpact()}
+function setScenario(hg,ag){SCENARIO_SCORE={hg,ag};renderScoreControl();runScenarioImpact()}
+function renderScoreControl(){
+  const m=currentScenarioMatch();if(!m)return;
+  scoreControl.innerHTML=`<h3>${d(m.date)}｜${m.g}組｜${m.h} vs ${m.a}</h3><div class=stepper><div><div class=team>${m.h}</div><div class=scoreBox><button onclick="adjustScenario('hg',-1)">−</button><div class=scoreNum>${SCENARIO_SCORE.hg}</div><button onclick="adjustScenario('hg',1)">＋</button></div></div><div class=vs>VS</div><div><div class=team>${m.a}</div><div class=scoreBox><button onclick="adjustScenario('ag',-1)">−</button><div class=scoreNum>${SCENARIO_SCORE.ag}</div><button onclick="adjustScenario('ag',1)">＋</button></div></div></div><div class=quickScores><button onclick="setScenario(1,0)">1:0</button><button onclick="setScenario(2,0)">2:0</button><button onclick="setScenario(2,1)">2:1</button><button onclick="setScenario(1,1)">1:1</button><button onclick="setScenario(0,1)">0:1</button><button onclick="setScenario(0,2)">0:2</button></div>`;
+}
 function drawTargetSnapshot(){
   if(!STATE)return;
   const s=STRATEGY_ENGINE.snapshot(target.value,STATE.standings,STATE.bracket);
   targetSnapshot.innerHTML=[['小組排名',s.row?`${s.group}${s.rank}`:'-'],['目前身份',s.seed],['路線強度',s.qualified?s.route:'-'],['首輪對手',s.path?s.path.opp.seed+' '+s.path.opp.team:'無']].map(x=>`<div class=card><div class=muted>${x[0]}</div><b>${x[1]}</b></div>`).join('');
 }
-function runMonteCarlo(){
-  if(!STATE)return;const team=target.value,runs=Math.max(80,Math.min(1200,+mcRuns.value||400)),res=MONTE_CARLO_ENGINE.runs(team,runs);
-  monteCarlo.innerHTML=`<h3>Monte Carlo Engine</h3><div class=muted>${runs} 次模擬剩餘賽事，估算首輪可能對手與路線強度。</div><div class=chain><b>${Math.round(res.qual.in/runs*100)}%</b><span>晉級32強機率｜平均路線強度 ${res.avgRoute||'-'}</span></div><h4>可能對手</h4>${res.opponents.slice(0,8).map(o=>`<div class=prob><div>${o.name}<div class=bar><i style='width:${o.pct}%'></i></div></div><div>${o.pct}%</div></div>`).join('')||'<div class=bad>模擬中未進32強</div>'}<h4>可能身份</h4>${res.seeds.map(o=>`<span class=badge>${o.name} ${o.pct}%</span>`).join('')}`;
+function simulateScenarioState(){
+  const m=currentScenarioMatch();if(!m)return null;
+  const sim=MATCHES.map(x=>({...x}));
+  const target=sim.find(x=>x.id===m.id);
+  target.hg=SCENARIO_SCORE.hg;target.ag=SCENARIO_SCORE.ag;
+  const standings=ANNEX_C_ENGINE.calculate(sim),thirdRanking=THIRD_PLACE_ENGINE.ranking(standings),thirdMap=THIRD_PLACE_ENGINE.assign(standings),bracket=BRACKET_ENGINE.r32(standings);
+  return{standings,thirdRanking,thirdMap,bracket,match:target};
 }
-function renderImpact(items){return items.map(x=>`<div class=chain><b>${x.team}</b><span>${x.before.seed} → ${x.after.seed}｜排名 ${x.before.group||'-'}${x.before.rank||'-'} → ${x.after.group||'-'}${x.after.rank||'-'}｜路線 ${x.before.qualified?x.before.route:'-'} → ${x.after.qualified?x.after.route:'-'}</span></div>`).join('')||'<div class=muted>沒有明顯外溢影響。</div>'}
-function runMatrix(){
-  const team=target.value,mid=+targetMatch.value;if(!mid)return;
-  const cases=[];for(let n=1;n<=4;n++)cases.push([`勝${n}球`,n,0]);[[0,0],[1,1],[2,2]].forEach(x=>cases.push([`${x[0]}:${x[1]}和`,x[0],x[1]]));for(let n=1;n<=3;n++)cases.push([`輸${n}球`,0,n]);
-  const rows=cases.map(c=>STRATEGY_ENGINE.resultFor(team,mid,c[1],c[2],c[0]));
-  strategySummary.innerHTML=`<h3>Strategy Engine</h3><div class=good>${STRATEGY_ENGINE.recommendation(rows)}</div>`;
-  matrix.innerHTML=`<div class=scenarios>${rows.map(r=>`<div class=scenario><h3>${r.label}｜${r.snap.seed}</h3><div>排名：${r.snap.row?`${r.snap.group}組第${r.snap.rank}｜${r.snap.row.Pts}分｜GD ${r.snap.row.GD}｜GF ${r.snap.row.GF}`:'淘汰'}</div><div class=warn>${r.snap.path?`${r.snap.path.match.id} 對 ${r.snap.path.opp.seed} ${r.snap.path.opp.team}`:'無32強對手'}｜路線強度 ${r.snap.qualified?r.snap.route:'-'}</div><h4>Strategy Impact Chain</h4>${renderImpact(r.impacts)}</div>`).join('')}</div>`;
+function thirdIndex(st,team){return THIRD_PLACE_ENGINE.ranking(st).findIndex(x=>x.team===team)}
+function deltaChip(label,before,after,invert=false){
+  if(before===after)return `<span class="chip">${label} ${after}</span>`;
+  const diff=after-before,good=invert?diff<0:diff>0,sign=diff>0?'+':'';
+  return `<span class="chip ${good?'good':'bad'}">${label} ${before} → ${after} (${sign}${diff})</span>`;
+}
+function seedChip(before,after){
+  if(before===after)return `<span class=chip>${after}</span>`;
+  return `<span class="chip warn">${before} → ${after}</span>`;
+}
+function scenarioSnapshot(team,pack){return STRATEGY_ENGINE.snapshot(team,pack.standings,pack.bracket)}
+function impactForTeam(team,pack){
+  const before=scenarioSnapshot(team,STATE),after=scenarioSnapshot(team,pack),bi=thirdIndex(STATE.standings,team),ai=thirdIndex(pack.standings,team);
+  let score=0;
+  if(before.rank!==after.rank)score+=3;
+  if((before.row?.Pts??0)!==(after.row?.Pts??0))score+=3;
+  if((before.row?.GD??0)!==(after.row?.GD??0))score+=2;
+  if(before.seed!==after.seed)score+=3;
+  if(before.qualified!==after.qualified)score+=4;
+  if(bi!==ai&&ai>=0)score+=2;
+  return{team,before,after,bi,ai,score};
+}
+function impactTone(x){
+  const rankGain=(x.before.rank||9)-(x.after.rank||9),ptsGain=(x.after.row?.Pts??0)-(x.before.row?.Pts??0),gdGain=(x.after.row?.GD??0)-(x.before.row?.GD??0);
+  if(x.after.qualified&&!x.before.qualified)return{icon:'▲',cls:'good',label:'受益'};
+  if(!x.after.qualified&&x.before.qualified)return{icon:'▼',cls:'bad',label:'受損'};
+  if(rankGain>0||ptsGain>0||gdGain>0)return{icon:'▲',cls:'good',label:'受益'};
+  if(rankGain<0||ptsGain<0||gdGain<0)return{icon:'▼',cls:'bad',label:'受損'};
+  return{icon:'●',cls:'warn',label:'風險'};
+}
+function routeSummary(snap){return snap.path?`${snap.path.match.id}｜${snap.path.self.seed} vs ${snap.path.opp.seed} ${snap.path.opp.team}`:'未進32強'}
+function impactCard(x){
+  const tone=impactTone(x),br=x.before.row||{},ar=x.after.row||{};
+  const third=(x.ai>=0&&x.bi!==x.ai)?`<span class="chip warn">第三名 #${x.bi+1||'-'} → #${x.ai+1}</span>`:'';
+  return `<div class=impactCard><h4><span class=${tone.cls}>${tone.icon} ${x.team}</span><span class="chip ${tone.cls}">${tone.label}</span></h4><div>${deltaChip('排名',x.before.rank||0,x.after.rank||0,true)} ${deltaChip('積分',br.Pts??0,ar.Pts??0)} ${deltaChip('GD',br.GD??0,ar.GD??0)} ${seedChip(x.before.seed,x.after.seed)} ${third}</div><div class=muted>${routeSummary(x.after)}</div></div>`;
+}
+function tieRiskRows(pack){
+  const m=pack.match,rows=pack.standings[m.g],groups={};
+  rows.forEach(x=>{groups[x.Pts]=groups[x.Pts]||[];groups[x.Pts].push(x)});
+  return Object.values(groups).filter(xs=>xs.length>1).map(xs=>`<span class="chip warn">${m.g}組同積分 ${xs[0].Pts}：${xs.map(x=>`${x.team} GD ${x.GD}`).join(' / ')}</span>`).join('')||'<span class=chip>目前無同積分群組</span>';
+}
+function runScenarioImpact(){
+  if(!STATE||!scenarioImpact)return;
+  const pack=simulateScenarioState();if(!pack){scenarioImpact.innerHTML='';return}
+  const m=pack.match,teams=Object.values(GROUPS).flat(),focus=new Set([m.h,m.a,target.value]);
+  const impacts=teams.map(t=>impactForTeam(t,pack)).filter(x=>x.score>0||focus.has(x.team)).sort((a,b)=>(focus.has(b.team)-focus.has(a.team))||b.score-a.score).slice(0,12);
+  const selected=impactForTeam(target.value,pack);
+  scenarioImpact.innerHTML=`<div class=card><h3>比分影響</h3><div class=routeCard><b>${m.h} ${SCENARIO_SCORE.hg}:${SCENARIO_SCORE.ag} ${m.a}</b><div class=muted>單一比分即時計算，不做隨機模擬。</div></div><div>${tieRiskRows(pack)}</div></div><div class=kpi><div class=card><div class=muted>身份</div><b>${selected.after.seed}</b></div><div class=card><div class=muted>排名</div><b>${selected.after.group||'-'}${selected.after.rank||'-'}</b></div><div class=card><div class=muted>淨勝球</div><b>${selected.after.row?selected.after.row.GD:'-'}</b></div><div class=card><div class=muted>對手</div><b>${selected.after.path?selected.after.path.opp.team:'-'}</b></div></div><div class=impactGrid>${impacts.map(impactCard).join('')}</div>`;
 }
 function recalculate(){
   saveInputs();
   const standings=ANNEX_C_ENGINE.calculate(MATCHES),thirdRanking=THIRD_PLACE_ENGINE.ranking(standings),thirdMap=THIRD_PLACE_ENGINE.assign(standings),bracket=BRACKET_ENGINE.r32(standings);
   STATE={standings,thirdRanking,thirdMap,bracket};
   drawStandings();drawThirds();drawBracket();drawTargetSnapshot();
+  runScenarioImpact();
 }
 const AUTO_REFRESH={
   api:'https://api.github.com/repos/janjanpower/autoupload/commits/main',
@@ -378,7 +424,7 @@ const AUTO_REFRESH={
 };
 async function init(){
   try{const res=await fetch('data/matches.json',{cache:'no-store'});if(res.ok)mergeScores(await res.json());else mergeScores({matches:[]})}catch(_){mergeScores({matches:[]})}
-  drawScores();recalculate();loadTargets();runMonteCarlo();
+  drawScores();recalculate();loadTargets();
   AUTO_REFRESH.start();
 }
 init();
