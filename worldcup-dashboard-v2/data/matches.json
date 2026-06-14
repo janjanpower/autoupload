@@ -1,10 +1,11 @@
 {
-  "updated_at": "2026-06-14T11:27:45.505866+00:00",
-  "source": "manual seed; set FOOTBALL_DATA_TOKEN to enable scheduled API updates",
+  "updated_at": "2026-06-14T12:55:17.795081+00:00",
+  "source": "football-data.org",
   "matches": [
     {
       "id": 1,
       "date": "2026-06-11",
+      "utc_date": "2026-06-11T19:00:00Z",
       "group": "",
       "home": "Mexico",
       "away": "South Africa",
@@ -15,6 +16,7 @@
     {
       "id": 2,
       "date": "2026-06-12",
+      "utc_date": "2026-06-12T02:00:00Z",
       "group": "",
       "home": "South Korea",
       "away": "Czechia",
@@ -25,6 +27,7 @@
     {
       "id": 3,
       "date": "2026-06-12",
+      "utc_date": "2026-06-12T19:00:00Z",
       "group": "",
       "home": "Canada",
       "away": "Bosnia-Herzegovina",
@@ -35,6 +38,7 @@
     {
       "id": 4,
       "date": "2026-06-13",
+      "utc_date": "2026-06-13T01:00:00Z",
       "group": "",
       "home": "United States",
       "away": "Paraguay",
@@ -45,6 +49,7 @@
     {
       "id": 5,
       "date": "2026-06-13",
+      "utc_date": "2026-06-13T19:00:00Z",
       "group": "",
       "home": "Qatar",
       "away": "Switzerland",
@@ -55,6 +60,7 @@
     {
       "id": 6,
       "date": "2026-06-13",
+      "utc_date": "2026-06-13T22:00:00Z",
       "group": "",
       "home": "Brazil",
       "away": "Morocco",
@@ -65,6 +71,7 @@
     {
       "id": 7,
       "date": "2026-06-14",
+      "utc_date": "2026-06-14T01:00:00Z",
       "group": "",
       "home": "Haiti",
       "away": "Scotland",
@@ -75,6 +82,7 @@
     {
       "id": 8,
       "date": "2026-06-14",
+      "utc_date": "2026-06-14T04:00:00Z",
       "group": "",
       "home": "Australia",
       "away": "Turkey",
@@ -85,6 +93,7 @@
     {
       "id": 9,
       "date": "2026-06-14",
+      "utc_date": "2026-06-14T17:00:00Z",
       "group": "",
       "home": "Germany",
       "away": "Curaçao",
@@ -95,6 +104,7 @@
     {
       "id": 10,
       "date": "2026-06-14",
+      "utc_date": "2026-06-14T20:00:00Z",
       "group": "",
       "home": "Netherlands",
       "away": "Japan",
@@ -105,6 +115,7 @@
     {
       "id": 11,
       "date": "2026-06-14",
+      "utc_date": "2026-06-14T23:00:00Z",
       "group": "",
       "home": "Ivory Coast",
       "away": "Ecuador",
@@ -115,6 +126,7 @@
     {
       "id": 12,
       "date": "2026-06-15",
+      "utc_date": "2026-06-15T02:00:00Z",
       "group": "",
       "home": "Sweden",
       "away": "Tunisia",
@@ -125,6 +137,7 @@
     {
       "id": 13,
       "date": "2026-06-15",
+      "utc_date": "2026-06-15T16:00:00Z",
       "group": "",
       "home": "Spain",
       "away": "Cape Verde Islands",
@@ -135,6 +148,7 @@
     {
       "id": 14,
       "date": "2026-06-15",
+      "utc_date": "2026-06-15T19:00:00Z",
       "group": "",
       "home": "Belgium",
       "away": "Egypt",
@@ -145,6 +159,7 @@
     {
       "id": 15,
       "date": "2026-06-15",
+      "utc_date": "2026-06-15T22:00:00Z",
       "group": "",
       "home": "Saudi Arabia",
       "away": "Uruguay",
@@ -155,6 +170,7 @@
     {
       "id": 16,
       "date": "2026-06-16",
+      "utc_date": "2026-06-16T01:00:00Z",
       "group": "",
       "home": "Iran",
       "away": "New Zealand",
@@ -165,6 +181,7 @@
     {
       "id": 17,
       "date": "2026-06-16",
+      "utc_date": "2026-06-16T19:00:00Z",
       "group": "",
       "home": "France",
       "away": "Senegal",
@@ -175,6 +192,7 @@
     {
       "id": 18,
       "date": "2026-06-16",
+      "utc_date": "2026-06-16T22:00:00Z",
       "group": "",
       "home": "Iraq",
       "away": "Norway",
@@ -185,6 +203,7 @@
     {
       "id": 19,
       "date": "2026-06-17",
+      "utc_date": "2026-06-17T01:00:00Z",
       "group": "",
       "home": "Argentina",
       "away": "Algeria",
@@ -195,6 +214,7 @@
     {
       "id": 20,
       "date": "2026-06-17",
+      "utc_date": "2026-06-17T04:00:00Z",
       "group": "",
       "home": "Austria",
       "away": "Jordan",
@@ -205,6 +225,7 @@
     {
       "id": 21,
       "date": "2026-06-17",
+      "utc_date": "2026-06-17T17:00:00Z",
       "group": "",
       "home": "Portugal",
       "away": "Congo DR",
@@ -215,6 +236,7 @@
     {
       "id": 22,
       "date": "2026-06-17",
+      "utc_date": "2026-06-17T20:00:00Z",
       "group": "",
       "home": "England",
       "away": "Croatia",
@@ -225,6 +247,7 @@
     {
       "id": 23,
       "date": "2026-06-17",
+      "utc_date": "2026-06-17T23:00:00Z",
       "group": "",
       "home": "Ghana",
       "away": "Panama",
@@ -235,6 +258,7 @@
     {
       "id": 24,
       "date": "2026-06-18",
+      "utc_date": "2026-06-18T02:00:00Z",
       "group": "",
       "home": "Uzbekistan",
       "away": "Colombia",
@@ -245,6 +269,7 @@
     {
       "id": 25,
       "date": "2026-06-18",
+      "utc_date": "2026-06-18T16:00:00Z",
       "group": "",
       "home": "Czechia",
       "away": "South Africa",
@@ -255,6 +280,7 @@
     {
       "id": 26,
       "date": "2026-06-18",
+      "utc_date": "2026-06-18T19:00:00Z",
       "group": "",
       "home": "Switzerland",
       "away": "Bosnia-Herzegovina",
@@ -265,6 +291,7 @@
     {
       "id": 27,
       "date": "2026-06-18",
+      "utc_date": "2026-06-18T22:00:00Z",
       "group": "",
       "home": "Canada",
       "away": "Qatar",
@@ -275,6 +302,7 @@
     {
       "id": 28,
       "date": "2026-06-19",
+      "utc_date": "2026-06-19T01:00:00Z",
       "group": "",
       "home": "Mexico",
       "away": "South Korea",
@@ -285,6 +313,7 @@
     {
       "id": 29,
       "date": "2026-06-19",
+      "utc_date": "2026-06-19T19:00:00Z",
       "group": "",
       "home": "United States",
       "away": "Australia",
@@ -295,6 +324,7 @@
     {
       "id": 30,
       "date": "2026-06-19",
+      "utc_date": "2026-06-19T22:00:00Z",
       "group": "",
       "home": "Scotland",
       "away": "Morocco",
@@ -305,6 +335,7 @@
     {
       "id": 31,
       "date": "2026-06-20",
+      "utc_date": "2026-06-20T00:30:00Z",
       "group": "",
       "home": "Brazil",
       "away": "Haiti",
@@ -315,6 +346,7 @@
     {
       "id": 32,
       "date": "2026-06-20",
+      "utc_date": "2026-06-20T03:00:00Z",
       "group": "",
       "home": "Turkey",
       "away": "Paraguay",
@@ -325,6 +357,7 @@
     {
       "id": 33,
       "date": "2026-06-20",
+      "utc_date": "2026-06-20T17:00:00Z",
       "group": "",
       "home": "Netherlands",
       "away": "Sweden",
@@ -335,6 +368,7 @@
     {
       "id": 34,
       "date": "2026-06-20",
+      "utc_date": "2026-06-20T20:00:00Z",
       "group": "",
       "home": "Germany",
       "away": "Ivory Coast",
@@ -345,6 +379,7 @@
     {
       "id": 35,
       "date": "2026-06-21",
+      "utc_date": "2026-06-21T00:00:00Z",
       "group": "",
       "home": "Ecuador",
       "away": "Curaçao",
@@ -355,6 +390,7 @@
     {
       "id": 36,
       "date": "2026-06-21",
+      "utc_date": "2026-06-21T04:00:00Z",
       "group": "",
       "home": "Tunisia",
       "away": "Japan",
@@ -365,6 +401,7 @@
     {
       "id": 37,
       "date": "2026-06-21",
+      "utc_date": "2026-06-21T16:00:00Z",
       "group": "",
       "home": "Spain",
       "away": "Saudi Arabia",
@@ -375,6 +412,7 @@
     {
       "id": 38,
       "date": "2026-06-21",
+      "utc_date": "2026-06-21T19:00:00Z",
       "group": "",
       "home": "Belgium",
       "away": "Iran",
@@ -385,6 +423,7 @@
     {
       "id": 39,
       "date": "2026-06-21",
+      "utc_date": "2026-06-21T22:00:00Z",
       "group": "",
       "home": "Uruguay",
       "away": "Cape Verde Islands",
@@ -395,6 +434,7 @@
     {
       "id": 40,
       "date": "2026-06-22",
+      "utc_date": "2026-06-22T01:00:00Z",
       "group": "",
       "home": "New Zealand",
       "away": "Egypt",
@@ -405,6 +445,7 @@
     {
       "id": 41,
       "date": "2026-06-22",
+      "utc_date": "2026-06-22T17:00:00Z",
       "group": "",
       "home": "Argentina",
       "away": "Austria",
@@ -415,6 +456,7 @@
     {
       "id": 42,
       "date": "2026-06-22",
+      "utc_date": "2026-06-22T21:00:00Z",
       "group": "",
       "home": "France",
       "away": "Iraq",
@@ -425,6 +467,7 @@
     {
       "id": 43,
       "date": "2026-06-23",
+      "utc_date": "2026-06-23T00:00:00Z",
       "group": "",
       "home": "Norway",
       "away": "Senegal",
@@ -435,6 +478,7 @@
     {
       "id": 44,
       "date": "2026-06-23",
+      "utc_date": "2026-06-23T03:00:00Z",
       "group": "",
       "home": "Jordan",
       "away": "Algeria",
@@ -445,6 +489,7 @@
     {
       "id": 45,
       "date": "2026-06-23",
+      "utc_date": "2026-06-23T17:00:00Z",
       "group": "",
       "home": "Portugal",
       "away": "Uzbekistan",
@@ -455,6 +500,7 @@
     {
       "id": 46,
       "date": "2026-06-23",
+      "utc_date": "2026-06-23T20:00:00Z",
       "group": "",
       "home": "England",
       "away": "Ghana",
@@ -465,6 +511,7 @@
     {
       "id": 47,
       "date": "2026-06-23",
+      "utc_date": "2026-06-23T23:00:00Z",
       "group": "",
       "home": "Panama",
       "away": "Croatia",
@@ -475,6 +522,7 @@
     {
       "id": 48,
       "date": "2026-06-24",
+      "utc_date": "2026-06-24T02:00:00Z",
       "group": "",
       "home": "Colombia",
       "away": "Congo DR",
@@ -485,6 +533,7 @@
     {
       "id": 49,
       "date": "2026-06-24",
+      "utc_date": "2026-06-24T19:00:00Z",
       "group": "",
       "home": "Switzerland",
       "away": "Canada",
@@ -495,6 +544,7 @@
     {
       "id": 50,
       "date": "2026-06-24",
+      "utc_date": "2026-06-24T19:00:00Z",
       "group": "",
       "home": "Bosnia-Herzegovina",
       "away": "Qatar",
@@ -505,6 +555,7 @@
     {
       "id": 51,
       "date": "2026-06-24",
+      "utc_date": "2026-06-24T22:00:00Z",
       "group": "",
       "home": "Morocco",
       "away": "Haiti",
@@ -515,6 +566,7 @@
     {
       "id": 52,
       "date": "2026-06-24",
+      "utc_date": "2026-06-24T22:00:00Z",
       "group": "",
       "home": "Scotland",
       "away": "Brazil",
@@ -525,6 +577,7 @@
     {
       "id": 53,
       "date": "2026-06-25",
+      "utc_date": "2026-06-25T01:00:00Z",
       "group": "",
       "home": "Czechia",
       "away": "Mexico",
@@ -535,6 +588,7 @@
     {
       "id": 54,
       "date": "2026-06-25",
+      "utc_date": "2026-06-25T01:00:00Z",
       "group": "",
       "home": "South Africa",
       "away": "South Korea",
@@ -545,6 +599,7 @@
     {
       "id": 55,
       "date": "2026-06-25",
+      "utc_date": "2026-06-25T20:00:00Z",
       "group": "",
       "home": "Ecuador",
       "away": "Germany",
@@ -555,6 +610,7 @@
     {
       "id": 56,
       "date": "2026-06-25",
+      "utc_date": "2026-06-25T20:00:00Z",
       "group": "",
       "home": "Curaçao",
       "away": "Ivory Coast",
@@ -565,6 +621,7 @@
     {
       "id": 57,
       "date": "2026-06-25",
+      "utc_date": "2026-06-25T23:00:00Z",
       "group": "",
       "home": "Tunisia",
       "away": "Netherlands",
@@ -575,6 +632,7 @@
     {
       "id": 58,
       "date": "2026-06-25",
+      "utc_date": "2026-06-25T23:00:00Z",
       "group": "",
       "home": "Japan",
       "away": "Sweden",
@@ -585,6 +643,7 @@
     {
       "id": 59,
       "date": "2026-06-26",
+      "utc_date": "2026-06-26T02:00:00Z",
       "group": "",
       "home": "Turkey",
       "away": "United States",
@@ -595,6 +654,7 @@
     {
       "id": 60,
       "date": "2026-06-26",
+      "utc_date": "2026-06-26T02:00:00Z",
       "group": "",
       "home": "Paraguay",
       "away": "Australia",
@@ -605,6 +665,7 @@
     {
       "id": 61,
       "date": "2026-06-26",
+      "utc_date": "2026-06-26T19:00:00Z",
       "group": "",
       "home": "Norway",
       "away": "France",
@@ -615,6 +676,7 @@
     {
       "id": 62,
       "date": "2026-06-26",
+      "utc_date": "2026-06-26T19:00:00Z",
       "group": "",
       "home": "Senegal",
       "away": "Iraq",
@@ -625,6 +687,7 @@
     {
       "id": 63,
       "date": "2026-06-27",
+      "utc_date": "2026-06-27T00:00:00Z",
       "group": "",
       "home": "Uruguay",
       "away": "Spain",
@@ -635,6 +698,7 @@
     {
       "id": 64,
       "date": "2026-06-27",
+      "utc_date": "2026-06-27T00:00:00Z",
       "group": "",
       "home": "Cape Verde Islands",
       "away": "Saudi Arabia",
@@ -645,6 +709,7 @@
     {
       "id": 65,
       "date": "2026-06-27",
+      "utc_date": "2026-06-27T03:00:00Z",
       "group": "",
       "home": "New Zealand",
       "away": "Belgium",
@@ -655,6 +720,7 @@
     {
       "id": 66,
       "date": "2026-06-27",
+      "utc_date": "2026-06-27T03:00:00Z",
       "group": "",
       "home": "Egypt",
       "away": "Iran",
@@ -665,6 +731,7 @@
     {
       "id": 67,
       "date": "2026-06-27",
+      "utc_date": "2026-06-27T21:00:00Z",
       "group": "",
       "home": "Panama",
       "away": "England",
@@ -675,6 +742,7 @@
     {
       "id": 68,
       "date": "2026-06-27",
+      "utc_date": "2026-06-27T21:00:00Z",
       "group": "",
       "home": "Croatia",
       "away": "Ghana",
@@ -685,6 +753,7 @@
     {
       "id": 69,
       "date": "2026-06-27",
+      "utc_date": "2026-06-27T23:30:00Z",
       "group": "",
       "home": "Colombia",
       "away": "Portugal",
@@ -695,6 +764,7 @@
     {
       "id": 70,
       "date": "2026-06-27",
+      "utc_date": "2026-06-27T23:30:00Z",
       "group": "",
       "home": "Congo DR",
       "away": "Uzbekistan",
@@ -705,6 +775,7 @@
     {
       "id": 71,
       "date": "2026-06-28",
+      "utc_date": "2026-06-28T02:00:00Z",
       "group": "",
       "home": "Jordan",
       "away": "Argentina",
@@ -715,6 +786,7 @@
     {
       "id": 72,
       "date": "2026-06-28",
+      "utc_date": "2026-06-28T02:00:00Z",
       "group": "",
       "home": "Algeria",
       "away": "Austria",
@@ -723,308 +795,9 @@
       "status": "TIMED"
     },
     {
-      "id": 73,
-      "date": "2026-06-28",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 74,
-      "date": "2026-06-29",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 75,
-      "date": "2026-06-29",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 76,
-      "date": "2026-06-30",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 77,
-      "date": "2026-06-30",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 78,
-      "date": "2026-06-30",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 79,
-      "date": "2026-07-01",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 80,
-      "date": "2026-07-01",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 81,
-      "date": "2026-07-01",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 82,
-      "date": "2026-07-02",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 83,
-      "date": "2026-07-02",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 84,
-      "date": "2026-07-02",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 85,
-      "date": "2026-07-03",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 86,
-      "date": "2026-07-03",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 87,
-      "date": "2026-07-03",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 88,
-      "date": "2026-07-04",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 89,
-      "date": "2026-07-04",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 90,
-      "date": "2026-07-04",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 91,
-      "date": "2026-07-05",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 92,
-      "date": "2026-07-06",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 93,
-      "date": "2026-07-06",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 94,
-      "date": "2026-07-07",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 95,
-      "date": "2026-07-07",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 96,
-      "date": "2026-07-07",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 97,
-      "date": "2026-07-09",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 98,
-      "date": "2026-07-10",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 99,
-      "date": "2026-07-11",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 100,
-      "date": "2026-07-12",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 101,
-      "date": "2026-07-14",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 102,
-      "date": "2026-07-15",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 103,
-      "date": "2026-07-18",
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-06-28T19:00:00Z",
       "group": "",
       "home": "TBD",
       "away": "TBD",
@@ -1035,6 +808,337 @@
     {
       "id": 104,
       "date": "2026-07-19",
+      "utc_date": "2026-06-29T17:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-06-29T20:30:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-06-30T01:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-06-30T17:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-06-30T21:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-01T01:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-01T16:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-01T20:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-02T00:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-02T19:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-02T23:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-03T03:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-03T18:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-03T22:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-04T01:30:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-04T17:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-04T21:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-05T20:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-06T00:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-06T19:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-07T00:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-07T16:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-07T20:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-09T20:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-10T19:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-11T21:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-12T01:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-14T19:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-15T19:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-18T21:00:00Z",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "utc_date": "2026-07-19T19:00:00Z",
       "group": "",
       "home": "TBD",
       "away": "TBD",
