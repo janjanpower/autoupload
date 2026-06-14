@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-14T17:40:53.300246+00:00",
+  "updated_at": "2026-06-14T17:55:04.553379+00:00",
   "source": "matches.json",
   "teams": {
     "墨西哥": {
@@ -177,6 +177,28 @@
       "sources": [
         "matches.json"
       ]
+    },
+    "德國": {
+      "matches": 1,
+      "goals_for_per_match": 2.0,
+      "goals_against_per_match": 1.0,
+      "recent_goals_for_per_match": 2,
+      "recent_goals_against_per_match": 1,
+      "tempo": 1.5,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "庫拉索": {
+      "matches": 1,
+      "goals_for_per_match": 1.0,
+      "goals_against_per_match": 2.0,
+      "recent_goals_for_per_match": 1,
+      "recent_goals_against_per_match": 2,
+      "tempo": 1.5,
+      "sources": [
+        "matches.json"
+      ]
     }
   },
   "matchups": {
@@ -280,6 +302,19 @@
           "away": "土耳其",
           "hg": 2,
           "ag": 0,
+          "source": "matches.json"
+        }
+      ]
+    },
+    "庫拉索|德國": {
+      "matches": 1,
+      "average_total_goals": 3.0,
+      "recent": [
+        {
+          "home": "德國",
+          "away": "庫拉索",
+          "hg": 2,
+          "ag": 1,
           "source": "matches.json"
         }
       ]
