@@ -19,6 +19,7 @@ DATA_PATH = ROOT / "data" / "matches.json"
 VERSION_PATH = ROOT / "data" / "version.json"
 TOKEN = os.getenv("FOOTBALL_DATA_TOKEN", "").strip()
 API_URL = os.getenv("FOOTBALL_DATA_URL", "https://api.football-data.org/v4/competitions/WC/matches")
+TEAMS_API_URL = os.getenv("FOOTBALL_DATA_TEAMS_URL", "https://api.football-data.org/v4/competitions/WC/teams")
 
 
 def load_current() -> dict:
@@ -70,11 +71,31 @@ def normalize_football_data(raw: dict, current: dict) -> dict:
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "source": "football-data.org",
         "matches": out or current.get("matches", []),
+        "teams": current.get("teams", []),
     }
 
 
-def fetch_from_football_data() -> dict:
-    req = urllib.request.Request(API_URL, headers={"X-Auth-Token": TOKEN})
+def normalize_football_data_teams(raw: dict, current: dict) -> list[dict]:
+    teams = []
+    for team in raw.get("teams", []):
+        area = team.get("area") or {}
+        teams.append(
+            {
+                "id": team.get("id"),
+                "name": team.get("name") or "",
+                "short_name": team.get("shortName") or "",
+                "tla": team.get("tla") or "",
+                "crest": team.get("crest") or "",
+                "area": area.get("name") or "",
+                "area_code": area.get("code") or "",
+                "flag": area.get("flag") or "",
+            }
+        )
+    return teams or current.get("teams", [])
+
+
+def fetch_from_football_data(url: str) -> dict:
+    req = urllib.request.Request(url, headers={"X-Auth-Token": TOKEN})
     with urllib.request.urlopen(req, timeout=30) as res:
         return json.loads(res.read().decode("utf-8"))
 
@@ -89,10 +110,17 @@ def main() -> int:
         return 0
 
     try:
-        raw = fetch_from_football_data()
+        raw = fetch_from_football_data(API_URL)
         payload = normalize_football_data(raw, current)
+        try:
+            teams_raw = fetch_from_football_data(TEAMS_API_URL)
+            payload["teams"] = normalize_football_data_teams(teams_raw, current)
+        except Exception as exc:
+            payload["teams"] = current.get("teams", [])
+            print(f"Failed to update v2 teams: {exc}", file=sys.stderr)
         save(payload)
         print(f"Updated {len(payload.get('matches', []))} v2 matches.")
+        print(f"Updated {len(payload.get('teams', []))} v2 teams.")
         return 0
     except Exception as exc:
         print(f"Failed to update v2 scores: {exc}", file=sys.stderr)
