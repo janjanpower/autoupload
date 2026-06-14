@@ -47,6 +47,7 @@ def normalize_football_data(raw: dict, current: dict) -> dict:
             {
                 "id": seed.get("id", idx),
                 "date": seed.get("date", date),
+                "utc_date": utc_date or seed.get("utc_date", ""),
                 "group": seed.get("group", ""),
                 "home": seed.get("home", home),
                 "away": seed.get("away", away),

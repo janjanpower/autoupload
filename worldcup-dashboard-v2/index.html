@@ -16,7 +16,8 @@
     .panel.on{display:block}.card{background:#07101e;border:1px solid #26364f;border-radius:14px;padding:12px;margin:10px 0}
     table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}th,td{border-bottom:1px solid #26364f;padding:8px;text-align:center}
     th{background:#0f172a;color:#cbd5e1}.team{text-align:center}input,select{background:#111827;color:#fff;border:1px solid #334155;border-radius:6px;padding:6px}.score{width:54px;text-align:center}
-    .done{background:#14532d;color:#bbf7d0}.live{background:#1e3a8a;color:#bfdbfe}.todo{background:#3b2f0b;color:#fde68a}.up{color:#bef264}.down{color:#fecaca}.flat{color:#cbd5e1}
+    .done{background:#14532d;color:#bbf7d0}.live{background:#dc2626;color:#fff;animation:liveBlink 1s infinite}.todo{background:#3b2f0b;color:#fde68a}.up{color:#bef264}.down{color:#fecaca}.flat{color:#cbd5e1}
+    @keyframes liveBlink{0%,100%{opacity:1;box-shadow:0 0 0 rgba(220,38,38,0)}50%{opacity:.58;box-shadow:0 0 12px rgba(220,38,38,.8)}}
     .pill{display:inline-block;border-radius:999px;padding:3px 8px;font-size:12px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .r1{background:rgba(22,163,74,.24)}.r2{background:rgba(37,99,235,.24)}.r3{background:rgba(202,138,4,.22)}.r4{background:rgba(71,85,105,.22)}
     .standingRow{cursor:pointer}.standingDetail{display:none;background:#020617;color:#cbd5e1}.standingDetail.on{display:table-row}.detailBox{text-align:left;line-height:1.65;padding:10px}
@@ -28,10 +29,10 @@
     .nodeTitle{display:flex;justify-content:space-between;color:#94a3b8;font-size:10px;margin-bottom:4px}.nTeam{height:26px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:5px;align-items:center;background:#172033;border:1px solid #30405f;border-radius:7px;margin:4px 0;padding:0 5px;font-size:11px}
     .nSeed{font-weight:900}.teamName{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.champ{background:linear-gradient(180deg,#fff0a3,#f59e0b);color:#111;border:0}.champ .nTeam{background:rgba(255,255,255,.7);color:#111;border-color:#b45309;grid-template-columns:1fr}
     .scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.scenario{background:#0f172a;border:1px solid #344054;border-radius:14px;padding:12px}.bar{height:8px;background:#1e293b;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:#60a5fa}.prob{display:grid;grid-template-columns:1fr 52px;gap:8px;margin:6px 0}
-    .matchList{display:grid;gap:7px}.matchRow{display:grid;grid-template-columns:54px 36px minmax(86px,1fr) 112px minmax(86px,1fr) 74px;gap:6px;align-items:center;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:7px}.matchRow .teamName{text-align:center}.inlineScore{display:grid;grid-template-columns:1fr 12px 1fr;gap:3px;align-items:center}.inlineScore input{width:44px;text-align:center;padding:5px}
+    .matchList{display:grid;gap:7px}.matchRow{display:grid;grid-template-columns:54px 54px 36px minmax(86px,1fr) 112px minmax(86px,1fr) 74px;gap:6px;align-items:center;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:7px}.matchRow .teamName{text-align:center}.inlineScore{display:grid;grid-template-columns:1fr 12px 1fr;gap:3px;align-items:center}.inlineScore input{width:44px;text-align:center;padding:5px}
     .stepper{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:center}.scoreBox{display:grid;grid-template-columns:34px 42px 34px;gap:6px;align-items:center;justify-content:center}.scoreBox button{padding:7px 0;border-radius:10px}.scoreNum{font-size:28px;font-weight:900;text-align:center}.vs{color:#94a3b8;font-weight:900}.quickScores{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.impactGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.impactCard{background:#0f172a;border:1px solid #344054;border-radius:12px;padding:10px}.impactCard h4{margin:0 0 8px;display:flex;justify-content:space-between;gap:8px}.chip{display:inline-block;border-radius:999px;padding:3px 7px;margin:2px;background:#111827;border:1px solid #344054;font-size:12px}.chip.good{border-color:#4ade80}.chip.bad{border-color:#fca5a5}.chip.warn{border-color:#fde68a}.routeCard{background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px;margin:7px 0}.routeCard .line{grid-template-columns:60px minmax(0,1fr)}.chain{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:start;border-top:1px solid #26364f;padding:8px 0}.mini{font-size:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi b{font-size:22px}.nextCard{display:grid;gap:8px}.nextRow{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;align-items:start;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px}.nextRow span{min-width:0;overflow:hidden;text-overflow:ellipsis}
     @media(max-width:1100px){.grid,.bracket,.two,.scenarios,.kpi,.impactGrid{grid-template-columns:1fr}.roundView{overflow-x:auto;padding-bottom:8px}.treeStage{width:1180px;height:820px;min-height:820px}.node{min-width:104px;width:11.8%}.nTeam{grid-template-columns:34px minmax(0,1fr);font-size:10px}}
-    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px 18px}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px;border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table{min-width:0}th,td{padding:7px 5px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.kpi b{font-size:18px}.treeStage{width:1120px}.node{min-width:100px}.badge,.chip{font-size:11px}.matchRow{grid-template-columns:38px 26px minmax(64px,1fr) 78px minmax(64px,1fr) 52px;font-size:11px;padding:6px;gap:4px}.inlineScore{grid-template-columns:1fr 8px 1fr}.inlineScore input{width:31px;padding:4px}.stepper{grid-template-columns:1fr}.scoreNum{font-size:24px}}
+    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px 18px}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px;border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table{min-width:0}th,td{padding:7px 5px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.kpi b{font-size:18px}.treeStage{width:1120px}.node{min-width:100px}.badge,.chip{font-size:11px}.matchRow{grid-template-columns:30px 36px 20px minmax(48px,1fr) 62px minmax(48px,1fr) 44px;font-size:11px;padding:5px;gap:3px}.matchRow .pill{font-size:10px;padding:3px 5px}.inlineScore{grid-template-columns:1fr 8px 1fr}.inlineScore input{width:28px;padding:4px}.stepper{grid-template-columns:1fr}.scoreNum{font-size:24px}}
   </style>
 </head>
 <body>
@@ -110,11 +111,17 @@ function tab(id,b){document.querySelectorAll('.panel').forEach(x=>x.classList.re
 function round(id,b){document.querySelectorAll('.round').forEach(x=>x.style.display='none');document.querySelectorAll('.subtab').forEach(x=>x.classList.remove('on'));document.getElementById(id).style.display='block';b.classList.add('on')}
 function showTreeRound(id,b){document.querySelectorAll('.roundView').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.roundBtn').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');b.classList.add('active');setTimeout(drawTreeLines,30)}
 function d(s){let x=new Date(s+'T00:00:00');return `${x.getMonth()+1}/${x.getDate()}`}
+function twDate(value,opts){return new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',...opts}).format(value)}
+function matchStart(m){return m.utc_date?new Date(m.utc_date):null}
+function matchDateLabel(m){const start=matchStart(m);return start?twDate(start,{month:'numeric',day:'numeric'}):d(m.date)}
+function matchTimeLabel(m){const start=matchStart(m);return start?twDate(start,{hour:'2-digit',minute:'2-digit',hour12:false}):'待定'}
+function matchSortKey(m){return matchStart(m)?.getTime()||new Date(m.date+'T00:00:00Z').getTime()||m.id}
 function teamName(x){return ALIAS[x]||x}
 function norm(x){return teamName(x||'').replace(/\s/g,'')}
 function isPlayed(m){return m.hg!==null&&m.ag!==null}
-function statusClass(m){return m.done?'done':m.status==='IN_PLAY'||m.status==='PAUSED'?'live':'todo'}
-function statusText(m){return m.done?'已完賽':m.status==='IN_PLAY'||m.status==='PAUSED'?'進行中':'未開賽'}
+function isLive(m){return ['IN_PLAY','PAUSED','LIVE'].includes(m.status)}
+function statusClass(m){return m.done?'done':isLive(m)?'live':'todo'}
+function statusText(m){return m.done?'已完賽':isLive(m)?'進行中':'未開賽'}
 function saveInputs(){MATCHES.forEach(m=>{let h=document.getElementById('h'+m.id),a=document.getElementById('a'+m.id);if(h&&!m.done){m.hg=h.value===''?null:+h.value;m.ag=a.value===''?null:+a.value}})}
 function clearFuture(){MATCHES.forEach(m=>{if(!m.done){m.hg=null;m.ag=null}});drawScores();recalculate()}
 
@@ -127,7 +134,7 @@ function mergeScores(payload){
     const hg=reversed?remote.away_score:remote.home_score;
     const ag=reversed?remote.home_score:remote.away_score;
     const status=remote.status||seed.status;
-    return {...seed,hg:hg??null,ag:ag??null,status,done:['FINISHED','AWARDED'].includes(status)};
+    return {...seed,utc_date:remote.utc_date||remote.utcDate||seed.utc_date||'',hg:hg??null,ag:ag??null,status,done:['FINISHED','AWARDED'].includes(status)};
   });
 }
 
@@ -208,8 +215,9 @@ const STRATEGY_ENGINE={
 };
 
 function drawScores(){
-  const dates=[...new Set(MATCHES.map(x=>x.date))];
-  scoreBoard.innerHTML=dates.map(dt=>`<div class=card><h3>${d(dt)} 賽程</h3><div class=matchList>${MATCHES.filter(x=>x.date===dt).map(m=>`<div class=matchRow><b>${d(m.date)}</b><span>${m.g}</span><span class=teamName>${m.h}</span><span class=inlineScore><input id=h${m.id} value='${m.hg??''}' ${m.done?'disabled':''} onchange='saveInputs();recalculate()'><b>:</b><input id=a${m.id} value='${m.ag??''}' ${m.done?'disabled':''} onchange='saveInputs();recalculate()'></span><span class=teamName>${m.a}</span><span class='pill ${statusClass(m)}'>${statusText(m)}</span></div>`).join('')}</div></div>`).join('');
+  const ordered=[...MATCHES].sort((a,b)=>matchSortKey(a)-matchSortKey(b)||a.id-b.id);
+  const dates=[...new Set(ordered.map(matchDateLabel))];
+  scoreBoard.innerHTML=dates.map(dt=>`<div class=card><h3>${dt} 賽程</h3><div class=matchList>${ordered.filter(x=>matchDateLabel(x)===dt).map(m=>`<div class=matchRow><b>${matchDateLabel(m)}</b><span>${matchTimeLabel(m)}</span><span>${m.g}</span><span class=teamName>${m.h}</span><span class=inlineScore><input id=h${m.id} value='${m.hg??''}' ${m.done?'disabled':''} onchange='saveInputs();recalculate()'><b>:</b><input id=a${m.id} value='${m.ag??''}' ${m.done?'disabled':''} onchange='saveInputs();recalculate()'></span><span class=teamName>${m.a}</span><span class='pill ${statusClass(m)}'>${statusText(m)}</span></div>`).join('')}</div></div>`).join('');
 }
 function drawStandings(){
   standingBoard.innerHTML=Object.keys(STATE.standings).map(g=>`<div class=card><h3>${g}組</h3><table><thead><tr><th>名</th><th>隊伍</th><th>局</th><th>積分</th><th>淨勝球</th></tr></thead><tbody>${STATE.standings[g].map((x,i)=>`<tr class="r${i+1} standingRow" onclick="toggleStandingDetail('${g}${i}')"><td>${i+1}</td><td>${x.team}${x.rankNote?' <span class=warn>*</span>':''}</td><td>${x.P}</td><td><b>${x.Pts}</b></td><td>${x.GD}</td></tr><tr id="standingDetail${g}${i}" class=standingDetail><td colspan=5><div class=detailBox>進球 ${x.GF}｜失球 ${x.GA}｜淨勝球 ${x.GD}</div></td></tr>`).join('')}</tbody></table></div>`).join('');
@@ -222,11 +230,11 @@ function drawThirds(){
 }
 function selectThirdTeam(team){SELECTED_THIRD_TEAM=team;drawThirdTeamPanel(team)}
 function nextGroupMatch(team){
-  return MATCHES.filter(m=>!m.done&&(m.h===team||m.a===team)).sort((a,b)=>a.date.localeCompare(b.date)||a.id-b.id)[0]||null;
+  return MATCHES.filter(m=>!m.done&&(m.h===team||m.a===team)).sort((a,b)=>matchSortKey(a)-matchSortKey(b)||a.id-b.id)[0]||null;
 }
 function sharedScheduleCard(title,m){
   if(!m)return `<div class=nextRow><b>${title}</b><span class=muted>目前沒有未開賽小組賽。</span></div>`;
-  return `<div class=nextRow><b>${title}</b><span>${d(m.date)}｜${m.g}組｜${m.h} vs ${m.a}｜${m.hg??'-'}:${m.ag??'-'} <span class="pill ${statusClass(m)}">${statusText(m)}</span></span></div>`;
+  return `<div class=nextRow><b>${title}</b><span>${matchDateLabel(m)} ${matchTimeLabel(m)}｜${m.g}組｜${m.h} vs ${m.a}｜${m.hg??'-'}:${m.ag??'-'} <span class="pill ${statusClass(m)}">${statusText(m)}</span></span></div>`;
 }
 function drawThirdTeamPanel(team){
   if(!STATE||!thirdAssign)return;
@@ -321,14 +329,14 @@ function drawBracket(){
   setTimeout(drawTreeLines,20);
 }
 function loadTargets(){const teams=Object.values(GROUPS).flat();target.innerHTML=teams.map(t=>`<option>${t}</option>`).join('');if(!target.value)target.value=teams[0];loadTeamMatches()}
-function loadTeamMatches(){let t=target.value,ms=MATCHES.filter(m=>!m.done&&(m.h===t||m.a===t)).sort((a,b)=>a.date.localeCompare(b.date)||a.id-b.id);targetMatch.innerHTML=ms.map(m=>`<option value=${m.id}>${d(m.date)} ${m.h} vs ${m.a}</option>`).join('');if(ms.length&&!targetMatch.value)targetMatch.value=String(ms[0].id);loadScenarioMatch()}
+function loadTeamMatches(){let t=target.value,ms=MATCHES.filter(m=>!m.done&&(m.h===t||m.a===t)).sort((a,b)=>matchSortKey(a)-matchSortKey(b)||a.id-b.id);targetMatch.innerHTML=ms.map(m=>`<option value=${m.id}>${matchDateLabel(m)} ${matchTimeLabel(m)} ${m.h} vs ${m.a}</option>`).join('');if(ms.length&&!targetMatch.value)targetMatch.value=String(ms[0].id);loadScenarioMatch()}
 function currentScenarioMatch(){return MATCHES.find(m=>m.id===+targetMatch.value)||null}
 function loadScenarioMatch(){const m=currentScenarioMatch();if(!m){scoreControl.innerHTML='<div class=muted>這支隊伍目前沒有未開賽小組賽。</div>';scenarioImpact.innerHTML='';drawTargetSnapshot();return}SCENARIO_SCORE={hg:m.hg??0,ag:m.ag??0};renderScoreControl();runScenarioImpact()}
 function adjustScenario(side,delta){SCENARIO_SCORE[side]=Math.max(0,SCENARIO_SCORE[side]+delta);renderScoreControl();runScenarioImpact()}
 function setScenario(hg,ag){SCENARIO_SCORE={hg,ag};renderScoreControl();runScenarioImpact()}
 function renderScoreControl(){
   const m=currentScenarioMatch();if(!m)return;
-  scoreControl.innerHTML=`<h3>${d(m.date)}｜${m.g}組｜${m.h} vs ${m.a}</h3><div class=stepper><div><div class=team>${m.h}</div><div class=scoreBox><button onclick="adjustScenario('hg',-1)">−</button><div class=scoreNum>${SCENARIO_SCORE.hg}</div><button onclick="adjustScenario('hg',1)">＋</button></div></div><div class=vs>VS</div><div><div class=team>${m.a}</div><div class=scoreBox><button onclick="adjustScenario('ag',-1)">−</button><div class=scoreNum>${SCENARIO_SCORE.ag}</div><button onclick="adjustScenario('ag',1)">＋</button></div></div></div><div class=quickScores><button onclick="setScenario(1,0)">1:0</button><button onclick="setScenario(2,0)">2:0</button><button onclick="setScenario(2,1)">2:1</button><button onclick="setScenario(1,1)">1:1</button><button onclick="setScenario(0,1)">0:1</button><button onclick="setScenario(0,2)">0:2</button></div>`;
+  scoreControl.innerHTML=`<h3>${matchDateLabel(m)} ${matchTimeLabel(m)}｜${m.g}組｜${m.h} vs ${m.a}</h3><div class=stepper><div><div class=team>${m.h}</div><div class=scoreBox><button onclick="adjustScenario('hg',-1)">−</button><div class=scoreNum>${SCENARIO_SCORE.hg}</div><button onclick="adjustScenario('hg',1)">＋</button></div></div><div class=vs>VS</div><div><div class=team>${m.a}</div><div class=scoreBox><button onclick="adjustScenario('ag',-1)">−</button><div class=scoreNum>${SCENARIO_SCORE.ag}</div><button onclick="adjustScenario('ag',1)">＋</button></div></div></div><div class=quickScores><button onclick="setScenario(1,0)">1:0</button><button onclick="setScenario(2,0)">2:0</button><button onclick="setScenario(2,1)">2:1</button><button onclick="setScenario(1,1)">1:1</button><button onclick="setScenario(0,1)">0:1</button><button onclick="setScenario(0,2)">0:2</button></div>`;
 }
 function drawTargetSnapshot(){
   if(!STATE)return;
