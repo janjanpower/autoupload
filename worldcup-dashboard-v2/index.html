@@ -17,7 +17,7 @@
     .panel.on{display:block}.card{background:#07101e;border:1px solid #26364f;border-radius:14px;padding:12px;margin:10px 0}
     table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}th,td{border-bottom:1px solid #26364f;padding:8px;text-align:center}
     th{background:#0f172a;color:#cbd5e1}.team{text-align:center}input,select{background:#111827;color:#fff;border:1px solid #334155;border-radius:6px;padding:6px}.score{width:54px;text-align:center}
-    .done{background:#14532d;color:#bbf7d0}.live{background:#dc2626;color:#fff;animation:liveBlink 1s infinite}.todo{background:#3b2f0b;color:#fde68a}.up{color:#bef264}.down{color:#fecaca}.flat{color:#cbd5e1}
+    .done{background:#14532d;color:#bbf7d0}.live{background:#dc2626;color:#fff;animation:liveBlink 1s infinite}.todo{background:#3b2f0b;color:#fde68a}.up{color:#bef264}.down{color:#fecaca}.flat{color:#cbd5e1}.statusLine,.liveInfo{min-width:0;max-width:100%;display:inline-flex;gap:4px;align-items:center;justify-content:center;flex-wrap:wrap;white-space:normal;overflow:hidden}.statusLine .pill,.liveInfo .chip{min-width:0;max-width:100%;box-sizing:border-box;overflow:hidden;text-overflow:ellipsis}.liveInfo .chip{font-size:10px;padding:2px 5px;margin:0}
     @keyframes liveBlink{0%,100%{opacity:1;box-shadow:0 0 0 rgba(220,38,38,0)}50%{opacity:.58;box-shadow:0 0 12px rgba(220,38,38,.8)}}
     .pill{display:inline-flex;align-items:center;justify-content:center;text-align:center;border-radius:999px;padding:3px 8px;font-size:12px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .r1{background:rgba(22,163,74,.24)}.r2{background:rgba(37,99,235,.24)}.r3{background:rgba(202,138,4,.22)}.r4{background:rgba(71,85,105,.22)}
@@ -32,12 +32,15 @@
     .scheduleGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}.scheduleNode{background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px;box-shadow:0 8px 18px rgba(0,0,0,.18)}
     .scheduleNode .nTeam{grid-template-columns:44px minmax(0,1fr) 28px}.scheduleScore{text-align:right;font-weight:900}.scheduleMeta{display:flex;justify-content:space-between;gap:8px;align-items:center;color:#94a3b8;font-size:10px;margin-bottom:4px}
     .scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.scenario{background:#0f172a;border:1px solid #344054;border-radius:14px;padding:12px}.bar{height:8px;background:#1e293b;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:#60a5fa}.prob{display:grid;grid-template-columns:1fr 52px;gap:8px;margin:6px 0}
-    .matchList{display:grid;gap:7px}.matchRow{display:grid;grid-template-columns:54px 54px 36px minmax(86px,1fr) 112px minmax(86px,1fr) 74px;gap:6px;align-items:center;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:7px}.matchRow .teamName{text-align:center}.inlineScore{display:grid;grid-template-columns:1fr 12px 1fr;gap:3px;align-items:center;font-size:24px;font-weight:900}.inlineScore input{width:44px;text-align:center;padding:0;border:0;background:transparent;font-size:24px;font-weight:900;color:#fff}.inlineScore input:disabled{opacity:1}
-    .stepper{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:center}.scenarioTeam{font-size:2em;font-weight:900;margin-bottom:20px}.scoreBox{display:grid;grid-template-columns:34px 42px 34px;gap:6px;align-items:center;justify-content:center}.scoreBox button{padding:7px 0;border-radius:10px}.scoreNum{font-size:28px;font-weight:900;text-align:center}.vs{color:#94a3b8;font-weight:900}.impactGrid,.groupDuel{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.groupPanel{background:#0f172a;border:1px solid #344054;border-radius:12px;padding:10px}.groupPanel h4{margin:0 0 8px;display:flex;justify-content:space-between;gap:8px}.pickHint{color:#94a3b8;font-size:11px;font-weight:500}.teamStat{display:grid;grid-template-columns:34px minmax(0,1fr) 42px 66px 50px 52px;gap:5px;align-items:center;background:#172033;border:1px solid #30405f;border-radius:8px;margin:5px 0;padding:6px;font-size:12px}.teamStat.pickable{cursor:pointer}.teamStat.pickable:hover{background:#1d2b44}.teamStat.active{border-color:#60a5fa;background:#10233f}.teamStat.sideHome{border-color:#fb7185;background:linear-gradient(90deg,rgba(251,113,133,.28),#172033 68%)}.teamStat.sideAway{border-color:#4ade80;background:linear-gradient(90deg,rgba(74,222,128,.26),#172033 68%)}.teamStat.rank1{border-color:#22c55e;box-shadow:inset 0 0 0 1px rgba(34,197,94,.65)}.teamStat.rank2{border-color:#facc15;box-shadow:inset 0 0 0 1px rgba(250,204,21,.65)}.teamStat.rank3{border-color:#ef4444;box-shadow:inset 0 0 0 1px rgba(239,68,68,.65)}.rankTag{display:inline-flex;justify-content:center;align-items:center;border-radius:999px;padding:2px 5px;background:#020617;border:1px solid currentColor;font-size:10px;line-height:1}.rank1 .rankTag{color:#86efac}.rank2 .rankTag{color:#fde68a}.rank3 .rankTag{color:#fca5a5}.statDelta{color:#fde68a;font-weight:900}.duelPanel{display:grid;align-content:center;gap:8px}.duelLine{background:#07101e;border:1px solid #344054;border-radius:12px;padding:9px;text-align:center;font-weight:900}.duelMatchId{display:block;color:#e5e7eb;margin-bottom:7px}.duelTeams{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);gap:7px;align-items:stretch}.duelTeam{min-width:0;display:grid;gap:3px;align-content:center;border:1px solid #30405f;background:#101827;border-radius:10px;padding:8px 6px}.duelTeam small{color:#cbd5e1;font-size:11px}.duelTeam b{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:15px}.duelTeam.sideHome{border-color:#fb7185;background:rgba(127,29,29,.76)}.duelTeam.sideAway{border-color:#4ade80;background:rgba(20,83,45,.76)}.duelVs{display:grid;place-items:center;color:#94a3b8;font-size:12px}.impactCard{background:#0f172a;border:1px solid #344054;border-radius:12px;padding:10px}.impactCard h4{margin:0 0 8px;display:flex;justify-content:space-between;gap:8px}.chip{display:inline-block;border-radius:999px;padding:3px 7px;margin:2px;background:#111827;border:1px solid #344054;font-size:12px}.chip.good{border-color:#4ade80}.chip.bad{border-color:#fca5a5}.chip.warn{border-color:#fde68a}.routeCard{background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px;margin:7px 0}.routeCard .line{grid-template-columns:60px minmax(0,1fr)}.chain{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:start;border-top:1px solid #26364f;padding:8px 0}.mini{font-size:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.nextCard{display:grid;gap:8px}.nextRow{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;align-items:start;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px}.nextRow span{min-width:0;overflow:hidden;text-overflow:ellipsis}
+    .matchList{display:grid;gap:7px}.matchRow{display:grid;grid-template-columns:54px 54px 36px minmax(86px,1fr) 112px minmax(86px,1fr) minmax(0,74px);gap:6px;align-items:center;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:7px}.matchRow>span{min-width:0}.matchRow .teamName{text-align:center}.inlineScore{display:grid;grid-template-columns:1fr 12px 1fr;gap:3px;align-items:center;font-size:24px;font-weight:900}.scoreText{text-align:center;color:#fff}.scoreMissing{color:#64748b}
+    .matchRow .statusLine,.matchRow .liveInfo{display:inline-flex;flex-wrap:nowrap;gap:3px;white-space:nowrap;overflow:visible}.matchRow .statusLine{justify-content:center;transform:scale(.9);transform-origin:center}.matchRow .statusLine .pill,.matchRow .liveInfo .chip{flex:0 0 auto;font-size:10px;padding:2px 5px;line-height:1.1}
+    .stepper{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:center}.scenarioTeam{font-size:2em;font-weight:900;margin-bottom:20px}.scoreBox{display:grid;grid-template-columns:34px 42px 34px;gap:6px;align-items:center;justify-content:center}.scoreBox button{padding:7px 0;border-radius:10px}.scoreNum{font-size:28px;font-weight:900;text-align:center}.vs{color:#94a3b8;font-weight:900}.impactGrid,.groupDuel{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.groupPanel{background:#0f172a;border:1px solid #344054;border-radius:12px;padding:10px}.groupPanel h4{margin:0 0 8px;display:flex;justify-content:space-between;gap:8px}.pickHint{color:#94a3b8;font-size:11px;font-weight:500}.teamStat{display:grid;grid-template-columns:34px minmax(0,1fr) 42px 66px 50px 52px;gap:5px;align-items:center;background:#172033;border:1px solid #30405f;border-radius:8px;margin:5px 0;padding:6px;font-size:12px}.teamStat.pickable{cursor:pointer}.teamStat.pickable:hover{background:#1d2b44}.teamStat.picked{border-color:#93c5fd;outline:2px solid #93c5fd;outline-offset:2px;background:#10233f;box-shadow:0 0 0 1px rgba(147,197,253,.45) inset}.teamStat.active{border-color:#60a5fa;background:#10233f}.teamStat.sideHome{border-color:#fb7185;background:linear-gradient(90deg,rgba(251,113,133,.28),#172033 68%)}.teamStat.sideAway{border-color:#4ade80;background:linear-gradient(90deg,rgba(74,222,128,.26),#172033 68%)}.teamStat.rank1{border-color:#22c55e;box-shadow:inset 0 0 0 1px rgba(34,197,94,.65)}.teamStat.rank2{border-color:#facc15;box-shadow:inset 0 0 0 1px rgba(250,204,21,.65)}.teamStat.rank3{border-color:#ef4444;box-shadow:inset 0 0 0 1px rgba(239,68,68,.65)}.teamStat.picked.rank1,.teamStat.picked.rank2,.teamStat.picked.rank3{border-color:#93c5fd;box-shadow:0 0 0 1px rgba(147,197,253,.45) inset}.rankTag{display:inline-flex;justify-content:center;align-items:center;border-radius:999px;padding:2px 5px;background:#020617;border:1px solid currentColor;font-size:10px;line-height:1}.rank1 .rankTag{color:#86efac}.rank2 .rankTag{color:#fde68a}.rank3 .rankTag{color:#fca5a5}.statDelta{color:#fde68a;font-weight:900}.duelPanel{display:grid;align-content:center;gap:8px}.duelLine{background:#07101e;border:1px solid #344054;border-radius:12px;padding:9px;text-align:center;font-weight:900}.duelMatchId{display:block;color:#e5e7eb;margin-bottom:7px}.duelTeams{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);gap:7px;align-items:stretch}.duelTeam{min-width:0;display:grid;gap:3px;align-content:center;border:1px solid #30405f;background:#101827;border-radius:10px;padding:8px 6px}.duelTeam small{color:#cbd5e1;font-size:11px}.duelTeam b{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:15px}.duelTeam.sideHome{border-color:#fb7185;background:rgba(127,29,29,.76)}.duelTeam.sideAway{border-color:#4ade80;background:rgba(20,83,45,.76)}.duelVs{display:grid;place-items:center;color:#94a3b8;font-size:12px}.impactCard{background:#0f172a;border:1px solid #344054;border-radius:12px;padding:10px}.impactCard h4{margin:0 0 8px;display:flex;justify-content:space-between;gap:8px}.chip{display:inline-block;border-radius:999px;padding:3px 7px;margin:2px;background:#111827;border:1px solid #344054;font-size:12px}.chip.good{border-color:#4ade80}.chip.bad{border-color:#fca5a5}.chip.warn{border-color:#fde68a}.routeCard{background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px;margin:7px 0}.routeCard .line{grid-template-columns:60px minmax(0,1fr)}.chain{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:start;border-top:1px solid #26364f;padding:8px 0}.mini{font-size:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.nextCard{display:grid;gap:8px}.nextRow{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;align-items:start;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px}.nextRow span{min-width:0;overflow:hidden;text-overflow:ellipsis}
     .thirdRankTable{min-width:0}.thirdRankTable th:nth-child(1){width:10%}.thirdRankTable th:nth-child(2){width:12%}.thirdRankTable th:nth-child(3){width:24%}.thirdRankTable th:nth-child(4){width:11%}.thirdRankTable th:nth-child(5){width:13%}.thirdRankTable th:nth-child(6){width:10%}.thirdRankTable th:nth-child(7){width:20%}
+    .teamStat.rank1:not(.picked):not(.active):not(.sideHome):not(.sideAway),.teamStat.rank2:not(.picked):not(.active):not(.sideHome):not(.sideAway),.teamStat.rank3:not(.picked):not(.active):not(.sideHome):not(.sideAway){border-color:#30405f;box-shadow:none}
+    .teamStat.pickable:not(.picked){border-color:#30405f;outline:0;box-shadow:none}.teamStat.pickable.picked{border-color:#93c5fd;outline:2px solid #93c5fd;outline-offset:2px;box-shadow:0 0 0 1px rgba(147,197,253,.45) inset}
     .addScenarioBtn{display:block;margin:12px auto 0;min-width:54px;font-size:20px;font-weight:900}.aiPanel textarea{width:100%;box-sizing:border-box;min-height:72px;resize:vertical;background:#111827;color:#fff;border:1px solid #334155;border-radius:8px;padding:8px}.aiResult{white-space:pre-wrap;line-height:1.7}.aiControls label{display:grid;gap:4px}.aiControls input{min-width:230px}
     @media(max-width:1100px){.grid,.bracket,.two,.scenarios,.impactGrid,.groupDuel{grid-template-columns:1fr}.roundView{overflow-x:auto;padding-bottom:8px}.treeStage{width:1180px;height:820px;min-height:820px}.node{min-width:100px;width:10.4%}.nTeam{grid-template-columns:30px minmax(0,1fr);font-size:14px}}
-    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px calc(96px + env(safe-area-inset-bottom))}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px 10px calc(42px + env(safe-area-inset-bottom));border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table,.thirdRankTable{min-width:0}th,td{padding:7px 5px}.thirdRankTable{font-size:10px}.thirdRankTable th,.thirdRankTable td{padding:5px 2px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.roundView{overflow:visible}.treeStage{width:100%;height:760px;min-height:760px}.node{min-width:0;width:24%;padding:4px;border-radius:8px}.finalCard{width:34%;min-width:0;padding:5px}.nodeTitle{font-size:8px}.nTeam{height:24px;grid-template-columns:20px minmax(0,1fr);font-size:13px;padding:0 3px;gap:3px}.flagIcon{width:16px;height:16px;font-size:13px}.finalCard .nTeam{height:25px;font-size:12px}.scheduleGrid{grid-template-columns:1fr}.scheduleNode .nTeam{grid-template-columns:30px minmax(0,1fr) 24px}.teamStat{grid-template-columns:32px minmax(0,1fr) 30px 52px 42px 42px;font-size:10px;gap:3px;padding:5px}.rankTag{font-size:9px;padding:2px 4px}.duelTeams{grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);gap:5px}.duelTeam{padding:7px 4px}.duelTeam b{font-size:12px}.badge,.chip{font-size:11px}.matchRow{grid-template-columns:30px 36px 20px minmax(44px,1fr) 58px minmax(44px,1fr) 44px;font-size:11px;padding:5px;gap:3px}.matchRow .pill{font-size:10px;padding:3px 5px}.inlineScore{grid-template-columns:1fr 8px 1fr;font-size:20px}.inlineScore input{width:24px;font-size:20px}.stepper{grid-template-columns:1fr}.scenarioTeam{font-size:1.65em;margin-bottom:18px}.scoreNum{font-size:24px}.aiControls input{min-width:0;width:100%}}
+    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px calc(96px + env(safe-area-inset-bottom))}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px 10px calc(42px + env(safe-area-inset-bottom));border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table,.thirdRankTable{min-width:0}th,td{padding:7px 5px}.thirdRankTable{font-size:10px}.thirdRankTable th,.thirdRankTable td{padding:5px 2px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.roundView{overflow:visible}.treeStage{width:100%;height:760px;min-height:760px}.node{min-width:0;width:24%;padding:4px;border-radius:8px}.finalCard{width:34%;min-width:0;padding:5px}.nodeTitle{font-size:8px}.nTeam{height:24px;grid-template-columns:20px minmax(0,1fr);font-size:13px;padding:0 3px;gap:3px}.flagIcon{width:16px;height:16px;font-size:13px}.finalCard .nTeam{height:25px;font-size:12px}.scheduleGrid{grid-template-columns:1fr}.scheduleNode .nTeam{grid-template-columns:30px minmax(0,1fr) 24px}.teamStat{grid-template-columns:32px minmax(0,1fr) 30px 52px 42px 42px;font-size:10px;gap:3px;padding:5px}.rankTag{font-size:9px;padding:2px 4px}.duelTeams{grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);gap:5px}.duelTeam{padding:7px 4px}.duelTeam b{font-size:12px}.badge,.chip{font-size:11px}.matchRow{grid-template-columns:30px 36px 20px minmax(44px,1fr) 58px minmax(44px,1fr) minmax(0,52px);font-size:11px;padding:5px;gap:3px}.matchRow .statusLine{transform:scale(.78)}.matchRow .statusLine .pill,.matchRow .liveInfo .chip{font-size:9px;padding:2px 4px}.inlineScore{grid-template-columns:1fr 8px 1fr;font-size:20px}.stepper{grid-template-columns:1fr}.scenarioTeam{font-size:1.65em;margin-bottom:18px}.scoreNum{font-size:24px}.aiControls input{min-width:0;width:100%}}
   </style>
 </head>
 <body>
@@ -113,7 +116,7 @@ const THIRD_RULE={M74:['A','B','C','D','F'],M77:['C','D','F','G','H'],M79:['C','
 const R16_TEMPLATE=[['M89','M73','M75'],['M90','M74','M77'],['M91','M76','M78'],['M92','M79','M80'],['M93','M83','M84'],['M94','M81','M82'],['M95','M86','M88'],['M96','M85','M87']];
 const QF_TEMPLATE=[['M97','M89','M90'],['M98','M93','M94'],['M99','M91','M92'],['M100','M95','M96']];
 const TREE_FINAL_TEMPLATE=[['M101','M97','M98'],['M102','M99','M100'],['FINAL','M101','M102']];
-let MATCHES=SEED.map(x=>({...x})),KNOCKOUT_MATCHES=[],TEAM_META={},STATE=null,SCENARIOS=[],GROUP_PICKS={},STANDING_FILTER='';
+let MATCHES=SEED.map(x=>({...x})),KNOCKOUT_MATCHES=[],TEAM_META={},TEAM_INSIGHTS={teams:{},matchups:{}},STATE=null,SCENARIOS=[],GROUP_PICKS={},STANDING_FILTER='';
 
 function tab(id,b){document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));document.getElementById(id).classList.add('on');b.classList.add('on');recalculate()}
 function round(id,b){document.querySelectorAll('.round').forEach(x=>x.style.display='none');document.querySelectorAll('.subtab').forEach(x=>x.classList.remove('on'));document.getElementById(id).style.display='block';b.classList.add('on')}
@@ -122,7 +125,7 @@ function d(s){let x=new Date(s+'T00:00:00');return `${x.getMonth()+1}/${x.getDat
 function twDate(value,opts){return new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',...opts}).format(value)}
 function matchStart(m){return m.utc_date?new Date(m.utc_date):null}
 function matchDateLabel(m){const start=matchStart(m);return start?twDate(start,{month:'numeric',day:'numeric'}):d(m.date)}
-function matchTimeLabel(m){const start=matchStart(m);return start?twDate(start,{hour:'2-digit',minute:'2-digit',hour12:false}):'待定'}
+function matchTimeLabel(m){const start=matchStart(m);return start?`${twDate(start,{hour:'2-digit',minute:'2-digit',hour12:false})} TPE`:'待定'}
 function matchSortKey(m){return matchStart(m)?.getTime()||new Date(m.date+'T00:00:00Z').getTime()||m.id}
 function teamName(x){return ALIAS[x]||x}
 function norm(x){return teamName(x||'').replace(/\s/g,'')}
@@ -146,12 +149,60 @@ function teamDisplay(team){
   return `<span class=teamLabel>${flagIcon(name)}<span class=teamName>${escapeHtml(name)}</span></span>`;
 }
 function isPlayed(m){return m.hg!==null&&m.ag!==null}
-function isLive(m){return ['IN_PLAY','PAUSED','LIVE'].includes(m.status)}
+function isLive(m){
+  if(['IN_PLAY','PAUSED','LIVE'].includes(m.status))return true;
+  const start=matchStart(m);
+  if(!start||m.done||isPlayed(m))return false;
+  const now=Date.now(),kickoff=start.getTime();
+  return now>=kickoff&&now<=kickoff+130*60*1000;
+}
 function hasStarted(m){return m.done||isLive(m)||isPlayed(m)}
 function statusClass(m){return m.done?'done':isLive(m)?'live':'todo'}
 function statusText(m){return m.done?'已完賽':isLive(m)?'LIVE':'未開賽'}
+function liveElapsedInfo(m){
+  if(!isLive(m))return null;
+  if(m.minute!==null&&m.minute!==undefined&&m.minute!==''&&Number.isFinite(+m.minute)){
+    const minute=+m.minute,added=Math.max(0,+m.added_time||0);
+    const period=minute<=45?'上半':'下半';
+    return{period,minute:minute<=45?minute:Math.min(90,minute),added,source:'api'};
+  }
+  if(m.status==='PAUSED')return{period:'中場',minute:45,added:0,source:'status'};
+  const start=matchStart(m);if(!start)return null;
+  const elapsed=Math.max(1,Math.floor((Date.now()-start.getTime())/60000)+1);
+  if(elapsed<=45)return{period:'上半',minute:elapsed,added:0};
+  if(elapsed<=60)return{period:'上半',minute:45,added:elapsed-45};
+  const second=Math.min(90,Math.max(46,elapsed-15));
+  if(elapsed<=105)return{period:'下半',minute:second,added:0};
+  return{period:'下半',minute:90,added:elapsed-105};
+}
+function liveHalfScoreText(m){
+  if(!isLive(m))return '';
+  if(m.hh!=null&&m.ah!=null)return `上半 ${m.hh}:${m.ah}`;
+  return '';
+}
+function liveClockText(m){
+  const info=liveElapsedInfo(m);if(!info)return '';
+  if(info.period==='上半')return info.added?`45+${info.added}′`:`${info.minute}′`;
+  if(info.period==='中場')return '中場';
+  return info.added?`${info.period}加時 +${info.added}′`:`${info.period} ${info.minute}′`;
+}
+function liveInfoBadges(m){
+  if(!isLive(m))return '';
+  const info=liveElapsedInfo(m),halfScoreText=info?.period==='下半'?liveHalfScoreText(m):'',halfScore=halfScoreText?`<span class=chip>${halfScoreText}</span>`:'';
+  return `${halfScore}<span class="chip warn">${liveClockText(m)}</span>`;
+}
 function isTbdTeam(t){return !t||norm(t)==='TBD'||String(t).includes('待定')}
-function saveInputs(){MATCHES.forEach(m=>{let h=document.getElementById('h'+m.id),a=document.getElementById('a'+m.id);if(h&&!m.done){m.hg=h.value===''?null:+h.value;m.ag=a.value===''?null:+a.value}})}
+function scoreInputValue(m,side){
+  const value=side==='h'?m.hg:m.ag;
+  if(value!==null&&value!==undefined)return value;
+  return '';
+}
+function scoreDisplayText(m,side){
+  const value=scoreInputValue(m,side);
+  return value===''?(isLive(m)?'等待':'-'):value;
+}
+function scoreTextClass(m,side){return scoreInputValue(m,side)===''?'scoreText scoreMissing':'scoreText'}
+function saveInputs(){}
 
 function mergeScores(payload){
   const raw=(payload&&payload.matches)||[];
@@ -162,15 +213,65 @@ function mergeScores(payload){
     const reversed=remote.home&&norm(remote.home)===norm(seed.a);
     const hg=reversed?remote.away_score:remote.home_score;
     const ag=reversed?remote.home_score:remote.away_score;
+    const hh=reversed?remote.away_half_score:remote.home_half_score;
+    const ah=reversed?remote.home_half_score:remote.away_half_score;
     const status=remote.status||seed.status;
-    return {...seed,utc_date:remote.utc_date||remote.utcDate||seed.utc_date||'',hg:hg??null,ag:ag??null,status,done:['FINISHED','AWARDED'].includes(status)};
+    return {...seed,utc_date:remote.utc_date||remote.utcDate||seed.utc_date||'',hg:hg??null,ag:ag??null,hh:hh??null,ah:ah??null,minute:remote.minute??null,added_time:remote.added_time??remote.addedTime??null,status,done:['FINISHED','AWARDED'].includes(status)};
   });
   KNOCKOUT_MATCHES=raw.slice(SEED.length).map((m,i)=>({
     id:73+i,date:m.date||'',utc_date:m.utc_date||m.utcDate||'',g:m.group||'',
-    h:teamName(m.home),a:teamName(m.away),hg:m.home_score??null,ag:m.away_score??null,
+    h:teamName(m.home),a:teamName(m.away),hg:m.home_score??null,ag:m.away_score??null,hh:m.home_half_score??null,ah:m.away_half_score??null,minute:m.minute??null,added_time:m.added_time??m.addedTime??null,
     status:m.status||'TIMED',done:['FINISHED','AWARDED'].includes(m.status)
   }));
 }
+function canUseLocalLiveScores(){
+  return ['localhost','127.0.0.1','::1'].includes(location.hostname);
+}
+function liveScoreEndpoint(){
+  return localStorage.getItem('liveScoreEndpoint')||'http://127.0.0.1:8788/api/live-scores';
+}
+async function refreshLiveScores(){
+  if(!canUseLocalLiveScores())return;
+  try{
+    const res=await fetch(`${liveScoreEndpoint()}?t=${Date.now()}`,{cache:'no-store'});
+    if(!res.ok)return;
+    const payload=await res.json();
+    if(!payload.ok&&payload.error)return;
+    mergeScores(payload);
+    drawScores();
+    recalculate();
+  }catch(_){}
+}
+async function loadTeamInsights(){
+  try{
+    const res=await fetch(`data/team-insights.json?t=${Date.now()}`,{cache:'no-store'});
+    if(res.ok)TEAM_INSIGHTS=await res.json();
+  }catch(_){
+    TEAM_INSIGHTS={teams:{},matchups:{}};
+  }
+}
+const LIVE_SCORE_FEED={
+  timer:null,
+  isActive(){return MATCHES.some(isLive)},
+  nextKickoffDelay(){
+    const now=Date.now();
+    const starts=MATCHES.map(matchStart).filter(Boolean).map(x=>x.getTime()).filter(x=>x>now).sort((a,b)=>a-b);
+    return starts.length?Math.max(1000,starts[0]-now):null;
+  },
+  schedule(){
+    clearTimeout(this.timer);
+    const delay=this.isActive()?30000:this.nextKickoffDelay();
+    if(delay!=null)this.timer=setTimeout(()=>this.tick(),delay);
+  },
+  async tick(){
+    if(this.isActive())await refreshLiveScores();
+    this.schedule();
+  },
+  start(){
+    if(!canUseLocalLiveScores())return;
+    this.tick();
+  }
+};
 
 const ANNEX_C_ENGINE={
   blankTeam(group,team){return{group,team,P:0,W:0,D:0,L:0,GF:0,GA:0,GD:0,Pts:0,str:0,rankNote:''}},
@@ -247,15 +348,14 @@ const STRATEGY_ENGINE={
 };
 
 function matchCard(m,editable=false,prefix=''){
-  const disabled=editable&&!m.done?'':'disabled';
-  return `<div class=matchRow><b>${matchDateLabel(m)}</b><span>${matchTimeLabel(m)}</span><span>${m.g}</span><span>${teamDisplay(m.h)}</span><span class=inlineScore><input id=${prefix}h${m.id} value='${m.hg??''}' ${disabled} ${editable&&!m.done?"onchange='saveInputs();recalculate()'":''}><b>:</b><input id=${prefix}a${m.id} value='${m.ag??''}' ${disabled} ${editable&&!m.done?"onchange='saveInputs();recalculate()'":''}></span><span>${teamDisplay(m.a)}</span><span class='pill ${statusClass(m)}'>${statusText(m)}</span></div>`;
+  return `<div class=matchRow><b>${matchDateLabel(m)}</b><span>${matchTimeLabel(m)}</span><span>${m.g}</span><span>${teamDisplay(m.h)}</span><span class=inlineScore><span class="${scoreTextClass(m,'h')}">${scoreDisplayText(m,'h')}</span><b>:</b><span class="${scoreTextClass(m,'a')}">${scoreDisplayText(m,'a')}</span></span><span>${teamDisplay(m.a)}</span><span class=statusLine><span class='pill ${statusClass(m)}'>${statusText(m)}</span><span class=liveInfo>${liveInfoBadges(m)}</span></span></div>`;
 }
 function matchCardList(matches,editable=false,prefix=''){
   return `<div class=matchList>${matches.map(m=>matchCard(m,editable,prefix)).join('')}</div>`;
 }
 function scheduleNodeCard(m,label){
   const home=isTbdTeam(m.h)?'待定':m.h,away=isTbdTeam(m.a)?'待定':m.a;
-  return `<div class=scheduleNode><div class=scheduleMeta><span>${label}</span><span>${matchDateLabel(m)} ${matchTimeLabel(m)}</span></div><div class=nTeam><span class=nSeed>主</span>${teamDisplay(home)}<span class=scheduleScore>${m.hg??'-'}</span></div><div class=nTeam><span class=nSeed>客</span>${teamDisplay(away)}<span class=scheduleScore>${m.ag??'-'}</span></div><span class="pill ${statusClass(m)}">${statusText(m)}</span></div>`;
+  return `<div class=scheduleNode><div class=scheduleMeta><span>${label}</span><span>${matchDateLabel(m)} ${matchTimeLabel(m)}</span></div><div class=nTeam><span class=nSeed>主</span>${teamDisplay(home)}<span class=scheduleScore>${scoreDisplayText(m,'h')}</span></div><div class=nTeam><span class=nSeed>客</span>${teamDisplay(away)}<span class=scheduleScore>${scoreDisplayText(m,'a')}</span></div><div class=statusLine><span class="pill ${statusClass(m)}">${statusText(m)}</span><span class=liveInfo>${liveInfoBadges(m)}</span></div></div>`;
 }
 function scheduleNodeGrid(matches,labeler){
   return `<div class=scheduleGrid>${matches.map((m,i)=>scheduleNodeCard(m,labeler(m,i))).join('')}</div>`;
@@ -267,7 +367,6 @@ function drawScores(){
 }
 function clinchMap(st,matches,group){
   const rows=st[group]||[],remaining=matches.filter(m=>m.g===group&&!isPlayed(m)),left={};
-  if(rows.length&&remaining.length===0)return Object.fromEntries(rows.slice(0,2).map((x,i)=>[x.team,i===0?'確定第一':'晉級']));
   rows.forEach(x=>left[x.team]=0);
   remaining.forEach(m=>{left[m.h]=(left[m.h]||0)+1;left[m.a]=(left[m.a]||0)+1});
   const maxPts=Object.fromEntries(rows.map(x=>[x.team,x.Pts+3*(left[x.team]||0)])),out={};
@@ -380,41 +479,40 @@ function loadTargets(){
   renderScoreControl();runScenarioImpact();
 }
 function teamExists(name){return allTeams().includes(name)}
+function teamGroup(team){return Object.keys(GROUPS).find(g=>GROUPS[g].includes(team))||null}
 function teamMatches(team){
   return MATCHES.filter(m=>!m.done&&(m.h===team||m.a===team)).sort((a,b)=>matchSortKey(a)-matchSortKey(b)||a.id-b.id);
 }
-function selectedScenarioIds(){return new Set(SCENARIOS.map(s=>s.matchId).filter(Boolean))}
-function selectedScenarioTeams(exceptIndex=-1){
-  const teams=new Set();
-  SCENARIOS.forEach((s,i)=>{
-    if(i===exceptIndex)return;
-    const m=MATCHES.find(x=>x.id===+s.matchId);
-    if(m){teams.add(m.h);teams.add(m.a)}
-  });
-  return teams;
+function selectedScenarioIds(exceptIndex=-1){
+  const ids=new Set();
+  SCENARIOS.forEach((s,i)=>{if(i!==exceptIndex&&s.matchId)ids.add(+s.matchId)});
+  return ids;
 }
-function isScenarioMatchSelectable(match,index=-1){
+function isScenarioMatchSelectable(match,index=-1,team=null){
   if(!match||match.done)return false;
-  const used=selectedScenarioTeams(index);
-  return !used.has(match.h)&&!used.has(match.a);
+  if(selectedScenarioIds(index).has(match.id))return false;
+  if(!team)return true;
+  return match.g===teamGroup(team)&&(match.h===team||match.a===team);
 }
 function scenarioTeamOptions(index=-1){
   const current=currentScenarioMatch(index),currentTeams=new Set(current?[current.h,current.a]:[]);
-  return allTeams().filter(t=>currentTeams.has(t)||teamMatches(t).some(m=>isScenarioMatchSelectable(m,index)));
+  return allTeams().filter(t=>currentTeams.has(t)||teamMatches(t).some(m=>isScenarioMatchSelectable(m,index,t)));
 }
-function firstAvailableMatch(index=-1,group=null){
-  return MATCHES.filter(m=>(!group||m.g===group)&&isScenarioMatchSelectable(m,index)).sort((a,b)=>matchSortKey(a)-matchSortKey(b)||a.id-b.id)[0]||null;
+function remainingTeamMatches(team,index=-1){
+  return teamMatches(team).filter(m=>isScenarioMatchSelectable(m,index,team));
 }
 function firstMatchForTeam(team,index=-1){
-  return teamMatches(team).find(m=>isScenarioMatchSelectable(m,index))||firstAvailableMatch(index)||null;
+  return remainingTeamMatches(team,index)[0]||null;
 }
 function normalizeScenarios(){
   const source=[...SCENARIOS];
   SCENARIOS=[];
+  const anchor=source.find(s=>teamExists(s.team))?.team||allTeams()[0];
   source.forEach(s=>{
     const current=MATCHES.find(m=>m.id===+s.matchId);
-    const match=isScenarioMatchSelectable(current,SCENARIOS.length)?current:firstMatchForTeam(s.team,SCENARIOS.length);
-    if(match)SCENARIOS.push(syncScenarioToMatch({...s},match));
+    const team=teamExists(s.team)?s.team:anchor;
+    const match=isScenarioMatchSelectable(current,SCENARIOS.length,team)?current:firstMatchForTeam(team,SCENARIOS.length);
+    if(match)SCENARIOS.push(syncScenarioToMatch({...s,team},match));
   });
   if(!SCENARIOS.length)addScenario(allTeams()[0],false);
 }
@@ -424,17 +522,23 @@ function currentScenarioMatch(index=0){const s=SCENARIOS[index];return s?MATCHES
 function scenarioMatchWithScore(s){
   const m=MATCHES.find(x=>x.id===+s.matchId);return m?{...m,hg:s.hg,ag:s.ag}:null;
 }
-function syncScenarioToMatch(s,m){
+function simulatedMatchesWithScenarios(){
+  const sim=MATCHES.map(x=>({...x}));
+  SCENARIOS.forEach(s=>{const target=sim.find(x=>x.id===+s.matchId);if(target){target.hg=s.hg;target.ag=s.ag}});
+  return sim;
+}
+function syncScenarioToMatch(s,m,resetScore=false){
   if(!m)return s;
-  s.matchId=m.id;s.hg=m.hg??0;s.ag=m.ag??0;
+  s.matchId=m.id;
+  if(resetScore||s.hg==null)s.hg=m.hg??0;
+  if(resetScore||s.ag==null)s.ag=m.ag??0;
   if(!m.h&&!m.a)return s;
   if(!s.team||!teamExists(s.team)||![m.h,m.a].includes(s.team))s.team=m.h;
   return s;
 }
 function addScenario(team=primaryScenarioTeam(),rerender=true){
-  const index=SCENARIOS.length,base=SCENARIOS[0]?currentScenarioMatch(0):null;
-  let match=base?firstAvailableMatch(index,base.g):null;
-  match=match||firstMatchForTeam(team,index);
+  const index=SCENARIOS.length;
+  const match=firstMatchForTeam(team,index);
   if(!match)return;
   const scenario=syncScenarioToMatch({team},match);
   SCENARIOS.push(scenario);
@@ -451,8 +555,8 @@ function selectScenarioTeam(index,value){
 }
 function selectScenarioMatch(index,value){
   const m=MATCHES.find(x=>x.id===+value);if(!m)return;
-  if(!isScenarioMatchSelectable(m,index))return renderScoreControl();
-  SCENARIOS[index]=syncScenarioToMatch({...SCENARIOS[index]},m);
+  if(!isScenarioMatchSelectable(m,index,SCENARIOS[index]?.team))return renderScoreControl();
+  SCENARIOS[index]=syncScenarioToMatch({...SCENARIOS[index]},m,true);
   renderScoreControl();runScenarioImpact();
 }
 function adjustScenario(index,side,delta){
@@ -460,7 +564,7 @@ function adjustScenario(index,side,delta){
   s[side]=Math.max(0,(s[side]??0)+delta);renderScoreControl();runScenarioImpact();
 }
 function renderScenarioCard(s,index){
-  const m=currentScenarioMatch(index),matches=teamMatches(s.team).filter(x=>x.id===m?.id||isScenarioMatchSelectable(x,index)),teams=scenarioTeamOptions(index),listId=`teamOptions${index}`;
+  const m=currentScenarioMatch(index),matches=teamMatches(s.team).filter(x=>x.id===m?.id||isScenarioMatchSelectable(x,index,s.team)),teams=scenarioTeamOptions(index),listId=`teamOptions${index}`;
   if(!m)return `<div class=routeCard><div class=muted>找不到可推演賽事</div></div>`;
   const datalist=`<datalist id="${listId}">${teams.map(t=>`<option value="${escapeHtml(t)}"></option>`).join('')}</datalist>`;
   const options=matches.map(x=>`<option value="${x.id}" ${x.id===m.id?'selected':''}>${matchDateLabel(x)} ${matchTimeLabel(x)}｜${x.g}組｜${x.h} vs ${x.a}</option>`).join('');
@@ -470,19 +574,18 @@ function renderScenarioCard(s,index){
 function renderScoreControl(){
   normalizeScenarios();
   if(!SCENARIOS.length){scoreControl.innerHTML='<div class=muted>目前沒有可推演賽事。</div>';return}
-  const canAdd=!!firstAvailableMatch(SCENARIOS.length);
+  const canAdd=!!firstMatchForTeam(primaryScenarioTeam(),SCENARIOS.length);
   scoreControl.innerHTML=`<h3>同步沙盤比分</h3>${SCENARIOS.map(renderScenarioCard).join('')}${canAdd?'<button class=addScenarioBtn onclick="addScenario()">＋</button>':''}`;
 }
 function currentTournamentPhase(){return MATCHES.some(m=>!m.done)?'group':'r32'}
 function simulateScenarioState(){
   normalizeScenarios();
   if(!SCENARIOS.length)return null;
-  const sim=MATCHES.map(x=>({...x}));
-  SCENARIOS.forEach(s=>{const target=sim.find(x=>x.id===+s.matchId);if(target){target.hg=s.hg;target.ag=s.ag}});
+  const sim=simulatedMatchesWithScenarios();
   const target=sim.find(x=>x.id===+SCENARIOS[0].matchId);
   if(!target)return null;
   const standings=ANNEX_C_ENGINE.calculate(sim),thirdRanking=THIRD_PLACE_ENGINE.ranking(standings),thirdMap=THIRD_PLACE_ENGINE.assign(standings),bracket=BRACKET_ENGINE.r32(standings);
-  return{standings,thirdRanking,thirdMap,bracket,match:target,matches:sim,scenarios:SCENARIOS.map(scenarioMatchWithScore).filter(Boolean)};
+  return{standings,thirdRanking,thirdMap,bracket,match:target,scenarios:SCENARIOS.map(scenarioMatchWithScore).filter(Boolean)};
 }
 function isLocalCreator(){
   return ['localhost','127.0.0.1','::1'].includes(location.hostname);
@@ -677,7 +780,7 @@ function thirdSeedInfo(st,thirdMap,thirdRanking,matchId){
   const group=thirdMap?.[matchId],row=group?rankedGroupRows(st,group)[2]:null;
   if(!row)return{seed:'最佳第三名',team:'候選'};
   const order=thirdRanking.findIndex(x=>x.team===row.team)+1;
-  return{seed:`${group}3｜第三名第${order||'?'}名`,team:row.team};
+  return{seed:`${group}3 | 第${order||'?'}名`,team:row.team};
 }
 function seedTeamInfo(st,seed,thirdMap=null,thirdRanking=[],matchId=''){
   if(seed==='3')return thirdSeedInfo(st,thirdMap,thirdRanking,matchId);
@@ -702,14 +805,19 @@ function scenarioWldText(base,after,showDelta){
   return `${value}<span class=statDelta>+${dw}/${dl}/${dd}</span>`;
 }
 function rankLabel(rank){return rank===1?'1st':rank===2?'2rd':rank===3?'3th':rank}
-function groupStatCard(group,rows,focus,match,baseRows,clinch={}){
+function groupStatCard(group,rows,focus,match,baseRows,pickable=true){
   const baseByTeam=new Map((baseRows||[]).map(x=>[x.team,x]));
   const body=rows.map(x=>{
     const base=baseByTeam.get(x.team)||x,showDelta=x.team===match.h||x.team===match.a;
     const action=`toggleGroupPick(${JSON.stringify(group)},${JSON.stringify(x.team)})`;
-    return `<div class="teamStat pickable ${x.rank<=3?'rank'+x.rank:''} ${focus.has(x.team)?'active':''} ${scenarioSideClass(x.team,match)}" onclick='${action}'><b>${x.rank<=3?`<span class=rankTag>${rankLabel(x.rank)}</span>`:x.rank}</b><span>${teamDisplay(x.team)}${clinchTag(clinch[x.team])}</span><span>${scenarioDeltaText(base,x,'P',showDelta)}</span><span>${scenarioWldText(base,x,showDelta)}</span><b>${scenarioDeltaText(base,x,'Pts',showDelta)}</b><span>${scenarioDeltaText(base,x,'GD',showDelta)}</span></div>`;
+    const showRankTag=pickable?!!x.pickedRank:x.rank<=3;
+    const rankCell=showRankTag?`<span class=rankTag>${rankLabel(x.rank)}</span>`:x.rank;
+    const rowClass=pickable?`pickable ${x.pickedRank?'picked rank'+x.rank:''}`:`auto ${x.rank<=3?'rank'+x.rank:''}`;
+    const click=pickable?` onclick='${action}'`:'';
+    return `<div class="teamStat ${rowClass} ${focus.has(x.team)?'active':''} ${scenarioSideClass(x.team,match)}"${click}><b>${rankCell}</b><span>${teamDisplay(x.team)}</span><span>${scenarioDeltaText(base,x,'P',showDelta)}</span><span>${scenarioWldText(base,x,showDelta)}</span><b>${scenarioDeltaText(base,x,'Pts',showDelta)}</b><span>${scenarioDeltaText(base,x,'GD',showDelta)}</span></div>`;
   }).join('');
-  return `<div class=groupPanel><h4><span>${group}組</span><span class=pickHint>點選預測 1st/2rd/3th</span></h4><div class="teamStat muted"><span>名</span><span>隊伍</span><span>局</span><span>勝負和</span><span>積分</span><span>淨勝球</span></div>${body}</div>`;
+  const hint=pickable?'點選預測 1st/2rd/3th，再次點選取消':'依上方比分自動帶入';
+  return `<div class=groupPanel><h4><span>${group}組</span><span class=pickHint>${hint}</span></h4><div class="teamStat muted"><span>名</span><span>隊伍</span><span>局</span><span>勝負和</span><span>積分</span><span>淨勝球</span></div>${body}</div>`;
 }
 function matchupTeamCard(info,match){
   return `<div class="duelTeam ${scenarioSideClass(info.team,match)}"><small>${info.seed}</small>${teamDisplay(info.team)}</div>`;
@@ -726,13 +834,135 @@ function pairingLinesForGroups(view,groups,match){
     return [];
   });
 }
+function targetRowsForReverse(pack,group){
+  return groupRowsForMatchup(pack.standings,group).slice(0,3).map((x,i)=>({team:x.team,rank:i+1}));
+}
+function clamp(n,min,max){return Math.max(min,Math.min(max,n))}
+function poisson(k,lambda){
+  let p=Math.exp(-lambda);
+  for(let i=1;i<=k;i++)p*=lambda/i;
+  return p;
+}
+function teamFormProfile(team,group){
+  const rows=STATE?.standings?.[group]||ANNEX_C_ENGINE.calculate(MATCHES)[group]||[],row=rows.find(x=>x.team===team);
+  const insight=TEAM_INSIGHTS.teams?.[team]||{},played=Math.max(1,row?.P||0),rating=(RATING[team]||70)+clamp((insight.matches||0)/80,0,4);
+  const attack=row?.P?row.GF/played:(insight.recent_goals_for_per_match??insight.goals_for_per_match??1.15);
+  const concede=row?.P?row.GA/played:(insight.recent_goals_against_per_match??insight.goals_against_per_match??1.15);
+  return{
+    team,rating,played,
+    attack:clamp(attack*.55+(rating-70)/28+.85,0.45,2.8),
+    defense:clamp(concede*.55-(rating-70)/48+.95,0.35,2.4),
+    tempo:clamp(insight.tempo??((attack+concede)/2),0.65,2.4),
+    sources:insight.sources||[]
+  };
+}
+function matchGoalModel(match){
+  const home=teamFormProfile(match.h,match.g),away=teamFormProfile(match.a,match.g),diff=(home.rating-away.rating)/18;
+  const matchup=TEAM_INSIGHTS.matchups?.[[match.h,match.a].sort().join('|')]||{},h2hTotal=matchup.average_total_goals;
+  let hg=clamp(1.1+diff*.42+(home.attack-1.1)*.42+(away.defense-1.1)*.34+(home.tempo-1.1)*.12,0.25,3.6);
+  let ag=clamp(1.02-diff*.42+(away.attack-1.1)*.42+(home.defense-1.1)*.34+(away.tempo-1.1)*.12,0.25,3.6);
+  if(h2hTotal){
+    const scale=clamp(h2hTotal/(hg+ag),.75,1.25);
+    hg=clamp(hg*scale,0.25,3.6);ag=clamp(ag*scale,0.25,3.6);
+  }
+  const style=(home.tempo+away.tempo)/2>1.35?'開放對攻':(home.rating-away.rating>10?'強隊壓制':(away.rating-home.rating>10?'客隊反擊':'均勢拉鋸'));
+  return{hg,ag,style,home,away,matchup};
+}
+function scorePairsForReverse(match){
+  const model=matchGoalModel(match);
+  const pairs=[];
+  for(let hg=0;hg<=5;hg++)for(let ag=0;ag<=5;ag++){
+    const prob=poisson(hg,model.hg)*poisson(ag,model.ag),goalPenalty=Math.abs(hg-model.hg)+Math.abs(ag-model.ag);
+    pairs.push({hg,ag,prob,cost:-Math.log(Math.max(prob,0.000001))+goalPenalty*.08,model});
+  }
+  return pairs.sort((a,b)=>b.prob-a.prob||a.cost-b.cost);
+}
+function applyReverseEdits(base,edits){
+  const sim=base.map(x=>({...x}));
+  edits.forEach(edit=>{const m=sim.find(x=>x.id===edit.id);if(m){m.hg=edit.hg;m.ag=edit.ag}});
+  return sim;
+}
+function rankPenalty(rows,targetRows){
+  return targetRows.reduce((sum,target,index)=>{
+    const actual=rows.findIndex(x=>x.team===target.team);
+    return sum+(actual<0?500:Math.abs(actual-index)*100+(actual>2?40:0));
+  },0);
+}
+function ranksMatch(rows,targetRows){
+  return targetRows.every((target,index)=>rows[index]?.team===target.team);
+}
+function reverseGroupScoreCombos(group,targetRows){
+  const fixedScenarioIds=new Set(SCENARIOS.map(s=>+s.matchId));
+  const base=simulatedMatchesWithScenarios();
+  const matches=MATCHES.filter(m=>m.g===group&&!m.done&&!fixedScenarioIds.has(m.id)).sort((a,b)=>matchSortKey(a)-matchSortKey(b)||a.id-b.id);
+  const targetLabel=targetRows.map(x=>`${x.rank}.${x.team}`).join('、');
+  if(!matches.length){
+    const rows=rankedGroupRows(ANNEX_C_ENGINE.calculate(base),group);
+    return{group,targetLabel,matches:[],solutions:ranksMatch(rows,targetRows)?[{edits:[]}]:[],complete:true};
+  }
+  const beamLimit=900,solutionLimit=8;
+  let beam=[{edits:[],penalty:0,modelCost:0,prob:1}];
+  matches.forEach(match=>{
+    const expanded=[],pairs=scorePairsForReverse(match).slice(0,24);
+    beam.forEach(state=>{
+      pairs.forEach(pair=>{
+        const edits=[...state.edits,{id:match.id,hg:pair.hg,ag:pair.ag,prob:pair.prob,cost:pair.cost,style:pair.model.style,expHg:pair.model.hg,expAg:pair.model.ag}];
+        const rows=rankedGroupRows(ANNEX_C_ENGINE.calculate(applyReverseEdits(base,edits)),group);
+        expanded.push({edits,penalty:rankPenalty(rows,targetRows),modelCost:state.modelCost+pair.cost,prob:state.prob*pair.prob});
+      });
+    });
+    expanded.sort((a,b)=>a.penalty-b.penalty||a.modelCost-b.modelCost||b.prob-a.prob);
+    beam=expanded.slice(0,beamLimit);
+  });
+  const seen=new Set(),solutions=[];
+  beam.forEach(state=>{
+    if(solutions.length>=solutionLimit)return;
+    const rows=rankedGroupRows(ANNEX_C_ENGINE.calculate(applyReverseEdits(base,state.edits)),group);
+    if(!ranksMatch(rows,targetRows))return;
+    const key=state.edits.map(x=>`${x.id}:${x.hg}-${x.ag}`).join('|');
+    if(seen.has(key))return;
+    seen.add(key);solutions.push(state);
+  });
+  solutions.sort((a,b)=>a.modelCost-b.modelCost||b.prob-a.prob);
+  return{group,targetLabel,matches,solutions,complete:beam.length<beamLimit};
+}
+function reverseSolutionLine(solution){
+  if(!solution.edits.length)return '<div class=chip>目前比分已符合</div>';
+  return solution.edits.map(edit=>{
+    const m=MATCHES.find(x=>x.id===edit.id);
+    const chance=Math.max(1,Math.round((edit.prob||0)*100));
+    const source=TEAM_INSIGHTS.source?`｜資料 ${escapeHtml(TEAM_INSIGHTS.source)}`:'';
+    return `<span class=chip title="預期 ${edit.expHg?.toFixed(1)}:${edit.expAg?.toFixed(1)}｜${escapeHtml(edit.style||'')}${source}">${matchDateLabel(m)} ${teamDisplay(m.h)} ${edit.hg}:${edit.ag} ${teamDisplay(m.a)}｜${chance}% ${escapeHtml(edit.style||'')}</span>`;
+  }).join('');
+}
+function reverseResultCard(result){
+  const source=TEAM_INSIGHTS.source?`｜資料：${escapeHtml(TEAM_INSIGHTS.source)}`:'';
+  const scope=result.matches.length?`依強度、歷史/近期進失球、攻守節奏模擬 ${result.matches.length} 場，優先搜尋各場前 24 個合理比分${source}`:'沒有未賽可調整';
+  const body=result.solutions.length
+    ? result.solutions.map((solution,i)=>`<div class=routeCard><b>組合 ${i+1}</b><span class="chip good">合理性 ${Math.max(1,Math.round((solution.prob||0)*1000)/10)}%</span><div>${reverseSolutionLine(solution)}</div></div>`).join('')
+    : '<div class="routeCard bad">合理比分池內沒有找到可行組合；可能需要極端比分，或其他未列入沙盤的小組結果也一起改變。</div>';
+  return `<div class=card><h3>${result.group}組反推</h3><div class=muted>目標：${escapeHtml(result.targetLabel)}｜${scope}</div>${body}</div>`;
+}
+function reverseScenarioScores(){
+  const pack=simulateScenarioState();if(!pack)return;
+  const group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],box=document.getElementById('reverseScoreResults');
+  if(!box)return;
+  box.innerHTML='<div class=routeCard>反推中...</div>';
+  const results=groups.map(g=>reverseGroupScoreCombos(g,targetRowsForReverse(pack,g)));
+  box.innerHTML=results.map(reverseResultCard).join('');
+}
 function groupDuelAnalysis(pack){
   const group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],focus=new Set([primaryScenarioTeam(),...pack.scenarios.flatMap(m=>[m.h,m.a])]);
-  const viewSt=predictedStandings(pack.standings,groups),view={st:viewSt,thirdRanking:THIRD_PLACE_ENGINE.ranking(viewSt),thirdMap:THIRD_PLACE_ENGINE.assign(viewSt)};
-  const panels=groups.map(g=>groupStatCard(g,groupRowsForMatchup(pack.standings,g),focus,pack.match,rankedGroupRows(STATE.standings,g),clinchMap(pack.standings,pack.matches||MATCHES,g)));
+  const predictedGroups=paired?[paired]:[];
+  const viewSt=predictedStandings(pack.standings,predictedGroups),view={st:viewSt,thirdRanking:THIRD_PLACE_ENGINE.ranking(viewSt),thirdMap:THIRD_PLACE_ENGINE.assign(viewSt)};
+  const panels=[
+    groupStatCard(group,rankedGroupRows(pack.standings,group),focus,pack.match,rankedGroupRows(STATE.standings,group),false),
+    paired?groupStatCard(paired,groupRowsForMatchup(pack.standings,paired),focus,pack.match,rankedGroupRows(STATE.standings,paired),true):''
+  ];
   const lines=pairingLinesForGroups(view,groups,pack.match);
   const bridge=`<div class=duelPanel>${(lines.length?lines:[`<div class=duelLine><span class=duelMatchId>${group}組</span><div class=muted>目前沒有固定配對小組</div></div>`]).join('')}</div>`;
-  return `<div class=groupDuel>${panels[0]}${bridge}${panels[1]||''}</div>`;
+  const reverse=`<div class=card><div class=toolbar><button onclick="reverseScenarioScores()">反推比分組合</button><span class=muted>依隊伍強度、已賽戰績、攻守節奏模擬合理比分，再篩出能達成配對的組合。</span></div><div id=reverseScoreResults></div></div>`;
+  return `<div class=groupDuel>${panels[0]}${bridge}${panels[1]||''}</div>${reverse}`;
 }
 function runScenarioImpact(){
   if(!STATE||!scenarioImpact)return;
@@ -785,6 +1015,7 @@ function normalizeLocalModel(model){
 }
 async function init(){
   try{const res=await fetch('data/matches.json',{cache:'no-store'});if(res.ok)mergeScores(await res.json());else mergeScores({matches:[]})}catch(_){mergeScores({matches:[]})}
+  await loadTeamInsights();
   const aiPanel=document.getElementById('creatorAiPanel');
   if(aiPanel){
     if(isLocalCreator())aiPanel.hidden=false;
@@ -796,6 +1027,7 @@ async function init(){
   if(researchEl&&localStorage.getItem('researchEndpoint'))researchEl.value=localStorage.getItem('researchEndpoint');
   drawScores();recalculate();loadTargets();
   AUTO_REFRESH.start();
+  LIVE_SCORE_FEED.start();
 }
 init();
 </script>

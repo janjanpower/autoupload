@@ -49,8 +49,12 @@ def normalize_football_data(raw: dict, current: dict) -> dict:
     for idx, match in enumerate(raw.get("matches", []), start=1):
         home = (match.get("homeTeam") or {}).get("name") or "TBD"
         away = (match.get("awayTeam") or {}).get("name") or "TBD"
-        score = (match.get("score") or {}).get("fullTime") or {}
+        score_obj = match.get("score") or {}
+        score = score_obj.get("fullTime") or {}
+        half_score = score_obj.get("halfTime") or {}
         status = match.get("status") or "SCHEDULED"
+        minute = match.get("minute") or match.get("elapsed") or match.get("matchMinute")
+        added_time = match.get("addedTime") or match.get("extra") or match.get("injuryTime")
         utc_date = match.get("utcDate") or ""
         date = utc_date[:10] if utc_date else ""
         seed = known_by_id.get(idx, {}) if home == "TBD" or away == "TBD" else known_by_pair.get((home, away), known_by_id.get(idx, {}))
@@ -64,6 +68,10 @@ def normalize_football_data(raw: dict, current: dict) -> dict:
                 "away": seed.get("away", away),
                 "home_score": score.get("home") if status in {"FINISHED", "IN_PLAY", "PAUSED"} else None,
                 "away_score": score.get("away") if status in {"FINISHED", "IN_PLAY", "PAUSED"} else None,
+                "home_half_score": half_score.get("home") if status in {"FINISHED", "IN_PLAY", "PAUSED"} else None,
+                "away_half_score": half_score.get("away") if status in {"FINISHED", "IN_PLAY", "PAUSED"} else None,
+                "minute": minute,
+                "added_time": added_time,
                 "status": status,
             }
         )

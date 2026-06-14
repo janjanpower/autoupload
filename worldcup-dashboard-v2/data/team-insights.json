@@ -1,0 +1,288 @@
+{
+  "updated_at": "2026-06-14T17:40:53.300246+00:00",
+  "source": "matches.json",
+  "teams": {
+    "墨西哥": {
+      "matches": 1,
+      "goals_for_per_match": 2.0,
+      "goals_against_per_match": 0.0,
+      "recent_goals_for_per_match": 2,
+      "recent_goals_against_per_match": 0,
+      "tempo": 1.0,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "南非": {
+      "matches": 1,
+      "goals_for_per_match": 0.0,
+      "goals_against_per_match": 2.0,
+      "recent_goals_for_per_match": 0,
+      "recent_goals_against_per_match": 2,
+      "tempo": 1.0,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "大韓民國": {
+      "matches": 1,
+      "goals_for_per_match": 2.0,
+      "goals_against_per_match": 1.0,
+      "recent_goals_for_per_match": 2,
+      "recent_goals_against_per_match": 1,
+      "tempo": 1.5,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "捷克": {
+      "matches": 1,
+      "goals_for_per_match": 1.0,
+      "goals_against_per_match": 2.0,
+      "recent_goals_for_per_match": 1,
+      "recent_goals_against_per_match": 2,
+      "tempo": 1.5,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "加拿大": {
+      "matches": 1,
+      "goals_for_per_match": 1.0,
+      "goals_against_per_match": 1.0,
+      "recent_goals_for_per_match": 1,
+      "recent_goals_against_per_match": 1,
+      "tempo": 1.0,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "波士尼亞與赫塞哥維納": {
+      "matches": 1,
+      "goals_for_per_match": 1.0,
+      "goals_against_per_match": 1.0,
+      "recent_goals_for_per_match": 1,
+      "recent_goals_against_per_match": 1,
+      "tempo": 1.0,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "美國": {
+      "matches": 1,
+      "goals_for_per_match": 4.0,
+      "goals_against_per_match": 1.0,
+      "recent_goals_for_per_match": 4,
+      "recent_goals_against_per_match": 1,
+      "tempo": 2.5,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "巴拉圭": {
+      "matches": 1,
+      "goals_for_per_match": 1.0,
+      "goals_against_per_match": 4.0,
+      "recent_goals_for_per_match": 1,
+      "recent_goals_against_per_match": 4,
+      "tempo": 2.5,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "卡達": {
+      "matches": 1,
+      "goals_for_per_match": 1.0,
+      "goals_against_per_match": 1.0,
+      "recent_goals_for_per_match": 1,
+      "recent_goals_against_per_match": 1,
+      "tempo": 1.0,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "瑞士": {
+      "matches": 1,
+      "goals_for_per_match": 1.0,
+      "goals_against_per_match": 1.0,
+      "recent_goals_for_per_match": 1,
+      "recent_goals_against_per_match": 1,
+      "tempo": 1.0,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "巴西": {
+      "matches": 1,
+      "goals_for_per_match": 1.0,
+      "goals_against_per_match": 1.0,
+      "recent_goals_for_per_match": 1,
+      "recent_goals_against_per_match": 1,
+      "tempo": 1.0,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "摩洛哥": {
+      "matches": 1,
+      "goals_for_per_match": 1.0,
+      "goals_against_per_match": 1.0,
+      "recent_goals_for_per_match": 1,
+      "recent_goals_against_per_match": 1,
+      "tempo": 1.0,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "海地": {
+      "matches": 1,
+      "goals_for_per_match": 0.0,
+      "goals_against_per_match": 1.0,
+      "recent_goals_for_per_match": 0,
+      "recent_goals_against_per_match": 1,
+      "tempo": 0.5,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "蘇格蘭": {
+      "matches": 1,
+      "goals_for_per_match": 1.0,
+      "goals_against_per_match": 0.0,
+      "recent_goals_for_per_match": 1,
+      "recent_goals_against_per_match": 0,
+      "tempo": 0.5,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "澳洲": {
+      "matches": 1,
+      "goals_for_per_match": 2.0,
+      "goals_against_per_match": 0.0,
+      "recent_goals_for_per_match": 2,
+      "recent_goals_against_per_match": 0,
+      "tempo": 1.0,
+      "sources": [
+        "matches.json"
+      ]
+    },
+    "土耳其": {
+      "matches": 1,
+      "goals_for_per_match": 0.0,
+      "goals_against_per_match": 2.0,
+      "recent_goals_for_per_match": 0,
+      "recent_goals_against_per_match": 2,
+      "tempo": 1.0,
+      "sources": [
+        "matches.json"
+      ]
+    }
+  },
+  "matchups": {
+    "南非|墨西哥": {
+      "matches": 1,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "墨西哥",
+          "away": "南非",
+          "hg": 2,
+          "ag": 0,
+          "source": "matches.json"
+        }
+      ]
+    },
+    "大韓民國|捷克": {
+      "matches": 1,
+      "average_total_goals": 3.0,
+      "recent": [
+        {
+          "home": "大韓民國",
+          "away": "捷克",
+          "hg": 2,
+          "ag": 1,
+          "source": "matches.json"
+        }
+      ]
+    },
+    "加拿大|波士尼亞與赫塞哥維納": {
+      "matches": 1,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "加拿大",
+          "away": "波士尼亞與赫塞哥維納",
+          "hg": 1,
+          "ag": 1,
+          "source": "matches.json"
+        }
+      ]
+    },
+    "巴拉圭|美國": {
+      "matches": 1,
+      "average_total_goals": 5.0,
+      "recent": [
+        {
+          "home": "美國",
+          "away": "巴拉圭",
+          "hg": 4,
+          "ag": 1,
+          "source": "matches.json"
+        }
+      ]
+    },
+    "卡達|瑞士": {
+      "matches": 1,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "卡達",
+          "away": "瑞士",
+          "hg": 1,
+          "ag": 1,
+          "source": "matches.json"
+        }
+      ]
+    },
+    "巴西|摩洛哥": {
+      "matches": 1,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "巴西",
+          "away": "摩洛哥",
+          "hg": 1,
+          "ag": 1,
+          "source": "matches.json"
+        }
+      ]
+    },
+    "海地|蘇格蘭": {
+      "matches": 1,
+      "average_total_goals": 1.0,
+      "recent": [
+        {
+          "home": "海地",
+          "away": "蘇格蘭",
+          "hg": 0,
+          "ag": 1,
+          "source": "matches.json"
+        }
+      ]
+    },
+    "土耳其|澳洲": {
+      "matches": 1,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "澳洲",
+          "away": "土耳其",
+          "hg": 2,
+          "ag": 0,
+          "source": "matches.json"
+        }
+      ]
+    }
+  }
+}
