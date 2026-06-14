@@ -17,10 +17,10 @@
     .pill{display:inline-block;border-radius:999px;padding:3px 8px;font-size:12px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .r1{background:rgba(22,163,74,.24)}.r2{background:rgba(37,99,235,.24)}.r3{background:rgba(202,138,4,.22)}.r4{background:rgba(71,85,105,.22)}
     .badge{display:inline-block;margin:2px;padding:3px 7px;border:1px solid #3b4a67;border-radius:999px;background:#111827}.muted{color:#94a3b8}.good{color:#bef264}.warn{color:#fde68a}.bad{color:#fecaca}
-    .bracket,.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.match{background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px;margin:7px 0}.line{display:grid;grid-template-columns:72px 1fr auto;gap:6px;margin:4px 0}.seed{font-weight:900}
+    .bracket,.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.match{background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px;margin:7px 0}.line{display:grid;grid-template-columns:60px 1fr;gap:6px;margin:4px 0}.seed{font-weight:900}
     .scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.scenario{background:#0f172a;border:1px solid #344054;border-radius:14px;padding:12px}.bar{height:8px;background:#1e293b;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:#60a5fa}.prob{display:grid;grid-template-columns:1fr 52px;gap:8px;margin:6px 0}
     .chain{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:start;border-top:1px solid #26364f;padding:8px 0}.mini{font-size:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi b{font-size:22px}
-    @media(max-width:900px){.grid,.bracket,.two,.scenarios,.kpi{grid-template-columns:1fr}.line{grid-template-columns:58px 1fr}}
+    @media(max-width:900px){.grid,.bracket,.two,.scenarios,.kpi{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -33,7 +33,7 @@
     <button class="tab on" onclick="tab('scores',this)">賽事中心</button>
     <button class="tab" onclick="tab('standings',this)">小組積分</button>
     <button class="tab" onclick="tab('thirds',this)">第三名分析</button>
-    <button class="tab" onclick="tab('bracket',this)">32強配置</button>
+    <button class="tab" onclick="tab('bracket',this)">樹狀晉級賽程</button>
     <button class="tab" onclick="tab('sandbox',this)">情境沙盤</button>
     <button class="tab" onclick="tab('annex',this)">FIFA 2026 Annex C</button>
   </div>
@@ -231,7 +231,7 @@ function drawThirds(){
   thirdBoard.innerHTML=`<table><thead><tr><th>排序</th><th>種子</th><th>隊伍</th><th>積</th><th>淨</th><th>進球</th><th>狀態</th></tr></thead><tbody>${STATE.thirdRanking.map((x,i)=>`<tr class=${i<8?'r3':'r4'}><td>${i+1}</td><td>${x.seed}</td><td>${x.team}</td><td>${x.Pts}</td><td>${x.GD}</td><td>${x.GF}</td><td>${i<8?'晉級':'淘汰區'}</td></tr>`).join('')}</tbody></table>`;
   thirdAssign.innerHTML=Object.keys(THIRD_RULE).map(slot=>`<div class=chain><b>${slot}</b><span><span class=badge>${STATE.thirdMap[slot]||'未配置'}</span> 可用：${THIRD_RULE[slot].join(' / ')}</span></div>`).join('');
 }
-function matchCard(m){return `<div class=match><b>${m.id}</b><div class=line><span class=seed>${m.a.seed}</span><span>${m.a.team}</span><span class=mini>${m.a.str}</span></div><div class=line><span class=seed>${m.b.seed}</span><span>${m.b.team}</span><span class=mini>${m.b.str}</span></div></div>`}
+function matchCard(m){return `<div class=match><b>${m.id}</b><div class=line><span class=seed>${m.a.seed}</span><span>${m.a.team}</span></div><div class=line><span class=seed>${m.b.seed}</span><span>${m.b.team}</span></div></div>`}
 function drawBracket(){
   r32.innerHTML=`<div class=bracket><div class=card><h3>32強左半區</h3>${STATE.bracket.slice(0,8).map(matchCard).join('')}</div><div class=card><h3>32強右半區</h3>${STATE.bracket.slice(8).map(matchCard).join('')}</div></div>`;
   r16.innerHTML=`<div class=bracket>${R16_TEMPLATE.map(x=>`<div class=match><b>${x[0]}</b><br>${x[1]}勝者 vs ${x[2]}勝者</div>`).join('')}</div>`;
