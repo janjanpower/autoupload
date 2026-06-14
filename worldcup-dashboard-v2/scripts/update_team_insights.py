@@ -13,6 +13,7 @@ import csv
 import json
 import os
 import pathlib
+import ssl
 import statistics
 import sys
 import urllib.parse
@@ -247,16 +248,19 @@ def add_spi_rankings(teams: dict) -> bool:
     rows = fetch_csv_rows(SPI_RANKINGS_URL)
     used = False
     for row in rows:
-        team = team_name(row.get("name", ""))
+        team = team_name(row_get(row, "name", "team", "squad", "country"))
         if not team:
             continue
         target = teams[team]
-        add_metric(target, "spi", row.get("spi"))
-        add_metric(target, "offense", row.get("off"))
-        add_metric(target, "defense", row.get("def"))
-        add_metric(target, "rank", row.get("rank"))
-        add_source(target, "fivethirtyeight-spi-rankings")
-        used = True
+        before = sum(len(target[k]) for k in ("spi", "offense", "defense", "rank"))
+        add_metric(target, "spi", row_get(row, "spi", "rating"))
+        add_metric(target, "offense", row_get(row, "off", "offense", "attack"))
+        add_metric(target, "defense", row_get(row, "def", "defense"))
+        add_metric(target, "rank", row_get(row, "rank", "ranking"))
+        after = sum(len(target[k]) for k in ("spi", "offense", "defense", "rank"))
+        if after > before:
+            add_source(target, "fivethirtyeight-spi-rankings")
+            used = True
     return used
 
 
@@ -266,26 +270,45 @@ def add_spi_matches(teams: dict, matchups: dict) -> bool:
     rows = fetch_csv_rows(SPI_MATCHES_URL)
     used = False
     for row in rows[-5000:]:
-        home, away = team_name(row.get("team1", "")), team_name(row.get("team2", ""))
+        home = team_name(row_get(row, "team1", "team_1", "home_team", "home"))
+        away = team_name(row_get(row, "team2", "team_2", "away_team", "away"))
         if not home or not away:
             continue
         for team, spi, proj_for, proj_against, xg_for, xg_against in (
-            (home, row.get("spi1"), row.get("proj_score1"), row.get("proj_score2"), row.get("xg1"), row.get("xg2")),
-            (away, row.get("spi2"), row.get("proj_score2"), row.get("proj_score1"), row.get("xg2"), row.get("xg1")),
+            (
+                home,
+                row_get(row, "spi1", "spi_1", "home_spi"),
+                row_get(row, "proj_score1", "projected_score1", "proj_goals1", "home_projected_goals"),
+                row_get(row, "proj_score2", "projected_score2", "proj_goals2", "away_projected_goals"),
+                row_get(row, "xg1", "xg_1", "home_xg"),
+                row_get(row, "xg2", "xg_2", "away_xg"),
+            ),
+            (
+                away,
+                row_get(row, "spi2", "spi_2", "away_spi"),
+                row_get(row, "proj_score2", "projected_score2", "proj_goals2", "away_projected_goals"),
+                row_get(row, "proj_score1", "projected_score1", "proj_goals1", "home_projected_goals"),
+                row_get(row, "xg2", "xg_2", "away_xg"),
+                row_get(row, "xg1", "xg_1", "home_xg"),
+            ),
         ):
             target = teams[team]
+            before = sum(len(target[k]) for k in ("spi", "projected_goals_for", "projected_goals_against", "xg_for", "xg_against"))
             add_metric(target, "spi", spi)
             add_metric(target, "projected_goals_for", proj_for)
             add_metric(target, "projected_goals_against", proj_against)
             add_metric(target, "xg_for", xg_for)
             add_metric(target, "xg_against", xg_against)
-            add_source(target, "fivethirtyeight-spi-matches")
+            after = sum(len(target[k]) for k in ("spi", "projected_goals_for", "projected_goals_against", "xg_for", "xg_against"))
+            if after > before:
+                add_source(target, "fivethirtyeight-spi-matches")
         try:
-            if row.get("score1") not in (None, "") and row.get("score2") not in (None, ""):
-                add_match(teams, matchups, home, away, int(float(row["score1"])), int(float(row["score2"])), "fivethirtyeight-spi-matches")
+            score1, score2 = row_get(row, "score1", "score_1", "home_score"), row_get(row, "score2", "score_2", "away_score")
+            if score1 not in (None, "") and score2 not in (None, ""):
+                add_match(teams, matchups, home, away, int(float(score1)), int(float(score2)), "fivethirtyeight-spi-matches")
         except ValueError:
             pass
-        used = True
+        used = any("fivethirtyeight-spi-matches" in teams[t]["sources"] for t in (home, away)) or used
     return used
 
 
@@ -296,13 +319,34 @@ def fetch_json(url: str, headers: dict[str, str] | None = None) -> dict:
 
 
 def fetch_text(url: str, headers: dict[str, str] | None = None) -> str:
-    req = urllib.request.Request(url, headers=headers or {"User-Agent": "worldcup-dashboard"})
-    with urllib.request.urlopen(req, timeout=35) as res:
-        return res.read().decode("utf-8", errors="ignore")
+    base_headers = {"User-Agent": "Mozilla/5.0 worldcup-dashboard"}
+    base_headers.update(headers or {})
+    req = urllib.request.Request(url, headers=base_headers)
+    try:
+        with urllib.request.urlopen(req, timeout=35) as res:
+            return res.read().decode("utf-8", errors="ignore")
+    except Exception:
+        if not url.startswith("https://"):
+            raise
+        context = ssl._create_unverified_context()
+        with urllib.request.urlopen(req, timeout=35, context=context) as res:
+            return res.read().decode("utf-8", errors="ignore")
 
 
 def fetch_csv_rows(url: str) -> list[dict]:
     return list(csv.DictReader(StringIO(fetch_text(url))))
+
+
+def row_get(row: dict, *names: str) -> str:
+    normalized = {str(k).strip().lower().replace(" ", "_"): v for k, v in row.items()}
+    for name in names:
+        value = row.get(name)
+        if value not in (None, ""):
+            return value
+        value = normalized.get(name.strip().lower().replace(" ", "_"))
+        if value not in (None, ""):
+            return value
+    return ""
 
 
 def add_api_football(teams: dict, matchups: dict) -> bool:
@@ -439,6 +483,16 @@ def finalize(teams: dict, matchups: dict, sources: list[str]) -> dict:
     return {
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "source": ", ".join(sources) if sources else "seed only",
+        "coverage": {
+            "teams": len(out_teams),
+            "matchups": len(out_matchups),
+            "power_rating": sum(1 for row in out_teams.values() if row.get("power_rating") is not None),
+            "spi": sum(1 for row in out_teams.values() if row.get("spi") is not None),
+            "projected_goals": sum(1 for row in out_teams.values() if row.get("projected_goals_for") is not None),
+            "xg": sum(1 for row in out_teams.values() if row.get("xg_for") is not None),
+            "offense": sum(1 for row in out_teams.values() if row.get("offense") is not None),
+            "defense": sum(1 for row in out_teams.values() if row.get("defense") is not None),
+        },
         "teams": out_teams,
         "matchups": out_matchups,
     }
