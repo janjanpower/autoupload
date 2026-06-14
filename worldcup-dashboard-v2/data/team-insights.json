@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-14T18:42:00.734456+00:00",
+  "updated_at": "2026-06-14T19:57:29.739894+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
     "teams": 313,
@@ -308,7 +308,7 @@
     },
     "德國": {
       "matches": 94,
-      "goals_for_per_match": 2.277,
+      "goals_for_per_match": 2.33,
       "goals_against_per_match": 1.213,
       "recent_goals_for_per_match": 1.667,
       "recent_goals_against_per_match": 1.333,
@@ -323,14 +323,14 @@
       "projected_goals_against": 1.213,
       "xg_for": 2.135,
       "xg_against": 1.213,
-      "estimated_spi": 71.797,
-      "power_rating": 88.719,
+      "estimated_spi": 72.275,
+      "power_rating": 88.91,
       "power_rating_source": "derived-results-xg"
     },
     "庫拉索": {
       "matches": 56,
       "goals_for_per_match": 1.571,
-      "goals_against_per_match": 1.268,
+      "goals_against_per_match": 1.357,
       "recent_goals_for_per_match": 1.75,
       "recent_goals_against_per_match": 1.417,
       "tempo": 1.583,
@@ -338,8 +338,8 @@
         "martj42-international-results",
         "matches.json"
       ],
-      "estimated_spi": 62.843,
-      "power_rating": 85.137,
+      "estimated_spi": 62.04,
+      "power_rating": 84.816,
       "power_rating_source": "derived-results-xg"
     },
     "日本": {
@@ -4840,12 +4840,12 @@
     },
     "庫拉索|德國": {
       "matches": 1,
-      "average_total_goals": 3.0,
+      "average_total_goals": 8.0,
       "recent": [
         {
           "home": "德國",
           "away": "庫拉索",
-          "hg": 2,
+          "hg": 7,
           "ag": 1,
           "source": "matches.json"
         }
