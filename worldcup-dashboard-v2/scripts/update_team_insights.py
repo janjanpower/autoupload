@@ -4,7 +4,8 @@
 Sources are optional and cached into one static JSON file:
 - API-Football, when API_FOOTBALL_KEY is configured.
 - Kaggle international results CSV, when KAGGLE_RESULTS_CSV points to a local CSV.
-- OpenFootball World Cup datasets, fetched from public GitHub raw URLs by default.
+- martj42 international results, FiveThirtyEight SPI, StatsBomb World Cup open data,
+  and OpenFootball World Cup datasets from public URLs by default.
 """
 from __future__ import annotations
 
@@ -18,6 +19,7 @@ import urllib.parse
 import urllib.request
 from collections import defaultdict, deque
 from datetime import datetime, timezone
+from io import StringIO
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "team-insights.json"
@@ -28,11 +30,41 @@ API_FOOTBALL_HOST = os.getenv("API_FOOTBALL_HOST", "v3.football.api-sports.io")
 API_FOOTBALL_BASE = os.getenv("API_FOOTBALL_BASE", f"https://{API_FOOTBALL_HOST}")
 API_FOOTBALL_COMPETITION = os.getenv("API_FOOTBALL_COMPETITION", "")
 KAGGLE_RESULTS_CSV = os.getenv("KAGGLE_RESULTS_CSV", str(ROOT / "data" / "external" / "international_results.csv"))
+MARTJ_RESULTS_URL = os.getenv(
+    "MARTJ_RESULTS_URL",
+    "https://raw.githubusercontent.com/martj42/international_results/master/results.csv",
+)
+SPI_MATCHES_URL = os.getenv(
+    "SPI_MATCHES_URL",
+    "https://projects.fivethirtyeight.com/soccer-api/international/spi_matches_intl.csv",
+)
+SPI_RANKINGS_URL = os.getenv(
+    "SPI_RANKINGS_URL",
+    "https://projects.fivethirtyeight.com/soccer-api/international/spi_global_rankings_intl.csv",
+)
+STATSBOMB_COMPETITIONS_URL = os.getenv(
+    "STATSBOMB_COMPETITIONS_URL",
+    "https://raw.githubusercontent.com/statsbomb/open-data/master/data/competitions.json",
+)
+STATSBOMB_MATCHES_BASE = os.getenv(
+    "STATSBOMB_MATCHES_BASE",
+    "https://raw.githubusercontent.com/statsbomb/open-data/master/data/matches",
+)
+USE_STATSBOMB = os.getenv("USE_STATSBOMB", "1").strip() not in {"0", "false", "False"}
 OPENFOOTBALL_URLS = [
     u.strip()
     for u in os.getenv(
         "OPENFOOTBALL_URLS",
-        "https://raw.githubusercontent.com/openfootball/worldcup/master/2022--qatar/cup.txt",
+        ",".join(
+            [
+                "https://raw.githubusercontent.com/openfootball/worldcup/master/2022--qatar/cup.txt",
+                "https://raw.githubusercontent.com/openfootball/worldcup/master/2018--russia/cup.txt",
+                "https://raw.githubusercontent.com/openfootball/worldcup/master/2014--brazil/cup.txt",
+                "https://raw.githubusercontent.com/openfootball/worldcup/master/2010--south-africa/cup.txt",
+                "https://raw.githubusercontent.com/openfootball/worldcup/master/2006--germany/cup.txt",
+                "https://raw.githubusercontent.com/openfootball/worldcup/master/2002--south-korea-n-japan/cup.txt",
+            ]
+        ),
     ).split(",")
     if u.strip()
 ]
@@ -46,6 +78,7 @@ ALIASES = {
     "Canada": "加拿大",
     "Bosnia-Herzegovina": "波士尼亞與赫塞哥維納",
     "Bosnia and Herzegovina": "波士尼亞與赫塞哥維納",
+    "Bosnia & Herzegovina": "波士尼亞與赫塞哥維納",
     "Qatar": "卡達",
     "Switzerland": "瑞士",
     "Brazil": "巴西",
@@ -54,6 +87,7 @@ ALIASES = {
     "Scotland": "蘇格蘭",
     "United States": "美國",
     "USA": "美國",
+    "United States Men's": "美國",
     "Paraguay": "巴拉圭",
     "Australia": "澳洲",
     "Turkey": "土耳其",
@@ -64,6 +98,7 @@ ALIASES = {
     "Ivory Coast": "象牙海岸",
     "Côte d’Ivoire": "象牙海岸",
     "Côte d'Ivoire": "象牙海岸",
+    "Cote d'Ivoire": "象牙海岸",
     "Ecuador": "厄瓜多",
     "Netherlands": "荷蘭",
     "Japan": "日本",
@@ -89,6 +124,7 @@ ALIASES = {
     "Portugal": "葡萄牙",
     "Congo DR": "剛果民主共和國",
     "DR Congo": "剛果民主共和國",
+    "Congo Democratic Republic": "剛果民主共和國",
     "Uzbekistan": "烏茲別克",
     "Colombia": "哥倫比亞",
     "England": "英格蘭",
@@ -115,8 +151,30 @@ def empty_team() -> dict:
         "goals_against": 0,
         "recent_goals_for": [],
         "recent_goals_against": [],
+        "spi": [],
+        "offense": [],
+        "defense": [],
+        "rank": [],
+        "projected_goals_for": [],
+        "projected_goals_against": [],
+        "xg_for": [],
+        "xg_against": [],
         "sources": [],
     }
+
+
+def add_source(row: dict, source: str) -> None:
+    if source not in row["sources"]:
+        row["sources"].append(source)
+
+
+def add_metric(row: dict, key: str, value: object) -> None:
+    try:
+        if value in (None, ""):
+            return
+        row[key].append(float(value))
+    except (TypeError, ValueError):
+        return
 
 
 def add_match(teams: dict, matchups: dict, home: str, away: str, hg: int, ag: int, source: str) -> None:
@@ -130,8 +188,7 @@ def add_match(teams: dict, matchups: dict, home: str, away: str, hg: int, ag: in
         row["goals_against"] += ga
         row["recent_goals_for"].append(gf)
         row["recent_goals_against"].append(ga)
-        if source not in row["sources"]:
-            row["sources"].append(source)
+        add_source(row, source)
     key = "|".join(sorted([home, away]))
     matchup = matchups[key]
     matchup["matches"] += 1
@@ -161,10 +218,91 @@ def add_kaggle_csv(teams: dict, matchups: dict, path: str) -> bool:
     return True
 
 
+def add_martj_results(teams: dict, matchups: dict) -> bool:
+    if not MARTJ_RESULTS_URL:
+        return False
+    rows = fetch_csv_rows(MARTJ_RESULTS_URL)
+    used = False
+    # Keep modern matches weighted in recent arrays while still giving enough history.
+    for row in rows[-7000:]:
+        try:
+            add_match(
+                teams,
+                matchups,
+                row.get("home_team", ""),
+                row.get("away_team", ""),
+                int(row.get("home_score", 0)),
+                int(row.get("away_score", 0)),
+                "martj42-international-results",
+            )
+            used = True
+        except ValueError:
+            continue
+    return used
+
+
+def add_spi_rankings(teams: dict) -> bool:
+    if not SPI_RANKINGS_URL:
+        return False
+    rows = fetch_csv_rows(SPI_RANKINGS_URL)
+    used = False
+    for row in rows:
+        team = team_name(row.get("name", ""))
+        if not team:
+            continue
+        target = teams[team]
+        add_metric(target, "spi", row.get("spi"))
+        add_metric(target, "offense", row.get("off"))
+        add_metric(target, "defense", row.get("def"))
+        add_metric(target, "rank", row.get("rank"))
+        add_source(target, "fivethirtyeight-spi-rankings")
+        used = True
+    return used
+
+
+def add_spi_matches(teams: dict, matchups: dict) -> bool:
+    if not SPI_MATCHES_URL:
+        return False
+    rows = fetch_csv_rows(SPI_MATCHES_URL)
+    used = False
+    for row in rows[-5000:]:
+        home, away = team_name(row.get("team1", "")), team_name(row.get("team2", ""))
+        if not home or not away:
+            continue
+        for team, spi, proj_for, proj_against, xg_for, xg_against in (
+            (home, row.get("spi1"), row.get("proj_score1"), row.get("proj_score2"), row.get("xg1"), row.get("xg2")),
+            (away, row.get("spi2"), row.get("proj_score2"), row.get("proj_score1"), row.get("xg2"), row.get("xg1")),
+        ):
+            target = teams[team]
+            add_metric(target, "spi", spi)
+            add_metric(target, "projected_goals_for", proj_for)
+            add_metric(target, "projected_goals_against", proj_against)
+            add_metric(target, "xg_for", xg_for)
+            add_metric(target, "xg_against", xg_against)
+            add_source(target, "fivethirtyeight-spi-matches")
+        try:
+            if row.get("score1") not in (None, "") and row.get("score2") not in (None, ""):
+                add_match(teams, matchups, home, away, int(float(row["score1"])), int(float(row["score2"])), "fivethirtyeight-spi-matches")
+        except ValueError:
+            pass
+        used = True
+    return used
+
+
 def fetch_json(url: str, headers: dict[str, str] | None = None) -> dict:
     req = urllib.request.Request(url, headers=headers or {})
     with urllib.request.urlopen(req, timeout=25) as res:
         return json.loads(res.read().decode("utf-8"))
+
+
+def fetch_text(url: str, headers: dict[str, str] | None = None) -> str:
+    req = urllib.request.Request(url, headers=headers or {"User-Agent": "worldcup-dashboard"})
+    with urllib.request.urlopen(req, timeout=35) as res:
+        return res.read().decode("utf-8", errors="ignore")
+
+
+def fetch_csv_rows(url: str) -> list[dict]:
+    return list(csv.DictReader(StringIO(fetch_text(url))))
 
 
 def add_api_football(teams: dict, matchups: dict) -> bool:
@@ -185,6 +323,44 @@ def add_api_football(teams: dict, matchups: dict) -> bool:
         away = ((item.get("teams") or {}).get("away") or {}).get("name") or ""
         add_match(teams, matchups, home, away, int(goals["home"]), int(goals["away"]), "api-football")
     return True
+
+
+def add_statsbomb_worldcup(teams: dict, matchups: dict) -> bool:
+    if not USE_STATSBOMB:
+        return False
+    competitions = fetch_json(STATSBOMB_COMPETITIONS_URL)
+    used = False
+    for competition in competitions:
+        name = competition.get("competition_name") or ""
+        if "World Cup" not in name:
+            continue
+        competition_id = competition.get("competition_id")
+        season_id = competition.get("season_id")
+        if competition_id is None or season_id is None:
+            continue
+        url = f"{STATSBOMB_MATCHES_BASE}/{competition_id}/{season_id}.json"
+        try:
+            matches = fetch_json(url)
+        except Exception as exc:
+            print(f"StatsBomb fetch failed: {url}: {exc}", file=sys.stderr)
+            continue
+        for match in matches:
+            home_obj = match.get("home_team") or {}
+            away_obj = match.get("away_team") or {}
+            hg, ag = match.get("home_score"), match.get("away_score")
+            if hg is None or ag is None:
+                continue
+            add_match(
+                teams,
+                matchups,
+                home_obj.get("home_team_name", ""),
+                away_obj.get("away_team_name", ""),
+                int(hg),
+                int(ag),
+                "statsbomb-worldcup",
+            )
+            used = True
+    return used
 
 
 def add_openfootball(teams: dict, matchups: dict) -> bool:
@@ -226,7 +402,7 @@ def finalize(teams: dict, matchups: dict, sources: list[str]) -> dict:
         ga_avg = row["goals_against"] / matches
         recent_gf = statistics.mean(recent_for) if recent_for else gf_avg
         recent_ga = statistics.mean(recent_against) if recent_against else ga_avg
-        out_teams[team] = {
+        out_row = {
             "matches": row["matches"],
             "goals_for_per_match": round(gf_avg, 3),
             "goals_against_per_match": round(ga_avg, 3),
@@ -235,6 +411,23 @@ def finalize(teams: dict, matchups: dict, sources: list[str]) -> dict:
             "tempo": round((recent_gf + recent_ga) / 2, 3),
             "sources": sorted(row["sources"]),
         }
+        optional_metrics = {
+            "spi": row["spi"],
+            "offense": row["offense"],
+            "defense": row["defense"],
+            "rank": row["rank"],
+            "projected_goals_for": row["projected_goals_for"],
+            "projected_goals_against": row["projected_goals_against"],
+            "xg_for": row["xg_for"],
+            "xg_against": row["xg_against"],
+        }
+        for key, values in optional_metrics.items():
+            if values:
+                out_row[key] = round(statistics.mean(values[-20:]), 3)
+        if "spi" in out_row:
+            # Convert SPI's 0-100-ish scale into the dashboard's existing 60-100 power band.
+            out_row["power_rating"] = round(60 + out_row["spi"] * 0.4, 3)
+        out_teams[team] = out_row
     out_matchups = {}
     for key, row in matchups.items():
         recent = list(row["scores"])[-6:]
@@ -260,10 +453,30 @@ def main() -> int:
     if add_kaggle_csv(teams, matchups, KAGGLE_RESULTS_CSV):
         sources.append("kaggle")
     try:
+        if add_martj_results(teams, matchups):
+            sources.append("martj42-international-results")
+    except Exception as exc:
+        print(f"martj42 international results update failed: {exc}", file=sys.stderr)
+    try:
+        if add_spi_rankings(teams):
+            sources.append("fivethirtyeight-spi-rankings")
+    except Exception as exc:
+        print(f"FiveThirtyEight SPI rankings update failed: {exc}", file=sys.stderr)
+    try:
+        if add_spi_matches(teams, matchups):
+            sources.append("fivethirtyeight-spi-matches")
+    except Exception as exc:
+        print(f"FiveThirtyEight SPI matches update failed: {exc}", file=sys.stderr)
+    try:
         if add_openfootball(teams, matchups):
             sources.append("openfootball")
     except Exception as exc:
         print(f"OpenFootball update failed: {exc}", file=sys.stderr)
+    try:
+        if add_statsbomb_worldcup(teams, matchups):
+            sources.append("statsbomb-worldcup")
+    except Exception as exc:
+        print(f"StatsBomb World Cup update failed: {exc}", file=sys.stderr)
     try:
         if add_api_football(teams, matchups):
             sources.append("api-football")
