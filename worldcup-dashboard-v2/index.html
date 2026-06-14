@@ -34,8 +34,9 @@
     .matchList{display:grid;gap:7px}.matchRow{display:grid;grid-template-columns:54px 54px 36px minmax(86px,1fr) 112px minmax(86px,1fr) 74px;gap:6px;align-items:center;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:7px}.matchRow .teamName{text-align:center}.inlineScore{display:grid;grid-template-columns:1fr 12px 1fr;gap:3px;align-items:center;font-size:24px;font-weight:900}.inlineScore input{width:44px;text-align:center;padding:0;border:0;background:transparent;font-size:24px;font-weight:900;color:#fff}.inlineScore input:disabled{opacity:1}
     .stepper{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:center}.scenarioTeam{font-size:2em;font-weight:900;margin-bottom:20px}.scoreBox{display:grid;grid-template-columns:34px 42px 34px;gap:6px;align-items:center;justify-content:center}.scoreBox button{padding:7px 0;border-radius:10px}.scoreNum{font-size:28px;font-weight:900;text-align:center}.vs{color:#94a3b8;font-weight:900}.impactGrid,.groupDuel{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.groupPanel{background:#0f172a;border:1px solid #344054;border-radius:12px;padding:10px}.groupPanel h4{margin:0 0 8px}.teamStat{display:grid;grid-template-columns:28px minmax(0,1fr) 42px 42px 42px;gap:5px;align-items:center;background:#172033;border:1px solid #30405f;border-radius:8px;margin:5px 0;padding:6px;font-size:12px}.teamStat.active{border-color:#60a5fa;background:#10233f}.duelPanel{display:grid;align-content:center;gap:8px}.duelLine{background:#07101e;border:1px solid #344054;border-radius:10px;padding:8px;text-align:center;font-weight:900}.impactCard{background:#0f172a;border:1px solid #344054;border-radius:12px;padding:10px}.impactCard h4{margin:0 0 8px;display:flex;justify-content:space-between;gap:8px}.chip{display:inline-block;border-radius:999px;padding:3px 7px;margin:2px;background:#111827;border:1px solid #344054;font-size:12px}.chip.good{border-color:#4ade80}.chip.bad{border-color:#fca5a5}.chip.warn{border-color:#fde68a}.routeCard{background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px;margin:7px 0}.routeCard .line{grid-template-columns:60px minmax(0,1fr)}.chain{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:start;border-top:1px solid #26364f;padding:8px 0}.mini{font-size:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.nextCard{display:grid;gap:8px}.nextRow{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;align-items:start;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px}.nextRow span{min-width:0;overflow:hidden;text-overflow:ellipsis}
     .thirdRankTable{min-width:0}.thirdRankTable th:nth-child(1){width:10%}.thirdRankTable th:nth-child(2){width:12%}.thirdRankTable th:nth-child(3){width:24%}.thirdRankTable th:nth-child(4){width:11%}.thirdRankTable th:nth-child(5){width:13%}.thirdRankTable th:nth-child(6){width:10%}.thirdRankTable th:nth-child(7){width:20%}
+    .aiPanel textarea{width:100%;box-sizing:border-box;min-height:72px;resize:vertical;background:#111827;color:#fff;border:1px solid #334155;border-radius:8px;padding:8px}.aiResult{white-space:pre-wrap;line-height:1.7}.aiControls label{display:grid;gap:4px}.aiControls input{min-width:230px}
     @media(max-width:1100px){.grid,.bracket,.two,.scenarios,.impactGrid,.groupDuel{grid-template-columns:1fr}.roundView{overflow-x:auto;padding-bottom:8px}.treeStage{width:1180px;height:820px;min-height:820px}.node{min-width:100px;width:10.4%}.nTeam{grid-template-columns:30px minmax(0,1fr);font-size:14px}}
-    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px 18px}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px;border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table,.thirdRankTable{min-width:0}th,td{padding:7px 5px}.thirdRankTable{font-size:10px}.thirdRankTable th,.thirdRankTable td{padding:5px 2px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.roundView{overflow:visible}.treeStage{width:100%;height:760px;min-height:760px}.node{min-width:0;width:24%;padding:4px;border-radius:8px}.finalCard{width:34%;min-width:0;padding:5px}.nodeTitle{font-size:8px}.nTeam{height:24px;grid-template-columns:20px minmax(0,1fr);font-size:13px;padding:0 3px;gap:3px}.finalCard .nTeam{height:25px;font-size:12px}.scheduleGrid{grid-template-columns:1fr}.scheduleNode .nTeam{grid-template-columns:30px minmax(0,1fr) 24px}.teamStat{grid-template-columns:24px minmax(0,1fr) 34px 34px 34px;font-size:11px}.badge,.chip{font-size:11px}.matchRow{grid-template-columns:30px 36px 20px minmax(44px,1fr) 58px minmax(44px,1fr) 44px;font-size:11px;padding:5px;gap:3px}.matchRow .pill{font-size:10px;padding:3px 5px}.inlineScore{grid-template-columns:1fr 8px 1fr;font-size:20px}.inlineScore input{width:24px;font-size:20px}.stepper{grid-template-columns:1fr}.scenarioTeam{font-size:1.65em;margin-bottom:18px}.scoreNum{font-size:24px}}
+    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px 18px}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px;border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table,.thirdRankTable{min-width:0}th,td{padding:7px 5px}.thirdRankTable{font-size:10px}.thirdRankTable th,.thirdRankTable td{padding:5px 2px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.roundView{overflow:visible}.treeStage{width:100%;height:760px;min-height:760px}.node{min-width:0;width:24%;padding:4px;border-radius:8px}.finalCard{width:34%;min-width:0;padding:5px}.nodeTitle{font-size:8px}.nTeam{height:24px;grid-template-columns:20px minmax(0,1fr);font-size:13px;padding:0 3px;gap:3px}.finalCard .nTeam{height:25px;font-size:12px}.scheduleGrid{grid-template-columns:1fr}.scheduleNode .nTeam{grid-template-columns:30px minmax(0,1fr) 24px}.teamStat{grid-template-columns:24px minmax(0,1fr) 34px 34px 34px;font-size:11px}.badge,.chip{font-size:11px}.matchRow{grid-template-columns:30px 36px 20px minmax(44px,1fr) 58px minmax(44px,1fr) 44px;font-size:11px;padding:5px;gap:3px}.matchRow .pill{font-size:10px;padding:3px 5px}.inlineScore{grid-template-columns:1fr 8px 1fr;font-size:20px}.inlineScore input{width:24px;font-size:20px}.stepper{grid-template-columns:1fr}.scenarioTeam{font-size:1.65em;margin-bottom:18px}.scoreNum{font-size:24px}.aiControls input{min-width:0;width:100%}}
   </style>
 </head>
 <body>
@@ -82,6 +83,18 @@
       <label>比賽 <select id="targetMatch" onchange="loadScenarioMatch()"></select></label>
     </div>
     <div id="scoreControl" class="card"></div>
+    <div class="card aiPanel">
+      <h3>本機 Qwen 策略分析</h3>
+      <div class="toolbar aiControls">
+        <label>Ollama 端點 <input id="ollamaEndpoint" value="http://localhost:11434/api/chat"></label>
+        <label>模型 <input id="ollamaModel" value="qwen2.5:7b"></label>
+        <button onclick="analyzeWithLocalQwen()">產生建議</button>
+      </div>
+      <label>補充新聞 / 戰術資訊
+        <textarea id="aiContext" placeholder="可貼上你看到的傷兵、輪換、教練發言、媒體報導摘要。本機 Qwen 不會自動上網查資料。"></textarea>
+      </label>
+      <div id="aiStrategyResult" class="routeCard aiResult muted">請先啟動本機 Ollama，選定隊伍與比分後按「產生建議」。</div>
+    </div>
     <div id="scenarioImpact"></div>
   </section>
 
@@ -342,6 +355,55 @@ function simulateScenarioState(){
   const standings=ANNEX_C_ENGINE.calculate(sim),thirdRanking=THIRD_PLACE_ENGINE.ranking(standings),thirdMap=THIRD_PLACE_ENGINE.assign(standings),bracket=BRACKET_ENGINE.r32(standings);
   return{standings,thirdRanking,thirdMap,bracket,match:target};
 }
+function escapeHtml(text){return String(text??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function localQwenPayload(pack){
+  const group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],snap=STRATEGY_ENGINE.snapshot(target.value,pack.standings,pack.bracket);
+  const contextEl=document.getElementById('aiContext');
+  return{
+    selectedTeam:target.value,
+    match:{group,home:pack.match.h,away:pack.match.a,date:pack.match.date,score:SCENARIO_SCORE},
+    focusGroups:Object.fromEntries(groups.map(g=>[g,rankedGroupRows(pack.standings,g).map(x=>({rank:x.rank,team:x.team,points:x.Pts,wins:x.W,losses:x.L,draws:x.D,goalsFor:x.GF,goalsAgainst:x.GA,goalDiff:x.GD,seed:x.seed}))])),
+    bestThird:pack.thirdRanking.map((x,i)=>({rank:i+1,seed:x.seed,team:x.team,points:x.Pts,goalDiff:x.GD,goalsFor:x.GF,status:i<8?'暫列前8':'暫列後4'})),
+    route:snap.path?{match:snap.path.match.id,self:snap.path.self.seed,opponentSeed:snap.path.opp.seed,opponent:snap.path.opp.team,routeStrength:snap.route}:null,
+    extraContext:(contextEl?.value||'').trim()
+  };
+}
+function localQwenPrompt(payload){
+  return `你是世界盃足球戰術與賽制分析師。請根據資料分析「${payload.selectedTeam}」這一場的比數策略。
+
+限制：
+- 你無法即時上網，若有新聞、傷兵、教練發言，只能使用 extraContext。
+- 不要宣稱已查到即時新聞。
+- 回答請用繁體中文。
+
+請輸出：
+1. 建議比分
+2. 建議策略
+3. 如果想保小組排名，需要注意什麼
+4. 如果想爭取最佳第三名，需要注意什麼
+5. 可能受影響的其他隊伍
+6. 最大風險
+
+資料：
+${JSON.stringify(payload,null,2)}`;
+}
+async function analyzeWithLocalQwen(){
+  const pack=simulateScenarioState(),box=document.getElementById('aiStrategyResult');
+  if(!pack||!box)return;
+  const endpointEl=document.getElementById('ollamaEndpoint'),modelEl=document.getElementById('ollamaModel');
+  const endpoint=(endpointEl?.value||'http://localhost:11434/api/chat').trim(),model=(modelEl?.value||'qwen2.5:7b').trim();
+  localStorage.setItem('ollamaEndpoint',endpoint);localStorage.setItem('ollamaModel',model);
+  box.className='routeCard aiResult muted';box.textContent='本機 Qwen 分析中...';
+  try{
+    const payload=localQwenPayload(pack),res=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model,stream:false,messages:[{role:'system',content:'你是足球戰術、世界盃賽制、風險分析專家。'},{role:'user',content:localQwenPrompt(payload)}],options:{temperature:.35}})});
+    if(!res.ok)throw new Error(`Ollama HTTP ${res.status}`);
+    const data=await res.json(),content=data.message?.content||data.response||JSON.stringify(data,null,2);
+    box.className='routeCard aiResult';box.innerHTML=escapeHtml(content);
+  }catch(err){
+    box.className='routeCard aiResult bad';
+    box.innerHTML=`連不到本機 Qwen。請確認：\n1. 已安裝 Ollama\n2. 已執行 ollama pull ${escapeHtml(model)}\n3. Ollama 正在執行\n4. 若被 CORS 擋住，請用允許來源啟動 Ollama\n\n錯誤：${escapeHtml(err.message)}`;
+  }
+}
 function thirdIndex(st,team){return THIRD_PLACE_ENGINE.ranking(st).findIndex(x=>x.team===team)}
 function deltaChip(label,before,after,invert=false){
   if(!Number.isFinite(before)||!Number.isFinite(after))return `<span class="chip">${label} -</span>`;
@@ -462,6 +524,9 @@ const AUTO_REFRESH={
 };
 async function init(){
   try{const res=await fetch('data/matches.json',{cache:'no-store'});if(res.ok)mergeScores(await res.json());else mergeScores({matches:[]})}catch(_){mergeScores({matches:[]})}
+  const endpointEl=document.getElementById('ollamaEndpoint'),modelEl=document.getElementById('ollamaModel');
+  if(endpointEl&&localStorage.getItem('ollamaEndpoint'))endpointEl.value=localStorage.getItem('ollamaEndpoint');
+  if(modelEl&&localStorage.getItem('ollamaModel'))modelEl.value=localStorage.getItem('ollamaModel');
   drawScores();recalculate();loadTargets();
   AUTO_REFRESH.start();
 }
