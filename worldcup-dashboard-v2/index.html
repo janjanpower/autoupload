@@ -22,7 +22,7 @@
     .pill{display:inline-flex;align-items:center;justify-content:center;text-align:center;border-radius:999px;padding:3px 8px;font-size:12px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .r1{background:rgba(22,163,74,.24)}.r2{background:rgba(37,99,235,.24)}.r3{background:rgba(202,138,4,.22)}.r4{background:rgba(71,85,105,.22)}
     .standingRow{cursor:pointer}.standingDetail{display:none;background:#020617;color:#cbd5e1}.standingDetail.on{display:table-row}.detailBox{text-align:left;line-height:1.65;padding:10px}
-    .badge{display:inline-block;margin:2px;padding:3px 7px;border:1px solid #3b4a67;border-radius:999px;background:#111827}.muted{color:#94a3b8}.good{color:#bef264}.warn{color:#fde68a}.bad{color:#fecaca}
+    .badge{display:inline-block;margin:2px;padding:3px 7px;border:1px solid #3b4a67;border-radius:999px;background:#111827}.clinchTag{display:inline-flex;align-items:center;justify-content:center;margin-left:5px;border-radius:999px;border:1px solid #22c55e;background:rgba(22,163,74,.2);color:#bbf7d0;padding:2px 6px;font-size:10px;font-weight:900;line-height:1.2;vertical-align:middle}.clinchTag.first{border-color:#facc15;background:rgba(250,204,21,.18);color:#fde68a}.muted{color:#94a3b8}.good{color:#bef264}.warn{color:#fde68a}.bad{color:#fecaca}
     .bracket{display:grid;grid-template-columns:1fr 1fr;gap:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.match{background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px;margin:7px 0}.line{display:grid;grid-template-columns:60px 1fr;gap:6px;margin:4px 0}.seed{font-weight:900}
     .bracketTabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}.roundBtn{border:1px solid #26364f;background:#0b1324;color:#fff;padding:9px 14px;border-radius:999px;cursor:pointer}.roundBtn.active{background:#1d4ed8;border-color:#93c5fd}.roundView{display:none}.roundView.active{display:block}
     .treeStage{position:relative;width:100%;height:calc(100vh - 230px);min-height:760px;background:linear-gradient(180deg,#07101e,#040813);border:1px solid #243047;border-radius:16px;overflow:hidden}
@@ -265,10 +265,26 @@ function drawScores(){
   const dates=[...new Set(ordered.map(matchDateLabel))];
   scoreBoard.innerHTML=dates.map(dt=>`<div class=card><h3>${dt} 賽程</h3>${matchCardList(ordered.filter(x=>matchDateLabel(x)===dt),true)}</div>`).join('');
 }
+function clinchMap(st,matches,group){
+  const rows=st[group]||[],remaining=matches.filter(m=>m.g===group&&!isPlayed(m)),left={};
+  if(rows.length&&remaining.length===0)return Object.fromEntries(rows.slice(0,2).map((x,i)=>[x.team,i===0?'確定第一':'晉級']));
+  rows.forEach(x=>left[x.team]=0);
+  remaining.forEach(m=>{left[m.h]=(left[m.h]||0)+1;left[m.a]=(left[m.a]||0)+1});
+  const maxPts=Object.fromEntries(rows.map(x=>[x.team,x.Pts+3*(left[x.team]||0)])),out={};
+  rows.forEach(x=>{
+    const others=rows.filter(y=>y.team!==x.team);
+    if(others.every(y=>x.Pts>maxPts[y.team]))out[x.team]='確定第一';
+    else if(others.filter(y=>maxPts[y.team]>=x.Pts).length<=1)out[x.team]='晉級';
+  });
+  return out;
+}
+function clinchTag(label){
+  return label?`<span class="clinchTag ${label==='確定第一'?'first':''}">${label}</span>`:'';
+}
 function drawStandings(){
   const q=STANDING_FILTER.trim();
-  const groups=Object.keys(STATE.standings).map(g=>({g,rows:STATE.standings[g].map((x,i)=>({...x,rank:i+1})).filter(x=>!q||x.team.includes(q))})).filter(x=>x.rows.length);
-  standingBoard.innerHTML=groups.length?groups.map(({g,rows})=>`<div class=card><h3>${g}組</h3><table><thead><tr><th>名</th><th>隊伍</th><th>局</th><th>勝負和</th><th>積分</th><th>淨勝球</th></tr></thead><tbody>${rows.map(x=>`<tr class="r${x.rank} standingRow" onclick="toggleStandingDetail('${g}${x.rank}')"><td>${x.rank}</td><td>${teamDisplay(x.team)}</td><td>${x.P}</td><td>${x.W}-${x.L}-${x.D}</td><td><b>${x.Pts}</b></td><td>${x.GD}</td></tr><tr id="standingDetail${g}${x.rank}" class=standingDetail><td colspan=6><div class=detailBox>進球 ${x.GF}｜失球 ${x.GA}｜淨勝球 ${x.GD}</div></td></tr>`).join('')}</tbody></table></div>`).join(''):`<div class=card><div class=muted>找不到「${q}」的隊伍。</div></div>`;
+  const groups=Object.keys(STATE.standings).map(g=>({g,clinch:clinchMap(STATE.standings,MATCHES,g),rows:STATE.standings[g].map((x,i)=>({...x,rank:i+1})).filter(x=>!q||x.team.includes(q))})).filter(x=>x.rows.length);
+  standingBoard.innerHTML=groups.length?groups.map(({g,rows,clinch})=>`<div class=card><h3>${g}組</h3><table><thead><tr><th>名</th><th>隊伍</th><th>局</th><th>勝負和</th><th>積分</th><th>淨勝球</th></tr></thead><tbody>${rows.map(x=>`<tr class="r${x.rank} standingRow" onclick="toggleStandingDetail('${g}${x.rank}')"><td>${x.rank}</td><td>${teamDisplay(x.team)}${clinchTag(clinch[x.team])}</td><td>${x.P}</td><td>${x.W}-${x.L}-${x.D}</td><td><b>${x.Pts}</b></td><td>${x.GD}</td></tr><tr id="standingDetail${g}${x.rank}" class=standingDetail><td colspan=6><div class=detailBox>進球 ${x.GF}｜失球 ${x.GA}｜淨勝球 ${x.GD}</div></td></tr>`).join('')}</tbody></table></div>`).join(''):`<div class=card><div class=muted>找不到「${q}」的隊伍。</div></div>`;
 }
 function toggleStandingDetail(id){document.getElementById('standingDetail'+id)?.classList.toggle('on')}
 function thirdRankingTable(rows){
@@ -466,7 +482,7 @@ function simulateScenarioState(){
   const target=sim.find(x=>x.id===+SCENARIOS[0].matchId);
   if(!target)return null;
   const standings=ANNEX_C_ENGINE.calculate(sim),thirdRanking=THIRD_PLACE_ENGINE.ranking(standings),thirdMap=THIRD_PLACE_ENGINE.assign(standings),bracket=BRACKET_ENGINE.r32(standings);
-  return{standings,thirdRanking,thirdMap,bracket,match:target,scenarios:SCENARIOS.map(scenarioMatchWithScore).filter(Boolean)};
+  return{standings,thirdRanking,thirdMap,bracket,match:target,matches:sim,scenarios:SCENARIOS.map(scenarioMatchWithScore).filter(Boolean)};
 }
 function isLocalCreator(){
   return ['localhost','127.0.0.1','::1'].includes(location.hostname);
@@ -686,12 +702,12 @@ function scenarioWldText(base,after,showDelta){
   return `${value}<span class=statDelta>+${dw}/${dl}/${dd}</span>`;
 }
 function rankLabel(rank){return rank===1?'1st':rank===2?'2rd':rank===3?'3th':rank}
-function groupStatCard(group,rows,focus,match,baseRows){
+function groupStatCard(group,rows,focus,match,baseRows,clinch={}){
   const baseByTeam=new Map((baseRows||[]).map(x=>[x.team,x]));
   const body=rows.map(x=>{
     const base=baseByTeam.get(x.team)||x,showDelta=x.team===match.h||x.team===match.a;
     const action=`toggleGroupPick(${JSON.stringify(group)},${JSON.stringify(x.team)})`;
-    return `<div class="teamStat pickable ${x.rank<=3?'rank'+x.rank:''} ${focus.has(x.team)?'active':''} ${scenarioSideClass(x.team,match)}" onclick='${action}'><b>${x.rank<=3?`<span class=rankTag>${rankLabel(x.rank)}</span>`:x.rank}</b>${teamDisplay(x.team)}<span>${scenarioDeltaText(base,x,'P',showDelta)}</span><span>${scenarioWldText(base,x,showDelta)}</span><b>${scenarioDeltaText(base,x,'Pts',showDelta)}</b><span>${scenarioDeltaText(base,x,'GD',showDelta)}</span></div>`;
+    return `<div class="teamStat pickable ${x.rank<=3?'rank'+x.rank:''} ${focus.has(x.team)?'active':''} ${scenarioSideClass(x.team,match)}" onclick='${action}'><b>${x.rank<=3?`<span class=rankTag>${rankLabel(x.rank)}</span>`:x.rank}</b><span>${teamDisplay(x.team)}${clinchTag(clinch[x.team])}</span><span>${scenarioDeltaText(base,x,'P',showDelta)}</span><span>${scenarioWldText(base,x,showDelta)}</span><b>${scenarioDeltaText(base,x,'Pts',showDelta)}</b><span>${scenarioDeltaText(base,x,'GD',showDelta)}</span></div>`;
   }).join('');
   return `<div class=groupPanel><h4><span>${group}組</span><span class=pickHint>點選預測 1st/2rd/3th</span></h4><div class="teamStat muted"><span>名</span><span>隊伍</span><span>局</span><span>勝負和</span><span>積分</span><span>淨勝球</span></div>${body}</div>`;
 }
@@ -713,7 +729,7 @@ function pairingLinesForGroups(view,groups,match){
 function groupDuelAnalysis(pack){
   const group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],focus=new Set([primaryScenarioTeam(),...pack.scenarios.flatMap(m=>[m.h,m.a])]);
   const viewSt=predictedStandings(pack.standings,groups),view={st:viewSt,thirdRanking:THIRD_PLACE_ENGINE.ranking(viewSt),thirdMap:THIRD_PLACE_ENGINE.assign(viewSt)};
-  const panels=groups.map(g=>groupStatCard(g,groupRowsForMatchup(pack.standings,g),focus,pack.match,rankedGroupRows(STATE.standings,g)));
+  const panels=groups.map(g=>groupStatCard(g,groupRowsForMatchup(pack.standings,g),focus,pack.match,rankedGroupRows(STATE.standings,g),clinchMap(pack.standings,pack.matches||MATCHES,g)));
   const lines=pairingLinesForGroups(view,groups,pack.match);
   const bridge=`<div class=duelPanel>${(lines.length?lines:[`<div class=duelLine><span class=duelMatchId>${group}組</span><div class=muted>目前沒有固定配對小組</div></div>`]).join('')}</div>`;
   return `<div class=groupDuel>${panels[0]}${bridge}${panels[1]||''}</div>`;
