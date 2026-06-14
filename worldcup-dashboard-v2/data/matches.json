@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-14T16:52:32.623484+00:00",
+  "updated_at": "2026-06-14T17:54:46.848735+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -11,6 +11,10 @@
       "away": "South Africa",
       "home_score": 2,
       "away_score": 0,
+      "home_half_score": 1,
+      "away_half_score": 0,
+      "minute": null,
+      "added_time": null,
       "status": "FINISHED"
     },
     {
@@ -22,6 +26,10 @@
       "away": "Czechia",
       "home_score": 2,
       "away_score": 1,
+      "home_half_score": 0,
+      "away_half_score": 0,
+      "minute": null,
+      "added_time": null,
       "status": "FINISHED"
     },
     {
@@ -33,6 +41,10 @@
       "away": "Bosnia-Herzegovina",
       "home_score": 1,
       "away_score": 1,
+      "home_half_score": 0,
+      "away_half_score": 1,
+      "minute": null,
+      "added_time": null,
       "status": "FINISHED"
     },
     {
@@ -44,6 +56,10 @@
       "away": "Paraguay",
       "home_score": 4,
       "away_score": 1,
+      "home_half_score": 3,
+      "away_half_score": 0,
+      "minute": null,
+      "added_time": null,
       "status": "FINISHED"
     },
     {
@@ -55,6 +71,10 @@
       "away": "Switzerland",
       "home_score": 1,
       "away_score": 1,
+      "home_half_score": 0,
+      "away_half_score": 1,
+      "minute": null,
+      "added_time": null,
       "status": "FINISHED"
     },
     {
@@ -66,6 +86,10 @@
       "away": "Morocco",
       "home_score": 1,
       "away_score": 1,
+      "home_half_score": 1,
+      "away_half_score": 1,
+      "minute": null,
+      "added_time": null,
       "status": "FINISHED"
     },
     {
@@ -77,6 +101,10 @@
       "away": "Scotland",
       "home_score": 0,
       "away_score": 1,
+      "home_half_score": 0,
+      "away_half_score": 1,
+      "minute": null,
+      "added_time": null,
       "status": "FINISHED"
     },
     {
@@ -88,6 +116,10 @@
       "away": "Turkey",
       "home_score": 2,
       "away_score": 0,
+      "home_half_score": 1,
+      "away_half_score": 0,
+      "minute": null,
+      "added_time": null,
       "status": "FINISHED"
     },
     {
@@ -97,9 +129,13 @@
       "group": "",
       "home": "Germany",
       "away": "Curaçao",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 2,
+      "away_score": 1,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
+      "status": "IN_PLAY"
     },
     {
       "id": 10,
@@ -110,6 +146,10 @@
       "away": "Japan",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -121,6 +161,10 @@
       "away": "Ecuador",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "SCHEDULED"
     },
     {
@@ -132,6 +176,10 @@
       "away": "Tunisia",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -143,6 +191,10 @@
       "away": "Cape Verde Islands",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -154,6 +206,10 @@
       "away": "Egypt",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -165,6 +221,10 @@
       "away": "Uruguay",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -176,6 +236,10 @@
       "away": "New Zealand",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -187,6 +251,10 @@
       "away": "Senegal",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -198,6 +266,10 @@
       "away": "Norway",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -209,6 +281,10 @@
       "away": "Algeria",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -220,6 +296,10 @@
       "away": "Jordan",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -231,6 +311,10 @@
       "away": "Congo DR",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -242,6 +326,10 @@
       "away": "Croatia",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -253,6 +341,10 @@
       "away": "Panama",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -264,6 +356,10 @@
       "away": "Colombia",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -275,6 +371,10 @@
       "away": "South Africa",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -286,6 +386,10 @@
       "away": "Bosnia-Herzegovina",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -297,6 +401,10 @@
       "away": "Qatar",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -308,6 +416,10 @@
       "away": "South Korea",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -319,6 +431,10 @@
       "away": "Australia",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -330,6 +446,10 @@
       "away": "Morocco",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -341,6 +461,10 @@
       "away": "Haiti",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -352,6 +476,10 @@
       "away": "Paraguay",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -363,6 +491,10 @@
       "away": "Sweden",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -374,6 +506,10 @@
       "away": "Ivory Coast",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -385,6 +521,10 @@
       "away": "Curaçao",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -396,6 +536,10 @@
       "away": "Japan",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -407,6 +551,10 @@
       "away": "Saudi Arabia",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -418,6 +566,10 @@
       "away": "Iran",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -429,6 +581,10 @@
       "away": "Cape Verde Islands",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -440,6 +596,10 @@
       "away": "Egypt",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -451,6 +611,10 @@
       "away": "Austria",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -462,6 +626,10 @@
       "away": "Iraq",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -473,6 +641,10 @@
       "away": "Senegal",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -484,6 +656,10 @@
       "away": "Algeria",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -495,6 +671,10 @@
       "away": "Uzbekistan",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -506,6 +686,10 @@
       "away": "Ghana",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -517,6 +701,10 @@
       "away": "Croatia",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -528,6 +716,10 @@
       "away": "Congo DR",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -539,6 +731,10 @@
       "away": "Canada",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -550,6 +746,10 @@
       "away": "Qatar",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -561,6 +761,10 @@
       "away": "Haiti",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -572,6 +776,10 @@
       "away": "Brazil",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -583,6 +791,10 @@
       "away": "Mexico",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -594,6 +806,10 @@
       "away": "South Korea",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -605,6 +821,10 @@
       "away": "Germany",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -616,6 +836,10 @@
       "away": "Ivory Coast",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -627,6 +851,10 @@
       "away": "Netherlands",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -638,6 +866,10 @@
       "away": "Sweden",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -649,6 +881,10 @@
       "away": "United States",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -660,6 +896,10 @@
       "away": "Australia",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -671,6 +911,10 @@
       "away": "France",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -682,6 +926,10 @@
       "away": "Iraq",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -693,6 +941,10 @@
       "away": "Spain",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -704,6 +956,10 @@
       "away": "Saudi Arabia",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -715,6 +971,10 @@
       "away": "Belgium",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -726,6 +986,10 @@
       "away": "Iran",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -737,6 +1001,10 @@
       "away": "England",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -748,6 +1016,10 @@
       "away": "Ghana",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -759,6 +1031,10 @@
       "away": "Portugal",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -770,6 +1046,10 @@
       "away": "Uzbekistan",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -781,6 +1061,10 @@
       "away": "Argentina",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -792,6 +1076,10 @@
       "away": "Austria",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -803,6 +1091,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -814,6 +1106,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -825,6 +1121,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -836,6 +1136,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -847,6 +1151,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -858,6 +1166,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -869,6 +1181,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -880,6 +1196,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -891,6 +1211,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -902,6 +1226,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -913,6 +1241,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -924,6 +1256,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -935,6 +1271,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -946,6 +1286,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -957,6 +1301,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -968,6 +1316,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -979,6 +1331,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -990,6 +1346,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1001,6 +1361,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1012,6 +1376,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1023,6 +1391,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1034,6 +1406,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1045,6 +1421,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1056,6 +1436,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1067,6 +1451,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1078,6 +1466,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1089,6 +1481,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1100,6 +1496,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1111,6 +1511,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1122,6 +1526,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1133,6 +1541,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     },
     {
@@ -1144,6 +1556,10 @@
       "away": "TBD",
       "home_score": null,
       "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
+      "minute": null,
+      "added_time": null,
       "status": "TIMED"
     }
   ],
