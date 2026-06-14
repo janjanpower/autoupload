@@ -364,12 +364,26 @@ function escapeHtml(text){return String(text??'').replace(/[&<>"']/g,c=>({'&':'&
 function compactGroupRows(st,group){
   return rankedGroupRows(st,group).map(x=>({rank:x.rank,team:x.team,points:x.Pts,wins:x.W,losses:x.L,draws:x.D,goalsFor:x.GF,goalsAgainst:x.GA,goalDiff:x.GD,seed:x.seed}));
 }
+function qwenTeamStatus(team,st,br){
+  const snap=STRATEGY_ENGINE.snapshot(team,st,br);
+  return{
+    group:snap.group,
+    groupRank:snap.rank,
+    groupSeed:snap.rank?snap.group+snap.rank:'淘汰',
+    isGroupThird:snap.rank===3,
+    qualifiesByTopTwo:snap.rank>0&&snap.rank<=2,
+    qualifiesByBestThird:snap.rank===3&&snap.qualified,
+    qualified:snap.qualified,
+    seed:snap.seed
+  };
+}
 function localQwenPayload(pack){
   const group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],snap=STRATEGY_ENGINE.snapshot(target.value,pack.standings,pack.bracket);
   const contextEl=document.getElementById('aiContext');
   return{
     selectedTeam:target.value,
     match:{group,home:pack.match.h,away:pack.match.a,date:pack.match.date,hypotheticalScore:SCENARIO_SCORE,notYetPlayed:!isPlayed(currentScenarioMatch())},
+    selectedTeamStatus:{actual:qwenTeamStatus(target.value,STATE.standings,STATE.bracket),scenario:qwenTeamStatus(target.value,pack.standings,pack.bracket)},
     actualFocusGroups:Object.fromEntries(groups.map(g=>[g,compactGroupRows(STATE.standings,g)])),
     scenarioFocusGroups:Object.fromEntries(groups.map(g=>[g,compactGroupRows(pack.standings,g)])),
     actualBestThird:STATE.thirdRanking.map((x,i)=>({rank:i+1,seed:x.seed,team:x.team,points:x.Pts,goalDiff:x.GD,goalsFor:x.GF,status:i<8?'暫列前8':'暫列後4'})),
@@ -389,13 +403,16 @@ function localQwenPrompt(payload){
 - actualFocusGroups / actualBestThird 才是目前實際積分。
 - scenarioFocusGroups / scenarioBestThird 只能用來分析「如果這個比分發生」的影響，不能當成目前已發生的積分。
 - 若 match.notYetPlayed 為 true，不可以把這場 hypotheticalScore 算成已發生賽果，只能分析策略影響。
+- 2026 世界盃小組前兩名直接晉級；最佳第三名只適用於「小組第三名」。
+- 若 selectedTeamStatus.scenario.groupRank 是 1 或 2，不要說這隊要爭取最佳第三名；請改談保住前二、種子順位、32強對手與路線強度。
+- 只有 selectedTeamStatus.scenario.groupRank === 3，或這場比分可能讓該隊跌到/升到第三名時，才分析最佳第三名門檻。
 - 回答請用繁體中文。
 
 請輸出：
 1. 建議比分
 2. 建議策略
 3. 如果想保小組排名，需要注意什麼
-4. 如果想爭取最佳第三名，需要注意什麼
+4. 若該隊是小組第三名，才說明最佳第三名門檻；若不是第三名，請寫「目前不適用」
 5. 可能受影響的其他隊伍
 6. 最大風險
 
