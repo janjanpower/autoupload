@@ -1,0 +1,106 @@
+{
+  "updated_at": "manual-seed",
+  "source": "manual seed; updater overwrites when API is configured",
+  "matches": [
+    {
+      "id": 1,
+      "date": "2026-06-11",
+      "group": "A",
+      "home": "墨西哥",
+      "away": "南非",
+      "home_score": 2,
+      "away_score": 0,
+      "status": "FINISHED"
+    },
+    {
+      "id": 2,
+      "date": "2026-06-11",
+      "group": "A",
+      "home": "大韓民國",
+      "away": "捷克",
+      "home_score": 2,
+      "away_score": 1,
+      "status": "FINISHED"
+    },
+    {
+      "id": 3,
+      "date": "2026-06-12",
+      "group": "B",
+      "home": "加拿大",
+      "away": "波士尼亞與赫塞哥維納",
+      "home_score": 1,
+      "away_score": 1,
+      "status": "FINISHED"
+    },
+    {
+      "id": 4,
+      "date": "2026-06-13",
+      "group": "B",
+      "home": "卡達",
+      "away": "瑞士",
+      "home_score": 1,
+      "away_score": 1,
+      "status": "FINISHED"
+    },
+    {
+      "id": 5,
+      "date": "2026-06-13",
+      "group": "C",
+      "home": "巴西",
+      "away": "摩洛哥",
+      "home_score": 1,
+      "away_score": 1,
+      "status": "FINISHED"
+    },
+    {
+      "id": 6,
+      "date": "2026-06-13",
+      "group": "C",
+      "home": "海地",
+      "away": "蘇格蘭",
+      "home_score": 0,
+      "away_score": 1,
+      "status": "FINISHED"
+    },
+    {
+      "id": 7,
+      "date": "2026-06-12",
+      "group": "D",
+      "home": "美國",
+      "away": "巴拉圭",
+      "home_score": 4,
+      "away_score": 1,
+      "status": "FINISHED"
+    },
+    {
+      "id": 8,
+      "date": "2026-06-14",
+      "group": "D",
+      "home": "澳洲",
+      "away": "土耳其",
+      "home_score": 2,
+      "away_score": 0,
+      "status": "FINISHED"
+    },
+    {
+      "id": 9,
+      "date": "2026-06-14",
+      "group": "E",
+      "home": "德國",
+      "away": "庫拉索",
+      "home_score": null,
+      "away_score": null,
+      "status": "SCHEDULED"
+    },
+    {
+      "id": 10,
+      "date": "2026-06-14",
+      "group": "E",
+      "home": "象牙海岸",
+      "away": "厄瓜多",
+      "home_score": null,
+      "away_score": null,
+      "status": "SCHEDULED"
+    }
+  ]
+}
