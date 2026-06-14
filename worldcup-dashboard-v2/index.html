@@ -28,11 +28,13 @@
     .treeLines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}.node{position:absolute;width:12.2%;min-width:122px;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:7px;z-index:2;box-shadow:0 8px 18px rgba(0,0,0,.25)}
     .nodeTitle{display:flex;justify-content:space-between;color:#94a3b8;font-size:10px;margin-bottom:4px}.nTeam{height:26px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:5px;align-items:center;background:#172033;border:1px solid #30405f;border-radius:7px;margin:4px 0;padding:0 5px;font-size:11px}
     .nSeed{font-weight:900}.teamName{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.champ{background:linear-gradient(180deg,#fff0a3,#f59e0b);color:#111;border:0}.champ .nTeam{background:rgba(255,255,255,.7);color:#111;border-color:#b45309;grid-template-columns:1fr}
+    .scheduleGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}.scheduleNode{background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px;box-shadow:0 8px 18px rgba(0,0,0,.18)}
+    .scheduleNode .nTeam{grid-template-columns:44px minmax(0,1fr) 28px}.scheduleScore{text-align:right;font-weight:900}.scheduleMeta{display:flex;justify-content:space-between;gap:8px;align-items:center;color:#94a3b8;font-size:10px;margin-bottom:4px}
     .scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.scenario{background:#0f172a;border:1px solid #344054;border-radius:14px;padding:12px}.bar{height:8px;background:#1e293b;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:#60a5fa}.prob{display:grid;grid-template-columns:1fr 52px;gap:8px;margin:6px 0}
     .matchList{display:grid;gap:7px}.matchRow{display:grid;grid-template-columns:54px 54px 36px minmax(86px,1fr) 112px minmax(86px,1fr) 74px;gap:6px;align-items:center;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:7px}.matchRow .teamName{text-align:center}.inlineScore{display:grid;grid-template-columns:1fr 12px 1fr;gap:3px;align-items:center;font-size:24px;font-weight:900}.inlineScore input{width:44px;text-align:center;padding:0;border:0;background:transparent;font-size:24px;font-weight:900;color:#fff}.inlineScore input:disabled{opacity:1}
     .stepper{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:center}.scenarioTeam{font-size:2em;font-weight:900;margin-bottom:20px}.scoreBox{display:grid;grid-template-columns:34px 42px 34px;gap:6px;align-items:center;justify-content:center}.scoreBox button{padding:7px 0;border-radius:10px}.scoreNum{font-size:28px;font-weight:900;text-align:center}.vs{color:#94a3b8;font-weight:900}.impactGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.impactCard{background:#0f172a;border:1px solid #344054;border-radius:12px;padding:10px}.impactCard h4{margin:0 0 8px;display:flex;justify-content:space-between;gap:8px}.chip{display:inline-block;border-radius:999px;padding:3px 7px;margin:2px;background:#111827;border:1px solid #344054;font-size:12px}.chip.good{border-color:#4ade80}.chip.bad{border-color:#fca5a5}.chip.warn{border-color:#fde68a}.routeCard{background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px;margin:7px 0}.routeCard .line{grid-template-columns:60px minmax(0,1fr)}.chain{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:start;border-top:1px solid #26364f;padding:8px 0}.mini{font-size:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.nextCard{display:grid;gap:8px}.nextRow{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;align-items:start;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px}.nextRow span{min-width:0;overflow:hidden;text-overflow:ellipsis}
     @media(max-width:1100px){.grid,.bracket,.two,.scenarios,.impactGrid{grid-template-columns:1fr}.roundView{overflow-x:auto;padding-bottom:8px}.treeStage{width:1180px;height:820px;min-height:820px}.node{min-width:104px;width:11.8%}.nTeam{grid-template-columns:34px minmax(0,1fr);font-size:10px}}
-    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px 18px}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px;border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table{min-width:0}th,td{padding:7px 5px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.roundView{overflow:visible}.treeStage{width:100%;height:760px;min-height:760px}.node{min-width:0;width:28%;padding:4px;border-radius:8px}.nodeTitle{font-size:9px}.nTeam{height:23px;grid-template-columns:24px minmax(0,1fr);font-size:9px;padding:0 4px}.badge,.chip{font-size:11px}.matchRow{grid-template-columns:30px 36px 20px minmax(44px,1fr) 58px minmax(44px,1fr) 44px;font-size:11px;padding:5px;gap:3px}.matchRow .pill{font-size:10px;padding:3px 5px}.inlineScore{grid-template-columns:1fr 8px 1fr;font-size:20px}.inlineScore input{width:24px;font-size:20px}.stepper{grid-template-columns:1fr}.scenarioTeam{font-size:1.65em;margin-bottom:18px}.scoreNum{font-size:24px}}
+    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px 18px}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px;border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table{min-width:0}th,td{padding:7px 5px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.roundView{overflow:visible}.treeStage{width:100%;height:760px;min-height:760px}.node{min-width:0;width:28%;padding:4px;border-radius:8px}.nodeTitle{font-size:9px}.nTeam{height:23px;grid-template-columns:24px minmax(0,1fr);font-size:9px;padding:0 4px}.scheduleGrid{grid-template-columns:1fr}.scheduleNode .nTeam{grid-template-columns:30px minmax(0,1fr) 24px}.badge,.chip{font-size:11px}.matchRow{grid-template-columns:30px 36px 20px minmax(44px,1fr) 58px minmax(44px,1fr) 44px;font-size:11px;padding:5px;gap:3px}.matchRow .pill{font-size:10px;padding:3px 5px}.inlineScore{grid-template-columns:1fr 8px 1fr;font-size:20px}.inlineScore input{width:24px;font-size:20px}.stepper{grid-template-columns:1fr}.scenarioTeam{font-size:1.65em;margin-bottom:18px}.scoreNum{font-size:24px}}
   </style>
 </head>
 <body>
@@ -105,7 +107,7 @@ const THIRD_RULE={M74:['A','B','C','D','F'],M77:['C','D','F','G','H'],M79:['C','
 const R16_TEMPLATE=[['M89','M73','M75'],['M90','M74','M77'],['M91','M76','M78'],['M92','M79','M80'],['M93','M83','M84'],['M94','M81','M82'],['M95','M86','M88'],['M96','M85','M87']];
 const QF_TEMPLATE=[['M97','M89','M90'],['M98','M93','M94'],['M99','M91','M92'],['M100','M95','M96']];
 const TREE_FINAL_TEMPLATE=[['M101','M97','M98'],['M102','M99','M100'],['FINAL','M101','M102']];
-let MATCHES=SEED.map(x=>({...x})),STATE=null,SELECTED_THIRD_TEAM='',SCENARIO_SCORE={hg:0,ag:0},STANDING_FILTER='';
+let MATCHES=SEED.map(x=>({...x})),KNOCKOUT_MATCHES=[],STATE=null,SELECTED_THIRD_TEAM='',SCENARIO_SCORE={hg:0,ag:0},STANDING_FILTER='';
 
 function tab(id,b){document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));document.getElementById(id).classList.add('on');b.classList.add('on');recalculate()}
 function round(id,b){document.querySelectorAll('.round').forEach(x=>x.style.display='none');document.querySelectorAll('.subtab').forEach(x=>x.classList.remove('on'));document.getElementById(id).style.display='block';b.classList.add('on')}
@@ -123,6 +125,7 @@ function isLive(m){return ['IN_PLAY','PAUSED','LIVE'].includes(m.status)}
 function hasStarted(m){return m.done||isLive(m)||isPlayed(m)}
 function statusClass(m){return m.done?'done':isLive(m)?'live':'todo'}
 function statusText(m){return m.done?'已完賽':isLive(m)?'LIVE':'未開賽'}
+function isTbdTeam(t){return !t||norm(t)==='TBD'||String(t).includes('待定')}
 function saveInputs(){MATCHES.forEach(m=>{let h=document.getElementById('h'+m.id),a=document.getElementById('a'+m.id);if(h&&!m.done){m.hg=h.value===''?null:+h.value;m.ag=a.value===''?null:+a.value}})}
 
 function mergeScores(payload){
@@ -136,6 +139,11 @@ function mergeScores(payload){
     const status=remote.status||seed.status;
     return {...seed,utc_date:remote.utc_date||remote.utcDate||seed.utc_date||'',hg:hg??null,ag:ag??null,status,done:['FINISHED','AWARDED'].includes(status)};
   });
+  KNOCKOUT_MATCHES=raw.slice(SEED.length).map((m,i)=>({
+    id:73+i,date:m.date||'',utc_date:m.utc_date||m.utcDate||'',g:m.group||'',
+    h:teamName(m.home),a:teamName(m.away),hg:m.home_score??null,ag:m.away_score??null,
+    status:m.status||'TIMED',done:['FINISHED','AWARDED'].includes(m.status)
+  }));
 }
 
 const ANNEX_C_ENGINE={
@@ -219,6 +227,13 @@ function matchCard(m,editable=false,prefix=''){
 function matchCardList(matches,editable=false,prefix=''){
   return `<div class=matchList>${matches.map(m=>matchCard(m,editable,prefix)).join('')}</div>`;
 }
+function scheduleNodeCard(m,label){
+  const home=isTbdTeam(m.h)?'待定':m.h,away=isTbdTeam(m.a)?'待定':m.a;
+  return `<div class=scheduleNode><div class=scheduleMeta><span>${label}</span><span>${matchDateLabel(m)} ${matchTimeLabel(m)}</span></div><div class=nTeam><span class=nSeed>主</span><span class=teamName>${home}</span><span class=scheduleScore>${m.hg??'-'}</span></div><div class=nTeam><span class=nSeed>客</span><span class=teamName>${away}</span><span class=scheduleScore>${m.ag??'-'}</span></div><span class="pill ${statusClass(m)}">${statusText(m)}</span></div>`;
+}
+function scheduleNodeGrid(matches,labeler){
+  return `<div class=scheduleGrid>${matches.map((m,i)=>scheduleNodeCard(m,labeler(m,i))).join('')}</div>`;
+}
 function drawScores(){
   const ordered=[...MATCHES].sort((a,b)=>matchSortKey(a)-matchSortKey(b)||a.id-b.id);
   const dates=[...new Set(ordered.map(matchDateLabel))];
@@ -253,47 +268,49 @@ function drawThirdTeamPanel(team){
 }
 function treeNode(match,x,y,kind,champ=false){
   const id=`node-${kind}-${match.id}`;
-  return `<div class="node ${champ?'champ':''}" id="${id}" style="left:${x}%;top:${y}%;transform:translate(-50%,-50%)"><div class=nodeTitle><span>${match.id}</span><span>${match.round||''}</span></div><div class=nTeam><span class=nSeed style="color:${COLORS[match.a.group]||COLORS.X}">${match.a.seed}</span><span class=teamName>${match.a.team||match.a.name}</span></div><div class=nTeam><span class=nSeed style="color:${COLORS[match.b.group]||COLORS.X}">${match.b.seed}</span><span class=teamName>${match.b.team||match.b.name}</span></div></div>`;
+  const home=match.a?match.a.team:match.h,away=match.b?match.b.team:match.a,homeSeed=match.a?.seed||'主',awaySeed=match.b?.seed||'客',homeGroup=match.a?.group||'X',awayGroup=match.b?.group||'X';
+  return `<div class="node ${champ?'champ':''}" id="${id}" style="left:${x}%;top:${y}%;transform:translate(-50%,-50%)"><div class=nodeTitle><span>${match.id}</span><span>${match.round||''}</span></div><div class=nTeam><span class=nSeed style="color:${COLORS[homeGroup]||COLORS.X}">${homeSeed}</span><span class=teamName>${isTbdTeam(home)?'待定':home}</span></div><div class=nTeam><span class=nSeed style="color:${COLORS[awayGroup]||COLORS.X}">${awaySeed}</span><span class=teamName>${isTbdTeam(away)?'待定':away}</span></div></div>`;
 }
 function futureMatch(id,a,b,round){
   return{id,a:{seed:'勝者',team:a,group:'X'},b:{seed:'勝者',team:b,group:'X'},round};
 }
-function treeMap(){
+function actualKnockoutMap(){
   const map={};
-  STATE.bracket.forEach(m=>map[m.id]={...m,round:'32強'});
-  R16_TEMPLATE.forEach(([id,a,b])=>map[id]=futureMatch(id,a,b,'16強'));
-  QF_TEMPLATE.forEach(([id,a,b])=>map[id]=futureMatch(id,a,b,'8強'));
-  TREE_FINAL_TEMPLATE.forEach(([id,a,b])=>map[id]=futureMatch(id,a,b,id==='FINAL'?'決賽':'4強'));
-  map.THIRD=futureMatch('THIRD','敗者 M101','敗者 M102','季軍戰');
+  KNOCKOUT_MATCHES.forEach((m,i)=>{
+    const id=i<16?`M${73+i}`:i<24?`M${89+i-16}`:i<28?`M${97+i-24}`:i<30?`M${101+i-28}`:i===30?'THIRD':'FINAL';
+    map[id]=m;
+  });
   return map;
 }
+function bracketPlaceholder(id,round){return{id,date:'',utc_date:'',g:'',h:'待定',a:'待定',hg:null,ag:null,status:'TIMED',done:false,round}}
+function knockoutNode(id,round,map){return map[id]?{...map[id],id,round}:bracketPlaceholder(id,round)}
 function renderTree(kind){
   const container=document.getElementById('treeNodes'+kind);
   if(!container||!STATE)return;
-  const map=treeMap();
+  const map=actualKnockoutMap();
   let html='';
   if(kind==='32'){
-    STATE.bracket.forEach((m,i)=>html+=treeNode({...m,round:'32強'},i<8?25:75,10+(i%8)*11.2,kind));
+    R32_TEMPLATE.forEach(([id],i)=>html+=treeNode(knockoutNode(id,'32強',map),i<8?25:75,10+(i%8)*11.2,kind));
   }else if(kind==='16'){
-    [['M89',18,14],['M90',18,34],['M91',18,56],['M92',18,76],['M93',82,14],['M94',82,34],['M95',82,56],['M96',82,76],['M97',34,24],['M99',34,66],['M98',66,24],['M100',66,66],['M101',44,34],['M102',56,58],['FINAL',50,46],['THIRD',50,82]].forEach(([id,x,y])=>html+=treeNode(map[id],x,y,kind,id==='FINAL'));
+    [['M89',18,14],['M90',18,34],['M91',18,56],['M92',18,76],['M93',82,14],['M94',82,34],['M95',82,56],['M96',82,76],['M97',34,24],['M99',34,66],['M98',66,24],['M100',66,66],['M101',44,34],['M102',56,58],['FINAL',50,46],['THIRD',50,82]].forEach(([id,x,y])=>html+=treeNode(knockoutNode(id,id==='FINAL'?'決賽':id==='THIRD'?'季軍戰':'16強',map),x,y,kind,id==='FINAL'));
   }else if(kind==='8'){
-    [['M97',28,24],['M99',28,64],['M98',72,24],['M100',72,64]].forEach(([id,x,y])=>html+=treeNode(map[id],x,y,kind));
-    html+=treeNode(map.M101,43,35,kind);
-    html+=treeNode(map.M102,57,65,kind);
-    html+=treeNode(map.FINAL,50,47,kind,true);
-    html+=treeNode(map.THIRD,50,76,kind);
+    [['M97',28,24],['M99',28,64],['M98',72,24],['M100',72,64]].forEach(([id,x,y])=>html+=treeNode(knockoutNode(id,'8強',map),x,y,kind));
+    html+=treeNode(knockoutNode('M101','4強',map),43,35,kind);
+    html+=treeNode(knockoutNode('M102','4強',map),57,65,kind);
+    html+=treeNode(knockoutNode('FINAL','決賽',map),50,47,kind,true);
+    html+=treeNode(knockoutNode('THIRD','季軍戰',map),50,76,kind);
   }else if(kind==='4'){
-    html+=treeNode(map.M101,34,32,kind);
-    html+=treeNode(map.M102,66,32,kind);
-    html+=treeNode(map.FINAL,50,55,kind,true);
-    html+=treeNode(map.THIRD,50,78,kind);
+    html+=treeNode(knockoutNode('M101','4強',map),34,32,kind);
+    html+=treeNode(knockoutNode('M102','4強',map),66,32,kind);
+    html+=treeNode(knockoutNode('FINAL','決賽',map),50,55,kind,true);
+    html+=treeNode(knockoutNode('THIRD','季軍戰',map),50,78,kind);
   }
   container.innerHTML=html;
 }
 function drawGroupStageActual(){
-  const actual=[...MATCHES].filter(hasStarted).sort((a,b)=>matchSortKey(a)-matchSortKey(b)||a.id-b.id);
-  const dates=[...new Set(actual.map(matchDateLabel))];
-  groupStageBoard.innerHTML=actual.length?dates.map(dt=>`<div class=card><h3>${dt} 賽程</h3>${matchCardList(actual.filter(x=>matchDateLabel(x)===dt),false,'group-')}</div>`).join(''):`<div class=card><div class=muted>目前沒有已開賽的小組賽賽程卡片。</div></div>`;
+  const ordered=[...MATCHES].sort((a,b)=>matchSortKey(a)-matchSortKey(b)||a.id-b.id);
+  const dates=[...new Set(ordered.map(matchDateLabel))];
+  groupStageBoard.innerHTML=dates.map(dt=>`<div class=card><h3>${dt} 賽程</h3>${scheduleNodeGrid(ordered.filter(x=>matchDateLabel(x)===dt),m=>`${m.g}組`)}</div>`).join('');
 }
 function drawTreeLines(){
   ['32','16','8','4'].forEach(kind=>{

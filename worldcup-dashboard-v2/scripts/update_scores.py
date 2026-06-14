@@ -32,7 +32,11 @@ def save(payload: dict) -> None:
 
 
 def normalize_football_data(raw: dict, current: dict) -> dict:
-    known_by_pair = {(m.get("home"), m.get("away")): m for m in current.get("matches", [])}
+    known_by_pair = {
+        (m.get("home"), m.get("away")): m
+        for m in current.get("matches", [])
+        if m.get("home") != "TBD" and m.get("away") != "TBD"
+    }
     known_by_id = {m.get("id"): m for m in current.get("matches", [])}
     out = []
     for idx, match in enumerate(raw.get("matches", []), start=1):
@@ -42,7 +46,7 @@ def normalize_football_data(raw: dict, current: dict) -> dict:
         status = match.get("status") or "SCHEDULED"
         utc_date = match.get("utcDate") or ""
         date = utc_date[:10] if utc_date else ""
-        seed = known_by_pair.get((home, away), known_by_id.get(idx, {}))
+        seed = known_by_id.get(idx, {}) if home == "TBD" or away == "TBD" else known_by_pair.get((home, away), known_by_id.get(idx, {}))
         out.append(
             {
                 "id": seed.get("id", idx),
