@@ -28,15 +28,15 @@
     .nodeTitle{display:flex;justify-content:space-between;color:#94a3b8;font-size:10px;margin-bottom:4px}.nTeam{height:26px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:5px;align-items:center;background:#172033;border:1px solid #30405f;border-radius:7px;margin:4px 0;padding:0 5px;font-size:11px}
     .nSeed{font-weight:900}.teamName{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.champ{background:linear-gradient(180deg,#fff0a3,#f59e0b);color:#111;border:0}.champ .nTeam{background:rgba(255,255,255,.7);color:#111;border-color:#b45309;grid-template-columns:1fr}
     .scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.scenario{background:#0f172a;border:1px solid #344054;border-radius:14px;padding:12px}.bar{height:8px;background:#1e293b;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:#60a5fa}.prob{display:grid;grid-template-columns:1fr 52px;gap:8px;margin:6px 0}
-    .chain{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:start;border-top:1px solid #26364f;padding:8px 0}.mini{font-size:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi b{font-size:22px}.mobileStack{display:grid;grid-template-columns:1fr;gap:10px}.mobileMetric{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mobileMetric .card{margin:0}.mobileList{display:grid;gap:8px}.mobileRow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px}.mobileRow span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .chain{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:start;border-top:1px solid #26364f;padding:8px 0}.mini{font-size:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi b{font-size:22px}.nextCard{display:grid;gap:8px}.nextRow{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;align-items:start;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px}.nextRow span{min-width:0;overflow:hidden;text-overflow:ellipsis}
     @media(max-width:1100px){.grid,.bracket,.two,.scenarios,.kpi{grid-template-columns:1fr}.roundView{overflow-x:auto;padding-bottom:8px}.treeStage{width:1180px;height:820px;min-height:820px}.node{min-width:104px;width:11.8%}.nTeam{grid-template-columns:34px minmax(0,1fr);font-size:10px}}
-    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px 18px}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px;border-radius:12px}.card{padding:10px;border-radius:10px}table{font-size:12px}th,td{padding:7px 5px}.score{width:48px}.chain{grid-template-columns:1fr}.kpi b{font-size:18px}.treeStage{width:1120px}.node{min-width:100px}.qualifiedList .badge,.badge{font-size:11px}}
+    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px 18px}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px;border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table{min-width:0}th,td{padding:7px 5px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.kpi b{font-size:18px}.treeStage{width:1120px}.node{min-width:100px}.badge{font-size:11px}}
   </style>
 </head>
 <body>
 <header>
   <h1>2026 世界盃戰術沙盤 v2</h1>
-  <div class="muted">Annex C → Third Place Engine → Bracket Engine → Monte Carlo → Strategy Impact Chain</div>
+  <div class="muted">小組排名 → 第三名暫列 → 樹狀賽程 → 情境沙盤</div>
 </header>
 <div class="app">
   <div class="tabs">
@@ -45,8 +45,6 @@
     <button class="tab" onclick="tab('thirds',this)">第三名分析</button>
     <button class="tab" onclick="tab('bracket',this)">樹狀晉級賽程</button>
     <button class="tab" onclick="tab('sandbox',this)">情境沙盤</button>
-    <button class="tab" onclick="tab('mobile',this)">手機總覽</button>
-    <button class="tab" onclick="tab('annex',this)">FIFA 2026 Annex C</button>
   </div>
 
   <section id="scores" class="panel on">
@@ -64,13 +62,13 @@
 
   <section id="thirds" class="panel">
     <div class="two">
-      <div class="card"><h3>第三名總排序</h3><div id="thirdBoard"></div></div>
-      <div class="card"><h3>Third Place Engine</h3><div id="thirdAssign"></div></div>
+      <div class="card"><h3>第三名目前排序</h3><div id="thirdBoard"></div></div>
+      <div class="card"><h3>下一場與可能對手</h3><div id="thirdAssign"></div></div>
     </div>
   </section>
 
   <section id="bracket" class="panel">
-    <div class="card"><h3>目前晉級名單</h3><div id="qualifiedList"></div></div>
+    <div class="card"><h3>目前暫列32強</h3><div id="qualifiedList"></div></div>
     <div class="bracketTabs">
       <button class="roundBtn active" onclick="showTreeRound('treeAll',this)">完整樹狀圖</button>
       <button class="roundBtn" onclick="showTreeRound('tree32',this)">32強樹狀</button>
@@ -97,32 +95,6 @@
     <div id="matrix"></div>
   </section>
 
-  <section id="mobile" class="panel">
-    <div class="card toolbar">
-      <label>隊伍 <select id="mobileTeam" onchange="drawMobilePanel()"></select></label>
-      <button onclick="drawMobilePanel()">重新整理</button>
-    </div>
-    <div id="mobileBoard" class="mobileStack"></div>
-  </section>
-
-  <section id="annex" class="panel">
-    <div class="two">
-      <div class="card">
-        <h3>FIFA 2026 Annex C 排名順序</h3>
-        <div class="chain"><b>1</b><span>小組賽積分。</span></div>
-        <div class="chain"><b>2</b><span>小組賽總淨勝球。</span></div>
-        <div class="chain"><b>3</b><span>小組賽總進球數。</span></div>
-        <div class="chain"><b>4</b><span>同分隊伍互相比賽積分。</span></div>
-        <div class="chain"><b>5</b><span>同分隊伍互相比賽淨勝球。</span></div>
-        <div class="chain"><b>6</b><span>同分隊伍互相比賽進球數。</span></div>
-        <div class="chain"><b>7</b><span>公平競賽分數與抽籤。此工具在缺乏牌證資料時以隊名作穩定 fallback，並標示為未決風險。</span></div>
-      </div>
-      <div class="card">
-        <h3>Engine 狀態</h3>
-        <div id="engineStatus"></div>
-      </div>
-    </div>
-  </section>
 </div>
 
 <script>
@@ -138,7 +110,7 @@ const THIRD_RULE={M74:['A','B','C','D','F'],M77:['C','D','F','G','H'],M79:['C','
 const R16_TEMPLATE=[['M89','M73','M75'],['M90','M74','M77'],['M91','M76','M78'],['M92','M79','M80'],['M93','M83','M84'],['M94','M81','M82'],['M95','M86','M88'],['M96','M85','M87']];
 const QF_TEMPLATE=[['M97','M89','M90'],['M98','M93','M94'],['M99','M91','M92'],['M100','M95','M96']];
 const TREE_FINAL_TEMPLATE=[['M101','M97','M98'],['M102','M99','M100'],['FINAL','M101','M102']];
-let MATCHES=SEED.map(x=>({...x})),STATE=null,DATA_META='seed data';
+let MATCHES=SEED.map(x=>({...x})),STATE=null,DATA_META='seed data',SELECTED_THIRD_TEAM='';
 
 function tab(id,b){document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));document.getElementById(id).classList.add('on');b.classList.add('on');recalculate()}
 function round(id,b){document.querySelectorAll('.round').forEach(x=>x.style.display='none');document.querySelectorAll('.subtab').forEach(x=>x.classList.remove('on'));document.getElementById(id).style.display='block';b.classList.add('on')}
@@ -252,8 +224,25 @@ function drawStandings(){
 }
 function toggleStandingDetail(id){document.getElementById('standingDetail'+id)?.classList.toggle('on')}
 function drawThirds(){
-  thirdBoard.innerHTML=`<table><thead><tr><th>排序</th><th>種子</th><th>隊伍</th><th>積</th><th>淨</th><th>進球</th><th>狀態</th></tr></thead><tbody>${STATE.thirdRanking.map((x,i)=>`<tr class=${i<8?'r3':'r4'}><td>${i+1}</td><td>${x.seed}</td><td>${x.team}</td><td>${x.Pts}</td><td>${x.GD}</td><td>${x.GF}</td><td>${i<8?'晉級':'淘汰區'}</td></tr>`).join('')}</tbody></table>`;
-  thirdAssign.innerHTML=Object.keys(THIRD_RULE).map(slot=>`<div class=chain><b>${slot}</b><span><span class=badge>${STATE.thirdMap[slot]||'未配置'}</span> 可用：${THIRD_RULE[slot].join(' / ')}</span></div>`).join('');
+  if(!SELECTED_THIRD_TEAM)SELECTED_THIRD_TEAM=STATE.thirdRanking[0]?.team||Object.values(GROUPS).flat()[0];
+  thirdBoard.innerHTML=`<table><thead><tr><th>排序</th><th>種子</th><th>隊伍</th><th>積分</th><th>淨勝球</th><th>進球</th><th>目前狀態</th></tr></thead><tbody>${STATE.thirdRanking.map((x,i)=>`<tr class="${i<8?'r3':'r4'} standingRow" onclick="selectThirdTeam('${x.team}')"><td>${i+1}</td><td>${x.seed}</td><td>${x.team}</td><td>${x.Pts}</td><td>${x.GD}</td><td>${x.GF}</td><td>${i<8?'暫列前8':'暫列後4'}</td></tr>`).join('')}</tbody></table>`;
+  drawThirdTeamPanel(SELECTED_THIRD_TEAM);
+}
+function selectThirdTeam(team){SELECTED_THIRD_TEAM=team;drawThirdTeamPanel(team)}
+function nextGroupMatch(team){
+  return MATCHES.filter(m=>!m.done&&(m.h===team||m.a===team)).sort((a,b)=>a.date.localeCompare(b.date)||a.id-b.id)[0]||null;
+}
+function sharedScheduleCard(title,m){
+  if(!m)return `<div class=nextRow><b>${title}</b><span class=muted>目前沒有未開賽小組賽。</span></div>`;
+  return `<div class=nextRow><b>${title}</b><span>${d(m.date)}｜${m.g}組｜${m.h} vs ${m.a}｜${m.hg??'-'}:${m.ag??'-'} <span class="pill ${statusClass(m)}">${statusText(m)}</span></span></div>`;
+}
+function drawThirdTeamPanel(team){
+  if(!STATE||!thirdAssign)return;
+  const snap=STRATEGY_ENGINE.snapshot(team,STATE.standings,STATE.bracket),third=STATE.thirdRanking.find(x=>x.team===team),groupRow=snap.row;
+  const current=groupRow?`${snap.group}組第${snap.rank}｜${groupRow.Pts}分｜淨勝球 ${groupRow.GD}｜進球 ${groupRow.GF}`:'目前沒有排名資料';
+  const route=snap.path?`${snap.path.match.id}｜${snap.path.self.seed} vs ${snap.path.opp.seed} ${snap.path.opp.team}`:'目前推算未進32強';
+  const provisional=third?`第三名排序：${STATE.thirdRanking.findIndex(x=>x.team===team)+1}｜${STATE.thirdRanking.findIndex(x=>x.team===team)<8?'暫列前8':'暫列後4'}`:'非第三名，目前依小組排名推算路線';
+  thirdAssign.innerHTML=`<div class=nextCard><div class=nextRow><b>${team}</b><span>${current}<br><span class=muted>${provisional}</span></span></div>${sharedScheduleCard('下一場',nextGroupMatch(team))}<div class=nextRow><b>可能對手</b><span>${route}<br><span class=muted>依目前比分即時計算，尚未完賽不代表確定晉級。</span></span></div></div>`;
 }
 function qualifiedSeed(team){
   const g=Object.keys(STATE.standings).find(k=>STATE.standings[k].some(x=>x.team===team));
@@ -341,21 +330,6 @@ function drawBracket(){
 }
 function loadTargets(){target.innerHTML=Object.values(GROUPS).flat().map(t=>`<option>${t}</option>`).join('');loadTeamMatches()}
 function loadTeamMatches(){let t=target.value,ms=MATCHES.filter(m=>!m.done&&(m.h===t||m.a===t)).sort((a,b)=>a.date.localeCompare(b.date));targetMatch.innerHTML=ms.map(m=>`<option value=${m.id}>${d(m.date)} ${m.h} vs ${m.a}</option>`).join('');drawTargetSnapshot()}
-function loadMobileTeams(){if(!mobileTeam)return;const current=mobileTeam.value;mobileTeam.innerHTML=Object.values(GROUPS).flat().map(t=>`<option>${t}</option>`).join('');if(current)mobileTeam.value=current}
-function mobileMatchRows(team){
-  const rows=MATCHES.filter(m=>m.h===team||m.a===team).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3);
-  return rows.map(m=>`<div class=mobileRow><b>${d(m.date)}</b><span>${m.h} vs ${m.a}</span><span class="pill ${statusClass(m)}">${m.hg??'-'}:${m.ag??'-'}</span></div>`).join('');
-}
-function drawMobilePanel(){
-  if(!STATE||!mobileBoard)return;
-  if(!mobileTeam.value)loadMobileTeams();
-  const team=mobileTeam.value||Object.values(GROUPS).flat()[0],snap=STRATEGY_ENGINE.snapshot(team,STATE.standings,STATE.bracket),groupRows=snap.group?STATE.standings[snap.group]:[],thirdRows=STATE.thirdRanking.slice(0,8);
-  mobileBoard.innerHTML=`<div class=mobileMetric><div class=card><div class=muted>排名</div><b>${snap.group||'-'}${snap.rank||'-'}</b></div><div class=card><div class=muted>積分</div><b>${snap.row?snap.row.Pts:'-'}</b></div><div class=card><div class=muted>淨勝球</div><b>${snap.row?snap.row.GD:'-'}</b></div></div>
-  <div class=card><h3>${team} 路線</h3><div class=warn>${snap.path?`${snap.path.match.id}｜${snap.path.self.seed} 對 ${snap.path.opp.seed} ${snap.path.opp.team}`:'目前未進32強'}</div><div class=muted>路線強度 ${snap.qualified?snap.route:'-'}</div></div>
-  <div class=card><h3>${snap.group||''}組積分</h3><div class=mobileList>${groupRows.map((x,i)=>`<div class=mobileRow><b>${i+1}</b><span>${x.team}</span><span>${x.Pts}分｜GD ${x.GD}</span></div>`).join('')}</div></div>
-  <div class=card><h3>最佳第三名</h3><div class=mobileList>${thirdRows.map((x,i)=>`<div class=mobileRow><b>${i+1}</b><span>${x.seed} ${x.team}</span><span>${x.Pts}分｜GD ${x.GD}</span></div>`).join('')}</div></div>
-  <div class=card><h3>近期賽程</h3><div class=mobileList>${mobileMatchRows(team)}</div></div>`;
-}
 function drawTargetSnapshot(){
   if(!STATE)return;
   const s=STRATEGY_ENGINE.snapshot(target.value,STATE.standings,STATE.bracket);
@@ -373,20 +347,11 @@ function runMatrix(){
   strategySummary.innerHTML=`<h3>Strategy Engine</h3><div class=good>${STRATEGY_ENGINE.recommendation(rows)}</div>`;
   matrix.innerHTML=`<div class=scenarios>${rows.map(r=>`<div class=scenario><h3>${r.label}｜${r.snap.seed}</h3><div>排名：${r.snap.row?`${r.snap.group}組第${r.snap.rank}｜${r.snap.row.Pts}分｜GD ${r.snap.row.GD}｜GF ${r.snap.row.GF}`:'淘汰'}</div><div class=warn>${r.snap.path?`${r.snap.path.match.id} 對 ${r.snap.path.opp.seed} ${r.snap.path.opp.team}`:'無32強對手'}｜路線強度 ${r.snap.qualified?r.snap.route:'-'}</div><h4>Strategy Impact Chain</h4>${renderImpact(r.impacts)}</div>`).join('')}</div>`;
 }
-function drawEngineStatus(){
-  engineStatus.innerHTML=[
-    ['Annex C Engine','小組排名與同分 tie-break 已啟用'],
-    ['Third Place Engine',`目前最佳第三名：${STATE.thirdRanking.slice(0,8).map(x=>x.seed).join('、')}`],
-    ['Bracket Engine',`32強槽位：${STATE.bracket.length} 場`],
-    ['Monte Carlo Engine','以隊伍強度與目前積分形勢隨機模擬剩餘賽程'],
-    ['Strategy Impact Chain','比較不同比分對所有隊伍種子、晉級與路線強度的外溢影響']
-  ].map(x=>`<div class=chain><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
-}
 function recalculate(){
   saveInputs();
   const standings=ANNEX_C_ENGINE.calculate(MATCHES),thirdRanking=THIRD_PLACE_ENGINE.ranking(standings),thirdMap=THIRD_PLACE_ENGINE.assign(standings),bracket=BRACKET_ENGINE.r32(standings);
   STATE={standings,thirdRanking,thirdMap,bracket};
-  drawStandings();drawThirds();drawBracket();drawTargetSnapshot();drawMobilePanel();drawEngineStatus();
+  drawStandings();drawThirds();drawBracket();drawTargetSnapshot();
 }
 const AUTO_REFRESH={
   api:'https://api.github.com/repos/janjanpower/autoupload/commits/main',
@@ -413,7 +378,7 @@ const AUTO_REFRESH={
 };
 async function init(){
   try{const res=await fetch('data/matches.json',{cache:'no-store'});if(res.ok)mergeScores(await res.json());else mergeScores({matches:[]})}catch(_){mergeScores({matches:[]})}
-  drawScores();recalculate();loadTargets();loadMobileTeams();drawMobilePanel();runMonteCarlo();
+  drawScores();recalculate();loadTargets();runMonteCarlo();
   AUTO_REFRESH.start();
 }
 init();
