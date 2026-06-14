@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-14T17:54:46.170638+00:00",
+  "updated_at": "2026-06-14T19:01:50.153387+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -88,7 +88,7 @@
       "group": "",
       "home": "Germany",
       "away": "Curaçao",
-      "home_score": 2,
+      "home_score": 7,
       "away_score": 1,
       "status": "IN_PLAY"
     },
