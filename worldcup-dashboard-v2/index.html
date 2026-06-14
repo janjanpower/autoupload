@@ -347,6 +347,7 @@ function simulateScenarioState(){
 }
 function thirdIndex(st,team){return THIRD_PLACE_ENGINE.ranking(st).findIndex(x=>x.team===team)}
 function deltaChip(label,before,after,invert=false){
+  if(!Number.isFinite(before)||!Number.isFinite(after))return `<span class="chip">${label} -</span>`;
   if(before===after)return `<span class="chip">${label} ${after}</span>`;
   const diff=after-before,good=invert?diff<0:diff>0,sign=diff>0?'+':'';
   return `<span class="chip ${good?'good':'bad'}">${label} ${before} → ${after} (${sign}${diff})</span>`;
@@ -388,7 +389,7 @@ function tieRiskRows(pack){
 }
 function groupStrategyRows(pack){
   const m=pack.match,rows=pack.standings[m.g],before=STATE.standings[m.g],teams=new Set([m.h,m.a,target.value]);
-  return rows.filter(x=>teams.has(x.team)||x.rank<=4).map(x=>{
+  return rows.map((x,i)=>({...x,rank:i+1})).filter(x=>teams.has(x.team)||x.rank<=4).map(x=>{
     const old=before.find(y=>y.team===x.team),oldRank=before.findIndex(y=>y.team===x.team)+1,seed=x.rank<=2?`${m.g}${x.rank}`:x.rank===3?`${m.g}3`:'淘汰';
     return `<div class=impactCard><h4><span>${x.team}</span><span class=chip>${seed}</span></h4><div>${deltaChip('排名',oldRank,x.rank,true)} ${deltaChip('積分',old?.Pts??0,x.Pts)} ${deltaChip('淨勝球',old?.GD??0,x.GD)}</div></div>`;
   }).join('');
