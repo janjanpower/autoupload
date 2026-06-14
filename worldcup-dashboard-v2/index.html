@@ -89,10 +89,11 @@
       <div class="toolbar aiControls">
         <label>Ollama 端點 <input id="ollamaEndpoint" value="http://localhost:11434/api/chat"></label>
         <label>模型 <input id="ollamaModel" value="qwen2.5:3b-instruct"></label>
+        <label>自動抓取 <input id="researchEndpoint" value="http://127.0.0.1:8777/api/research"></label>
         <button onclick="analyzeWithLocalQwen()">產生建議</button>
       </div>
       <label>補充新聞 / 戰術資訊
-        <textarea id="aiContext" placeholder="可貼上你看到的傷兵、輪換、教練發言、媒體報導摘要。本機 Qwen 不會自動上網查資料。"></textarea>
+        <textarea id="aiContext" placeholder="自動抓取不足時，可貼上你看到的傷兵、輪換、教練發言、媒體報導摘要。"></textarea>
       </label>
       <div id="aiStrategyResult" class="routeCard aiResult muted">請先啟動本機 Ollama，選定隊伍與比分後按「產生建議」。</div>
     </div>
@@ -374,18 +375,20 @@ function localQwenPayload(pack){
     actualBestThird:STATE.thirdRanking.map((x,i)=>({rank:i+1,seed:x.seed,team:x.team,points:x.Pts,goalDiff:x.GD,goalsFor:x.GF,status:i<8?'暫列前8':'暫列後4'})),
     scenarioBestThird:pack.thirdRanking.map((x,i)=>({rank:i+1,seed:x.seed,team:x.team,points:x.Pts,goalDiff:x.GD,goalsFor:x.GF,status:i<8?'暫列前8':'暫列後4'})),
     scenarioRoute:snap.path?{match:snap.path.match.id,self:snap.path.self.seed,opponentSeed:snap.path.opp.seed,opponent:snap.path.opp.team,routeStrength:snap.route}:null,
-    extraContext:(contextEl?.value||'').trim()
+    manualContext:(contextEl?.value||'').trim(),
+    researchContext:null
   };
 }
 function localQwenPrompt(payload){
   return `你是世界盃足球戰術與賽制分析師。請根據資料分析「${payload.selectedTeam}」這一場的比數策略。
 
 限制：
-- 你無法即時上網，若有新聞、傷兵、教練發言，只能使用 extraContext。
-- 不要宣稱已查到即時新聞。
+- 你不能自行上網；外部資訊只能使用 manualContext 與 researchContext。
+- researchContext 是本機服務抓到的公開搜尋片段，不等於官方確認；重要傷停、紅黃牌、停賽請用「需要確認」描述。
 - match.hypotheticalScore 是沙盤假設比分，不是已完賽結果。
 - actualFocusGroups / actualBestThird 才是目前實際積分。
 - scenarioFocusGroups / scenarioBestThird 只能用來分析「如果這個比分發生」的影響，不能當成目前已發生的積分。
+- 若 match.notYetPlayed 為 true，不可以把這場 hypotheticalScore 算成已發生賽果，只能分析策略影響。
 - 回答請用繁體中文。
 
 請輸出：
@@ -399,6 +402,26 @@ function localQwenPrompt(payload){
 資料：
 ${JSON.stringify(payload,null,2)}`;
 }
+function researchQueryUrl(pack){
+  const endpoint=(document.getElementById('researchEndpoint')?.value||'http://127.0.0.1:8777/api/research').trim();
+  const params=new URLSearchParams({home:pack.match.h,away:pack.match.a,selected:target.value,date:pack.match.date||''});
+  return `${endpoint}${endpoint.includes('?')?'&':'?'}${params.toString()}`;
+}
+async function fetchLocalResearch(pack){
+  if(!isLocalCreator())return null;
+  const endpointEl=document.getElementById('researchEndpoint'),endpoint=(endpointEl?.value||'').trim();
+  if(endpointEl) localStorage.setItem('researchEndpoint',endpoint);
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),10000);
+  try{
+    const res=await fetch(researchQueryUrl(pack),{cache:'no-store',signal:controller.signal});
+    if(!res.ok)throw new Error(`Research HTTP ${res.status}`);
+    return await res.json();
+  }catch(err){
+    return {ok:false,error:err.message,note:'本機自動抓取失敗，已改用手動補充資料與儀錶板資料。'};
+  }finally{
+    clearTimeout(timer);
+  }
+}
 async function analyzeWithLocalQwen(){
   const pack=simulateScenarioState(),box=document.getElementById('aiStrategyResult');
   if(!isLocalCreator())return;
@@ -407,9 +430,12 @@ async function analyzeWithLocalQwen(){
   const endpoint=(endpointEl?.value||'http://localhost:11434/api/chat').trim(),model=normalizeLocalModel(modelEl?.value);
   if(modelEl)modelEl.value=model;
   localStorage.setItem('ollamaEndpoint',endpoint);localStorage.setItem('ollamaModel',model);
-  box.className='routeCard aiResult muted';box.textContent='本機 Qwen 分析中...';
+  box.className='routeCard aiResult muted';box.textContent='正在自動抓取對戰資訊...';
   try{
-    const payload=localQwenPayload(pack),res=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model,stream:false,messages:[{role:'system',content:'你是足球戰術、世界盃賽制、風險分析專家。'},{role:'user',content:localQwenPrompt(payload)}],options:{temperature:.35}})});
+    const payload=localQwenPayload(pack);
+    payload.researchContext=await fetchLocalResearch(pack);
+    box.textContent=payload.researchContext?.ok?'本機 Qwen 分析中...（已帶入自動抓取資料）':'本機 Qwen 分析中...（自動抓取失敗，使用儀錶板資料）';
+    const res=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model,stream:false,messages:[{role:'system',content:'你是足球戰術、世界盃賽制、風險分析專家。'},{role:'user',content:localQwenPrompt(payload)}],options:{temperature:.35}})});
     if(!res.ok)throw new Error(`Ollama HTTP ${res.status}`);
     const data=await res.json(),content=data.message?.content||data.response||JSON.stringify(data,null,2);
     box.className='routeCard aiResult';box.innerHTML=escapeHtml(content);
@@ -557,9 +583,10 @@ async function init(){
     if(isLocalCreator())aiPanel.hidden=false;
     else aiPanel.remove();
   }
-  const endpointEl=document.getElementById('ollamaEndpoint'),modelEl=document.getElementById('ollamaModel');
+  const endpointEl=document.getElementById('ollamaEndpoint'),modelEl=document.getElementById('ollamaModel'),researchEl=document.getElementById('researchEndpoint');
   if(endpointEl&&localStorage.getItem('ollamaEndpoint'))endpointEl.value=localStorage.getItem('ollamaEndpoint');
   if(modelEl){modelEl.value=normalizeLocalModel(localStorage.getItem('ollamaModel')||modelEl.value);localStorage.setItem('ollamaModel',modelEl.value)}
+  if(researchEl&&localStorage.getItem('researchEndpoint'))researchEl.value=localStorage.getItem('researchEndpoint');
   drawScores();recalculate();loadTargets();
   AUTO_REFRESH.start();
 }
