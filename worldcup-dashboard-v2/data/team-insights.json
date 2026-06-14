@@ -1,6 +1,16 @@
 {
-  "updated_at": "2026-06-14T18:28:11.294988+00:00",
+  "updated_at": "2026-06-14T18:33:31.107562+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
+  "coverage": {
+    "teams": 313,
+    "matchups": 3559,
+    "power_rating": 0,
+    "spi": 0,
+    "projected_goals": 0,
+    "xg": 0,
+    "offense": 0,
+    "defense": 0
+  },
   "teams": {
     "墨西哥": {
       "matches": 130,
