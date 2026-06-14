@@ -1,13 +1,14 @@
 {
-  "updated_at": "2026-06-14T18:33:31.107562+00:00",
+  "updated_at": "2026-06-14T18:42:00.734456+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
     "teams": 313,
     "matchups": 3559,
-    "power_rating": 0,
+    "power_rating": 313,
     "spi": 0,
-    "projected_goals": 0,
-    "xg": 0,
+    "estimated_spi": 313,
+    "projected_goals": 43,
+    "xg": 43,
     "offense": 0,
     "defense": 0
   },
@@ -22,8 +23,16 @@
       "sources": [
         "martj42-international-results",
         "matches.json",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.16,
+      "projected_goals_against": 1.682,
+      "xg_for": 1.16,
+      "xg_against": 1.682,
+      "estimated_spi": 69.745,
+      "power_rating": 87.898,
+      "power_rating_source": "derived-results-xg"
     },
     "南非": {
       "matches": 90,
@@ -35,7 +44,10 @@
       "sources": [
         "martj42-international-results",
         "matches.json"
-      ]
+      ],
+      "estimated_spi": 65.6,
+      "power_rating": 86.24,
+      "power_rating_source": "derived-results-xg"
     },
     "大韓民國": {
       "matches": 93,
@@ -47,8 +59,16 @@
       "sources": [
         "martj42-international-results",
         "matches.json",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 0.945,
+      "projected_goals_against": 1.776,
+      "xg_for": 0.945,
+      "xg_against": 1.776,
+      "estimated_spi": 67.989,
+      "power_rating": 87.196,
+      "power_rating_source": "derived-results-xg"
     },
     "捷克": {
       "matches": 1,
@@ -59,7 +79,10 @@
       "tempo": 1.5,
       "sources": [
         "matches.json"
-      ]
+      ],
+      "estimated_spi": 40.056,
+      "power_rating": 76.022,
+      "power_rating_source": "derived-results-xg"
     },
     "加拿大": {
       "matches": 93,
@@ -71,8 +94,16 @@
       "sources": [
         "martj42-international-results",
         "matches.json",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.31,
+      "projected_goals_against": 1.236,
+      "xg_for": 1.31,
+      "xg_against": 1.236,
+      "estimated_spi": 67.489,
+      "power_rating": 86.996,
+      "power_rating_source": "derived-results-xg"
     },
     "波士尼亞與赫塞哥維納": {
       "matches": 72,
@@ -84,7 +115,10 @@
       "sources": [
         "martj42-international-results",
         "matches.json"
-      ]
+      ],
+      "estimated_spi": 59.75,
+      "power_rating": 83.9,
+      "power_rating_source": "derived-results-xg"
     },
     "美國": {
       "matches": 116,
@@ -96,8 +130,16 @@
       "sources": [
         "martj42-international-results",
         "matches.json",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 0.985,
+      "projected_goals_against": 1.065,
+      "xg_for": 0.985,
+      "xg_against": 1.065,
+      "estimated_spi": 72.1,
+      "power_rating": 88.84,
+      "power_rating_source": "derived-results-xg"
     },
     "巴拉圭": {
       "matches": 77,
@@ -109,7 +151,10 @@
       "sources": [
         "martj42-international-results",
         "matches.json"
-      ]
+      ],
+      "estimated_spi": 57.323,
+      "power_rating": 82.929,
+      "power_rating_source": "derived-results-xg"
     },
     "卡達": {
       "matches": 107,
@@ -121,8 +166,16 @@
       "sources": [
         "martj42-international-results",
         "matches.json",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 0.469,
+      "projected_goals_against": 1.257,
+      "xg_for": 0.469,
+      "xg_against": 1.257,
+      "estimated_spi": 56.538,
+      "power_rating": 82.615,
+      "power_rating_source": "derived-results-xg"
     },
     "瑞士": {
       "matches": 95,
@@ -134,8 +187,16 @@
       "sources": [
         "martj42-international-results",
         "matches.json",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.234,
+      "projected_goals_against": 1.314,
+      "xg_for": 1.234,
+      "xg_against": 1.314,
+      "estimated_spi": 64.515,
+      "power_rating": 85.806,
+      "power_rating_source": "derived-results-xg"
     },
     "巴西": {
       "matches": 106,
@@ -147,8 +208,16 @@
       "sources": [
         "martj42-international-results",
         "matches.json",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 2.273,
+      "projected_goals_against": 0.833,
+      "xg_for": 2.273,
+      "xg_against": 0.833,
+      "estimated_spi": 80.596,
+      "power_rating": 92.239,
+      "power_rating_source": "derived-results-xg"
     },
     "摩洛哥": {
       "matches": 113,
@@ -160,8 +229,16 @@
       "sources": [
         "martj42-international-results",
         "matches.json",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.226,
+      "projected_goals_against": 1.322,
+      "xg_for": 1.226,
+      "xg_against": 1.322,
+      "estimated_spi": 72.247,
+      "power_rating": 88.899,
+      "power_rating_source": "derived-results-xg"
     },
     "海地": {
       "matches": 64,
@@ -173,7 +250,10 @@
       "sources": [
         "martj42-international-results",
         "matches.json"
-      ]
+      ],
+      "estimated_spi": 67.931,
+      "power_rating": 87.172,
+      "power_rating_source": "derived-results-xg"
     },
     "蘇格蘭": {
       "matches": 80,
@@ -185,7 +265,10 @@
       "sources": [
         "martj42-international-results",
         "matches.json"
-      ]
+      ],
+      "estimated_spi": 69.357,
+      "power_rating": 87.743,
+      "power_rating_source": "derived-results-xg"
     },
     "澳洲": {
       "matches": 75,
@@ -197,8 +280,16 @@
       "sources": [
         "martj42-international-results",
         "matches.json",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 0.8,
+      "projected_goals_against": 1.336,
+      "xg_for": 0.8,
+      "xg_against": 1.336,
+      "estimated_spi": 68.667,
+      "power_rating": 87.467,
+      "power_rating_source": "derived-results-xg"
     },
     "土耳其": {
       "matches": 83,
@@ -210,7 +301,10 @@
       "sources": [
         "martj42-international-results",
         "matches.json"
-      ]
+      ],
+      "estimated_spi": 68.557,
+      "power_rating": 87.423,
+      "power_rating_source": "derived-results-xg"
     },
     "德國": {
       "matches": 94,
@@ -222,8 +316,16 @@
       "sources": [
         "martj42-international-results",
         "matches.json",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 2.135,
+      "projected_goals_against": 1.213,
+      "xg_for": 2.135,
+      "xg_against": 1.213,
+      "estimated_spi": 71.797,
+      "power_rating": 88.719,
+      "power_rating_source": "derived-results-xg"
     },
     "庫拉索": {
       "matches": 56,
@@ -235,7 +337,10 @@
       "sources": [
         "martj42-international-results",
         "matches.json"
-      ]
+      ],
+      "estimated_spi": 62.843,
+      "power_rating": 85.137,
+      "power_rating_source": "derived-results-xg"
     },
     "日本": {
       "matches": 94,
@@ -246,8 +351,16 @@
       "tempo": 1.167,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.534,
+      "projected_goals_against": 1.807,
+      "xg_for": 1.534,
+      "xg_against": 1.807,
+      "estimated_spi": 78.158,
+      "power_rating": 91.263,
+      "power_rating_source": "derived-results-xg"
     },
     "Trinidad and Tobago": {
       "matches": 81,
@@ -258,7 +371,10 @@
       "tempo": 1.458,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 51.667,
+      "power_rating": 80.667,
+      "power_rating_source": "derived-results-xg"
     },
     "Venezuela": {
       "matches": 74,
@@ -269,7 +385,10 @@
       "tempo": 1.292,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 56.152,
+      "power_rating": 82.461,
+      "power_rating_source": "derived-results-xg"
     },
     "Honduras": {
       "matches": 87,
@@ -280,7 +399,10 @@
       "tempo": 0.875,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 60.299,
+      "power_rating": 84.12,
+      "power_rating_source": "derived-results-xg"
     },
     "Peru": {
       "matches": 86,
@@ -291,8 +413,16 @@
       "tempo": 1.333,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 0.963,
+      "projected_goals_against": 1.538,
+      "xg_for": 0.963,
+      "xg_against": 1.538,
+      "estimated_spi": 52.848,
+      "power_rating": 81.139,
+      "power_rating_source": "derived-results-xg"
     },
     "Costa Rica": {
       "matches": 101,
@@ -303,8 +433,16 @@
       "tempo": 1.583,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 0.594,
+      "projected_goals_against": 2.36,
+      "xg_for": 0.594,
+      "xg_against": 2.36,
+      "estimated_spi": 49.611,
+      "power_rating": 79.844,
+      "power_rating_source": "derived-results-xg"
     },
     "Jamaica": {
       "matches": 95,
@@ -315,7 +453,10 @@
       "tempo": 0.958,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 65.673,
+      "power_rating": 86.269,
+      "power_rating_source": "derived-results-xg"
     },
     "葡萄牙": {
       "matches": 95,
@@ -326,8 +467,16 @@
       "tempo": 1.583,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.35,
+      "projected_goals_against": 1.201,
+      "xg_for": 1.35,
+      "xg_against": 1.201,
+      "estimated_spi": 79.583,
+      "power_rating": 91.833,
+      "power_rating_source": "derived-results-xg"
     },
     "Bermuda": {
       "matches": 48,
@@ -338,7 +487,10 @@
       "tempo": 2.083,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 43.292,
+      "power_rating": 77.317,
+      "power_rating_source": "derived-results-xg"
     },
     "Guyana": {
       "matches": 52,
@@ -349,7 +501,10 @@
       "tempo": 2.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 62.062,
+      "power_rating": 84.825,
+      "power_rating_source": "derived-results-xg"
     },
     "Chile": {
       "matches": 80,
@@ -360,7 +515,10 @@
       "tempo": 1.292,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 56.819,
+      "power_rating": 82.728,
+      "power_rating_source": "derived-results-xg"
     },
     "Taiwan": {
       "matches": 36,
@@ -371,7 +529,10 @@
       "tempo": 2.083,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 34.0,
+      "power_rating": 73.6,
+      "power_rating_source": "derived-results-xg"
     },
     "Nepal": {
       "matches": 58,
@@ -382,7 +543,10 @@
       "tempo": 1.083,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 44.291,
+      "power_rating": 77.716,
+      "power_rating_source": "derived-results-xg"
     },
     "伊朗": {
       "matches": 76,
@@ -393,8 +557,16 @@
       "tempo": 1.208,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.089,
+      "projected_goals_against": 1.425,
+      "xg_for": 1.089,
+      "xg_against": 1.425,
+      "estimated_spi": 74.038,
+      "power_rating": 89.615,
+      "power_rating_source": "derived-results-xg"
     },
     "Syria": {
       "matches": 78,
@@ -405,7 +577,10 @@
       "tempo": 1.417,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 64.103,
+      "power_rating": 85.641,
+      "power_rating_source": "derived-results-xg"
     },
     "Slovakia": {
       "matches": 79,
@@ -416,7 +591,10 @@
       "tempo": 1.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 59.212,
+      "power_rating": 83.685,
+      "power_rating_source": "derived-results-xg"
     },
     "約旦": {
       "matches": 96,
@@ -427,7 +605,10 @@
       "tempo": 1.75,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 64.177,
+      "power_rating": 85.671,
+      "power_rating_source": "derived-results-xg"
     },
     "Tajikistan": {
       "matches": 64,
@@ -438,7 +619,10 @@
       "tempo": 1.667,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 66.665,
+      "power_rating": 86.666,
+      "power_rating_source": "derived-results-xg"
     },
     "Afghanistan": {
       "matches": 38,
@@ -449,7 +633,10 @@
       "tempo": 0.833,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 42.111,
+      "power_rating": 76.844,
+      "power_rating_source": "derived-results-xg"
     },
     "英格蘭": {
       "matches": 103,
@@ -460,8 +647,16 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.925,
+      "projected_goals_against": 1.322,
+      "xg_for": 1.925,
+      "xg_against": 1.322,
+      "estimated_spi": 77.941,
+      "power_rating": 91.176,
+      "power_rating_source": "derived-results-xg"
     },
     "荷蘭": {
       "matches": 95,
@@ -472,8 +667,16 @@
       "tempo": 1.208,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.757,
+      "projected_goals_against": 1.339,
+      "xg_for": 1.757,
+      "xg_against": 1.339,
+      "estimated_spi": 78.999,
+      "power_rating": 91.6,
+      "power_rating_source": "derived-results-xg"
     },
     "Abkhazia": {
       "matches": 2,
@@ -484,7 +687,10 @@
       "tempo": 0.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 55.111,
+      "power_rating": 82.044,
+      "power_rating_source": "derived-results-xg"
     },
     "Western Armenia": {
       "matches": 2,
@@ -495,7 +701,10 @@
       "tempo": 0.75,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.611,
+      "power_rating": 79.044,
+      "power_rating_source": "derived-results-xg"
     },
     "South Ossetia": {
       "matches": 4,
@@ -506,7 +715,10 @@
       "tempo": 1.25,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 62.722,
+      "power_rating": 85.089,
+      "power_rating_source": "derived-results-xg"
     },
     "Chameria": {
       "matches": 4,
@@ -517,7 +729,10 @@
       "tempo": 1.125,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 58.972,
+      "power_rating": 83.589,
+      "power_rating_source": "derived-results-xg"
     },
     "Padania": {
       "matches": 2,
@@ -528,7 +743,10 @@
       "tempo": 1.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 70.111,
+      "power_rating": 88.044,
+      "power_rating_source": "derived-results-xg"
     },
     "Sápmi": {
       "matches": 3,
@@ -539,7 +757,10 @@
       "tempo": 2.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 35.167,
+      "power_rating": 74.067,
+      "power_rating_source": "derived-results-xg"
     },
     "Artsakh": {
       "matches": 2,
@@ -550,7 +771,10 @@
       "tempo": 1.25,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 77.611,
+      "power_rating": 91.044,
+      "power_rating_source": "derived-results-xg"
     },
     "Székely Land": {
       "matches": 4,
@@ -561,7 +785,10 @@
       "tempo": 2.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 77.722,
+      "power_rating": 91.089,
+      "power_rating_source": "derived-results-xg"
     },
     "Bhutan": {
       "matches": 23,
@@ -572,7 +799,10 @@
       "tempo": 1.458,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 26.169,
+      "power_rating": 70.468,
+      "power_rating_source": "derived-results-xg"
     },
     "Guam": {
       "matches": 23,
@@ -583,7 +813,10 @@
       "tempo": 1.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 30.669,
+      "power_rating": 72.268,
+      "power_rating_source": "derived-results-xg"
     },
     "Cambodia": {
       "matches": 50,
@@ -594,7 +827,10 @@
       "tempo": 1.667,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 48.598,
+      "power_rating": 79.439,
+      "power_rating_source": "derived-results-xg"
     },
     "Pakistan": {
       "matches": 26,
@@ -605,7 +841,10 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 32.368,
+      "power_rating": 72.947,
+      "power_rating_source": "derived-results-xg"
     },
     "Laos": {
       "matches": 31,
@@ -616,7 +855,10 @@
       "tempo": 1.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 31.916,
+      "power_rating": 72.766,
+      "power_rating_source": "derived-results-xg"
     },
     "Bangladesh": {
       "matches": 65,
@@ -627,7 +869,10 @@
       "tempo": 1.208,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 52.434,
+      "power_rating": 80.974,
+      "power_rating_source": "derived-results-xg"
     },
     "Macau": {
       "matches": 14,
@@ -638,7 +883,10 @@
       "tempo": 1.417,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Sri Lanka": {
       "matches": 43,
@@ -649,7 +897,10 @@
       "tempo": 1.042,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 44.633,
+      "power_rating": 77.853,
+      "power_rating_source": "derived-results-xg"
     },
     "Mongolia": {
       "matches": 29,
@@ -660,7 +911,10 @@
       "tempo": 1.292,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 30.594,
+      "power_rating": 72.238,
+      "power_rating_source": "derived-results-xg"
     },
     "Brunei": {
       "matches": 30,
@@ -671,7 +925,10 @@
       "tempo": 1.333,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 29.767,
+      "power_rating": 71.907,
+      "power_rating_source": "derived-results-xg"
     },
     "Czech Republic": {
       "matches": 81,
@@ -682,7 +939,10 @@
       "tempo": 1.667,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 68.944,
+      "power_rating": 87.578,
+      "power_rating_source": "derived-results-xg"
     },
     "Bulgaria": {
       "matches": 73,
@@ -693,7 +953,10 @@
       "tempo": 2.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 46.768,
+      "power_rating": 78.707,
+      "power_rating_source": "derived-results-xg"
     },
     "Montenegro": {
       "matches": 72,
@@ -704,7 +967,10 @@
       "tempo": 1.625,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 51.5,
+      "power_rating": 80.6,
+      "power_rating_source": "derived-results-xg"
     },
     "Kosovo": {
       "matches": 74,
@@ -715,7 +981,10 @@
       "tempo": 1.583,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 64.327,
+      "power_rating": 85.731,
+      "power_rating_source": "derived-results-xg"
     },
     "Lithuania": {
       "matches": 73,
@@ -726,7 +995,10 @@
       "tempo": 1.167,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 41.946,
+      "power_rating": 76.778,
+      "power_rating_source": "derived-results-xg"
     },
     "Luxembourg": {
       "matches": 70,
@@ -737,7 +1009,10 @@
       "tempo": 0.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 43.789,
+      "power_rating": 77.516,
+      "power_rating_source": "derived-results-xg"
     },
     "Ukraine": {
       "matches": 79,
@@ -748,7 +1023,10 @@
       "tempo": 1.667,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 59.528,
+      "power_rating": 83.811,
+      "power_rating_source": "derived-results-xg"
     },
     "Serbia": {
       "matches": 85,
@@ -759,8 +1037,16 @@
       "tempo": 1.625,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.197,
+      "projected_goals_against": 1.812,
+      "xg_for": 1.197,
+      "xg_against": 1.812,
+      "estimated_spi": 54.34,
+      "power_rating": 81.736,
+      "power_rating_source": "derived-results-xg"
     },
     "Georgia": {
       "matches": 74,
@@ -771,7 +1057,10 @@
       "tempo": 1.458,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 59.192,
+      "power_rating": 83.677,
+      "power_rating_source": "derived-results-xg"
     },
     "Gibraltar": {
       "matches": 69,
@@ -782,7 +1071,10 @@
       "tempo": 1.833,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 30.746,
+      "power_rating": 72.299,
+      "power_rating_source": "derived-results-xg"
     },
     "Denmark": {
       "matches": 90,
@@ -793,8 +1085,16 @@
       "tempo": 1.083,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.44,
+      "projected_goals_against": 1.901,
+      "xg_for": 1.44,
+      "xg_against": 1.901,
+      "estimated_spi": 70.6,
+      "power_rating": 88.24,
+      "power_rating_source": "derived-results-xg"
     },
     "Republic of Ireland": {
       "matches": 73,
@@ -805,7 +1105,10 @@
       "tempo": 1.167,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 64.042,
+      "power_rating": 85.617,
+      "power_rating_source": "derived-results-xg"
     },
     "Faroe Islands": {
       "matches": 71,
@@ -816,7 +1119,10 @@
       "tempo": 1.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 53.719,
+      "power_rating": 81.488,
+      "power_rating_source": "derived-results-xg"
     },
     "西班牙": {
       "matches": 96,
@@ -827,8 +1133,16 @@
       "tempo": 1.417,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 2.366,
+      "projected_goals_against": 1.685,
+      "xg_for": 2.366,
+      "xg_against": 1.685,
+      "estimated_spi": 80.583,
+      "power_rating": 92.233,
+      "power_rating_source": "derived-results-xg"
     },
     "挪威": {
       "matches": 71,
@@ -839,7 +1153,10 @@
       "tempo": 1.792,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 83.092,
+      "power_rating": 93.237,
+      "power_rating_source": "derived-results-xg"
     },
     "Romania": {
       "matches": 77,
@@ -851,7 +1168,10 @@
       "sources": [
         "martj42-international-results",
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 63.551,
+      "power_rating": 85.42,
+      "power_rating_source": "derived-results-xg"
     },
     "瑞典": {
       "matches": 88,
@@ -862,8 +1182,16 @@
       "tempo": 1.5,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.342,
+      "projected_goals_against": 1.201,
+      "xg_for": 1.342,
+      "xg_against": 1.201,
+      "estimated_spi": 63.468,
+      "power_rating": 85.387,
+      "power_rating_source": "derived-results-xg"
     },
     "Malta": {
       "matches": 69,
@@ -874,7 +1202,10 @@
       "tempo": 1.542,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 41.551,
+      "power_rating": 76.62,
+      "power_rating_source": "derived-results-xg"
     },
     "奧地利": {
       "matches": 79,
@@ -885,7 +1216,10 @@
       "tempo": 1.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 78.477,
+      "power_rating": 91.391,
+      "power_rating_source": "derived-results-xg"
     },
     "Slovenia": {
       "matches": 77,
@@ -896,7 +1230,10 @@
       "tempo": 1.083,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 60.901,
+      "power_rating": 84.36,
+      "power_rating_source": "derived-results-xg"
     },
     "North Macedonia": {
       "matches": 76,
@@ -907,7 +1244,10 @@
       "tempo": 1.208,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 54.367,
+      "power_rating": 81.747,
+      "power_rating_source": "derived-results-xg"
     },
     "Poland": {
       "matches": 88,
@@ -918,8 +1258,16 @@
       "tempo": 1.417,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.123,
+      "projected_goals_against": 1.487,
+      "xg_for": 1.123,
+      "xg_against": 1.487,
+      "estimated_spi": 60.059,
+      "power_rating": 84.024,
+      "power_rating_source": "derived-results-xg"
     },
     "Latvia": {
       "matches": 71,
@@ -930,7 +1278,10 @@
       "tempo": 0.958,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.106,
+      "power_rating": 78.843,
+      "power_rating_source": "derived-results-xg"
     },
     "Israel": {
       "matches": 67,
@@ -941,7 +1292,10 @@
       "tempo": 1.875,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 57.476,
+      "power_rating": 82.99,
+      "power_rating_source": "derived-results-xg"
     },
     "Lesotho": {
       "matches": 57,
@@ -952,7 +1306,10 @@
       "tempo": 1.208,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 44.561,
+      "power_rating": 77.825,
+      "power_rating_source": "derived-results-xg"
     },
     "Zimbabwe": {
       "matches": 55,
@@ -963,7 +1320,10 @@
       "tempo": 1.083,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 52.292,
+      "power_rating": 80.917,
+      "power_rating_source": "derived-results-xg"
     },
     "Malawi": {
       "matches": 66,
@@ -974,7 +1334,10 @@
       "tempo": 0.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 56.258,
+      "power_rating": 82.503,
+      "power_rating_source": "derived-results-xg"
     },
     "阿根廷": {
       "matches": 104,
@@ -985,8 +1348,16 @@
       "tempo": 1.583,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 2.03,
+      "projected_goals_against": 1.545,
+      "xg_for": 2.03,
+      "xg_against": 1.545,
+      "estimated_spi": 74.326,
+      "power_rating": 89.73,
+      "power_rating_source": "derived-results-xg"
     },
     "Nicaragua": {
       "matches": 67,
@@ -997,7 +1368,10 @@
       "tempo": 1.25,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 50.722,
+      "power_rating": 80.289,
+      "power_rating_source": "derived-results-xg"
     },
     "China": {
       "matches": 60,
@@ -1008,7 +1382,10 @@
       "tempo": 1.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 59.133,
+      "power_rating": 83.653,
+      "power_rating_source": "derived-results-xg"
     },
     "Philippines": {
       "matches": 55,
@@ -1019,7 +1396,10 @@
       "tempo": 1.833,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 66.237,
+      "power_rating": 86.495,
+      "power_rating_source": "derived-results-xg"
     },
     "Fiji": {
       "matches": 43,
@@ -1030,7 +1410,10 @@
       "tempo": 1.75,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 50.738,
+      "power_rating": 80.295,
+      "power_rating_source": "derived-results-xg"
     },
     "Tahiti": {
       "matches": 25,
@@ -1041,7 +1424,10 @@
       "tempo": 1.417,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 67.029,
+      "power_rating": 86.812,
+      "power_rating_source": "derived-results-xg"
     },
     "象牙海岸": {
       "matches": 83,
@@ -1052,7 +1438,10 @@
       "tempo": 1.542,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 78.894,
+      "power_rating": 91.558,
+      "power_rating_source": "derived-results-xg"
     },
     "Comoros": {
       "matches": 73,
@@ -1063,7 +1452,10 @@
       "tempo": 1.167,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 57.069,
+      "power_rating": 82.828,
+      "power_rating_source": "derived-results-xg"
     },
     "Kenya": {
       "matches": 53,
@@ -1074,7 +1466,10 @@
       "tempo": 1.667,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 54.416,
+      "power_rating": 81.766,
+      "power_rating_source": "derived-results-xg"
     },
     "Madagascar": {
       "matches": 59,
@@ -1085,7 +1480,10 @@
       "tempo": 1.75,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 56.142,
+      "power_rating": 82.457,
+      "power_rating_source": "derived-results-xg"
     },
     "突尼西亞": {
       "matches": 105,
@@ -1096,8 +1494,16 @@
       "tempo": 1.083,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.233,
+      "projected_goals_against": 1.843,
+      "xg_for": 1.233,
+      "xg_against": 1.843,
+      "estimated_spi": 62.319,
+      "power_rating": 84.928,
+      "power_rating_source": "derived-results-xg"
     },
     "伊拉克": {
       "matches": 94,
@@ -1108,7 +1514,10 @@
       "tempo": 0.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 64.669,
+      "power_rating": 85.868,
+      "power_rating_source": "derived-results-xg"
     },
     "烏拉圭": {
       "matches": 90,
@@ -1119,8 +1528,16 @@
       "tempo": 1.083,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.334,
+      "projected_goals_against": 0.681,
+      "xg_for": 1.334,
+      "xg_against": 0.681,
+      "estimated_spi": 63.8,
+      "power_rating": 85.52,
+      "power_rating_source": "derived-results-xg"
     },
     "巴拿馬": {
       "matches": 106,
@@ -1131,8 +1548,16 @@
       "tempo": 1.875,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 0.799,
+      "projected_goals_against": 2.411,
+      "xg_for": 0.799,
+      "xg_against": 2.411,
+      "estimated_spi": 59.172,
+      "power_rating": 83.669,
+      "power_rating_source": "derived-results-xg"
     },
     "烏茲別克": {
       "matches": 74,
@@ -1143,7 +1568,10 @@
       "tempo": 1.125,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 69.638,
+      "power_rating": 87.855,
+      "power_rating_source": "derived-results-xg"
     },
     "North Korea": {
       "matches": 28,
@@ -1154,7 +1582,10 @@
       "tempo": 1.458,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.806,
+      "power_rating": 79.122,
+      "power_rating_source": "derived-results-xg"
     },
     "Malaysia": {
       "matches": 71,
@@ -1165,7 +1596,10 @@
       "tempo": 1.292,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 71.782,
+      "power_rating": 88.713,
+      "power_rating_source": "derived-results-xg"
     },
     "Timor-Leste": {
       "matches": 27,
@@ -1176,7 +1610,10 @@
       "tempo": 1.75,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Estonia": {
       "matches": 77,
@@ -1187,7 +1624,10 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 43.843,
+      "power_rating": 77.537,
+      "power_rating_source": "derived-results-xg"
     },
     "Northern Ireland": {
       "matches": 70,
@@ -1198,7 +1638,10 @@
       "tempo": 1.083,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 55.703,
+      "power_rating": 82.281,
+      "power_rating_source": "derived-results-xg"
     },
     "Belarus": {
       "matches": 71,
@@ -1209,7 +1652,10 @@
       "tempo": 1.833,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 49.113,
+      "power_rating": 79.645,
+      "power_rating_source": "derived-results-xg"
     },
     "克羅埃西亞": {
       "matches": 99,
@@ -1220,8 +1666,16 @@
       "tempo": 1.583,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 2.332,
+      "projected_goals_against": 2.171,
+      "xg_for": 2.332,
+      "xg_against": 2.171,
+      "estimated_spi": 69.318,
+      "power_rating": 87.727,
+      "power_rating_source": "derived-results-xg"
     },
     "Wales": {
       "matches": 81,
@@ -1232,8 +1686,16 @@
       "tempo": 1.458,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 0.74,
+      "projected_goals_against": 1.657,
+      "xg_for": 0.74,
+      "xg_against": 1.657,
+      "estimated_spi": 57.778,
+      "power_rating": 83.111,
+      "power_rating_source": "derived-results-xg"
     },
     "Azerbaijan": {
       "matches": 71,
@@ -1244,7 +1706,10 @@
       "tempo": 1.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 46.085,
+      "power_rating": 78.434,
+      "power_rating_source": "derived-results-xg"
     },
     "Hungary": {
       "matches": 78,
@@ -1255,7 +1720,10 @@
       "tempo": 1.417,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 62.949,
+      "power_rating": 85.179,
+      "power_rating_source": "derived-results-xg"
     },
     "Iceland": {
       "matches": 87,
@@ -1266,8 +1734,16 @@
       "tempo": 1.542,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.572,
+      "projected_goals_against": 1.356,
+      "xg_for": 1.572,
+      "xg_against": 1.356,
+      "estimated_spi": 49.816,
+      "power_rating": 79.926,
+      "power_rating_source": "derived-results-xg"
     },
     "Albania": {
       "matches": 74,
@@ -1278,7 +1754,10 @@
       "tempo": 0.833,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 60.084,
+      "power_rating": 84.034,
+      "power_rating_source": "derived-results-xg"
     },
     "Moldova": {
       "matches": 74,
@@ -1289,7 +1768,10 @@
       "tempo": 1.875,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 33.327,
+      "power_rating": 73.331,
+      "power_rating_source": "derived-results-xg"
     },
     "Andorra": {
       "matches": 73,
@@ -1300,7 +1782,10 @@
       "tempo": 1.083,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 38.85,
+      "power_rating": 75.54,
+      "power_rating_source": "derived-results-xg"
     },
     "法國": {
       "matches": 102,
@@ -1311,8 +1796,16 @@
       "tempo": 1.708,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.697,
+      "projected_goals_against": 1.322,
+      "xg_for": 1.697,
+      "xg_against": 1.322,
+      "estimated_spi": 78.284,
+      "power_rating": 91.314,
+      "power_rating_source": "derived-results-xg"
     },
     "Russia": {
       "matches": 64,
@@ -1323,8 +1816,16 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 2.394,
+      "projected_goals_against": 3.071,
+      "xg_for": 2.394,
+      "xg_against": 3.071,
+      "estimated_spi": 74.446,
+      "power_rating": 89.778,
+      "power_rating_source": "derived-results-xg"
     },
     "San Marino": {
       "matches": 70,
@@ -1335,7 +1836,10 @@
       "tempo": 1.958,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Cyprus": {
       "matches": 72,
@@ -1346,7 +1850,10 @@
       "tempo": 1.542,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 48.375,
+      "power_rating": 79.35,
+      "power_rating_source": "derived-results-xg"
     },
     "比利時": {
       "matches": 94,
@@ -1357,8 +1864,16 @@
       "tempo": 1.333,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.587,
+      "projected_goals_against": 1.399,
+      "xg_for": 1.587,
+      "xg_against": 1.399,
+      "estimated_spi": 79.052,
+      "power_rating": 91.621,
+      "power_rating_source": "derived-results-xg"
     },
     "Kazakhstan": {
       "matches": 70,
@@ -1369,7 +1884,10 @@
       "tempo": 1.292,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 49.346,
+      "power_rating": 79.738,
+      "power_rating_source": "derived-results-xg"
     },
     "Finland": {
       "matches": 77,
@@ -1380,7 +1898,10 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 53.908,
+      "power_rating": 81.563,
+      "power_rating_source": "derived-results-xg"
     },
     "Armenia": {
       "matches": 69,
@@ -1391,7 +1912,10 @@
       "tempo": 1.958,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 36.42,
+      "power_rating": 74.568,
+      "power_rating_source": "derived-results-xg"
     },
     "Liechtenstein": {
       "matches": 69,
@@ -1402,7 +1926,10 @@
       "tempo": 1.792,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Greece": {
       "matches": 72,
@@ -1413,7 +1940,10 @@
       "tempo": 1.542,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 64.875,
+      "power_rating": 85.95,
+      "power_rating_source": "derived-results-xg"
     },
     "Italy": {
       "matches": 85,
@@ -1425,7 +1955,10 @@
       "sources": [
         "martj42-international-results",
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 75.963,
+      "power_rating": 90.385,
+      "power_rating_source": "derived-results-xg"
     },
     "Botswana": {
       "matches": 55,
@@ -1436,7 +1969,10 @@
       "tempo": 1.25,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 46.637,
+      "power_rating": 78.655,
+      "power_rating_source": "derived-results-xg"
     },
     "Zambia": {
       "matches": 74,
@@ -1447,7 +1983,10 @@
       "tempo": 1.292,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 50.03,
+      "power_rating": 80.012,
+      "power_rating_source": "derived-results-xg"
     },
     "Angola": {
       "matches": 70,
@@ -1458,7 +1997,10 @@
       "tempo": 1.208,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 61.832,
+      "power_rating": 84.733,
+      "power_rating_source": "derived-results-xg"
     },
     "Guinea-Bissau": {
       "matches": 56,
@@ -1469,7 +2011,10 @@
       "tempo": 1.167,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.772,
+      "power_rating": 79.109,
+      "power_rating_source": "derived-results-xg"
     },
     "Nigeria": {
       "matches": 92,
@@ -1480,8 +2025,16 @@
       "tempo": 1.167,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.127,
+      "projected_goals_against": 1.366,
+      "xg_for": 1.127,
+      "xg_against": 1.366,
+      "estimated_spi": 68.296,
+      "power_rating": 87.318,
+      "power_rating_source": "derived-results-xg"
     },
     "Singapore": {
       "matches": 67,
@@ -1492,7 +2045,10 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 57.461,
+      "power_rating": 82.984,
+      "power_rating_source": "derived-results-xg"
     },
     "Solomon Islands": {
       "matches": 40,
@@ -1503,7 +2059,10 @@
       "tempo": 2.042,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 52.547,
+      "power_rating": 81.019,
+      "power_rating_source": "derived-results-xg"
     },
     "Cameroon": {
       "matches": 80,
@@ -1514,8 +2073,16 @@
       "tempo": 0.958,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.022,
+      "projected_goals_against": 1.848,
+      "xg_for": 1.022,
+      "xg_against": 1.848,
+      "estimated_spi": 64.444,
+      "power_rating": 85.778,
+      "power_rating_source": "derived-results-xg"
     },
     "剛果民主共和國": {
       "matches": 77,
@@ -1526,7 +2093,10 @@
       "tempo": 0.75,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 65.849,
+      "power_rating": 86.34,
+      "power_rating_source": "derived-results-xg"
     },
     "Burkina Faso": {
       "matches": 82,
@@ -1537,7 +2107,10 @@
       "tempo": 1.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 67.507,
+      "power_rating": 87.003,
+      "power_rating_source": "derived-results-xg"
     },
     "El Salvador": {
       "matches": 92,
@@ -1548,7 +2121,10 @@
       "tempo": 0.958,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 51.263,
+      "power_rating": 80.505,
+      "power_rating_source": "derived-results-xg"
     },
     "厄瓜多": {
       "matches": 86,
@@ -1559,8 +2135,16 @@
       "tempo": 1.0,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.269,
+      "projected_goals_against": 0.705,
+      "xg_for": 1.269,
+      "xg_against": 0.705,
+      "estimated_spi": 66.394,
+      "power_rating": 86.558,
+      "power_rating_source": "derived-results-xg"
     },
     "Guatemala": {
       "matches": 86,
@@ -1571,7 +2155,10 @@
       "tempo": 1.708,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 57.987,
+      "power_rating": 83.195,
+      "power_rating_source": "derived-results-xg"
     },
     "哥倫比亞": {
       "matches": 87,
@@ -1582,8 +2169,16 @@
       "tempo": 1.333,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.807,
+      "projected_goals_against": 2.489,
+      "xg_for": 1.807,
+      "xg_against": 2.489,
+      "estimated_spi": 72.04,
+      "power_rating": 88.816,
+      "power_rating_source": "derived-results-xg"
     },
     "Turkmenistan": {
       "matches": 32,
@@ -1594,7 +2189,10 @@
       "tempo": 1.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 53.122,
+      "power_rating": 81.249,
+      "power_rating_source": "derived-results-xg"
     },
     "Uganda": {
       "matches": 65,
@@ -1605,7 +2203,10 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 55.45,
+      "power_rating": 82.18,
+      "power_rating_source": "derived-results-xg"
     },
     "Vanuatu": {
       "matches": 32,
@@ -1616,7 +2217,10 @@
       "tempo": 1.833,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 51.372,
+      "power_rating": 80.549,
+      "power_rating_source": "derived-results-xg"
     },
     "阿爾及利亞": {
       "matches": 99,
@@ -1627,7 +2231,10 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 85.727,
+      "power_rating": 94.291,
+      "power_rating_source": "derived-results-xg"
     },
     "Burundi": {
       "matches": 46,
@@ -1638,7 +2245,10 @@
       "tempo": 0.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.664,
+      "power_rating": 79.066,
+      "power_rating_source": "derived-results-xg"
     },
     "Benin": {
       "matches": 65,
@@ -1649,7 +2259,10 @@
       "tempo": 1.292,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 52.726,
+      "power_rating": 81.091,
+      "power_rating_source": "derived-results-xg"
     },
     "Guinea": {
       "matches": 72,
@@ -1660,7 +2273,10 @@
       "tempo": 0.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 60.375,
+      "power_rating": 84.15,
+      "power_rating_source": "derived-results-xg"
     },
     "Hong Kong": {
       "matches": 62,
@@ -1671,7 +2287,10 @@
       "tempo": 1.333,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 61.412,
+      "power_rating": 84.565,
+      "power_rating_source": "derived-results-xg"
     },
     "Indonesia": {
       "matches": 81,
@@ -1682,7 +2301,10 @@
       "tempo": 1.458,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 62.0,
+      "power_rating": 84.8,
+      "power_rating_source": "derived-results-xg"
     },
     "Kyrgyzstan": {
       "matches": 52,
@@ -1693,7 +2315,10 @@
       "tempo": 1.333,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 52.504,
+      "power_rating": 81.002,
+      "power_rating_source": "derived-results-xg"
     },
     "Palestine": {
       "matches": 59,
@@ -1704,7 +2329,10 @@
       "tempo": 0.792,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 57.168,
+      "power_rating": 82.867,
+      "power_rating_source": "derived-results-xg"
     },
     "Myanmar": {
       "matches": 56,
@@ -1715,7 +2343,10 @@
       "tempo": 1.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 37.361,
+      "power_rating": 74.944,
+      "power_rating_source": "derived-results-xg"
     },
     "Gambia": {
       "matches": 57,
@@ -1726,7 +2357,10 @@
       "tempo": 1.875,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 62.456,
+      "power_rating": 84.982,
+      "power_rating_source": "derived-results-xg"
     },
     "Ynys Môn": {
       "matches": 12,
@@ -1737,7 +2371,10 @@
       "tempo": 1.792,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 76.917,
+      "power_rating": 90.767,
+      "power_rating_source": "derived-results-xg"
     },
     "Saint Helena": {
       "matches": 8,
@@ -1748,7 +2385,10 @@
       "tempo": 2.938,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "埃及": {
       "matches": 92,
@@ -1759,8 +2399,16 @@
       "tempo": 1.083,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 0.995,
+      "projected_goals_against": 1.823,
+      "xg_for": 0.995,
+      "xg_against": 1.823,
+      "estimated_spi": 68.35,
+      "power_rating": 87.34,
+      "power_rating_source": "derived-results-xg"
     },
     "Tanzania": {
       "matches": 67,
@@ -1771,7 +2419,10 @@
       "tempo": 1.167,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 54.767,
+      "power_rating": 81.907,
+      "power_rating_source": "derived-results-xg"
     },
     "Mali": {
       "matches": 72,
@@ -1782,7 +2433,10 @@
       "tempo": 1.042,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 69.375,
+      "power_rating": 87.75,
+      "power_rating_source": "derived-results-xg"
     },
     "Mauritania": {
       "matches": 74,
@@ -1793,7 +2447,10 @@
       "tempo": 0.833,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 52.341,
+      "power_rating": 80.936,
+      "power_rating_source": "derived-results-xg"
     },
     "Bolivia": {
       "matches": 76,
@@ -1804,7 +2461,10 @@
       "tempo": 1.25,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 43.156,
+      "power_rating": 77.263,
+      "power_rating_source": "derived-results-xg"
     },
     "Martinique": {
       "matches": 34,
@@ -1815,7 +2475,10 @@
       "tempo": 0.833,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.271,
+      "power_rating": 78.908,
+      "power_rating_source": "derived-results-xg"
     },
     "Cuba": {
       "matches": 57,
@@ -1826,7 +2489,10 @@
       "tempo": 1.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.114,
+      "power_rating": 78.846,
+      "power_rating_source": "derived-results-xg"
     },
     "迦納": {
       "matches": 76,
@@ -1837,8 +2503,16 @@
       "tempo": 1.458,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.118,
+      "projected_goals_against": 1.7,
+      "xg_for": 1.118,
+      "xg_against": 1.7,
+      "estimated_spi": 57.314,
+      "power_rating": 82.926,
+      "power_rating_source": "derived-results-xg"
     },
     "Jersey": {
       "matches": 15,
@@ -1849,7 +2523,10 @@
       "tempo": 2.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 88.833,
+      "power_rating": 95.533,
+      "power_rating_source": "derived-results-xg"
     },
     "Orkney": {
       "matches": 11,
@@ -1860,7 +2537,10 @@
       "tempo": 1.909,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 50.157,
+      "power_rating": 80.063,
+      "power_rating_source": "derived-results-xg"
     },
     "Western Isles": {
       "matches": 10,
@@ -1871,7 +2551,10 @@
       "tempo": 1.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 43.556,
+      "power_rating": 77.422,
+      "power_rating_source": "derived-results-xg"
     },
     "Alderney": {
       "matches": 5,
@@ -1882,7 +2565,10 @@
       "tempo": 2.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Hitra": {
       "matches": 7,
@@ -1893,7 +2579,10 @@
       "tempo": 2.929,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 48.96,
+      "power_rating": 79.584,
+      "power_rating_source": "derived-results-xg"
     },
     "Shetland": {
       "matches": 11,
@@ -1904,7 +2593,10 @@
       "tempo": 2.045,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 59.702,
+      "power_rating": 83.881,
+      "power_rating_source": "derived-results-xg"
     },
     "塞內加爾": {
       "matches": 102,
@@ -1915,8 +2607,16 @@
       "tempo": 1.417,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.135,
+      "projected_goals_against": 0.916,
+      "xg_for": 1.135,
+      "xg_against": 0.916,
+      "estimated_spi": 68.667,
+      "power_rating": 87.467,
+      "power_rating_source": "derived-results-xg"
     },
     "Isle of Man": {
       "matches": 13,
@@ -1927,7 +2627,10 @@
       "tempo": 2.458,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 92.068,
+      "power_rating": 96.827,
+      "power_rating_source": "derived-results-xg"
     },
     "Guernsey": {
       "matches": 11,
@@ -1938,7 +2641,10 @@
       "tempo": 1.636,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 74.702,
+      "power_rating": 89.881,
+      "power_rating_source": "derived-results-xg"
     },
     "Namibia": {
       "matches": 59,
@@ -1949,7 +2655,10 @@
       "tempo": 0.958,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 50.727,
+      "power_rating": 80.291,
+      "power_rating_source": "derived-results-xg"
     },
     "Raetia": {
       "matches": 6,
@@ -1960,7 +2669,10 @@
       "tempo": 2.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 67.833,
+      "power_rating": 87.133,
+      "power_rating_source": "derived-results-xg"
     },
     "Franconia": {
       "matches": 1,
@@ -1971,7 +2683,10 @@
       "tempo": 3.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 70.056,
+      "power_rating": 88.022,
+      "power_rating_source": "derived-results-xg"
     },
     "India": {
       "matches": 61,
@@ -1982,7 +2697,10 @@
       "tempo": 0.958,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 52.086,
+      "power_rating": 80.834,
+      "power_rating_source": "derived-results-xg"
     },
     "Samoa": {
       "matches": 17,
@@ -1993,7 +2711,10 @@
       "tempo": 2.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 36.297,
+      "power_rating": 74.519,
+      "power_rating_source": "derived-results-xg"
     },
     "Papua New Guinea": {
       "matches": 33,
@@ -2004,7 +2725,10 @@
       "tempo": 1.708,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 56.879,
+      "power_rating": 82.752,
+      "power_rating_source": "derived-results-xg"
     },
     "American Samoa": {
       "matches": 12,
@@ -2015,7 +2739,10 @@
       "tempo": 3.583,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "New Caledonia": {
       "matches": 26,
@@ -2026,7 +2753,10 @@
       "tempo": 1.708,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 79.098,
+      "power_rating": 91.639,
+      "power_rating_source": "derived-results-xg"
     },
     "Tuvalu": {
       "matches": 9,
@@ -2037,7 +2767,10 @@
       "tempo": 3.444,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Tonga": {
       "matches": 11,
@@ -2048,7 +2781,10 @@
       "tempo": 2.682,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Mauritius": {
       "matches": 41,
@@ -2059,7 +2795,10 @@
       "tempo": 1.125,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 46.729,
+      "power_rating": 78.692,
+      "power_rating_source": "derived-results-xg"
     },
     "Seychelles": {
       "matches": 38,
@@ -2070,7 +2809,10 @@
       "tempo": 2.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Réunion": {
       "matches": 9,
@@ -2081,7 +2823,10 @@
       "tempo": 1.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 68.833,
+      "power_rating": 87.533,
+      "power_rating_source": "derived-results-xg"
     },
     "Maldives": {
       "matches": 45,
@@ -2092,7 +2837,10 @@
       "tempo": 1.333,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 39.5,
+      "power_rating": 75.8,
+      "power_rating_source": "derived-results-xg"
     },
     "Mayotte": {
       "matches": 7,
@@ -2103,7 +2851,10 @@
       "tempo": 0.857,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 63.96,
+      "power_rating": 85.584,
+      "power_rating_source": "derived-results-xg"
     },
     "Equatorial Guinea": {
       "matches": 64,
@@ -2114,7 +2865,10 @@
       "tempo": 1.125,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 52.509,
+      "power_rating": 81.003,
+      "power_rating_source": "derived-results-xg"
     },
     "Liberia": {
       "matches": 51,
@@ -2125,7 +2879,10 @@
       "tempo": 1.458,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 48.51,
+      "power_rating": 79.404,
+      "power_rating_source": "derived-results-xg"
     },
     "Lebanon": {
       "matches": 65,
@@ -2136,7 +2893,10 @@
       "tempo": 1.292,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 66.419,
+      "power_rating": 86.568,
+      "power_rating_source": "derived-results-xg"
     },
     "Yemen": {
       "matches": 41,
@@ -2147,7 +2907,10 @@
       "tempo": 1.792,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 60.729,
+      "power_rating": 84.292,
+      "power_rating_source": "derived-results-xg"
     },
     "Bahrain": {
       "matches": 95,
@@ -2158,7 +2921,10 @@
       "tempo": 1.208,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 56.673,
+      "power_rating": 82.669,
+      "power_rating_source": "derived-results-xg"
     },
     "沙烏地阿拉伯": {
       "matches": 110,
@@ -2169,8 +2935,16 @@
       "tempo": 1.292,
       "sources": [
         "martj42-international-results",
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.045,
+      "projected_goals_against": 1.76,
+      "xg_for": 1.045,
+      "xg_against": 1.76,
+      "estimated_spi": 57.247,
+      "power_rating": 82.899,
+      "power_rating_source": "derived-results-xg"
     },
     "Kuwait": {
       "matches": 78,
@@ -2181,7 +2955,10 @@
       "tempo": 1.667,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 52.833,
+      "power_rating": 81.133,
+      "power_rating_source": "derived-results-xg"
     },
     "Luhansk PR": {
       "matches": 2,
@@ -2192,7 +2969,10 @@
       "tempo": 2.25,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.611,
+      "power_rating": 79.044,
+      "power_rating_source": "derived-results-xg"
     },
     "Saint Vincent and the Grenadines": {
       "matches": 53,
@@ -2203,7 +2983,10 @@
       "tempo": 1.833,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 62.567,
+      "power_rating": 85.027,
+      "power_rating_source": "derived-results-xg"
     },
     "Dominican Republic": {
       "matches": 53,
@@ -2214,7 +2997,10 @@
       "tempo": 1.542,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 60.69,
+      "power_rating": 84.276,
+      "power_rating_source": "derived-results-xg"
     },
     "Saint Kitts and Nevis": {
       "matches": 50,
@@ -2225,7 +3011,10 @@
       "tempo": 2.333,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.818,
+      "power_rating": 79.127,
+      "power_rating_source": "derived-results-xg"
     },
     "Antigua and Barbuda": {
       "matches": 37,
@@ -2236,7 +3025,10 @@
       "tempo": 1.167,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 33.191,
+      "power_rating": 73.276,
+      "power_rating_source": "derived-results-xg"
     },
     "Belize": {
       "matches": 44,
@@ -2247,7 +3039,10 @@
       "tempo": 1.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.717,
+      "power_rating": 79.087,
+      "power_rating_source": "derived-results-xg"
     },
     "United Arab Emirates": {
       "matches": 83,
@@ -2258,7 +3053,10 @@
       "tempo": 1.333,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 64.274,
+      "power_rating": 85.71,
+      "power_rating_source": "derived-results-xg"
     },
     "Libya": {
       "matches": 56,
@@ -2269,7 +3067,10 @@
       "tempo": 0.875,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 58.647,
+      "power_rating": 83.459,
+      "power_rating_source": "derived-results-xg"
     },
     "Djibouti": {
       "matches": 30,
@@ -2280,7 +3081,10 @@
       "tempo": 1.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 28.467,
+      "power_rating": 71.387,
+      "power_rating_source": "derived-results-xg"
     },
     "Eswatini": {
       "matches": 52,
@@ -2291,7 +3095,10 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 43.37,
+      "power_rating": 77.348,
+      "power_rating_source": "derived-results-xg"
     },
     "Eritrea": {
       "matches": 2,
@@ -2302,7 +3109,10 @@
       "tempo": 1.25,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 32.611,
+      "power_rating": 73.044,
+      "power_rating_source": "derived-results-xg"
     },
     "Ethiopia": {
       "matches": 55,
@@ -2313,7 +3123,10 @@
       "tempo": 1.417,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 52.092,
+      "power_rating": 80.837,
+      "power_rating_source": "derived-results-xg"
     },
     "Sierra Leone": {
       "matches": 51,
@@ -2324,7 +3137,10 @@
       "tempo": 1.042,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 54.451,
+      "power_rating": 81.78,
+      "power_rating_source": "derived-results-xg"
     },
     "Mozambique": {
       "matches": 72,
@@ -2335,7 +3151,10 @@
       "tempo": 1.292,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 50.875,
+      "power_rating": 80.35,
+      "power_rating_source": "derived-results-xg"
     },
     "São Tomé and Príncipe": {
       "matches": 30,
@@ -2346,7 +3165,10 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 28.467,
+      "power_rating": 71.387,
+      "power_rating_source": "derived-results-xg"
     },
     "South Sudan": {
       "matches": 44,
@@ -2357,7 +3179,10 @@
       "tempo": 1.333,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 41.467,
+      "power_rating": 76.587,
+      "power_rating_source": "derived-results-xg"
     },
     "Puerto Rico": {
       "matches": 42,
@@ -2368,7 +3193,10 @@
       "tempo": 1.625,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 60.548,
+      "power_rating": 84.219,
+      "power_rating_source": "derived-results-xg"
     },
     "Grenada": {
       "matches": 50,
@@ -2379,7 +3207,10 @@
       "tempo": 1.792,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.078,
+      "power_rating": 78.831,
+      "power_rating_source": "derived-results-xg"
     },
     "French Guiana": {
       "matches": 28,
@@ -2390,7 +3221,10 @@
       "tempo": 1.417,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 59.127,
+      "power_rating": 83.651,
+      "power_rating_source": "derived-results-xg"
     },
     "Dominica": {
       "matches": 36,
@@ -2401,7 +3235,10 @@
       "tempo": 1.542,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 41.25,
+      "power_rating": 76.5,
+      "power_rating_source": "derived-results-xg"
     },
     "Suriname": {
       "matches": 49,
@@ -2412,7 +3249,10 @@
       "tempo": 1.25,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 62.865,
+      "power_rating": 85.146,
+      "power_rating_source": "derived-results-xg"
     },
     "United States Virgin Islands": {
       "matches": 30,
@@ -2423,7 +3263,10 @@
       "tempo": 1.792,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 40.467,
+      "power_rating": 76.187,
+      "power_rating_source": "derived-results-xg"
     },
     "Cayman Islands": {
       "matches": 34,
@@ -2434,7 +3277,10 @@
       "tempo": 1.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 37.712,
+      "power_rating": 75.085,
+      "power_rating_source": "derived-results-xg"
     },
     "Barbados": {
       "matches": 46,
@@ -2445,7 +3291,10 @@
       "tempo": 2.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.556,
+      "power_rating": 79.022,
+      "power_rating_source": "derived-results-xg"
     },
     "Saint Martin": {
       "matches": 27,
@@ -2456,7 +3305,10 @@
       "tempo": 1.667,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 56.167,
+      "power_rating": 82.467,
+      "power_rating_source": "derived-results-xg"
     },
     "Anguilla": {
       "matches": 33,
@@ -2467,7 +3319,10 @@
       "tempo": 1.625,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Oman": {
       "matches": 88,
@@ -2478,7 +3333,10 @@
       "tempo": 0.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 59.241,
+      "power_rating": 83.696,
+      "power_rating_source": "derived-results-xg"
     },
     "Thailand": {
       "matches": 83,
@@ -2489,7 +3347,10 @@
       "tempo": 1.458,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 74.834,
+      "power_rating": 89.934,
+      "power_rating_source": "derived-results-xg"
     },
     "Vietnam": {
       "matches": 71,
@@ -2500,7 +3361,10 @@
       "tempo": 1.708,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 73.628,
+      "power_rating": 89.451,
+      "power_rating_source": "derived-results-xg"
     },
     "Chad": {
       "matches": 36,
@@ -2511,7 +3375,10 @@
       "tempo": 1.458,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 38.0,
+      "power_rating": 75.2,
+      "power_rating_source": "derived-results-xg"
     },
     "Sudan": {
       "matches": 69,
@@ -2522,7 +3389,10 @@
       "tempo": 0.958,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 48.159,
+      "power_rating": 79.264,
+      "power_rating_source": "derived-results-xg"
     },
     "Rwanda": {
       "matches": 50,
@@ -2533,7 +3403,10 @@
       "tempo": 1.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 56.318,
+      "power_rating": 82.527,
+      "power_rating_source": "derived-results-xg"
     },
     "Somalia": {
       "matches": 22,
@@ -2544,7 +3417,10 @@
       "tempo": 1.167,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 35.54,
+      "power_rating": 74.216,
+      "power_rating_source": "derived-results-xg"
     },
     "Aruba": {
       "matches": 35,
@@ -2555,7 +3431,10 @@
       "tempo": 1.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 44.202,
+      "power_rating": 77.681,
+      "power_rating_source": "derived-results-xg"
     },
     "Bonaire": {
       "matches": 27,
@@ -2566,7 +3445,10 @@
       "tempo": 1.458,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 45.0,
+      "power_rating": 78.0,
+      "power_rating_source": "derived-results-xg"
     },
     "British Virgin Islands": {
       "matches": 34,
@@ -2577,7 +3459,10 @@
       "tempo": 1.542,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 43.948,
+      "power_rating": 77.579,
+      "power_rating_source": "derived-results-xg"
     },
     "Togo": {
       "matches": 52,
@@ -2588,7 +3473,10 @@
       "tempo": 1.125,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 58.524,
+      "power_rating": 83.409,
+      "power_rating_source": "derived-results-xg"
     },
     "Niger": {
       "matches": 61,
@@ -2599,7 +3487,10 @@
       "tempo": 1.292,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 52.463,
+      "power_rating": 80.985,
+      "power_rating_source": "derived-results-xg"
     },
     "Montserrat": {
       "matches": 32,
@@ -2610,7 +3501,10 @@
       "tempo": 1.458,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 44.247,
+      "power_rating": 77.699,
+      "power_rating_source": "derived-results-xg"
     },
     "Saint Lucia": {
       "matches": 35,
@@ -2621,7 +3515,10 @@
       "tempo": 1.958,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 40.53,
+      "power_rating": 76.212,
+      "power_rating_source": "derived-results-xg"
     },
     "Guadeloupe": {
       "matches": 38,
@@ -2632,7 +3529,10 @@
       "tempo": 1.417,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 68.874,
+      "power_rating": 87.55,
+      "power_rating_source": "derived-results-xg"
     },
     "Sint Maarten": {
       "matches": 28,
@@ -2643,7 +3543,10 @@
       "tempo": 1.667,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 43.841,
+      "power_rating": 77.537,
+      "power_rating_source": "derived-results-xg"
     },
     "Bahamas": {
       "matches": 34,
@@ -2654,7 +3557,10 @@
       "tempo": 2.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Turks and Caicos Islands": {
       "matches": 27,
@@ -2665,7 +3571,10 @@
       "tempo": 1.417,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 32.167,
+      "power_rating": 72.867,
+      "power_rating_source": "derived-results-xg"
     },
     "佛得角": {
       "matches": 67,
@@ -2676,7 +3585,10 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 64.774,
+      "power_rating": 85.91,
+      "power_rating_source": "derived-results-xg"
     },
     "Gabon": {
       "matches": 56,
@@ -2687,7 +3599,10 @@
       "tempo": 1.917,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 58.433,
+      "power_rating": 83.373,
+      "power_rating_source": "derived-results-xg"
     },
     "Congo": {
       "matches": 37,
@@ -2698,7 +3613,10 @@
       "tempo": 1.542,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 39.285,
+      "power_rating": 75.714,
+      "power_rating_source": "derived-results-xg"
     },
     "Central African Republic": {
       "matches": 44,
@@ -2709,7 +3627,10 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 41.399,
+      "power_rating": 76.56,
+      "power_rating_source": "derived-results-xg"
     },
     "West Papua": {
       "matches": 2,
@@ -2720,7 +3641,10 @@
       "tempo": 3.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "East Turkestan": {
       "matches": 5,
@@ -2731,7 +3655,10 @@
       "tempo": 3.1,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 52.278,
+      "power_rating": 80.911,
+      "power_rating_source": "derived-results-xg"
     },
     "紐西蘭": {
       "matches": 49,
@@ -2742,7 +3669,10 @@
       "tempo": 1.208,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 59.018,
+      "power_rating": 83.607,
+      "power_rating_source": "derived-results-xg"
     },
     "Tamil Eelam": {
       "matches": 7,
@@ -2753,7 +3683,10 @@
       "tempo": 1.857,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 95,
+      "power_rating": 98.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Chagos Islands": {
       "matches": 1,
@@ -2764,7 +3697,10 @@
       "tempo": 3.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Panjab": {
       "matches": 1,
@@ -2775,7 +3711,10 @@
       "tempo": 3.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 95,
+      "power_rating": 98.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Basque Country": {
       "matches": 3,
@@ -2786,7 +3725,10 @@
       "tempo": 1.333,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 75.167,
+      "power_rating": 90.067,
+      "power_rating_source": "derived-results-xg"
     },
     "Cook Islands": {
       "matches": 10,
@@ -2797,7 +3739,10 @@
       "tempo": 1.9,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Elba Island": {
       "matches": 2,
@@ -2808,7 +3753,10 @@
       "tempo": 2.75,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 95,
+      "power_rating": 98.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Vatican City": {
       "matches": 1,
@@ -2819,7 +3767,10 @@
       "tempo": 3.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25.056,
+      "power_rating": 70.022,
+      "power_rating_source": "derived-results-xg"
     },
     "Yoruba Nation": {
       "matches": 2,
@@ -2830,7 +3781,10 @@
       "tempo": 0.75,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 47.611,
+      "power_rating": 79.044,
+      "power_rating_source": "derived-results-xg"
     },
     "Matabeleland": {
       "matches": 3,
@@ -2841,7 +3795,10 @@
       "tempo": 0.667,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 55.167,
+      "power_rating": 82.067,
+      "power_rating_source": "derived-results-xg"
     },
     "Biafra": {
       "matches": 3,
@@ -2852,7 +3809,10 @@
       "tempo": 0.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 60.167,
+      "power_rating": 84.067,
+      "power_rating_source": "derived-results-xg"
     },
     "Mapuche": {
       "matches": 2,
@@ -2863,7 +3823,10 @@
       "tempo": 1.25,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 62.611,
+      "power_rating": 85.044,
+      "power_rating_source": "derived-results-xg"
     },
     "Maule Sur": {
       "matches": 2,
@@ -2874,7 +3837,10 @@
       "tempo": 0.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 70.111,
+      "power_rating": 88.044,
+      "power_rating_source": "derived-results-xg"
     },
     "Aymara": {
       "matches": 2,
@@ -2885,7 +3851,10 @@
       "tempo": 1.25,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 32.611,
+      "power_rating": 73.044,
+      "power_rating_source": "derived-results-xg"
     },
     "Tibet": {
       "matches": 5,
@@ -2896,7 +3865,10 @@
       "tempo": 3.3,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 28.278,
+      "power_rating": 71.311,
+      "power_rating_source": "derived-results-xg"
     },
     "Saint Barthélemy": {
       "matches": 2,
@@ -2907,7 +3879,10 @@
       "tempo": 2.75,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 77.611,
+      "power_rating": 91.044,
+      "power_rating_source": "derived-results-xg"
     },
     "Ticino": {
       "matches": 2,
@@ -2918,7 +3893,10 @@
       "tempo": 3.75,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Two Sicilies": {
       "matches": 2,
@@ -2929,7 +3907,10 @@
       "tempo": 2.75,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Åland Islands": {
       "matches": 4,
@@ -2940,7 +3921,10 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 28.972,
+      "power_rating": 71.589,
+      "power_rating_source": "derived-results-xg"
     },
     "Isle of Wight": {
       "matches": 4,
@@ -2951,7 +3935,10 @@
       "tempo": 1.375,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 66.472,
+      "power_rating": 86.589,
+      "power_rating_source": "derived-results-xg"
     },
     "Falkland Islands": {
       "matches": 4,
@@ -2962,7 +3949,10 @@
       "tempo": 2.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Greenland": {
       "matches": 4,
@@ -2973,7 +3963,10 @@
       "tempo": 2.125,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 28.972,
+      "power_rating": 71.589,
+      "power_rating_source": "derived-results-xg"
     },
     "Gozo": {
       "matches": 7,
@@ -2984,7 +3977,10 @@
       "tempo": 1.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 55.389,
+      "power_rating": 82.156,
+      "power_rating_source": "derived-results-xg"
     },
     "Menorca": {
       "matches": 4,
@@ -2995,7 +3991,10 @@
       "tempo": 1.625,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 51.472,
+      "power_rating": 80.589,
+      "power_rating_source": "derived-results-xg"
     },
     "Frøya": {
       "matches": 7,
@@ -3006,7 +4005,10 @@
       "tempo": 2.571,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Kernow": {
       "matches": 1,
@@ -3017,7 +4019,10 @@
       "tempo": 1.5,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 70.056,
+      "power_rating": 88.022,
+      "power_rating_source": "derived-results-xg"
     },
     "Hmong": {
       "matches": 3,
@@ -3028,7 +4033,10 @@
       "tempo": 2.667,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 35.167,
+      "power_rating": 74.067,
+      "power_rating_source": "derived-results-xg"
     },
     "Northern Mariana Islands": {
       "matches": 6,
@@ -3039,7 +4047,10 @@
       "tempo": 2.583,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Galicia": {
       "matches": 1,
@@ -3050,7 +4061,10 @@
       "tempo": 1.0,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25.056,
+      "power_rating": 70.022,
+      "power_rating_source": "derived-results-xg"
     },
     "Zanzibar": {
       "matches": 4,
@@ -3061,7 +4075,10 @@
       "tempo": 0.75,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 62.722,
+      "power_rating": 85.089,
+      "power_rating_source": "derived-results-xg"
     },
     "Marshall Islands": {
       "matches": 2,
@@ -3072,7 +4089,10 @@
       "tempo": 2.25,
       "sources": [
         "martj42-international-results"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Argentina U20": {
       "matches": 1,
@@ -3082,8 +4102,16 @@
       "recent_goals_against_per_match": 1,
       "tempo": 2.0,
       "sources": [
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.726,
+      "projected_goals_against": 0.447,
+      "xg_for": 1.726,
+      "xg_against": 0.447,
+      "estimated_spi": 85.056,
+      "power_rating": 94.022,
+      "power_rating_source": "derived-results-xg"
     },
     "Soviet Union U20": {
       "matches": 1,
@@ -3093,8 +4121,16 @@
       "recent_goals_against_per_match": 3,
       "tempo": 2.0,
       "sources": [
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 0.447,
+      "projected_goals_against": 1.726,
+      "xg_for": 0.447,
+      "xg_against": 1.726,
+      "estimated_spi": 25.056,
+      "power_rating": 70.022,
+      "power_rating_source": "derived-results-xg"
     },
     "German DR": {
       "matches": 2,
@@ -3104,8 +4140,16 @@
       "recent_goals_against_per_match": 1,
       "tempo": 0.75,
       "sources": [
-        "statsbomb-worldcup"
-      ]
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 0.636,
+      "projected_goals_against": 1.311,
+      "xg_for": 0.636,
+      "xg_against": 1.311,
+      "estimated_spi": 47.611,
+      "power_rating": 79.044,
+      "power_rating_source": "derived-results-xg"
     },
     "Czechoslovakia": {
       "matches": 1,
@@ -3116,7 +4160,10 @@
       "tempo": 2.5,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Morocco Women's": {
       "matches": 4,
@@ -3127,7 +4174,10 @@
       "tempo": 1.5,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 25.222,
+      "power_rating": 70.089,
+      "power_rating_source": "derived-results-xg"
     },
     "Colombia Women's": {
       "matches": 5,
@@ -3138,7 +4188,10 @@
       "tempo": 1.0,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 61.278,
+      "power_rating": 84.511,
+      "power_rating_source": "derived-results-xg"
     },
     "United States Women's": {
       "matches": 11,
@@ -3149,7 +4202,10 @@
       "tempo": 1.545,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 91.066,
+      "power_rating": 96.426,
+      "power_rating_source": "derived-results-xg"
     },
     "Netherlands Women's": {
       "matches": 12,
@@ -3160,7 +4216,10 @@
       "tempo": 1.292,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 74.417,
+      "power_rating": 89.767,
+      "power_rating_source": "derived-results-xg"
     },
     "Germany Women's": {
       "matches": 8,
@@ -3171,7 +4230,10 @@
       "tempo": 1.438,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 79.819,
+      "power_rating": 91.928,
+      "power_rating_source": "derived-results-xg"
     },
     "Denmark Women's": {
       "matches": 4,
@@ -3182,7 +4244,10 @@
       "tempo": 0.75,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 55.222,
+      "power_rating": 82.089,
+      "power_rating_source": "derived-results-xg"
     },
     "China PR Women's": {
       "matches": 7,
@@ -3193,7 +4258,10 @@
       "tempo": 0.929,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 40.389,
+      "power_rating": 76.156,
+      "power_rating_source": "derived-results-xg"
     },
     "Haiti Women's": {
       "matches": 3,
@@ -3204,7 +4272,10 @@
       "tempo": 0.667,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 35.167,
+      "power_rating": 74.067,
+      "power_rating_source": "derived-results-xg"
     },
     "France Women's": {
       "matches": 10,
@@ -3215,7 +4286,10 @@
       "tempo": 1.5,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 76.556,
+      "power_rating": 90.622,
+      "power_rating_source": "derived-results-xg"
     },
     "Jamaica Women's": {
       "matches": 7,
@@ -3226,7 +4300,10 @@
       "tempo": 1.071,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 31.817,
+      "power_rating": 72.727,
+      "power_rating_source": "derived-results-xg"
     },
     "Brazil Women's": {
       "matches": 7,
@@ -3237,7 +4314,10 @@
       "tempo": 1.357,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 66.103,
+      "power_rating": 86.441,
+      "power_rating_source": "derived-results-xg"
     },
     "Panama Women's": {
       "matches": 3,
@@ -3248,7 +4328,10 @@
       "tempo": 2.333,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Japan Women's": {
       "matches": 9,
@@ -3259,7 +4342,10 @@
       "tempo": 1.444,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 72.167,
+      "power_rating": 88.867,
+      "power_rating_source": "derived-results-xg"
     },
     "Costa Rica Women's": {
       "matches": 3,
@@ -3270,7 +4356,10 @@
       "tempo": 1.5,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Norway Women's": {
       "matches": 9,
@@ -3281,7 +4370,10 @@
       "tempo": 1.389,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 60.5,
+      "power_rating": 84.2,
+      "power_rating_source": "derived-results-xg"
     },
     "Korea Republic Women's": {
       "matches": 6,
@@ -3292,7 +4384,10 @@
       "tempo": 1.167,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 30.333,
+      "power_rating": 72.133,
+      "power_rating_source": "derived-results-xg"
     },
     "Republic of Ireland Women's": {
       "matches": 3,
@@ -3303,7 +4398,10 @@
       "tempo": 0.667,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 45.167,
+      "power_rating": 78.067,
+      "power_rating_source": "derived-results-xg"
     },
     "Nigeria Women's": {
       "matches": 8,
@@ -3314,7 +4412,10 @@
       "tempo": 0.875,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 47.944,
+      "power_rating": 79.178,
+      "power_rating_source": "derived-results-xg"
     },
     "Vietnam Women's": {
       "matches": 3,
@@ -3325,7 +4426,10 @@
       "tempo": 2.0,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Italy Women's": {
       "matches": 8,
@@ -3336,7 +4440,10 @@
       "tempo": 1.5,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 55.444,
+      "power_rating": 82.178,
+      "power_rating_source": "derived-results-xg"
     },
     "Argentina Women's": {
       "matches": 6,
@@ -3347,7 +4454,10 @@
       "tempo": 1.167,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 45.333,
+      "power_rating": 78.133,
+      "power_rating_source": "derived-results-xg"
     },
     "Sweden Women's": {
       "matches": 14,
@@ -3358,7 +4468,10 @@
       "tempo": 1.292,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 72.563,
+      "power_rating": 89.025,
+      "power_rating_source": "derived-results-xg"
     },
     "Australia Women's": {
       "matches": 11,
@@ -3369,7 +4482,10 @@
       "tempo": 1.5,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 62.429,
+      "power_rating": 84.972,
+      "power_rating_source": "derived-results-xg"
     },
     "Zambia W": {
       "matches": 3,
@@ -3380,7 +4496,10 @@
       "tempo": 2.333,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Portugal Women's": {
       "matches": 3,
@@ -3391,7 +4510,10 @@
       "tempo": 0.5,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 60.167,
+      "power_rating": 84.067,
+      "power_rating_source": "derived-results-xg"
     },
     "Canada Women's": {
       "matches": 7,
@@ -3402,7 +4524,10 @@
       "tempo": 1.0,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 51.103,
+      "power_rating": 80.441,
+      "power_rating_source": "derived-results-xg"
     },
     "South Africa Women's": {
       "matches": 7,
@@ -3413,7 +4538,10 @@
       "tempo": 1.643,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 36.103,
+      "power_rating": 74.441,
+      "power_rating_source": "derived-results-xg"
     },
     "Spain Women's": {
       "matches": 11,
@@ -3424,7 +4552,10 @@
       "tempo": 1.5,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 70.611,
+      "power_rating": 88.244,
+      "power_rating_source": "derived-results-xg"
     },
     "England Women's": {
       "matches": 14,
@@ -3435,7 +4566,10 @@
       "tempo": 1.25,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 74.706,
+      "power_rating": 89.883,
+      "power_rating_source": "derived-results-xg"
     },
     "Switzerland Women's": {
       "matches": 4,
@@ -3446,7 +4580,10 @@
       "tempo": 1.0,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 47.722,
+      "power_rating": 79.089,
+      "power_rating_source": "derived-results-xg"
     },
     "New Zealand Women's": {
       "matches": 6,
@@ -3457,7 +4594,10 @@
       "tempo": 0.667,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 45.333,
+      "power_rating": 78.133,
+      "power_rating_source": "derived-results-xg"
     },
     "Philippines Women's": {
       "matches": 3,
@@ -3468,7 +4608,10 @@
       "tempo": 1.5,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Cameroon W": {
       "matches": 4,
@@ -3479,7 +4622,10 @@
       "tempo": 1.375,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 36.472,
+      "power_rating": 74.589,
+      "power_rating_source": "derived-results-xg"
     },
     "Thailand W": {
       "matches": 3,
@@ -3490,7 +4636,10 @@
       "tempo": 3.5,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
+      "power_rating_source": "derived-results-xg"
     },
     "Chile Women's": {
       "matches": 3,
@@ -3501,7 +4650,10 @@
       "tempo": 1.167,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 40.167,
+      "power_rating": 76.067,
+      "power_rating_source": "derived-results-xg"
     },
     "Scotland W": {
       "matches": 3,
@@ -3512,7 +4664,10 @@
       "tempo": 2.0,
       "sources": [
         "statsbomb-worldcup"
-      ]
+      ],
+      "estimated_spi": 45.167,
+      "power_rating": 78.067,
+      "power_rating_source": "derived-results-xg"
     }
   },
   "matchups": {

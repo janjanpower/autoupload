@@ -51,6 +51,11 @@ STATSBOMB_MATCHES_BASE = os.getenv(
     "STATSBOMB_MATCHES_BASE",
     "https://raw.githubusercontent.com/statsbomb/open-data/master/data/matches",
 )
+STATSBOMB_EVENTS_BASE = os.getenv(
+    "STATSBOMB_EVENTS_BASE",
+    "https://raw.githubusercontent.com/statsbomb/open-data/master/data/events",
+)
+STATSBOMB_XG_MATCH_LIMIT = int(os.getenv("STATSBOMB_XG_MATCH_LIMIT", "140"))
 USE_STATSBOMB = os.getenv("USE_STATSBOMB", "1").strip() not in {"0", "false", "False"}
 OPENFOOTBALL_URLS = [
     u.strip()
@@ -313,9 +318,18 @@ def add_spi_matches(teams: dict, matchups: dict) -> bool:
 
 
 def fetch_json(url: str, headers: dict[str, str] | None = None) -> dict:
-    req = urllib.request.Request(url, headers=headers or {})
-    with urllib.request.urlopen(req, timeout=25) as res:
-        return json.loads(res.read().decode("utf-8"))
+    base_headers = {"User-Agent": "Mozilla/5.0 worldcup-dashboard"}
+    base_headers.update(headers or {})
+    req = urllib.request.Request(url, headers=base_headers)
+    try:
+        with urllib.request.urlopen(req, timeout=35) as res:
+            return json.loads(res.read().decode("utf-8"))
+    except Exception:
+        if not url.startswith("https://"):
+            raise
+        context = ssl._create_unverified_context()
+        with urllib.request.urlopen(req, timeout=35, context=context) as res:
+            return json.loads(res.read().decode("utf-8"))
 
 
 def fetch_text(url: str, headers: dict[str, str] | None = None) -> str:
@@ -334,7 +348,10 @@ def fetch_text(url: str, headers: dict[str, str] | None = None) -> str:
 
 
 def fetch_csv_rows(url: str) -> list[dict]:
-    return list(csv.DictReader(StringIO(fetch_text(url))))
+    text = fetch_text(url)
+    if "<!doctype html" in text[:500].lower() or "<html" in text[:500].lower():
+        raise ValueError(f"{url} returned HTML, not CSV")
+    return list(csv.DictReader(StringIO(text)))
 
 
 def row_get(row: dict, *names: str) -> str:
@@ -369,11 +386,44 @@ def add_api_football(teams: dict, matchups: dict) -> bool:
     return True
 
 
+def add_expected_goals(teams: dict, home: str, away: str, hxg: float, axg: float, source: str) -> None:
+    home, away = team_name(home), team_name(away)
+    if not home or not away:
+        return
+    for team, xgf, xga in ((home, hxg, axg), (away, axg, hxg)):
+        row = teams[team]
+        add_metric(row, "xg_for", xgf)
+        add_metric(row, "xg_against", xga)
+        # xG is also a practical projected-goal prior for fixtures without a market model.
+        add_metric(row, "projected_goals_for", xgf)
+        add_metric(row, "projected_goals_against", xga)
+        add_source(row, source)
+
+
+def statsbomb_match_xg(match_id: int, home: str, away: str) -> tuple[float, float] | None:
+    events = fetch_json(f"{STATSBOMB_EVENTS_BASE}/{match_id}.json")
+    totals = defaultdict(float)
+    for event in events:
+        if (event.get("type") or {}).get("name") != "Shot":
+            continue
+        team = team_name(((event.get("team") or {}).get("name") or ""))
+        xg = ((event.get("shot") or {}).get("statsbomb_xg"))
+        try:
+            totals[team] += float(xg)
+        except (TypeError, ValueError):
+            continue
+    home_name, away_name = team_name(home), team_name(away)
+    if home_name not in totals and away_name not in totals:
+        return None
+    return totals[home_name], totals[away_name]
+
+
 def add_statsbomb_worldcup(teams: dict, matchups: dict) -> bool:
     if not USE_STATSBOMB:
         return False
     competitions = fetch_json(STATSBOMB_COMPETITIONS_URL)
     used = False
+    xg_matches = 0
     for competition in competitions:
         name = competition.get("competition_name") or ""
         if "World Cup" not in name:
@@ -403,6 +453,25 @@ def add_statsbomb_worldcup(teams: dict, matchups: dict) -> bool:
                 int(ag),
                 "statsbomb-worldcup",
             )
+            if xg_matches < STATSBOMB_XG_MATCH_LIMIT:
+                try:
+                    xg = statsbomb_match_xg(
+                        int(match.get("match_id")),
+                        home_obj.get("home_team_name", ""),
+                        away_obj.get("away_team_name", ""),
+                    )
+                    if xg:
+                        add_expected_goals(
+                            teams,
+                            home_obj.get("home_team_name", ""),
+                            away_obj.get("away_team_name", ""),
+                            xg[0],
+                            xg[1],
+                            "statsbomb-worldcup-xg",
+                        )
+                        xg_matches += 1
+                except Exception as exc:
+                    print(f"StatsBomb xG fetch failed: match {match.get('match_id')}: {exc}", file=sys.stderr)
             used = True
     return used
 
@@ -471,6 +540,14 @@ def finalize(teams: dict, matchups: dict, sources: list[str]) -> dict:
         if "spi" in out_row:
             # Convert SPI's 0-100-ish scale into the dashboard's existing 60-100 power band.
             out_row["power_rating"] = round(60 + out_row["spi"] * 0.4, 3)
+            out_row["power_rating_source"] = "fivethirtyeight-spi"
+        elif row["matches"]:
+            gd_avg = gf_avg - ga_avg
+            form_gd = recent_gf - recent_ga
+            estimated_spi = max(25, min(95, 55 + gd_avg * 9 + form_gd * 6 + min(8, row["matches"] / 18)))
+            out_row["estimated_spi"] = round(estimated_spi, 3)
+            out_row["power_rating"] = round(60 + estimated_spi * 0.4, 3)
+            out_row["power_rating_source"] = "derived-results-xg"
         out_teams[team] = out_row
     out_matchups = {}
     for key, row in matchups.items():
@@ -488,6 +565,7 @@ def finalize(teams: dict, matchups: dict, sources: list[str]) -> dict:
             "matchups": len(out_matchups),
             "power_rating": sum(1 for row in out_teams.values() if row.get("power_rating") is not None),
             "spi": sum(1 for row in out_teams.values() if row.get("spi") is not None),
+            "estimated_spi": sum(1 for row in out_teams.values() if row.get("estimated_spi") is not None),
             "projected_goals": sum(1 for row in out_teams.values() if row.get("projected_goals_for") is not None),
             "xg": sum(1 for row in out_teams.values() if row.get("xg_for") is not None),
             "offense": sum(1 for row in out_teams.values() if row.get("offense") is not None),
