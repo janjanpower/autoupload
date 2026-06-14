@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-14T21:45:41.483553+00:00",
+  "updated_at": "2026-06-14T22:52:03.532041+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -99,8 +99,8 @@
       "home": "Netherlands",
       "away": "Japan",
       "home_score": 2,
-      "away_score": 1,
-      "status": "IN_PLAY"
+      "away_score": 2,
+      "status": "FINISHED"
     },
     {
       "id": 11,
@@ -110,7 +110,7 @@
       "away": "Ecuador",
       "home_score": null,
       "away_score": null,
-      "status": "SCHEDULED"
+      "status": "TIMED"
     },
     {
       "id": 12,

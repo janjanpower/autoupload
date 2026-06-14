@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-14T21:45:42.332991+00:00",
+  "updated_at": "2026-06-14T22:52:04.645537+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -145,12 +145,12 @@
       "home": "Netherlands",
       "away": "Japan",
       "home_score": 2,
-      "away_score": 1,
+      "away_score": 2,
       "home_half_score": 0,
       "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 11,
@@ -165,7 +165,7 @@
       "away_half_score": null,
       "minute": null,
       "added_time": null,
-      "status": "SCHEDULED"
+      "status": "TIMED"
     },
     {
       "id": 12,
