@@ -19,16 +19,18 @@
     .done{background:#14532d;color:#bbf7d0}.live{background:#1e3a8a;color:#bfdbfe}.todo{background:#3b2f0b;color:#fde68a}
     .pill{display:inline-block;border-radius:999px;padding:3px 8px;font-size:12px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .r1{background:rgba(22,163,74,.24)}.r2{background:rgba(37,99,235,.24)}.r3{background:rgba(202,138,4,.22)}.r4{background:rgba(71,85,105,.22)}
+    .standingRow{cursor:pointer}.standingDetail{display:none;background:#020617;color:#cbd5e1}.standingDetail.on{display:table-row}.detailBox{text-align:left;line-height:1.65;padding:10px}
     .badge{display:inline-block;margin:2px;padding:3px 7px;border:1px solid #3b4a67;border-radius:999px;background:#111827}.muted{color:#94a3b8}.good{color:#bef264}.warn{color:#fde68a}.bad{color:#fecaca}
     .bracket{display:grid;grid-template-columns:1fr 1fr;gap:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.match{background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px;margin:7px 0}.line{display:grid;grid-template-columns:60px 1fr;gap:6px;margin:4px 0}.seed{font-weight:900}
     .bracketTabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}.roundBtn{border:1px solid #26364f;background:#0b1324;color:#fff;padding:9px 14px;border-radius:999px;cursor:pointer}.roundBtn.active{background:#1d4ed8;border-color:#93c5fd}.roundView{display:none}.roundView.active{display:block}
-    .treeStage{position:relative;width:100%;height:calc(100vh - 230px);min-height:720px;background:linear-gradient(180deg,#07101e,#040813);border:1px solid #243047;border-radius:16px;overflow:hidden}
+    .treeStage{position:relative;width:100%;height:calc(100vh - 230px);min-height:760px;background:linear-gradient(180deg,#07101e,#040813);border:1px solid #243047;border-radius:16px;overflow:hidden}
     .treeLines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}.node{position:absolute;width:12.2%;min-width:122px;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:7px;z-index:2;box-shadow:0 8px 18px rgba(0,0,0,.25)}
     .nodeTitle{display:flex;justify-content:space-between;color:#94a3b8;font-size:10px;margin-bottom:4px}.nTeam{height:26px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:5px;align-items:center;background:#172033;border:1px solid #30405f;border-radius:7px;margin:4px 0;padding:0 5px;font-size:11px}
     .nSeed{font-weight:900}.teamName{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.champ{background:linear-gradient(180deg,#fff0a3,#f59e0b);color:#111;border:0}.champ .nTeam{background:rgba(255,255,255,.7);color:#111;border-color:#b45309;grid-template-columns:1fr}
     .scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.scenario{background:#0f172a;border:1px solid #344054;border-radius:14px;padding:12px}.bar{height:8px;background:#1e293b;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:#60a5fa}.prob{display:grid;grid-template-columns:1fr 52px;gap:8px;margin:6px 0}
-    .chain{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:start;border-top:1px solid #26364f;padding:8px 0}.mini{font-size:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi b{font-size:22px}
-    @media(max-width:1100px){.grid,.bracket,.two,.scenarios,.kpi{grid-template-columns:1fr}.treeStage{height:820px}.node{min-width:98px;width:12.5%}.nTeam{grid-template-columns:34px minmax(0,1fr);font-size:10px}}
+    .chain{display:grid;grid-template-columns:92px 1fr;gap:8px;align-items:start;border-top:1px solid #26364f;padding:8px 0}.mini{font-size:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi b{font-size:22px}.mobileStack{display:grid;grid-template-columns:1fr;gap:10px}.mobileMetric{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mobileMetric .card{margin:0}.mobileList{display:grid;gap:8px}.mobileRow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;background:#0f172a;border:1px solid #344054;border-radius:10px;padding:8px}.mobileRow span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    @media(max-width:1100px){.grid,.bracket,.two,.scenarios,.kpi{grid-template-columns:1fr}.roundView{overflow-x:auto;padding-bottom:8px}.treeStage{width:1180px;height:820px;min-height:820px}.node{min-width:104px;width:11.8%}.nTeam{grid-template-columns:34px minmax(0,1fr);font-size:10px}}
+    @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px 18px}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px;border-radius:12px}.card{padding:10px;border-radius:10px}table{font-size:12px}th,td{padding:7px 5px}.score{width:48px}.chain{grid-template-columns:1fr}.kpi b{font-size:18px}.treeStage{width:1120px}.node{min-width:100px}.qualifiedList .badge,.badge{font-size:11px}}
   </style>
 </head>
 <body>
@@ -43,6 +45,7 @@
     <button class="tab" onclick="tab('thirds',this)">第三名分析</button>
     <button class="tab" onclick="tab('bracket',this)">樹狀晉級賽程</button>
     <button class="tab" onclick="tab('sandbox',this)">情境沙盤</button>
+    <button class="tab" onclick="tab('mobile',this)">手機總覽</button>
     <button class="tab" onclick="tab('annex',this)">FIFA 2026 Annex C</button>
   </div>
 
@@ -92,6 +95,14 @@
       <div id="strategySummary" class="card"></div>
     </div>
     <div id="matrix"></div>
+  </section>
+
+  <section id="mobile" class="panel">
+    <div class="card toolbar">
+      <label>隊伍 <select id="mobileTeam" onchange="drawMobilePanel()"></select></label>
+      <button onclick="drawMobilePanel()">重新整理</button>
+    </div>
+    <div id="mobileBoard" class="mobileStack"></div>
   </section>
 
   <section id="annex" class="panel">
@@ -237,8 +248,9 @@ function drawScores(){
   dataMeta.textContent=DATA_META;
 }
 function drawStandings(){
-  standingBoard.innerHTML=Object.keys(STATE.standings).map(g=>`<div class=card><h3>${g}組</h3><table><thead><tr><th>名</th><th>隊伍</th><th>賽</th><th>積</th><th>淨</th><th>進/失</th></tr></thead><tbody>${STATE.standings[g].map((x,i)=>`<tr class=r${i+1}><td>${i+1}</td><td>${x.team}${x.rankNote?' <span class=warn>*</span>':''}</td><td>${x.P}</td><td><b>${x.Pts}</b></td><td>${x.GD}</td><td>${x.GF}/${x.GA}</td></tr>`).join('')}</tbody></table></div>`).join('');
+  standingBoard.innerHTML=Object.keys(STATE.standings).map(g=>`<div class=card><h3>${g}組</h3><table><thead><tr><th>名</th><th>隊伍</th><th>局</th><th>積分</th><th>淨勝球</th></tr></thead><tbody>${STATE.standings[g].map((x,i)=>`<tr class="r${i+1} standingRow" onclick="toggleStandingDetail('${g}${i}')"><td>${i+1}</td><td>${x.team}${x.rankNote?' <span class=warn>*</span>':''}</td><td>${x.P}</td><td><b>${x.Pts}</b></td><td>${x.GD}</td></tr><tr id="standingDetail${g}${i}" class=standingDetail><td colspan=5><div class=detailBox>進球 ${x.GF}｜失球 ${x.GA}｜淨勝球 ${x.GD}</div></td></tr>`).join('')}</tbody></table></div>`).join('');
 }
+function toggleStandingDetail(id){document.getElementById('standingDetail'+id)?.classList.toggle('on')}
 function drawThirds(){
   thirdBoard.innerHTML=`<table><thead><tr><th>排序</th><th>種子</th><th>隊伍</th><th>積</th><th>淨</th><th>進球</th><th>狀態</th></tr></thead><tbody>${STATE.thirdRanking.map((x,i)=>`<tr class=${i<8?'r3':'r4'}><td>${i+1}</td><td>${x.seed}</td><td>${x.team}</td><td>${x.Pts}</td><td>${x.GD}</td><td>${x.GF}</td><td>${i<8?'晉級':'淘汰區'}</td></tr>`).join('')}</tbody></table>`;
   thirdAssign.innerHTML=Object.keys(THIRD_RULE).map(slot=>`<div class=chain><b>${slot}</b><span><span class=badge>${STATE.thirdMap[slot]||'未配置'}</span> 可用：${THIRD_RULE[slot].join(' / ')}</span></div>`).join('');
@@ -285,8 +297,8 @@ function renderTree(kind){
     });
   }else{
     const left=['M73','M75','M74','M77','M76','M78','M79','M80'],right=['M83','M84','M81','M82','M86','M88','M85','M87'];
-    left.forEach((id,i)=>html+=treeNode(map[id],5,8+i*10.8,kind));
-    right.forEach((id,i)=>html+=treeNode(map[id],95,8+i*10.8,kind));
+    left.forEach((id,i)=>html+=treeNode(map[id],8,8+i*10.8,kind));
+    right.forEach((id,i)=>html+=treeNode(map[id],92,8+i*10.8,kind));
     ['M89','M90','M91','M92'].forEach((id,i)=>html+=treeNode(map[id],18,15+i*22,kind));
     ['M93','M94','M95','M96'].forEach((id,i)=>html+=treeNode(map[id],82,15+i*22,kind));
     ['M97','M99'].forEach((id,i)=>html+=treeNode(map[id],31,28+i*38,kind));
@@ -329,6 +341,21 @@ function drawBracket(){
 }
 function loadTargets(){target.innerHTML=Object.values(GROUPS).flat().map(t=>`<option>${t}</option>`).join('');loadTeamMatches()}
 function loadTeamMatches(){let t=target.value,ms=MATCHES.filter(m=>!m.done&&(m.h===t||m.a===t)).sort((a,b)=>a.date.localeCompare(b.date));targetMatch.innerHTML=ms.map(m=>`<option value=${m.id}>${d(m.date)} ${m.h} vs ${m.a}</option>`).join('');drawTargetSnapshot()}
+function loadMobileTeams(){if(!mobileTeam)return;const current=mobileTeam.value;mobileTeam.innerHTML=Object.values(GROUPS).flat().map(t=>`<option>${t}</option>`).join('');if(current)mobileTeam.value=current}
+function mobileMatchRows(team){
+  const rows=MATCHES.filter(m=>m.h===team||m.a===team).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3);
+  return rows.map(m=>`<div class=mobileRow><b>${d(m.date)}</b><span>${m.h} vs ${m.a}</span><span class="pill ${statusClass(m)}">${m.hg??'-'}:${m.ag??'-'}</span></div>`).join('');
+}
+function drawMobilePanel(){
+  if(!STATE||!mobileBoard)return;
+  if(!mobileTeam.value)loadMobileTeams();
+  const team=mobileTeam.value||Object.values(GROUPS).flat()[0],snap=STRATEGY_ENGINE.snapshot(team,STATE.standings,STATE.bracket),groupRows=snap.group?STATE.standings[snap.group]:[],thirdRows=STATE.thirdRanking.slice(0,8);
+  mobileBoard.innerHTML=`<div class=mobileMetric><div class=card><div class=muted>排名</div><b>${snap.group||'-'}${snap.rank||'-'}</b></div><div class=card><div class=muted>積分</div><b>${snap.row?snap.row.Pts:'-'}</b></div><div class=card><div class=muted>淨勝球</div><b>${snap.row?snap.row.GD:'-'}</b></div></div>
+  <div class=card><h3>${team} 路線</h3><div class=warn>${snap.path?`${snap.path.match.id}｜${snap.path.self.seed} 對 ${snap.path.opp.seed} ${snap.path.opp.team}`:'目前未進32強'}</div><div class=muted>路線強度 ${snap.qualified?snap.route:'-'}</div></div>
+  <div class=card><h3>${snap.group||''}組積分</h3><div class=mobileList>${groupRows.map((x,i)=>`<div class=mobileRow><b>${i+1}</b><span>${x.team}</span><span>${x.Pts}分｜GD ${x.GD}</span></div>`).join('')}</div></div>
+  <div class=card><h3>最佳第三名</h3><div class=mobileList>${thirdRows.map((x,i)=>`<div class=mobileRow><b>${i+1}</b><span>${x.seed} ${x.team}</span><span>${x.Pts}分｜GD ${x.GD}</span></div>`).join('')}</div></div>
+  <div class=card><h3>近期賽程</h3><div class=mobileList>${mobileMatchRows(team)}</div></div>`;
+}
 function drawTargetSnapshot(){
   if(!STATE)return;
   const s=STRATEGY_ENGINE.snapshot(target.value,STATE.standings,STATE.bracket);
@@ -359,7 +386,7 @@ function recalculate(){
   saveInputs();
   const standings=ANNEX_C_ENGINE.calculate(MATCHES),thirdRanking=THIRD_PLACE_ENGINE.ranking(standings),thirdMap=THIRD_PLACE_ENGINE.assign(standings),bracket=BRACKET_ENGINE.r32(standings);
   STATE={standings,thirdRanking,thirdMap,bracket};
-  drawStandings();drawThirds();drawBracket();drawTargetSnapshot();drawEngineStatus();
+  drawStandings();drawThirds();drawBracket();drawTargetSnapshot();drawMobilePanel();drawEngineStatus();
 }
 const AUTO_REFRESH={
   api:'https://api.github.com/repos/janjanpower/autoupload/commits/main',
@@ -386,7 +413,7 @@ const AUTO_REFRESH={
 };
 async function init(){
   try{const res=await fetch('data/matches.json',{cache:'no-store'});if(res.ok)mergeScores(await res.json());else mergeScores({matches:[]})}catch(_){mergeScores({matches:[]})}
-  drawScores();recalculate();loadTargets();runMonteCarlo();
+  drawScores();recalculate();loadTargets();loadMobileTeams();drawMobilePanel();runMonteCarlo();
   AUTO_REFRESH.start();
 }
 init();
