@@ -87,7 +87,7 @@
       <h3>本機 Qwen 策略分析</h3>
       <div class="toolbar aiControls">
         <label>Ollama 端點 <input id="ollamaEndpoint" value="http://localhost:11434/api/chat"></label>
-        <label>模型 <input id="ollamaModel" value="qwen2.5:7b"></label>
+        <label>模型 <input id="ollamaModel" value="qwen2.5:3b-instruct"></label>
         <button onclick="analyzeWithLocalQwen()">產生建議</button>
       </div>
       <label>補充新聞 / 戰術資訊
@@ -391,7 +391,7 @@ async function analyzeWithLocalQwen(){
   const pack=simulateScenarioState(),box=document.getElementById('aiStrategyResult');
   if(!pack||!box)return;
   const endpointEl=document.getElementById('ollamaEndpoint'),modelEl=document.getElementById('ollamaModel');
-  const endpoint=(endpointEl?.value||'http://localhost:11434/api/chat').trim(),model=(modelEl?.value||'qwen2.5:7b').trim();
+  const endpoint=(endpointEl?.value||'http://localhost:11434/api/chat').trim(),model=(modelEl?.value||'qwen2.5:3b-instruct').trim();
   localStorage.setItem('ollamaEndpoint',endpoint);localStorage.setItem('ollamaModel',model);
   box.className='routeCard aiResult muted';box.textContent='本機 Qwen 分析中...';
   try{
@@ -401,7 +401,7 @@ async function analyzeWithLocalQwen(){
     box.className='routeCard aiResult';box.innerHTML=escapeHtml(content);
   }catch(err){
     box.className='routeCard aiResult bad';
-    box.innerHTML=`連不到本機 Qwen。請確認：\n1. 已安裝 Ollama\n2. 已執行 ollama pull ${escapeHtml(model)}\n3. Ollama 正在執行\n4. 若被 CORS 擋住，請用允許來源啟動 Ollama\n\n錯誤：${escapeHtml(err.message)}`;
+    box.innerHTML=`連不到本機 Qwen。請確認：\n1. Ollama 正在執行：http://localhost:11434/api/tags\n2. 模型已存在：ollama pull ${escapeHtml(model)}\n3. 如果你在 GitHub Pages 上使用，Ollama 必須允許來源：https://janjanpower.github.io\n4. 設定後要完整重啟 Ollama\n\nWindows 可用：\nsetx OLLAMA_ORIGINS \"http://localhost:8765,https://janjanpower.github.io\"\n\n錯誤：${escapeHtml(err.message)}`;
   }
 }
 function thirdIndex(st,team){return THIRD_PLACE_ENGINE.ranking(st).findIndex(x=>x.team===team)}
@@ -500,21 +500,21 @@ function recalculate(){
   runScenarioImpact();
 }
 const AUTO_REFRESH={
-  api:'https://api.github.com/repos/janjanpower/autoupload/commits/main',
+  api:'data/version.json',
   current:null,
   timer:null,
-  async latestSha(){
-    const res=await fetch(this.api,{cache:'no-store',headers:{Accept:'application/vnd.github+json'}});
-    if(!res.ok)throw new Error('commit check failed');
+  async latestVersion(){
+    const res=await fetch(`${this.api}?t=${Date.now()}`,{cache:'no-store'});
+    if(!res.ok)throw new Error('version check failed');
     const payload=await res.json();
-    return payload.sha||null;
+    return payload.version||payload.updated_at||null;
   },
   async check(){
     try{
-      const sha=await this.latestSha();
-      if(!sha)return;
-      if(!this.current){this.current=sha;return}
-      if(sha!==this.current)location.reload();
+      const version=await this.latestVersion();
+      if(!version)return;
+      if(!this.current){this.current=version;return}
+      if(version!==this.current)location.reload();
     }catch(_){}
   },
   start(){

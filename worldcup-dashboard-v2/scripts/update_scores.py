@@ -16,6 +16,7 @@ from datetime import datetime, timezone
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "matches.json"
+VERSION_PATH = ROOT / "data" / "version.json"
 TOKEN = os.getenv("FOOTBALL_DATA_TOKEN", "").strip()
 API_URL = os.getenv("FOOTBALL_DATA_URL", "https://api.football-data.org/v4/competitions/WC/matches")
 
@@ -29,6 +30,11 @@ def load_current() -> dict:
 def save(payload: dict) -> None:
     DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
     DATA_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    version = {
+        "version": payload.get("updated_at") or datetime.now(timezone.utc).isoformat(),
+        "source": payload.get("source", "unknown"),
+    }
+    VERSION_PATH.write_text(json.dumps(version, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def normalize_football_data(raw: dict, current: dict) -> dict:
