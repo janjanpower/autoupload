@@ -8,9 +8,9 @@
   <meta http-equiv="Expires" content="0">
   <title>2026 世界盃戰術沙盤</title>
   <style>
-    html,body{min-height:100%;overflow-x:hidden}
+    html,body{min-height:100%;overflow-x:hidden;overflow-y:auto}
     body{margin:0;min-height:100dvh;background:#050914;color:#fff;font-family:system-ui,'Noto Sans TC',Arial,sans-serif}
-    header{text-align:center;padding:14px}.app{max-width:1500px;margin:auto;padding:0 12px calc(48px + env(safe-area-inset-bottom))}
+    header{text-align:center;padding:14px}.app{max-width:1500px;margin:auto;padding:0 12px calc(48px + env(safe-area-inset-bottom));box-sizing:border-box}
     .tabs,.subtabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0}
     .tab,.subtab,button{border:1px solid #26364f;background:#0b1324;color:#fff;padding:9px 14px;border-radius:999px;cursor:pointer}
     .tab.on,.subtab.on{background:#1d4ed8}.panel{display:none;background:#0b1324;border:1px solid #26364f;border-radius:16px;padding:14px}
@@ -38,11 +38,11 @@
     .thirdRankTable{min-width:0}.thirdRankTable th:nth-child(1){width:10%}.thirdRankTable th:nth-child(2){width:12%}.thirdRankTable th:nth-child(3){width:24%}.thirdRankTable th:nth-child(4){width:11%}.thirdRankTable th:nth-child(5){width:13%}.thirdRankTable th:nth-child(6){width:10%}.thirdRankTable th:nth-child(7){width:20%}
     .teamStat.rank1:not(.picked):not(.active):not(.sideHome):not(.sideAway),.teamStat.rank2:not(.picked):not(.active):not(.sideHome):not(.sideAway),.teamStat.rank3:not(.picked):not(.active):not(.sideHome):not(.sideAway){border-color:#30405f;box-shadow:none}
     .teamStat.pickable:not(.picked){border-color:#30405f;outline:0;box-shadow:none}.teamStat.pickable.picked{border-color:#93c5fd;outline:2px solid #93c5fd;outline-offset:2px;box-shadow:0 0 0 1px rgba(147,197,253,.45) inset}
-    button.routeCard:hover,button.routeCard:focus-visible{border-color:#93c5fd;background:#12213a;box-shadow:0 0 0 2px rgba(147,197,253,.28);transform:translateY(-1px)}button.routeCard:active{background:#172a47;transform:translateY(0)}.duelPanel .duelTeam{text-align:center;justify-items:center}.duelPanel .duelTeam .teamLabel{justify-content:center}.reverseBtn{position:relative;min-width:132px;transition:background .16s,border-color .16s,box-shadow .16s,transform .16s,opacity .16s}.reverseBtn:hover,.reverseBtn:focus-visible{border-color:#93c5fd;background:#12305a;box-shadow:0 0 0 2px rgba(147,197,253,.28)}.reverseBtn:active,.reverseBtn.loading{transform:translateY(1px);background:#1d4ed8;border-color:#bfdbfe}.reverseBtn.loading{cursor:progress;opacity:.82}.reverseBtn:disabled{cursor:progress}.reverseScoreChip{display:inline-flex;align-items:center;gap:5px;white-space:normal}.reverseScoreText{font-size:2em;line-height:1;font-weight:900;color:#fff}
+    button.routeCard:hover,button.routeCard:focus-visible{border-color:#93c5fd;background:#12213a;box-shadow:0 0 0 2px rgba(147,197,253,.28);transform:translateY(-1px)}button.routeCard:active{background:#172a47;transform:translateY(0)}.duelPanel .duelTeam{text-align:center;justify-items:center}.duelPanel .duelTeam .teamLabel{justify-content:center}.reverseAction{display:flex;justify-content:center;align-items:center}.reverseBtn{position:relative;min-width:132px;transition:background .16s,border-color .16s,box-shadow .16s,transform .16s,opacity .16s}.reverseBtn:hover,.reverseBtn:focus-visible{border-color:#93c5fd;background:#12305a;box-shadow:0 0 0 2px rgba(147,197,253,.28)}.reverseBtn:active,.reverseBtn.loading{transform:translateY(1px);background:#1d4ed8;border-color:#bfdbfe}.reverseBtn.loading{cursor:progress;opacity:.82}.reverseBtn:disabled{cursor:progress}.reverseScoreChip{display:inline-flex;align-items:center;gap:5px;white-space:normal}.reverseScoreText{font-size:2em;line-height:1;font-weight:900;color:#fff}
     .addScenarioBtn{display:block;margin:12px auto 0;min-width:54px;font-size:20px;font-weight:900}.aiPanel textarea{width:100%;box-sizing:border-box;min-height:72px;resize:vertical;background:#111827;color:#fff;border:1px solid #334155;border-radius:8px;padding:8px}.aiResult{white-space:pre-wrap;line-height:1.7}.aiControls label{display:grid;gap:4px}.aiControls input{min-width:230px}
     @media(max-width:1100px){.grid,.bracket,.two,.scenarios,.impactGrid,.groupDuel{grid-template-columns:1fr}.roundView{overflow-x:auto;padding-bottom:8px}.treeStage{width:1180px;height:820px;min-height:820px}.node{min-width:100px;width:10.4%}.nTeam{grid-template-columns:30px minmax(0,1fr);font-size:14px}}
     @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px calc(96px + env(safe-area-inset-bottom))}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px 10px calc(42px + env(safe-area-inset-bottom));border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table,.thirdRankTable{min-width:0}th,td{padding:7px 5px}.thirdRankTable{font-size:10px}.thirdRankTable th,.thirdRankTable td{padding:5px 2px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.roundView{overflow:visible}.treeStage{width:100%;height:760px;min-height:760px}.node{min-width:0;width:24%;padding:4px;border-radius:8px}.finalCard{width:34%;min-width:0;padding:5px}.nodeTitle{font-size:8px}.nTeam{height:24px;grid-template-columns:20px minmax(0,1fr);font-size:13px;padding:0 3px;gap:3px}.flagIcon{width:16px;height:16px;font-size:13px}.finalCard .nTeam{height:25px;font-size:12px}.scheduleGrid{grid-template-columns:1fr}.scheduleNode .nTeam{grid-template-columns:30px minmax(0,1fr) 24px}.teamStat{grid-template-columns:32px minmax(0,1fr) 30px 52px 42px 42px;font-size:10px;gap:3px;padding:5px}.rankTag{font-size:9px;padding:2px 4px}.duelTeams{grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);gap:5px}.duelTeam{padding:7px 4px}.duelTeam b{font-size:12px}.badge,.chip{font-size:11px}.matchRow{grid-template-columns:30px 36px 20px minmax(44px,1fr) 58px minmax(44px,1fr) minmax(0,52px);font-size:11px;padding:5px;gap:3px}.matchRow .statusLine{transform:scale(.78)}.matchRow .statusLine .pill,.matchRow .liveInfo .chip{font-size:9px;padding:2px 4px}.inlineScore{grid-template-columns:1fr 8px 1fr;font-size:20px}.stepper{grid-template-columns:1fr}.scenarioTeam{font-size:1.65em;margin-bottom:18px}.scoreNum{font-size:24px}.aiControls input{min-width:0;width:100%}}
-    @media(max-width:640px){body{padding-bottom:calc(160px + env(safe-area-inset-bottom))}.app{padding-bottom:calc(220px + env(safe-area-inset-bottom))}#sandbox.panel{padding-bottom:calc(180px + env(safe-area-inset-bottom))}#scenarioImpact{padding-bottom:calc(180px + env(safe-area-inset-bottom))}}
+    @media(max-width:640px){html,body{height:auto;min-height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch}body{padding-bottom:calc(220px + env(safe-area-inset-bottom))}.app{padding-bottom:calc(360px + env(safe-area-inset-bottom))}.app::after{content:"";display:block;height:calc(180px + env(safe-area-inset-bottom))}.panel.on{min-height:calc(100dvh - 98px);overflow:visible}#sandbox.panel{padding-bottom:calc(260px + env(safe-area-inset-bottom))}#scenarioImpact{padding-bottom:calc(260px + env(safe-area-inset-bottom));overflow:visible}}
   </style>
 </head>
 <body>
@@ -979,14 +979,25 @@ function scorePairProbability(hg,ag,model){
   if(total>=5&&model.tempo<1.15)prob*=.78;
   return Math.max(prob,0.000001);
 }
+function diversifiedScorePairs(pairs){
+  const add=(list,item,limit)=>{if(item&&list.length<limit&&!list.some(x=>x.hg===item.hg&&x.ag===item.ag))list.push(item)};
+  const ordered=[...pairs].sort((a,b)=>b.prob-a.prob||a.cost-b.cost),diverse=[];
+  ordered.slice(0,18).forEach(x=>add(diverse,x,36));
+  ordered.filter(x=>x.hg+x.ag>=3).slice(0,8).forEach(x=>add(diverse,x,36));
+  ordered.filter(x=>x.hg+x.ag>=4).slice(0,6).forEach(x=>add(diverse,x,36));
+  ordered.filter(x=>Math.abs(x.hg-x.ag)>=2).slice(0,6).forEach(x=>add(diverse,x,36));
+  ordered.filter(x=>x.hg>=3||x.ag>=3).slice(0,6).forEach(x=>add(diverse,x,36));
+  ordered.forEach(x=>add(diverse,x,36));
+  return diverse;
+}
 function scorePairsForReverse(match){
   const model=matchGoalModel(match);
   const pairs=[];
-  for(let hg=0;hg<=5;hg++)for(let ag=0;ag<=5;ag++){
+  for(let hg=0;hg<=6;hg++)for(let ag=0;ag<=6;ag++){
     const prob=scorePairProbability(hg,ag,model),goalPenalty=Math.abs(hg-model.hg)+Math.abs(ag-model.ag),confidencePenalty=(1-model.confidence)*.08;
     pairs.push({hg,ag,prob,cost:-Math.log(prob)+goalPenalty*.08+confidencePenalty,model});
   }
-  return pairs.sort((a,b)=>b.prob-a.prob||a.cost-b.cost);
+  return diversifiedScorePairs(pairs);
 }
 function applyReverseEdits(base,edits){
   const sim=base.map(x=>({...x}));
@@ -1013,7 +1024,7 @@ function reverseGroupScoreCombos(group,targetRows){
   const beamLimit=900,solutionLimit=8;
   let beam=[{edits:[],penalty:0,modelCost:0,prob:1}];
   matches.forEach(match=>{
-    const expanded=[],pairs=scorePairsForReverse(match).slice(0,24);
+    const expanded=[],pairs=scorePairsForReverse(match).slice(0,36);
     beam.forEach(state=>{
       pairs.forEach(pair=>{
         const edits=[...state.edits,{id:match.id,hg:pair.hg,ag:pair.ag,prob:pair.prob,cost:pair.cost,style:pair.model.style,expHg:pair.model.hg,expAg:pair.model.ag}];
@@ -1159,7 +1170,7 @@ function groupDuelAnalysis(pack){
   ];
   const lines=pairingLinesForGroups(view,groups,pack.match);
   const bridge=`<div class=duelPanel>${(lines.length?lines:[`<div class=duelLine><span class=duelMatchId>${group}組</span><div class=muted>目前沒有固定配對小組</div></div>`]).join('')}</div>`;
-  const reverse=`<div class=card><div class=toolbar><button class=reverseBtn onclick="reverseScenarioScores(this)">反推比分組合</button><span class=muted>依左右兩側選取順序，搭配隊伍強度、已賽戰績、攻守節奏模擬可達成該順位的合理比分。</span></div><div id=reverseScoreResults></div></div>`;
+  const reverse=`<div class=card><div class=reverseAction><button class=reverseBtn onclick="reverseScenarioScores(this)">反推比分組合</button></div><div id=reverseScoreResults></div></div>`;
   return `<div class=groupDuel>${panels[0]}${bridge}${panels[1]||''}</div>${reverse}`;
 }
 function runScenarioImpact(){
