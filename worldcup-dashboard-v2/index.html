@@ -38,9 +38,11 @@
     .thirdRankTable{min-width:0}.thirdRankTable th:nth-child(1){width:10%}.thirdRankTable th:nth-child(2){width:12%}.thirdRankTable th:nth-child(3){width:24%}.thirdRankTable th:nth-child(4){width:11%}.thirdRankTable th:nth-child(5){width:13%}.thirdRankTable th:nth-child(6){width:10%}.thirdRankTable th:nth-child(7){width:20%}
     .teamStat.rank1:not(.picked):not(.active):not(.sideHome):not(.sideAway),.teamStat.rank2:not(.picked):not(.active):not(.sideHome):not(.sideAway),.teamStat.rank3:not(.picked):not(.active):not(.sideHome):not(.sideAway){border-color:#30405f;box-shadow:none}
     .teamStat.pickable:not(.picked){border-color:#30405f;outline:0;box-shadow:none}.teamStat.pickable.picked{border-color:#93c5fd;outline:2px solid #93c5fd;outline-offset:2px;box-shadow:0 0 0 1px rgba(147,197,253,.45) inset}
+    button.routeCard:hover,button.routeCard:focus-visible{border-color:#93c5fd;background:#12213a;box-shadow:0 0 0 2px rgba(147,197,253,.28);transform:translateY(-1px)}button.routeCard:active{background:#172a47;transform:translateY(0)}.duelPanel .duelTeam{text-align:center;justify-items:center}.duelPanel .duelTeam .teamLabel{justify-content:center}.reverseBtn{position:relative;min-width:132px;transition:background .16s,border-color .16s,box-shadow .16s,transform .16s,opacity .16s}.reverseBtn:hover,.reverseBtn:focus-visible{border-color:#93c5fd;background:#12305a;box-shadow:0 0 0 2px rgba(147,197,253,.28)}.reverseBtn:active,.reverseBtn.loading{transform:translateY(1px);background:#1d4ed8;border-color:#bfdbfe}.reverseBtn.loading{cursor:progress;opacity:.82}.reverseBtn:disabled{cursor:progress}.reverseScoreChip{display:inline-flex;align-items:center;gap:5px;white-space:normal}.reverseScoreText{font-size:2em;line-height:1;font-weight:900;color:#fff}
     .addScenarioBtn{display:block;margin:12px auto 0;min-width:54px;font-size:20px;font-weight:900}.aiPanel textarea{width:100%;box-sizing:border-box;min-height:72px;resize:vertical;background:#111827;color:#fff;border:1px solid #334155;border-radius:8px;padding:8px}.aiResult{white-space:pre-wrap;line-height:1.7}.aiControls label{display:grid;gap:4px}.aiControls input{min-width:230px}
     @media(max-width:1100px){.grid,.bracket,.two,.scenarios,.impactGrid,.groupDuel{grid-template-columns:1fr}.roundView{overflow-x:auto;padding-bottom:8px}.treeStage{width:1180px;height:820px;min-height:820px}.node{min-width:100px;width:10.4%}.nTeam{grid-template-columns:30px minmax(0,1fr);font-size:14px}}
     @media(max-width:640px){header{padding:10px 8px}header h1{font-size:22px}.app{padding:0 8px calc(96px + env(safe-area-inset-bottom))}.tabs,.bracketTabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.tab,.roundBtn,button{white-space:nowrap;padding:8px 11px}.panel{padding:10px 10px calc(42px + env(safe-area-inset-bottom));border-radius:12px}.card{padding:10px;border-radius:10px;overflow-x:auto}table{font-size:12px;min-width:520px}#standingBoard table,.thirdRankTable{min-width:0}th,td{padding:7px 5px}.thirdRankTable{font-size:10px}.thirdRankTable th,.thirdRankTable td{padding:5px 2px}.score{width:48px}.chain,.nextRow{grid-template-columns:1fr}.roundView{overflow:visible}.treeStage{width:100%;height:760px;min-height:760px}.node{min-width:0;width:24%;padding:4px;border-radius:8px}.finalCard{width:34%;min-width:0;padding:5px}.nodeTitle{font-size:8px}.nTeam{height:24px;grid-template-columns:20px minmax(0,1fr);font-size:13px;padding:0 3px;gap:3px}.flagIcon{width:16px;height:16px;font-size:13px}.finalCard .nTeam{height:25px;font-size:12px}.scheduleGrid{grid-template-columns:1fr}.scheduleNode .nTeam{grid-template-columns:30px minmax(0,1fr) 24px}.teamStat{grid-template-columns:32px minmax(0,1fr) 30px 52px 42px 42px;font-size:10px;gap:3px;padding:5px}.rankTag{font-size:9px;padding:2px 4px}.duelTeams{grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);gap:5px}.duelTeam{padding:7px 4px}.duelTeam b{font-size:12px}.badge,.chip{font-size:11px}.matchRow{grid-template-columns:30px 36px 20px minmax(44px,1fr) 58px minmax(44px,1fr) minmax(0,52px);font-size:11px;padding:5px;gap:3px}.matchRow .statusLine{transform:scale(.78)}.matchRow .statusLine .pill,.matchRow .liveInfo .chip{font-size:9px;padding:2px 4px}.inlineScore{grid-template-columns:1fr 8px 1fr;font-size:20px}.stepper{grid-template-columns:1fr}.scenarioTeam{font-size:1.65em;margin-bottom:18px}.scoreNum{font-size:24px}.aiControls input{min-width:0;width:100%}}
+    @media(max-width:640px){body{padding-bottom:calc(160px + env(safe-area-inset-bottom))}.app{padding-bottom:calc(220px + env(safe-area-inset-bottom))}#sandbox.panel{padding-bottom:calc(180px + env(safe-area-inset-bottom))}#scenarioImpact{padding-bottom:calc(180px + env(safe-area-inset-bottom))}}
   </style>
 </head>
 <body>
@@ -107,6 +109,9 @@ const GROUPS={A:['墨西哥','南非','大韓民國','捷克'],B:['加拿大','�
 const ALIAS={'Mexico':'墨西哥','South Africa':'南非','South Korea':'大韓民國','Korea Republic':'大韓民國','Czechia':'捷克','Canada':'加拿大','Bosnia-Herzegovina':'波士尼亞與赫塞哥維納','Bosnia and Herzegovina':'波士尼亞與赫塞哥維納','Qatar':'卡達','Switzerland':'瑞士','Brazil':'巴西','Morocco':'摩洛哥','Haiti':'海地','Scotland':'蘇格蘭','United States':'美國','USA':'美國','Paraguay':'巴拉圭','Australia':'澳洲','Turkey':'土耳其','Türkiye':'土耳其','Germany':'德國','Curaçao':'庫拉索','Curacao':'庫拉索','Ivory Coast':'象牙海岸','Côte d’Ivoire':'象牙海岸',"Côte d'Ivoire":'象牙海岸','Ecuador':'厄瓜多','Netherlands':'荷蘭','Japan':'日本','Sweden':'瑞典','Tunisia':'突尼西亞','Belgium':'比利時','Egypt':'埃及','Iran':'伊朗','New Zealand':'紐西蘭','Spain':'西班牙','Cape Verde Islands':'佛得角','Cape Verde':'佛得角','Saudi Arabia':'沙烏地阿拉伯','Uruguay':'烏拉圭','France':'法國','Senegal':'塞內加爾','Iraq':'伊拉克','Norway':'挪威','Argentina':'阿根廷','Algeria':'阿爾及利亞','Austria':'奧地利','Jordan':'約旦','Portugal':'葡萄牙','Congo DR':'剛果民主共和國','DR Congo':'剛果民主共和國','Uzbekistan':'烏茲別克','Colombia':'哥倫比亞','England':'英格蘭','Croatia':'克羅埃西亞','Ghana':'迦納','Panama':'巴拿馬','TBD':'TBD'};
 const COLORS={A:'#10e880',B:'#ff1450',C:'#ff8c12',D:'#3b63ff',E:'#7c00ff',F:'#b7ff12',G:'#f65397',H:'#66ffd2',I:'#b64ae8',J:'#3d8fa5',K:'#ff411a',L:'#48c5ff',X:'#9ca3af'};
 const RATING={'巴西':93,'阿根廷':92,'法國':92,'英格蘭':90,'西班牙':90,'葡萄牙':89,'德國':88,'荷蘭':88,'比利時':86,'烏拉圭':85,'哥倫比亞':84,'克羅埃西亞':84,'瑞士':83,'美國':82,'摩洛哥':82,'日本':82,'墨西哥':81,'塞內加爾':80,'厄瓜多':80,'奧地利':79,'澳洲':78,'伊朗':78,'大韓民國':78,'土耳其':78,'瑞典':77,'加拿大':77,'迦納':76,'突尼西亞':75,'蘇格蘭':75,'卡達':74,'埃及':74,'阿爾及利亞':74,'挪威':74,'巴拉圭':74,'象牙海岸':74,'烏茲別克':73,'捷克':73,'沙烏地阿拉伯':72,'南非':71,'巴拿馬':70,'紐西蘭':69,'伊拉克':69,'約旦':68,'波士尼亞與赫塞哥維納':68,'佛得角':67,'海地':66,'剛果民主共和國':66,'庫拉索':64};
+const HOST_TEAMS=new Set(['美國','加拿大','墨西哥']);
+const TEAM_REGION={'墨西哥':'CONCACAF','加拿大':'CONCACAF','美國':'CONCACAF','海地':'CONCACAF','巴拿馬':'CONCACAF','庫拉索':'CONCACAF','巴西':'CONMEBOL','阿根廷':'CONMEBOL','烏拉圭':'CONMEBOL','哥倫比亞':'CONMEBOL','厄瓜多':'CONMEBOL','巴拉圭':'CONMEBOL','德國':'UEFA','荷蘭':'UEFA','西班牙':'UEFA','法國':'UEFA','英格蘭':'UEFA','葡萄牙':'UEFA','比利時':'UEFA','克羅埃西亞':'UEFA','瑞士':'UEFA','奧地利':'UEFA','瑞典':'UEFA','蘇格蘭':'UEFA','捷克':'UEFA','挪威':'UEFA','土耳其':'UEFA','波士尼亞與赫塞哥維納':'UEFA','摩洛哥':'CAF','塞內加爾':'CAF','迦納':'CAF','突尼西亞':'CAF','埃及':'CAF','阿爾及利亞':'CAF','南非':'CAF','象牙海岸':'CAF','佛得角':'CAF','剛果民主共和國':'CAF','日本':'AFC','大韓民國':'AFC','伊朗':'AFC','卡達':'AFC','澳洲':'AFC','沙烏地阿拉伯':'AFC','伊拉克':'AFC','約旦':'AFC','烏茲別克':'AFC','紐西蘭':'OFC'};
+const REVERSE_MODEL_DEFAULTS={homeHostBonus:.08,regionalFamiliarity:.025,longTravelPenalty:-.035,lineupGoalScale:.14,drawBoost:.18,lowScoreBoost:.12,favoriteControl:.08};
 const TEAM_FLAG_CODES={'墨西哥':'mx','南非':'za','大韓民國':'kr','捷克':'cz','加拿大':'ca','波士尼亞與赫塞哥維納':'ba','卡達':'qa','瑞士':'ch','巴西':'br','摩洛哥':'ma','海地':'ht','蘇格蘭':'gb-sct','美國':'us','巴拉圭':'py','澳洲':'au','土耳其':'tr','德國':'de','庫拉索':'cw','象牙海岸':'ci','厄瓜多':'ec','荷蘭':'nl','日本':'jp','瑞典':'se','突尼西亞':'tn','比利時':'be','埃及':'eg','伊朗':'ir','紐西蘭':'nz','西班牙':'es','佛得角':'cv','沙烏地阿拉伯':'sa','烏拉圭':'uy','法國':'fr','塞內加爾':'sn','伊拉克':'iq','挪威':'no','阿根廷':'ar','阿爾及利亞':'dz','奧地利':'at','約旦':'jo','葡萄牙':'pt','剛果民主共和國':'cd','烏茲別克':'uz','哥倫比亞':'co','英格蘭':'gb-eng','克羅埃西亞':'hr','迦納':'gh','巴拿馬':'pa'};
 const SEED=[
 ['2026-06-11','A','墨西哥','南非'],['2026-06-12','A','大韓民國','捷克'],['2026-06-12','B','加拿大','波士尼亞與赫塞哥維納'],['2026-06-13','B','卡達','瑞士'],['2026-06-13','C','巴西','摩洛哥'],['2026-06-14','C','海地','蘇格蘭'],['2026-06-13','D','美國','巴拉圭'],['2026-06-14','D','澳洲','土耳其'],['2026-06-14','E','德國','庫拉索'],['2026-06-14','E','象牙海岸','厄瓜多'],['2026-06-14','F','荷蘭','日本'],['2026-06-15','F','瑞典','突尼西亞'],['2026-06-15','H','西班牙','佛得角'],['2026-06-15','G','比利時','埃及'],['2026-06-15','H','沙烏地阿拉伯','烏拉圭'],['2026-06-16','G','伊朗','紐西蘭'],['2026-06-16','I','法國','塞內加爾'],['2026-06-16','I','伊拉克','挪威'],['2026-06-17','J','阿根廷','阿爾及利亞'],['2026-06-17','J','奧地利','約旦'],['2026-06-17','K','葡萄牙','剛果民主共和國'],['2026-06-17','L','英格蘭','克羅埃西亞'],['2026-06-17','L','迦納','巴拿馬'],['2026-06-18','K','烏茲別克','哥倫比亞'],['2026-06-18','A','捷克','南非'],['2026-06-18','B','瑞士','波士尼亞與赫塞哥維納'],['2026-06-18','B','加拿大','卡達'],['2026-06-19','A','墨西哥','大韓民國'],['2026-06-19','D','美國','澳洲'],['2026-06-19','C','蘇格蘭','摩洛哥'],['2026-06-20','C','巴西','海地'],['2026-06-20','D','土耳其','巴拉圭'],['2026-06-20','F','荷蘭','瑞典'],['2026-06-20','E','德國','象牙海岸'],['2026-06-21','E','厄瓜多','庫拉索'],['2026-06-21','F','突尼西亞','日本'],['2026-06-21','H','西班牙','沙烏地阿拉伯'],['2026-06-21','G','比利時','伊朗'],['2026-06-21','H','烏拉圭','佛得角'],['2026-06-22','G','紐西蘭','埃及'],['2026-06-22','J','阿根廷','奧地利'],['2026-06-22','I','法國','伊拉克'],['2026-06-23','I','挪威','塞內加爾'],['2026-06-23','J','約旦','阿爾及利亞'],['2026-06-23','K','葡萄牙','烏茲別克'],['2026-06-23','L','英格蘭','迦納'],['2026-06-23','L','巴拿馬','克羅埃西亞'],['2026-06-24','K','哥倫比亞','剛果民主共和國'],['2026-06-24','B','瑞士','加拿大'],['2026-06-24','B','波士尼亞與赫塞哥維納','卡達'],['2026-06-24','C','摩洛哥','海地'],['2026-06-24','C','蘇格蘭','巴西'],['2026-06-25','A','捷克','墨西哥'],['2026-06-25','A','南非','大韓民國'],['2026-06-25','E','厄瓜多','德國'],['2026-06-25','E','庫拉索','象牙海岸'],['2026-06-25','F','突尼西亞','荷蘭'],['2026-06-25','F','日本','瑞典'],['2026-06-26','D','土耳其','美國'],['2026-06-26','D','巴拉圭','澳洲'],['2026-06-26','I','挪威','法國'],['2026-06-26','I','塞內加爾','伊拉克'],['2026-06-27','H','烏拉圭','西班牙'],['2026-06-27','H','佛得角','沙烏地阿拉伯'],['2026-06-27','G','紐西蘭','比利時'],['2026-06-27','G','埃及','伊朗'],['2026-06-27','L','巴拿馬','英格蘭'],['2026-06-27','L','克羅埃西亞','迦納'],['2026-06-27','K','哥倫比亞','葡萄牙'],['2026-06-27','K','剛果民主共和國','烏茲別克'],['2026-06-28','J','約旦','阿根廷'],['2026-06-28','J','阿爾及利亞','奧地利']
@@ -116,7 +121,7 @@ const THIRD_RULE={M74:['A','B','C','D','F'],M77:['C','D','F','G','H'],M79:['C','
 const R16_TEMPLATE=[['M89','M73','M75'],['M90','M74','M77'],['M91','M76','M78'],['M92','M79','M80'],['M93','M83','M84'],['M94','M81','M82'],['M95','M86','M88'],['M96','M85','M87']];
 const QF_TEMPLATE=[['M97','M89','M90'],['M98','M93','M94'],['M99','M91','M92'],['M100','M95','M96']];
 const TREE_FINAL_TEMPLATE=[['M101','M97','M98'],['M102','M99','M100'],['FINAL','M101','M102']];
-let MATCHES=SEED.map(x=>({...x})),KNOCKOUT_MATCHES=[],TEAM_META={},TEAM_INSIGHTS={teams:{},matchups:{}},STATE=null,SCENARIOS=[],GROUP_PICKS={},REVERSE_COMBOS=[],STANDING_FILTER='';
+let MATCHES=SEED.map(x=>({...x})),KNOCKOUT_MATCHES=[],TEAM_META={},TEAM_INSIGHTS={teams:{},matchups:{}},STATE=null,SCENARIOS=[],GROUP_PICKS={},REVERSE_COMBOS=[],REVERSE_RESULTS=null,REVERSE_GROUP=null,STANDING_FILTER='';
 
 function tab(id,b){document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));document.getElementById(id).classList.add('on');b.classList.add('on');recalculate()}
 function round(id,b){document.querySelectorAll('.round').forEach(x=>x.style.display='none');document.querySelectorAll('.subtab').forEach(x=>x.classList.remove('on'));document.getElementById(id).style.display='block';b.classList.add('on')}
@@ -238,6 +243,18 @@ async function refreshLiveScores(){
     drawScores();
     recalculate();
   }catch(_){}
+}
+async function refreshPublishedScores(){
+  try{
+    const res=await fetch(`data/matches.json?t=${Date.now()}`,{cache:'no-store'});
+    if(!res.ok)return false;
+    mergeScores(await res.json());
+    drawScores();
+    recalculate();
+    return true;
+  }catch(_){
+    return false;
+  }
 }
 async function loadTeamInsights(){
   try{
@@ -497,14 +514,21 @@ function isScenarioMatchSelectable(match,index=-1,team=null){
   return match.g===teamGroup(team);
 }
 function scenarioTeamOptions(index=-1){
-  const current=currentScenarioMatch(index),currentGroup=current?.g||null;
-  return allTeams().filter(t=>teamGroup(t)===currentGroup||groupMatchesForTeam(t).some(m=>isScenarioMatchSelectable(m,index,t)));
+  return allTeams();
 }
 function remainingTeamMatches(team,index=-1){
   return groupMatchesForTeam(team).filter(m=>isScenarioMatchSelectable(m,index,team));
 }
 function firstMatchForTeam(team,index=-1){
   return remainingTeamMatches(team,index)[0]||null;
+}
+function clearReverseState(){
+  REVERSE_COMBOS=[];REVERSE_RESULTS=null;REVERSE_GROUP=null;
+}
+function resetScenarioForTeam(team){
+  SCENARIOS=[];GROUP_PICKS={};clearReverseState();
+  const match=firstMatchForTeam(team,-1);
+  if(match)SCENARIOS.push(syncScenarioToMatch({team,hg:0,ag:0},match,true));
 }
 function normalizeScenarios(){
   const source=[...SCENARIOS];
@@ -548,30 +572,30 @@ function addScenario(team=primaryScenarioTeam(),rerender=true){
 }
 function removeScenario(index){
   if(SCENARIOS.length<=1)return;
-  SCENARIOS.splice(index,1);renderScoreControl();runScenarioImpact();
+  SCENARIOS.splice(index,1);clearReverseState();renderScoreControl();runScenarioImpact();
 }
 function selectScenarioTeam(index,value){
   const options=scenarioTeamOptions(index),team=options.includes(value)?value:options.find(t=>t.includes(value))||SCENARIOS[index]?.team||options[0];
-  SCENARIOS[index]=syncScenarioToMatch({team},firstMatchForTeam(team,index));
+  resetScenarioForTeam(team);
   renderScoreControl();runScenarioImpact();
 }
 function selectScenarioMatch(index,value){
   const m=MATCHES.find(x=>x.id===+value);if(!m)return;
   if(!isScenarioMatchSelectable(m,index,SCENARIOS[index]?.team))return renderScoreControl();
-  SCENARIOS[index]=syncScenarioToMatch({...SCENARIOS[index]},m,true);
+  clearReverseState();SCENARIOS[index]=syncScenarioToMatch({...SCENARIOS[index]},m,true);
   renderScoreControl();runScenarioImpact();
 }
 function adjustScenario(index,side,delta){
   const s=SCENARIOS[index];if(!s)return;
-  s[side]=Math.max(0,(s[side]??0)+delta);renderScoreControl();runScenarioImpact();
+  clearReverseState();s[side]=Math.max(0,(s[side]??0)+delta);renderScoreControl();runScenarioImpact();
 }
 function renderScenarioCard(s,index){
-  const m=currentScenarioMatch(index),matches=groupMatchesForTeam(s.team).filter(x=>x.id===m?.id||isScenarioMatchSelectable(x,index,s.team)),teams=scenarioTeamOptions(index),listId=`teamOptions${index}`;
+  const m=currentScenarioMatch(index),matches=groupMatchesForTeam(s.team).filter(x=>x.id===m?.id||isScenarioMatchSelectable(x,index,s.team)),teams=scenarioTeamOptions(index);
   if(!m)return `<div class=routeCard><div class=muted>找不到可推演賽事</div></div>`;
-  const datalist=`<datalist id="${listId}">${teams.map(t=>`<option value="${escapeHtml(t)}"></option>`).join('')}</datalist>`;
+  const teamOptions=teams.map(t=>`<option value="${escapeHtml(t)}" ${t===s.team?'selected':''}>${escapeHtml(t)}</option>`).join('');
   const options=matches.map(x=>`<option value="${x.id}" ${x.id===m.id?'selected':''}>${matchDateLabel(x)} ${matchTimeLabel(x)}｜${x.g}組｜${x.h} vs ${x.a}</option>`).join('');
   const remove=SCENARIOS.length>1?`<button onclick="removeScenario(${index})">移除</button>`:'';
-  return `<div class=routeCard>${datalist}<div class="toolbar"><label>隊伍 <input list="${listId}" value="${escapeHtml(s.team)}" onchange="selectScenarioTeam(${index},this.value)" placeholder="搜尋隊伍"></label><label>比賽 <select onchange="selectScenarioMatch(${index},this.value)">${options}</select></label>${remove}</div><h3>${matchDateLabel(m)} ${matchTimeLabel(m)}｜${m.g}組</h3><div class=stepper><div><div class="team scenarioTeam">${teamDisplay(m.h)}</div><div class=scoreBox><button onclick="adjustScenario(${index},'hg',-1)">−</button><div class=scoreNum>${s.hg}</div><button onclick="adjustScenario(${index},'hg',1)">＋</button></div></div><div class=vs>VS</div><div><div class="team scenarioTeam">${teamDisplay(m.a)}</div><div class=scoreBox><button onclick="adjustScenario(${index},'ag',-1)">−</button><div class=scoreNum>${s.ag}</div><button onclick="adjustScenario(${index},'ag',1)">＋</button></div></div></div></div>`;
+  return `<div class=routeCard><div class="toolbar"><label>隊伍 <select onchange="selectScenarioTeam(${index},this.value)">${teamOptions}</select></label><label>比賽 <select onchange="selectScenarioMatch(${index},this.value)">${options}</select></label>${remove}</div><h3>${matchDateLabel(m)} ${matchTimeLabel(m)}｜${m.g}組</h3><div class=stepper><div><div class="team scenarioTeam">${teamDisplay(m.h)}</div><div class=scoreBox><button onclick="adjustScenario(${index},'hg',-1)">−</button><div class=scoreNum>${s.hg}</div><button onclick="adjustScenario(${index},'hg',1)">＋</button></div></div><div class=vs>VS</div><div><div class="team scenarioTeam">${teamDisplay(m.a)}</div><div class=scoreBox><button onclick="adjustScenario(${index},'ag',-1)">−</button><div class=scoreNum>${s.ag}</div><button onclick="adjustScenario(${index},'ag',1)">＋</button></div></div></div></div>`;
 }
 function renderScoreControl(){
   normalizeScenarios();
@@ -845,41 +869,122 @@ function poisson(k,lambda){
   for(let i=1;i<=k;i++)p*=lambda/i;
   return p;
 }
+function weightedMean(items,fallback=1.15){
+  let total=0,weight=0;
+  items.forEach(([value,w])=>{
+    if(value!==null&&value!==undefined&&Number.isFinite(+value)){
+      total+=+value*w;weight+=w;
+    }
+  });
+  return weight?total/weight:fallback;
+}
+function sourceQuality(insight){
+  const sources=new Set(insight.sources||[]);
+  let quality=.6;
+  if(sources.has('statsbomb-worldcup')||sources.has('statsbomb-worldcup-xg'))quality+=.18;
+  if(sources.has('martj42-international-results'))quality+=.12;
+  if(sources.has('api-football'))quality+=.08;
+  if(insight.matches>=50)quality+=.08;
+  return clamp(quality,.55,1);
+}
+function mixedTeamRating(team,insight={}){
+  const base=RATING[team]||70,spi=insight.estimated_spi!=null?55+(+insight.estimated_spi*.5):null,power=insight.power_rating;
+  return weightedMean([[power,.48],[spi,.27],[base,.25]],base);
+}
+function lineupAdjustment(insight={}){
+  const raw=(+insight.lineup_adjustment||0)+(+insight.injury_adjustment||0)+(+insight.suspension_adjustment||0);
+  return clamp(raw,-.35,.35);
+}
+function travelContextFactor(team){
+  if(HOST_TEAMS.has(team))return 1+REVERSE_MODEL_DEFAULTS.homeHostBonus;
+  const region=TEAM_REGION[team]||'';
+  if(region==='CONCACAF'||region==='CONMEBOL')return 1+REVERSE_MODEL_DEFAULTS.regionalFamiliarity;
+  if(region==='AFC'||region==='OFC')return 1+REVERSE_MODEL_DEFAULTS.longTravelPenalty;
+  return 1;
+}
+function competitionWeight(insight={}){
+  const sources=new Set(insight.sources||[]);
+  let weight=1;
+  if(sources.has('statsbomb-worldcup')||sources.has('statsbomb-worldcup-xg'))weight+=.12;
+  if(sources.has('matches.json'))weight+=.05;
+  return clamp(weight,.9,1.16);
+}
+function teamGroupState(team,match){
+  const rows=STATE?.standings?.[match.g]||ANNEX_C_ENGINE.calculate(MATCHES)[match.g]||[],row=rows.find(x=>x.team===team)||{};
+  const left=MATCHES.filter(m=>m.g===match.g&&!hasStarted(m)&&(m.h===team||m.a===team)).length;
+  return{row,left};
+}
+function motivationProfile(team,opponent,match){
+  const {row,left}=teamGroupState(team,match),pts=row.Pts||0,gd=row.GD||0,rank=row.rank||4;
+  let attack=1,tempo=1,draw=.0;
+  if(left<=1){
+    if(rank>=3&&pts<=3){attack+=.12;tempo+=.1;draw-=.08}
+    if(rank===2&&pts>=4){attack-=.04;tempo-=.05;draw+=.07}
+    if(rank===1&&pts>=4&&gd>=2){attack-=.08;tempo-=.08;draw+=.1}
+  }else if(pts<=1){
+    attack+=.05;tempo+=.04;
+  }
+  const opp=teamGroupState(opponent,match).row;
+  if((opp.Pts||0)>pts+2){attack+=.03;tempo+=.03}
+  return{attack:clamp(attack,.82,1.18),tempo:clamp(tempo,.85,1.18),draw:clamp(draw,-.12,.14)};
+}
+function adjustedRate(raw,teamRating,opponentRating){
+  const opponentFactor=clamp(1+(70-opponentRating)/70,.82,1.18);
+  const selfFactor=clamp(1+(teamRating-70)/120,.88,1.18);
+  return raw*opponentFactor*selfFactor;
+}
 function teamFormProfile(team,group){
   const rows=STATE?.standings?.[group]||ANNEX_C_ENGINE.calculate(MATCHES)[group]||[],row=rows.find(x=>x.team===team);
-  const insight=TEAM_INSIGHTS.teams?.[team]||{},played=Math.max(1,row?.P||0),rating=insight.power_rating??((RATING[team]||70)+clamp((insight.matches||0)/80,0,4));
-  const attack=row?.P?row.GF/played:(insight.xg_for??insight.projected_goals_for??insight.recent_goals_for_per_match??insight.goals_for_per_match??1.15);
-  const concede=row?.P?row.GA/played:(insight.xg_against??insight.projected_goals_against??insight.recent_goals_against_per_match??insight.goals_against_per_match??1.15);
+  const insight=TEAM_INSIGHTS.teams?.[team]||{},played=Math.max(1,row?.P||0),rating=mixedTeamRating(team,insight),quality=sourceQuality(insight);
+  const historicalAttack=weightedMean([[insight.xg_for,.36],[insight.projected_goals_for,.28],[insight.recent_goals_for_per_match,.24],[insight.goals_for_per_match,.12]],1.15);
+  const historicalConcede=weightedMean([[insight.xg_against,.36],[insight.projected_goals_against,.28],[insight.recent_goals_against_per_match,.24],[insight.goals_against_per_match,.12]],1.15);
+  const attack=row?.P?weightedMean([[row.GF/played,.34],[historicalAttack,.66]],historicalAttack):historicalAttack;
+  const concede=row?.P?weightedMean([[row.GA/played,.34],[historicalConcede,.66]],historicalConcede):historicalConcede;
+  const lineup=1+lineupAdjustment(insight)*REVERSE_MODEL_DEFAULTS.lineupGoalScale,context=travelContextFactor(team),competition=competitionWeight(insight);
   return{
-    team,rating,played,
-    attack:clamp(attack*.55+(rating-70)/28+.85,0.45,2.8),
-    defense:clamp(concede*.55-(rating-70)/48+.95,0.35,2.4),
-    tempo:clamp(insight.tempo??((attack+concede)/2),0.65,2.4),
+    team,rating,played,quality,lineup,context,competition,
+    attack:clamp((attack*.55+(rating-70)/28+.85)*lineup*context*competition,0.35,3),
+    defense:clamp((concede*.55-(rating-70)/48+.95)/clamp(lineup,.9,1.1),0.3,2.55),
+    tempo:clamp((insight.tempo??((attack+concede)/2))*competition,0.65,2.4),
     sources:insight.sources||[]
   };
 }
 function matchGoalModel(match){
   const home=teamFormProfile(match.h,match.g),away=teamFormProfile(match.a,match.g),diff=(home.rating-away.rating)/18;
   const matchup=TEAM_INSIGHTS.matchups?.[[match.h,match.a].sort().join('|')]||{},h2hTotal=matchup.average_total_goals,homeInsight=TEAM_INSIGHTS.teams?.[match.h]||{},awayInsight=TEAM_INSIGHTS.teams?.[match.a]||{};
+  const homeMotivation=motivationProfile(match.h,match.a,match),awayMotivation=motivationProfile(match.a,match.h,match);
   let hg=clamp(1.1+diff*.42+(home.attack-1.1)*.42+(away.defense-1.1)*.34+(home.tempo-1.1)*.12,0.25,3.6);
   let ag=clamp(1.02-diff*.42+(away.attack-1.1)*.42+(home.defense-1.1)*.34+(away.tempo-1.1)*.12,0.25,3.6);
   if(homeInsight.projected_goals_for&&awayInsight.projected_goals_against)hg=clamp(hg*.55+((homeInsight.projected_goals_for+awayInsight.projected_goals_against)/2)*.45,0.25,3.6);
   if(awayInsight.projected_goals_for&&homeInsight.projected_goals_against)ag=clamp(ag*.55+((awayInsight.projected_goals_for+homeInsight.projected_goals_against)/2)*.45,0.25,3.6);
   if(homeInsight.xg_for&&awayInsight.xg_against)hg=clamp(hg*.65+((homeInsight.xg_for+awayInsight.xg_against)/2)*.35,0.25,3.6);
   if(awayInsight.xg_for&&homeInsight.xg_against)ag=clamp(ag*.65+((awayInsight.xg_for+homeInsight.xg_against)/2)*.35,0.25,3.6);
+  hg=clamp(adjustedRate(hg,home.rating,away.rating)*homeMotivation.attack,0.2,3.8);
+  ag=clamp(adjustedRate(ag,away.rating,home.rating)*awayMotivation.attack,0.2,3.8);
   if(h2hTotal){
     const scale=clamp(h2hTotal/(hg+ag),.75,1.25);
     hg=clamp(hg*scale,0.25,3.6);ag=clamp(ag*scale,0.25,3.6);
   }
-  const style=(home.tempo+away.tempo)/2>1.35?'開放對攻':(home.rating-away.rating>10?'強隊壓制':(away.rating-home.rating>10?'客隊反擊':'均勢拉鋸'));
-  return{hg,ag,style,home,away,matchup};
+  const tempo=clamp(((home.tempo*homeMotivation.tempo)+(away.tempo*awayMotivation.tempo))/2,.65,2.4);
+  const drawBias=clamp(homeMotivation.draw+awayMotivation.draw,-.18,.22);
+  const style=tempo>1.35?'開放對攻':(home.rating-away.rating>10?'強隊壓制':(away.rating-home.rating>10?'客隊反擊':'均勢拉鋸'));
+  return{hg,ag,style,home,away,matchup,tempo,drawBias,ratingDiff:home.rating-away.rating,confidence:(home.quality+away.quality)/2};
+}
+function scorePairProbability(hg,ag,model){
+  let prob=poisson(hg,model.hg)*poisson(ag,model.ag);
+  const total=hg+ag,absDiff=Math.abs(hg-ag),favoriteWon=model.ratingDiff>4?hg>ag:model.ratingDiff<-4?ag>hg:false;
+  if(hg===ag)prob*=1+REVERSE_MODEL_DEFAULTS.drawBoost+model.drawBias;
+  if(total<=2)prob*=1+REVERSE_MODEL_DEFAULTS.lowScoreBoost*clamp(1.35-model.tempo,0,1);
+  if(favoriteWon&&absDiff<=2)prob*=1+REVERSE_MODEL_DEFAULTS.favoriteControl;
+  if(total>=5&&model.tempo<1.15)prob*=.78;
+  return Math.max(prob,0.000001);
 }
 function scorePairsForReverse(match){
   const model=matchGoalModel(match);
   const pairs=[];
   for(let hg=0;hg<=5;hg++)for(let ag=0;ag<=5;ag++){
-    const prob=poisson(hg,model.hg)*poisson(ag,model.ag),goalPenalty=Math.abs(hg-model.hg)+Math.abs(ag-model.ag);
-    pairs.push({hg,ag,prob,cost:-Math.log(Math.max(prob,0.000001))+goalPenalty*.08,model});
+    const prob=scorePairProbability(hg,ag,model),goalPenalty=Math.abs(hg-model.hg)+Math.abs(ag-model.ag),confidencePenalty=(1-model.confidence)*.08;
+    pairs.push({hg,ag,prob,cost:-Math.log(prob)+goalPenalty*.08+confidencePenalty,model});
   }
   return pairs.sort((a,b)=>b.prob-a.prob||a.cost-b.cost);
 }
@@ -931,7 +1036,7 @@ function reverseGroupScoreCombos(group,targetRows){
   solutions.sort((a,b)=>a.modelCost-b.modelCost||b.prob-a.prob);
   return{group,targetLabel,matches,solutions,complete:beam.length<beamLimit};
 }
-function combinedReverseCombos(results){
+function combinedReverseCombos(results,applyGroup=null){
   if(results.some(result=>!result.solutions.length))return [];
   let combos=[{parts:[],edits:[],prob:1,modelCost:0}];
   results.forEach(result=>{
@@ -947,18 +1052,48 @@ function combinedReverseCombos(results){
       });
     });
     next.sort((a,b)=>a.modelCost-b.modelCost||b.prob-a.prob);
-    combos=next.slice(0,8);
+    combos=uniqueReverseCombos(next,applyGroup).slice(0,8);
   });
-  return combos;
+  return uniqueReverseCombos(combos,applyGroup).slice(0,8);
+}
+function reverseComboKey(combo,applyGroup=null){
+  const parts=applyGroup?combo.parts.filter(part=>part.group===applyGroup):combo.parts;
+  return parts.map(part=>{
+    const groupEdits=part.solution.edits.filter(edit=>!applyGroup||MATCHES.find(match=>match.id===edit.id)?.g===applyGroup);
+    const edits=groupEdits.length
+      ? groupEdits.map(edit=>{
+          const match=MATCHES.find(x=>x.id===edit.id);
+          return match?`${match.g}:${match.h}-${match.a}:${edit.hg}-${edit.ag}`:`${edit.hg}-${edit.ag}`;
+        }).sort().join(',')
+      : 'current';
+    return `${part.group}:${edits}`;
+  }).sort().join('|');
+}
+function uniqueReverseCombos(combos,applyGroup=null){
+  const seen=new Set(),unique=[];
+  combos.forEach(combo=>{
+    const key=reverseComboKey(combo,applyGroup);
+    if(seen.has(key))return;
+    seen.add(key);unique.push(combo);
+  });
+  return unique;
 }
 function reverseSolutionLine(solution){
   if(!solution.edits.length)return '<div class=chip>目前比分已符合</div>';
   return solution.edits.map(edit=>{
     const m=MATCHES.find(x=>x.id===edit.id);
-    const chance=Math.max(1,Math.round((edit.prob||0)*100));
     const source=TEAM_INSIGHTS.source?`｜資料 ${escapeHtml(TEAM_INSIGHTS.source)}`:'';
-    return `<span class=chip title="預期 ${edit.expHg?.toFixed(1)}:${edit.expAg?.toFixed(1)}｜${escapeHtml(edit.style||'')}${source}">${matchDateLabel(m)} ${teamDisplay(m.h)} ${edit.hg}:${edit.ag} ${teamDisplay(m.a)}｜${chance}% ${escapeHtml(edit.style||'')}</span>`;
+    return `<span class="chip reverseScoreChip" title="預期 ${edit.expHg?.toFixed(1)}:${edit.expAg?.toFixed(1)}${source}">${matchDateLabel(m)} ${teamDisplay(m.h)} <b class=reverseScoreText>${edit.hg}:${edit.ag}</b> ${teamDisplay(m.a)}</span>`;
   }).join('');
+}
+function visibleReverseCombos(combos,applyGroup=null){
+  const seen=new Set(),visible=[];
+  combos.forEach(combo=>{
+    const key=reverseComboKey(combo,applyGroup);
+    if(seen.has(key))return;
+    seen.add(key);visible.push(combo);
+  });
+  return visible;
 }
 function applyReverseCombo(index){
   const combo=REVERSE_COMBOS[index];if(!combo)return;
@@ -976,33 +1111,43 @@ function applyReverseCombo(index){
       SCENARIOS.push(syncScenarioToMatch({team:match.h,hg:edit.hg,ag:edit.ag},match));
     }
   });
-  renderScoreControl();runScenarioImpact();
+  renderScoreControl();runScenarioImpact();restoreReverseResults();
 }
-function reverseResultSummary(result){
-  const source=TEAM_INSIGHTS.source?`｜資料：${escapeHtml(TEAM_INSIGHTS.source)}`:'';
-  const scope=result.matches.length?`依強度、歷史/近期進失球、攻守節奏模擬 ${result.matches.length} 場，優先搜尋各場前 24 個合理比分${source}`:'沒有未賽可調整';
-  return `<div class=muted>${result.group}組目標：${escapeHtml(result.targetLabel)}｜${scope}</div>`;
+function reverseComboCard(combo,index,applyGroup=null){
+  const parts=applyGroup?combo.parts.filter(part=>part.group===applyGroup):combo.parts;
+  const lines=parts.map(part=>`<div class=mini><b>${part.group}組</b> ${reverseSolutionLine(part.solution)}</div>`).join('');
+  return `<button class=routeCard onclick="applyReverseCombo(${index})"><b>組合 ${index+1}</b><div>${lines}</div></button>`;
 }
-function reverseComboCard(combo,index){
-  const lines=combo.parts.map(part=>`<div class=mini><b>${part.group}組</b> ${reverseSolutionLine(part.solution)}</div>`).join('');
-  return `<button class=routeCard onclick="applyReverseCombo(${index})"><b>組合 ${index+1}</b><span class="chip good">合理性 ${Math.max(1,Math.round((combo.prob||0)*1000)/10)}%</span><div>${lines}</div></button>`;
-}
-function reverseResultsCard(results,combos){
-  const summaries=results.map(reverseResultSummary).join('');
+function reverseResultsCard(results,combos,applyGroup=null){
   const failed=results.filter(x=>!x.solutions.length).map(x=>`${x.group}組`).join('、');
-  const body=combos.length
-    ? combos.map(reverseComboCard).join('')
+  const visible=visibleReverseCombos(combos,applyGroup);
+  const body=visible.length
+    ? visible.map((combo,index)=>reverseComboCard(combo,index,applyGroup)).join('')
     : `<div class="routeCard bad">${failed||'合理比分池內'}沒有找到可行組合；可能需要極端比分，或其他未列入沙盤的小組結果也一起改變。</div>`;
-  return `<div class=card><h3>反推比分組合</h3>${summaries}<div class=muted>點選任一組合只會帶入目前選擇隊伍小組的比分。</div>${body}</div>`;
+  return `<div class=card><h3>反推比分組合</h3>${body}</div>`;
 }
-function reverseScenarioScores(){
+function restoreReverseResults(){
+  const box=document.getElementById('reverseScoreResults');
+  if(!box||!REVERSE_RESULTS)return;
+  box.innerHTML=reverseResultsCard(REVERSE_RESULTS,REVERSE_COMBOS,REVERSE_GROUP);
+}
+function reverseScenarioScores(btn=null){
   const pack=simulateScenarioState();if(!pack)return;
   const group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],box=document.getElementById('reverseScoreResults');
   if(!box)return;
+  if(btn){btn.dataset.label=btn.textContent;btn.textContent='反推中...';btn.disabled=true;btn.classList.add('loading')}
   box.innerHTML='<div class=routeCard>反推中...</div>';
-  const results=groups.map(g=>reverseGroupScoreCombos(g,targetRowsForReverse(pack,g)));
-  REVERSE_COMBOS=combinedReverseCombos(results);
-  box.innerHTML=reverseResultsCard(results,REVERSE_COMBOS);
+  requestAnimationFrame(()=>{
+    try{
+      const results=groups.map(g=>reverseGroupScoreCombos(g,targetRowsForReverse(pack,g)));
+      REVERSE_COMBOS=combinedReverseCombos(results,group);
+      REVERSE_COMBOS=visibleReverseCombos(REVERSE_COMBOS,group);
+      REVERSE_RESULTS=results;REVERSE_GROUP=group;
+      box.innerHTML=reverseResultsCard(results,REVERSE_COMBOS,group);
+    }finally{
+      if(btn){btn.classList.remove('loading');btn.disabled=false;btn.textContent=btn.dataset.label||'反推比分組合';delete btn.dataset.label}
+    }
+  });
 }
 function groupDuelAnalysis(pack){
   const group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],focus=new Set([primaryScenarioTeam(),...pack.scenarios.flatMap(m=>[m.h,m.a])]);
@@ -1014,7 +1159,7 @@ function groupDuelAnalysis(pack){
   ];
   const lines=pairingLinesForGroups(view,groups,pack.match);
   const bridge=`<div class=duelPanel>${(lines.length?lines:[`<div class=duelLine><span class=duelMatchId>${group}組</span><div class=muted>目前沒有固定配對小組</div></div>`]).join('')}</div>`;
-  const reverse=`<div class=card><div class=toolbar><button onclick="reverseScenarioScores()">反推比分組合</button><span class=muted>依左右兩側選取順序，搭配隊伍強度、已賽戰績、攻守節奏模擬可達成該順位的合理比分。</span></div><div id=reverseScoreResults></div></div>`;
+  const reverse=`<div class=card><div class=toolbar><button class=reverseBtn onclick="reverseScenarioScores(this)">反推比分組合</button><span class=muted>依左右兩側選取順序，搭配隊伍強度、已賽戰績、攻守節奏模擬可達成該順位的合理比分。</span></div><div id=reverseScoreResults></div></div>`;
   return `<div class=groupDuel>${panels[0]}${bridge}${panels[1]||''}</div>${reverse}`;
 }
 function runScenarioImpact(){
@@ -1041,6 +1186,11 @@ const AUTO_REFRESH={
   api:'data/version.json',
   current:null,
   timer:null,
+  interval(){
+    const nextDelay=LIVE_SCORE_FEED.nextKickoffDelay();
+    const nearKickoff=nextDelay!=null&&nextDelay<=3*60*60*1000;
+    return (MATCHES.some(isLive)||nearKickoff)?30000:60000;
+  },
   async latestVersion(){
     const res=await fetch(`${this.api}?t=${Date.now()}`,{cache:'no-store'});
     if(!res.ok)throw new Error('version check failed');
@@ -1052,12 +1202,23 @@ const AUTO_REFRESH={
       const version=await this.latestVersion();
       if(!version)return;
       if(!this.current){this.current=version;return}
-      if(version!==this.current)location.reload();
+      if(version!==this.current){
+        this.current=version;
+        const refreshed=await refreshPublishedScores();
+        if(!refreshed)location.reload();
+      }
     }catch(_){}
   },
+  schedule(){
+    clearTimeout(this.timer);
+    this.timer=setTimeout(()=>this.tick(),this.interval());
+  },
+  async tick(){
+    await this.check();
+    this.schedule();
+  },
   start(){
-    this.check();
-    this.timer=setInterval(()=>this.check(),60000);
+    this.tick();
   }
 };
 const DEFAULT_OLLAMA_MODEL='qwen2.5:3b-instruct';
