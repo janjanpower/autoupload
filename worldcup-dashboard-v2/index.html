@@ -6,7 +6,7 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>2026 世界盃戰術沙盤 v2</title>
+  <title>2026 世界盃戰術沙盤</title>
   <style>
     body{margin:0;background:#050914;color:#fff;font-family:system-ui,'Noto Sans TC',Arial,sans-serif}
     header{text-align:center;padding:14px}.app{max-width:1500px;margin:auto;padding:0 12px 24px}
@@ -37,8 +37,7 @@
 </head>
 <body>
 <header>
-  <h1>2026 世界盃戰術沙盤 v2</h1>
-  <div class="muted">小組排名 → 第三名暫列 → 賽程表 → 情境沙盤</div>
+  <h1>2026 世界盃戰術沙盤</h1>
 </header>
 <div class="app">
   <div class="tabs">
@@ -123,7 +122,7 @@ function isPlayed(m){return m.hg!==null&&m.ag!==null}
 function isLive(m){return ['IN_PLAY','PAUSED','LIVE'].includes(m.status)}
 function hasStarted(m){return m.done||isLive(m)||isPlayed(m)}
 function statusClass(m){return m.done?'done':isLive(m)?'live':'todo'}
-function statusText(m){return m.done?'已完賽':isLive(m)?'進行中':'未開賽'}
+function statusText(m){return m.done?'已完賽':isLive(m)?'LIVE':'未開賽'}
 function saveInputs(){MATCHES.forEach(m=>{let h=document.getElementById('h'+m.id),a=document.getElementById('a'+m.id);if(h&&!m.done){m.hg=h.value===''?null:+h.value;m.ag=a.value===''?null:+a.value}})}
 
 function mergeScores(payload){
