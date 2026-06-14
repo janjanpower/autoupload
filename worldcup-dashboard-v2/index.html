@@ -630,14 +630,16 @@ function pairedGroupsForGroup(group){
   return [...out];
 }
 function rankedGroupRows(st,group){return (st[group]||[]).map((x,i)=>({...x,rank:i+1,seed:i<3?`${group}${i+1}`:'淘汰'}))}
-function predictedGroupRows(st,group){
-  const rows=rankedGroupRows(st,group),picks=(GROUP_PICKS[group]||[]).filter(t=>rows.some(x=>x.team===t));
+function activeGroupPicks(group,rows){return (GROUP_PICKS[group]||[]).filter(t=>rows.some(x=>x.team===t))}
+function groupRowsForMatchup(st,group){
+  const rows=rankedGroupRows(st,group),picks=activeGroupPicks(group,rows);
+  if(!picks.length)return rows;
   const ordered=[...picks.map(t=>rows.find(x=>x.team===t)),...rows.filter(x=>!picks.includes(x.team))];
   return ordered.map((x,i)=>({...x,rank:i+1,seed:i<3?`${group}${i+1}`:'淘汰',pickedRank:picks.includes(x.team)?i+1:0}));
 }
 function predictedStandings(st,groups){
   const out={...st};
-  groups.forEach(g=>{out[g]=predictedGroupRows(st,g).map(({rank,seed,pickedRank,...x})=>x)});
+  groups.filter(g=>activeGroupPicks(g,rankedGroupRows(st,g)).length).forEach(g=>{out[g]=groupRowsForMatchup(st,g).map(({rank,seed,pickedRank,...x})=>x)});
   return out;
 }
 function toggleGroupPick(group,team){
@@ -711,7 +713,7 @@ function pairingLinesForGroups(view,groups,match){
 function groupDuelAnalysis(pack){
   const group=pack.match.g,paired=pairedGroupsForGroup(group)[0],groups=paired?[group,paired]:[group],focus=new Set([primaryScenarioTeam(),...pack.scenarios.flatMap(m=>[m.h,m.a])]);
   const viewSt=predictedStandings(pack.standings,groups),view={st:viewSt,thirdRanking:THIRD_PLACE_ENGINE.ranking(viewSt),thirdMap:THIRD_PLACE_ENGINE.assign(viewSt)};
-  const panels=groups.map(g=>groupStatCard(g,predictedGroupRows(pack.standings,g),focus,pack.match,rankedGroupRows(STATE.standings,g)));
+  const panels=groups.map(g=>groupStatCard(g,groupRowsForMatchup(pack.standings,g),focus,pack.match,rankedGroupRows(STATE.standings,g)));
   const lines=pairingLinesForGroups(view,groups,pack.match);
   const bridge=`<div class=duelPanel>${(lines.length?lines:[`<div class=duelLine><span class=duelMatchId>${group}組</span><div class=muted>目前沒有固定配對小組</div></div>`]).join('')}</div>`;
   return `<div class=groupDuel>${panels[0]}${bridge}${panels[1]||''}</div>`;
