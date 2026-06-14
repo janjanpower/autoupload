@@ -270,9 +270,33 @@ function recalculate(){
   STATE={standings,thirdRanking,thirdMap,bracket};
   drawStandings();drawThirds();drawBracket();drawTargetSnapshot();drawEngineStatus();
 }
+const AUTO_REFRESH={
+  api:'https://api.github.com/repos/janjanpower/autoupload/commits/main',
+  current:null,
+  timer:null,
+  async latestSha(){
+    const res=await fetch(this.api,{cache:'no-store',headers:{Accept:'application/vnd.github+json'}});
+    if(!res.ok)throw new Error('commit check failed');
+    const payload=await res.json();
+    return payload.sha||null;
+  },
+  async check(){
+    try{
+      const sha=await this.latestSha();
+      if(!sha)return;
+      if(!this.current){this.current=sha;return}
+      if(sha!==this.current)location.reload();
+    }catch(_){}
+  },
+  start(){
+    this.check();
+    this.timer=setInterval(()=>this.check(),60000);
+  }
+};
 async function init(){
   try{const res=await fetch('data/matches.json',{cache:'no-store'});if(res.ok)mergeScores(await res.json());else mergeScores({matches:[]})}catch(_){mergeScores({matches:[]})}
   drawScores();loadTargets();recalculate();runMonteCarlo();
+  AUTO_REFRESH.start();
 }
 init();
 </script>
