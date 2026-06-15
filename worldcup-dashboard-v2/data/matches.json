@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-15T15:26:18.486303+00:00",
+  "updated_at": "2026-06-15T19:11:00.329499+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -189,13 +189,13 @@
       "group": "",
       "home": "Spain",
       "away": "Cape Verde Islands",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 14,
@@ -204,13 +204,13 @@
       "group": "",
       "home": "Belgium",
       "away": "Egypt",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 0,
+      "away_score": 0,
       "home_half_score": null,
       "away_half_score": null,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "IN_PLAY"
     },
     {
       "id": 15,
