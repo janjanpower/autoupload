@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-14T23:56:49.226504+00:00",
+  "updated_at": "2026-06-15T02:59:28.503721+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -108,9 +108,9 @@
       "group": "",
       "home": "Ivory Coast",
       "away": "Ecuador",
-      "home_score": null,
-      "away_score": null,
-      "status": "SCHEDULED"
+      "home_score": 1,
+      "away_score": 0,
+      "status": "FINISHED"
     },
     {
       "id": 12,
@@ -118,9 +118,9 @@
       "group": "",
       "home": "Sweden",
       "away": "Tunisia",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 2,
+      "away_score": 1,
+      "status": "PAUSED"
     },
     {
       "id": 13,
