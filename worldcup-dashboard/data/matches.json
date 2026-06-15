@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-15T02:59:28.503721+00:00",
+  "updated_at": "2026-06-15T09:23:38.756908+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -118,9 +118,9 @@
       "group": "",
       "home": "Sweden",
       "away": "Tunisia",
-      "home_score": 2,
+      "home_score": 5,
       "away_score": 1,
-      "status": "PAUSED"
+      "status": "FINISHED"
     },
     {
       "id": 13,
