@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-16T02:05:17.407011+00:00",
+  "updated_at": "2026-06-16T07:37:19.307811+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -234,13 +234,13 @@
       "group": "",
       "home": "Iran",
       "away": "New Zealand",
-      "home_score": 1,
-      "away_score": 1,
+      "home_score": 2,
+      "away_score": 2,
       "home_half_score": 1,
       "away_half_score": 1,
       "minute": null,
       "added_time": null,
-      "status": "PAUSED"
+      "status": "FINISHED"
     },
     {
       "id": 17,
