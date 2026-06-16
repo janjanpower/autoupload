@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-16T22:25:33.624258+00:00",
+  "updated_at": "2026-06-16T23:53:17.074836+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -264,10 +264,10 @@
       "group": "",
       "home": "Iraq",
       "away": "Norway",
-      "home_score": 0,
-      "away_score": 0,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 1,
+      "away_score": 3,
+      "home_half_score": 1,
+      "away_half_score": 2,
       "minute": null,
       "added_time": null,
       "status": "IN_PLAY"
