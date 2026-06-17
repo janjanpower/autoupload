@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-17T15:40:05.142165+00:00",
+  "updated_at": "2026-06-17T18:04:13.994960+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -208,9 +208,9 @@
       "group": "",
       "home": "Portugal",
       "away": "Congo DR",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 1,
+      "away_score": 1,
+      "status": "PAUSED"
     },
     {
       "id": 22,
