@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-06-16T21:19:52.024011+00:00",
+  "updated_at": "2026-06-17T20:30:20.810995+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
     "teams": 313,
-    "matchups": 3565,
+    "matchups": 3569,
     "power_rating": 313,
     "spi": 0,
     "estimated_spi": 313,
@@ -82,6 +82,42 @@
       ],
       "estimated_spi": 40.056,
       "power_rating": 76.022,
+      "power_rating_source": "derived-results-xg"
+    },
+    "加拿大": {
+      "matches": 93,
+      "goals_for_per_match": 1.892,
+      "goals_against_per_match": 0.968,
+      "recent_goals_for_per_match": 0.833,
+      "recent_goals_against_per_match": 1,
+      "tempo": 0.917,
+      "sources": [
+        "martj42-international-results",
+        "matches.json",
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.31,
+      "projected_goals_against": 1.236,
+      "xg_for": 1.31,
+      "xg_against": 1.236,
+      "estimated_spi": 67.489,
+      "power_rating": 86.996,
+      "power_rating_source": "derived-results-xg"
+    },
+    "波士尼亞與赫塞哥維納": {
+      "matches": 72,
+      "goals_for_per_match": 1.111,
+      "goals_against_per_match": 1.528,
+      "recent_goals_for_per_match": 1.833,
+      "recent_goals_against_per_match": 1.083,
+      "tempo": 1.458,
+      "sources": [
+        "martj42-international-results",
+        "matches.json"
+      ],
+      "estimated_spi": 59.75,
+      "power_rating": 83.9,
       "power_rating_source": "derived-results-xg"
     },
     "美國": {
@@ -583,9 +619,9 @@
       "power_rating_source": "derived-results-xg"
     },
     "法國": {
-      "matches": 103,
-      "goals_for_per_match": 2.146,
-      "goals_against_per_match": 0.922,
+      "matches": 104,
+      "goals_for_per_match": 2.183,
+      "goals_against_per_match": 0.933,
       "recent_goals_for_per_match": 2.25,
       "recent_goals_against_per_match": 1.167,
       "tempo": 1.708,
@@ -599,17 +635,17 @@
       "projected_goals_against": 1.322,
       "xg_for": 1.697,
       "xg_against": 1.322,
-      "estimated_spi": 78.232,
-      "power_rating": 91.293,
+      "estimated_spi": 78.528,
+      "power_rating": 91.411,
       "power_rating_source": "derived-results-xg"
     },
     "塞內加爾": {
-      "matches": 103,
-      "goals_for_per_match": 1.699,
-      "goals_against_per_match": 0.709,
-      "recent_goals_for_per_match": 1.333,
+      "matches": 104,
+      "goals_for_per_match": 1.702,
+      "goals_against_per_match": 0.76,
+      "recent_goals_for_per_match": 1.417,
       "recent_goals_against_per_match": 1.5,
-      "tempo": 1.417,
+      "tempo": 1.458,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -620,8 +656,182 @@
       "projected_goals_against": 0.916,
       "xg_for": 1.135,
       "xg_against": 0.916,
-      "estimated_spi": 68.635,
-      "power_rating": 87.454,
+      "estimated_spi": 68.759,
+      "power_rating": 87.503,
+      "power_rating_source": "derived-results-xg"
+    },
+    "伊拉克": {
+      "matches": 96,
+      "goals_for_per_match": 1.26,
+      "goals_against_per_match": 0.948,
+      "recent_goals_for_per_match": 1,
+      "recent_goals_against_per_match": 1.167,
+      "tempo": 1.083,
+      "sources": [
+        "martj42-international-results",
+        "matches.json"
+      ],
+      "estimated_spi": 62.146,
+      "power_rating": 84.858,
+      "power_rating_source": "derived-results-xg"
+    },
+    "挪威": {
+      "matches": 73,
+      "goals_for_per_match": 2.205,
+      "goals_against_per_match": 0.973,
+      "recent_goals_for_per_match": 3,
+      "recent_goals_against_per_match": 0.75,
+      "tempo": 1.875,
+      "sources": [
+        "martj42-international-results",
+        "matches.json"
+      ],
+      "estimated_spi": 83.651,
+      "power_rating": 93.461,
+      "power_rating_source": "derived-results-xg"
+    },
+    "阿根廷": {
+      "matches": 106,
+      "goals_for_per_match": 2.075,
+      "goals_against_per_match": 0.651,
+      "recent_goals_for_per_match": 1.667,
+      "recent_goals_against_per_match": 1.5,
+      "tempo": 1.583,
+      "sources": [
+        "martj42-international-results",
+        "matches.json",
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 2.03,
+      "projected_goals_against": 1.545,
+      "xg_for": 2.03,
+      "xg_against": 1.545,
+      "estimated_spi": 74.71,
+      "power_rating": 89.884,
+      "power_rating_source": "derived-results-xg"
+    },
+    "阿爾及利亞": {
+      "matches": 101,
+      "goals_for_per_match": 2.178,
+      "goals_against_per_match": 0.743,
+      "recent_goals_for_per_match": 1.917,
+      "recent_goals_against_per_match": 0.583,
+      "tempo": 1.25,
+      "sources": [
+        "martj42-international-results",
+        "matches.json"
+      ],
+      "estimated_spi": 81.532,
+      "power_rating": 92.613,
+      "power_rating_source": "derived-results-xg"
+    },
+    "奧地利": {
+      "matches": 81,
+      "goals_for_per_match": 1.914,
+      "goals_against_per_match": 0.988,
+      "recent_goals_for_per_match": 2.667,
+      "recent_goals_against_per_match": 0.5,
+      "tempo": 1.583,
+      "sources": [
+        "martj42-international-results",
+        "matches.json"
+      ],
+      "estimated_spi": 80.833,
+      "power_rating": 92.333,
+      "power_rating_source": "derived-results-xg"
+    },
+    "約旦": {
+      "matches": 98,
+      "goals_for_per_match": 1.582,
+      "goals_against_per_match": 1.204,
+      "recent_goals_for_per_match": 1.667,
+      "recent_goals_against_per_match": 1.75,
+      "tempo": 1.708,
+      "sources": [
+        "martj42-international-results",
+        "matches.json"
+      ],
+      "estimated_spi": 63.342,
+      "power_rating": 85.337,
+      "power_rating_source": "derived-results-xg"
+    },
+    "葡萄牙": {
+      "matches": 96,
+      "goals_for_per_match": 2.406,
+      "goals_against_per_match": 0.833,
+      "recent_goals_for_per_match": 2,
+      "recent_goals_against_per_match": 1.167,
+      "tempo": 1.583,
+      "sources": [
+        "martj42-international-results",
+        "matches.json",
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.35,
+      "projected_goals_against": 1.201,
+      "xg_for": 1.35,
+      "xg_against": 1.201,
+      "estimated_spi": 79.49,
+      "power_rating": 91.796,
+      "power_rating_source": "derived-results-xg"
+    },
+    "剛果民主共和國": {
+      "matches": 78,
+      "goals_for_per_match": 1.115,
+      "goals_against_per_match": 0.833,
+      "recent_goals_for_per_match": 1.083,
+      "recent_goals_against_per_match": 0.417,
+      "tempo": 0.75,
+      "sources": [
+        "martj42-international-results",
+        "matches.json"
+      ],
+      "estimated_spi": 65.872,
+      "power_rating": 86.349,
+      "power_rating_source": "derived-results-xg"
+    },
+    "英格蘭": {
+      "matches": 104,
+      "goals_for_per_match": 2.192,
+      "goals_against_per_match": 0.673,
+      "recent_goals_for_per_match": 1.667,
+      "recent_goals_against_per_match": 1.083,
+      "tempo": 1.375,
+      "sources": [
+        "martj42-international-results",
+        "matches.json",
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.925,
+      "projected_goals_against": 1.322,
+      "xg_for": 1.925,
+      "xg_against": 1.322,
+      "estimated_spi": 77.951,
+      "power_rating": 91.18,
+      "power_rating_source": "derived-results-xg"
+    },
+    "克羅埃西亞": {
+      "matches": 100,
+      "goals_for_per_match": 1.72,
+      "goals_against_per_match": 1.09,
+      "recent_goals_for_per_match": 1.833,
+      "recent_goals_against_per_match": 1.333,
+      "tempo": 1.583,
+      "sources": [
+        "martj42-international-results",
+        "matches.json",
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 2.332,
+      "projected_goals_against": 2.171,
+      "xg_for": 2.332,
+      "xg_against": 2.171,
+      "estimated_spi": 69.226,
+      "power_rating": 87.69,
       "power_rating_source": "derived-results-xg"
     },
     "Trinidad and Tobago": {
@@ -718,26 +928,6 @@
       ],
       "estimated_spi": 65.673,
       "power_rating": 86.269,
-      "power_rating_source": "derived-results-xg"
-    },
-    "葡萄牙": {
-      "matches": 95,
-      "goals_for_per_match": 2.421,
-      "goals_against_per_match": 0.832,
-      "recent_goals_for_per_match": 2,
-      "recent_goals_against_per_match": 1.167,
-      "tempo": 1.583,
-      "sources": [
-        "martj42-international-results",
-        "statsbomb-worldcup",
-        "statsbomb-worldcup-xg"
-      ],
-      "projected_goals_for": 1.35,
-      "projected_goals_against": 1.201,
-      "xg_for": 1.35,
-      "xg_against": 1.201,
-      "estimated_spi": 79.583,
-      "power_rating": 91.833,
       "power_rating_source": "derived-results-xg"
     },
     "Bermuda": {
@@ -838,20 +1028,6 @@
       "power_rating": 83.685,
       "power_rating_source": "derived-results-xg"
     },
-    "約旦": {
-      "matches": 96,
-      "goals_for_per_match": 1.594,
-      "goals_against_per_match": 1.167,
-      "recent_goals_for_per_match": 1.75,
-      "recent_goals_against_per_match": 1.75,
-      "tempo": 1.75,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 64.177,
-      "power_rating": 85.671,
-      "power_rating_source": "derived-results-xg"
-    },
     "Tajikistan": {
       "matches": 64,
       "goals_for_per_match": 1.297,
@@ -878,26 +1054,6 @@
       ],
       "estimated_spi": 42.111,
       "power_rating": 76.844,
-      "power_rating_source": "derived-results-xg"
-    },
-    "英格蘭": {
-      "matches": 103,
-      "goals_for_per_match": 2.204,
-      "goals_against_per_match": 0.68,
-      "recent_goals_for_per_match": 1.667,
-      "recent_goals_against_per_match": 1.083,
-      "tempo": 1.375,
-      "sources": [
-        "martj42-international-results",
-        "statsbomb-worldcup",
-        "statsbomb-worldcup-xg"
-      ],
-      "projected_goals_for": 1.925,
-      "projected_goals_against": 1.322,
-      "xg_for": 1.925,
-      "xg_against": 1.322,
-      "estimated_spi": 77.941,
-      "power_rating": 91.176,
       "power_rating_source": "derived-results-xg"
     },
     "Abkhazia": {
@@ -1346,20 +1502,6 @@
       "power_rating": 81.488,
       "power_rating_source": "derived-results-xg"
     },
-    "挪威": {
-      "matches": 71,
-      "goals_for_per_match": 2.155,
-      "goals_against_per_match": 0.972,
-      "recent_goals_for_per_match": 2.917,
-      "recent_goals_against_per_match": 0.667,
-      "tempo": 1.792,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 83.092,
-      "power_rating": 93.237,
-      "power_rating_source": "derived-results-xg"
-    },
     "Romania": {
       "matches": 77,
       "goals_for_per_match": 1.532,
@@ -1387,20 +1529,6 @@
       ],
       "estimated_spi": 41.551,
       "power_rating": 76.62,
-      "power_rating_source": "derived-results-xg"
-    },
-    "奧地利": {
-      "matches": 79,
-      "goals_for_per_match": 1.886,
-      "goals_against_per_match": 0.987,
-      "recent_goals_for_per_match": 2.417,
-      "recent_goals_against_per_match": 0.583,
-      "tempo": 1.5,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 78.477,
-      "power_rating": 91.391,
       "power_rating_source": "derived-results-xg"
     },
     "Slovenia": {
@@ -1521,26 +1649,6 @@
       "power_rating": 82.503,
       "power_rating_source": "derived-results-xg"
     },
-    "阿根廷": {
-      "matches": 104,
-      "goals_for_per_match": 2.058,
-      "goals_against_per_match": 0.663,
-      "recent_goals_for_per_match": 1.667,
-      "recent_goals_against_per_match": 1.5,
-      "tempo": 1.583,
-      "sources": [
-        "martj42-international-results",
-        "statsbomb-worldcup",
-        "statsbomb-worldcup-xg"
-      ],
-      "projected_goals_for": 2.03,
-      "projected_goals_against": 1.545,
-      "xg_for": 2.03,
-      "xg_against": 1.545,
-      "estimated_spi": 74.326,
-      "power_rating": 89.73,
-      "power_rating_source": "derived-results-xg"
-    },
     "Nicaragua": {
       "matches": 67,
       "goals_for_per_match": 1.358,
@@ -1651,20 +1759,6 @@
       ],
       "estimated_spi": 56.142,
       "power_rating": 82.457,
-      "power_rating_source": "derived-results-xg"
-    },
-    "伊拉克": {
-      "matches": 94,
-      "goals_for_per_match": 1.266,
-      "goals_against_per_match": 0.883,
-      "recent_goals_for_per_match": 1,
-      "recent_goals_against_per_match": 0.833,
-      "tempo": 0.917,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 64.669,
-      "power_rating": 85.868,
       "power_rating_source": "derived-results-xg"
     },
     "巴拿馬": {
@@ -1783,26 +1877,6 @@
       ],
       "estimated_spi": 49.113,
       "power_rating": 79.645,
-      "power_rating_source": "derived-results-xg"
-    },
-    "克羅埃西亞": {
-      "matches": 99,
-      "goals_for_per_match": 1.737,
-      "goals_against_per_match": 1.091,
-      "recent_goals_for_per_match": 1.833,
-      "recent_goals_against_per_match": 1.333,
-      "tempo": 1.583,
-      "sources": [
-        "martj42-international-results",
-        "statsbomb-worldcup",
-        "statsbomb-worldcup-xg"
-      ],
-      "projected_goals_for": 2.332,
-      "projected_goals_against": 2.171,
-      "xg_for": 2.332,
-      "xg_against": 2.171,
-      "estimated_spi": 69.318,
-      "power_rating": 87.727,
       "power_rating_source": "derived-results-xg"
     },
     "Wales": {
@@ -1991,20 +2065,6 @@
       "power_rating": 81.563,
       "power_rating_source": "derived-results-xg"
     },
-    "波士尼亞與赫塞哥維納": {
-      "matches": 71,
-      "goals_for_per_match": 1.113,
-      "goals_against_per_match": 1.535,
-      "recent_goals_for_per_match": 1.833,
-      "recent_goals_against_per_match": 1.083,
-      "tempo": 1.458,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 59.642,
-      "power_rating": 83.857,
-      "power_rating_source": "derived-results-xg"
-    },
     "Armenia": {
       "matches": 69,
       "goals_for_per_match": 1.087,
@@ -2186,20 +2246,6 @@
       "power_rating": 85.778,
       "power_rating_source": "derived-results-xg"
     },
-    "剛果民主共和國": {
-      "matches": 77,
-      "goals_for_per_match": 1.117,
-      "goals_against_per_match": 0.831,
-      "recent_goals_for_per_match": 1.083,
-      "recent_goals_against_per_match": 0.417,
-      "tempo": 0.75,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 65.849,
-      "power_rating": 86.34,
-      "power_rating_source": "derived-results-xg"
-    },
     "Burkina Faso": {
       "matches": 82,
       "goals_for_per_match": 1.451,
@@ -2302,20 +2348,6 @@
       ],
       "estimated_spi": 51.372,
       "power_rating": 80.549,
-      "power_rating_source": "derived-results-xg"
-    },
-    "阿爾及利亞": {
-      "matches": 99,
-      "goals_for_per_match": 2.222,
-      "goals_against_per_match": 0.697,
-      "recent_goals_for_per_match": 2.333,
-      "recent_goals_against_per_match": 0.417,
-      "tempo": 1.375,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 85.727,
-      "power_rating": 94.291,
       "power_rating_source": "derived-results-xg"
     },
     "Burundi": {
@@ -2526,26 +2558,6 @@
       ],
       "estimated_spi": 43.156,
       "power_rating": 77.263,
-      "power_rating_source": "derived-results-xg"
-    },
-    "加拿大": {
-      "matches": 92,
-      "goals_for_per_match": 1.902,
-      "goals_against_per_match": 0.967,
-      "recent_goals_for_per_match": 0.833,
-      "recent_goals_against_per_match": 1,
-      "tempo": 0.917,
-      "sources": [
-        "martj42-international-results",
-        "statsbomb-worldcup",
-        "statsbomb-worldcup-xg"
-      ],
-      "projected_goals_for": 1.31,
-      "projected_goals_against": 1.236,
-      "xg_for": 1.31,
-      "xg_against": 1.236,
-      "estimated_spi": 67.524,
-      "power_rating": 87.01,
       "power_rating_source": "derived-results-xg"
     },
     "Martinique": {
@@ -4718,6 +4730,26 @@
         }
       ]
     },
+    "加拿大|波士尼亞與赫塞哥維納": {
+      "matches": 2,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "加拿大",
+          "away": "波士尼亞與赫塞哥維納",
+          "hg": 1,
+          "ag": 1,
+          "source": "matches.json"
+        },
+        {
+          "home": "加拿大",
+          "away": "波士尼亞與赫塞哥維納",
+          "hg": 1,
+          "ag": 1,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
     "巴拉圭|美國": {
       "matches": 3,
       "average_total_goals": 4.333,
@@ -5007,15 +5039,122 @@
       ]
     },
     "塞內加爾|法國": {
-      "matches": 1,
-      "average_total_goals": 0.0,
+      "matches": 2,
+      "average_total_goals": 4.0,
       "recent": [
         {
           "home": "法國",
           "away": "塞內加爾",
-          "hg": 0,
+          "hg": 3,
+          "ag": 1,
+          "source": "matches.json"
+        },
+        {
+          "home": "法國",
+          "away": "塞內加爾",
+          "hg": 3,
+          "ag": 1,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "伊拉克|挪威": {
+      "matches": 2,
+      "average_total_goals": 5.0,
+      "recent": [
+        {
+          "home": "伊拉克",
+          "away": "挪威",
+          "hg": 1,
+          "ag": 4,
+          "source": "matches.json"
+        },
+        {
+          "home": "伊拉克",
+          "away": "挪威",
+          "hg": 1,
+          "ag": 4,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "阿根廷|阿爾及利亞": {
+      "matches": 2,
+      "average_total_goals": 3.0,
+      "recent": [
+        {
+          "home": "阿根廷",
+          "away": "阿爾及利亞",
+          "hg": 3,
           "ag": 0,
           "source": "matches.json"
+        },
+        {
+          "home": "阿根廷",
+          "away": "阿爾及利亞",
+          "hg": 3,
+          "ag": 0,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "奧地利|約旦": {
+      "matches": 2,
+      "average_total_goals": 4.0,
+      "recent": [
+        {
+          "home": "奧地利",
+          "away": "約旦",
+          "hg": 3,
+          "ag": 1,
+          "source": "matches.json"
+        },
+        {
+          "home": "奧地利",
+          "away": "約旦",
+          "hg": 3,
+          "ag": 1,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "剛果民主共和國|葡萄牙": {
+      "matches": 1,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "葡萄牙",
+          "away": "剛果民主共和國",
+          "hg": 1,
+          "ag": 1,
+          "source": "matches.json"
+        }
+      ]
+    },
+    "克羅埃西亞|英格蘭": {
+      "matches": 3,
+      "average_total_goals": 1.667,
+      "recent": [
+        {
+          "home": "英格蘭",
+          "away": "克羅埃西亞",
+          "hg": 1,
+          "ag": 0,
+          "source": "matches.json"
+        },
+        {
+          "home": "英格蘭",
+          "away": "克羅埃西亞",
+          "hg": 1,
+          "ag": 0,
+          "source": "martj42-international-results"
+        },
+        {
+          "home": "克羅埃西亞",
+          "away": "英格蘭",
+          "hg": 2,
+          "ag": 1,
+          "source": "statsbomb-worldcup"
         }
       ]
     },
@@ -32955,26 +33094,6 @@
           "hg": 3,
           "ag": 2,
           "source": "martj42-international-results"
-        }
-      ]
-    },
-    "克羅埃西亞|英格蘭": {
-      "matches": 2,
-      "average_total_goals": 2.0,
-      "recent": [
-        {
-          "home": "英格蘭",
-          "away": "克羅埃西亞",
-          "hg": 1,
-          "ag": 0,
-          "source": "martj42-international-results"
-        },
-        {
-          "home": "克羅埃西亞",
-          "away": "英格蘭",
-          "hg": 2,
-          "ag": 1,
-          "source": "statsbomb-worldcup"
         }
       ]
     },
@@ -73931,19 +74050,6 @@
           "home": "大韓民國",
           "away": "Czech Republic",
           "hg": 2,
-          "ag": 1,
-          "source": "martj42-international-results"
-        }
-      ]
-    },
-    "加拿大|波士尼亞與赫塞哥維納": {
-      "matches": 1,
-      "average_total_goals": 2.0,
-      "recent": [
-        {
-          "home": "加拿大",
-          "away": "波士尼亞與赫塞哥維納",
-          "hg": 1,
           "ag": 1,
           "source": "martj42-international-results"
         }
