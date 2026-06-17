@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-17T18:04:13.994960+00:00",
+  "updated_at": "2026-06-17T20:27:04.003374+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -210,7 +210,7 @@
       "away": "Congo DR",
       "home_score": 1,
       "away_score": 1,
-      "status": "PAUSED"
+      "status": "FINISHED"
     },
     {
       "id": 22,
@@ -218,9 +218,9 @@
       "group": "",
       "home": "England",
       "away": "Croatia",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 1,
+      "away_score": 0,
+      "status": "IN_PLAY"
     },
     {
       "id": 23,
