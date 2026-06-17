@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-16T23:53:17.074836+00:00",
+  "updated_at": "2026-06-17T02:08:32.797198+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -265,12 +265,12 @@
       "home": "Iraq",
       "away": "Norway",
       "home_score": 1,
-      "away_score": 3,
+      "away_score": 4,
       "home_half_score": 1,
       "away_half_score": 2,
       "minute": null,
       "added_time": null,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 19,
@@ -279,13 +279,13 @@
       "group": "",
       "home": "Argentina",
       "away": "Algeria",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 1,
+      "away_score": 0,
+      "home_half_score": 1,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "PAUSED"
     },
     {
       "id": 20,
