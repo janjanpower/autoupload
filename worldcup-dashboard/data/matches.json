@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-17T20:27:04.003374+00:00",
+  "updated_at": "2026-06-17T22:18:56.858925+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -218,9 +218,9 @@
       "group": "",
       "home": "England",
       "away": "Croatia",
-      "home_score": 1,
-      "away_score": 0,
-      "status": "IN_PLAY"
+      "home_score": 4,
+      "away_score": 2,
+      "status": "FINISHED"
     },
     {
       "id": 23,
