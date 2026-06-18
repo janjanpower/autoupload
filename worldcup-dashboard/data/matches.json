@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-18T11:13:59.354598+00:00",
+  "updated_at": "2026-06-18T14:22:35.572994+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -230,7 +230,7 @@
       "away": "Panama",
       "home_score": 1,
       "away_score": 0,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 24,
