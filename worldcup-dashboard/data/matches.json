@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-17T23:52:36.729419+00:00",
+  "updated_at": "2026-06-18T02:06:19.512985+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -228,9 +228,9 @@
       "group": "",
       "home": "Ghana",
       "away": "Panama",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 0,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 24,
@@ -238,9 +238,9 @@
       "group": "",
       "home": "Uzbekistan",
       "away": "Colombia",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 0,
+      "status": "IN_PLAY"
     },
     {
       "id": 25,
