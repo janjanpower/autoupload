@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-18T17:36:28.688169+00:00",
+  "updated_at": "2026-06-18T19:51:11.194498+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -249,8 +249,8 @@
       "home": "Czechia",
       "away": "South Africa",
       "home_score": 1,
-      "away_score": 0,
-      "status": "IN_PLAY"
+      "away_score": 1,
+      "status": "FINISHED"
     },
     {
       "id": 26,
