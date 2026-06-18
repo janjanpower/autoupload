@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-18T19:51:12.471401+00:00",
+  "updated_at": "2026-06-18T21:53:10.149952+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -384,13 +384,13 @@
       "group": "",
       "home": "Switzerland",
       "away": "Bosnia-Herzegovina",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 4,
+      "away_score": 1,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 27,
