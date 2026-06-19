@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-19T02:12:00.603603+00:00",
+  "updated_at": "2026-06-19T07:25:56.048524+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -414,13 +414,13 @@
       "group": "",
       "home": "Mexico",
       "away": "South Korea",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 0,
       "home_half_score": 0,
       "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 29,
