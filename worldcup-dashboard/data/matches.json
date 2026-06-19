@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-19T21:39:01.706097+00:00",
+  "updated_at": "2026-06-19T23:41:36.625353+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -298,9 +298,9 @@
       "group": "",
       "home": "Scotland",
       "away": "Morocco",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 1,
+      "status": "IN_PLAY"
     },
     {
       "id": 31,
