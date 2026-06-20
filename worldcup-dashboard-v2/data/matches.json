@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-20T20:53:25.251190+00:00",
+  "updated_at": "2026-06-20T21:57:03.652327+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -504,10 +504,10 @@
       "group": "",
       "home": "Germany",
       "away": "Ivory Coast",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 1,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_half_score": 0,
+      "away_half_score": 1,
       "minute": null,
       "added_time": null,
       "status": "IN_PLAY"
