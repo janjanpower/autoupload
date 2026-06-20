@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-20T16:44:27.080062+00:00",
+  "updated_at": "2026-06-20T17:59:59.858169+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -489,13 +489,13 @@
       "group": "",
       "home": "Netherlands",
       "away": "Sweden",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 2,
+      "away_score": 0,
+      "home_half_score": 2,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "PAUSED"
     },
     {
       "id": 34,
