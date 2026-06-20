@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-20T01:50:46.282779+00:00",
+  "updated_at": "2026-06-20T06:05:06.826879+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -465,7 +465,7 @@
       "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 32,
@@ -474,13 +474,13 @@
       "group": "",
       "home": "Turkey",
       "away": "Paraguay",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 0,
+      "away_score": 1,
+      "home_half_score": 0,
+      "away_half_score": 1,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 33,

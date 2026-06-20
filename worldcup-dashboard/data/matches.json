@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-20T01:50:45.557895+00:00",
+  "updated_at": "2026-06-20T06:05:05.954234+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -310,7 +310,7 @@
       "away": "Haiti",
       "home_score": 3,
       "away_score": 0,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 32,
@@ -318,9 +318,9 @@
       "group": "",
       "home": "Turkey",
       "away": "Paraguay",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 1,
+      "status": "FINISHED"
     },
     {
       "id": 33,
