@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-20T23:00:55.987043+00:00",
+  "updated_at": "2026-06-21T00:12:29.979945+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -519,13 +519,13 @@
       "group": "",
       "home": "Ecuador",
       "away": "Curaçao",
-      "home_score": null,
-      "away_score": null,
+      "home_score": 0,
+      "away_score": 0,
       "home_half_score": null,
       "away_half_score": null,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "IN_PLAY"
     },
     {
       "id": 36,
