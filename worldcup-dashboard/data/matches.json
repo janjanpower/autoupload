@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-21T05:17:52.430888+00:00",
+  "updated_at": "2026-06-21T09:03:42.246745+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -359,8 +359,8 @@
       "home": "Tunisia",
       "away": "Japan",
       "home_score": 0,
-      "away_score": 2,
-      "status": "IN_PLAY"
+      "away_score": 4,
+      "status": "FINISHED"
     },
     {
       "id": 37,
