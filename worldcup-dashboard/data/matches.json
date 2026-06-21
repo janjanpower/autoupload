@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-21T21:24:23.059733+00:00",
+  "updated_at": "2026-06-21T22:39:12.294096+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -388,9 +388,9 @@
       "group": "",
       "home": "Uruguay",
       "away": "Cape Verde Islands",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 1,
+      "status": "IN_PLAY"
     },
     {
       "id": 40,
