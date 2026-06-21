@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-21T16:57:20.027284+00:00",
+  "updated_at": "2026-06-21T18:16:08.098150+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -368,9 +368,9 @@
       "group": "",
       "home": "Spain",
       "away": "Saudi Arabia",
-      "home_score": 3,
+      "home_score": 5,
       "away_score": 0,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 38,
