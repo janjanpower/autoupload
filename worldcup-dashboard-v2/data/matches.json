@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-21T00:12:29.979945+00:00",
+  "updated_at": "2026-06-21T05:17:53.198166+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -521,11 +521,11 @@
       "away": "Curaçao",
       "home_score": 0,
       "away_score": 0,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 36,
@@ -534,13 +534,13 @@
       "group": "",
       "home": "Tunisia",
       "away": "Japan",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 0,
+      "away_score": 2,
+      "home_half_score": 0,
+      "away_half_score": 2,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "IN_PLAY"
     },
     {
       "id": 37,
