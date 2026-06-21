@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-21T22:39:12.901139+00:00",
+  "updated_at": "2026-06-21T23:54:39.588001+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -579,10 +579,10 @@
       "group": "",
       "home": "Uruguay",
       "away": "Cape Verde Islands",
-      "home_score": 0,
-      "away_score": 1,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 2,
+      "away_score": 2,
+      "home_half_score": 2,
+      "away_half_score": 1,
       "minute": null,
       "added_time": null,
       "status": "IN_PLAY"
