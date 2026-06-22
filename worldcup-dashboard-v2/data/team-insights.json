@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-06-21T20:01:32.372859+00:00",
+  "updated_at": "2026-06-22T21:13:33.125691+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
     "teams": 313,
-    "matchups": 3580,
+    "matchups": 3583,
     "power_rating": 313,
     "spi": 0,
     "estimated_spi": 313,
@@ -463,12 +463,12 @@
       "power_rating_source": "derived-results-xg"
     },
     "西班牙": {
-      "matches": 99,
-      "goals_for_per_match": 2.343,
-      "goals_against_per_match": 0.758,
-      "recent_goals_for_per_match": 1.667,
+      "matches": 100,
+      "goals_for_per_match": 2.35,
+      "goals_against_per_match": 0.75,
+      "recent_goals_for_per_match": 2,
       "recent_goals_against_per_match": 0.917,
-      "tempo": 1.292,
+      "tempo": 1.458,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -479,32 +479,32 @@
       "projected_goals_against": 1.685,
       "xg_for": 2.366,
       "xg_against": 1.685,
-      "estimated_spi": 79.273,
-      "power_rating": 91.709,
+      "estimated_spi": 81.456,
+      "power_rating": 92.582,
       "power_rating_source": "derived-results-xg"
     },
     "佛得角": {
-      "matches": 69,
-      "goals_for_per_match": 1.217,
-      "goals_against_per_match": 0.942,
-      "recent_goals_for_per_match": 1.417,
-      "recent_goals_against_per_match": 1.083,
-      "tempo": 1.25,
+      "matches": 71,
+      "goals_for_per_match": 1.239,
+      "goals_against_per_match": 0.972,
+      "recent_goals_for_per_match": 1.5,
+      "recent_goals_against_per_match": 1.167,
+      "tempo": 1.333,
       "sources": [
         "martj42-international-results",
         "matches.json"
       ],
-      "estimated_spi": 63.312,
-      "power_rating": 85.325,
+      "estimated_spi": 63.353,
+      "power_rating": 85.341,
       "power_rating_source": "derived-results-xg"
     },
     "比利時": {
-      "matches": 96,
-      "goals_for_per_match": 2.26,
-      "goals_against_per_match": 0.865,
-      "recent_goals_for_per_match": 1.5,
-      "recent_goals_against_per_match": 0.917,
-      "tempo": 1.208,
+      "matches": 98,
+      "goals_for_per_match": 2.214,
+      "goals_against_per_match": 0.847,
+      "recent_goals_for_per_match": 1.417,
+      "recent_goals_against_per_match": 0.833,
+      "tempo": 1.125,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -515,14 +515,14 @@
       "projected_goals_against": 1.399,
       "xg_for": 1.587,
       "xg_against": 1.399,
-      "estimated_spi": 76.396,
-      "power_rating": 90.558,
+      "estimated_spi": 76.251,
+      "power_rating": 90.5,
       "power_rating_source": "derived-results-xg"
     },
     "埃及": {
-      "matches": 94,
-      "goals_for_per_match": 1.479,
-      "goals_against_per_match": 0.691,
+      "matches": 96,
+      "goals_for_per_match": 1.51,
+      "goals_against_per_match": 0.698,
       "recent_goals_for_per_match": 1.25,
       "recent_goals_against_per_match": 1.083,
       "tempo": 1.167,
@@ -536,14 +536,14 @@
       "projected_goals_against": 1.823,
       "xg_for": 0.995,
       "xg_against": 1.823,
-      "estimated_spi": 68.307,
-      "power_rating": 87.323,
+      "estimated_spi": 68.646,
+      "power_rating": 87.458,
       "power_rating_source": "derived-results-xg"
     },
     "沙烏地阿拉伯": {
-      "matches": 113,
-      "goals_for_per_match": 1.159,
-      "goals_against_per_match": 1.027,
+      "matches": 114,
+      "goals_for_per_match": 1.149,
+      "goals_against_per_match": 1.044,
       "recent_goals_for_per_match": 0.917,
       "recent_goals_against_per_match": 1.75,
       "tempo": 1.333,
@@ -557,17 +557,17 @@
       "projected_goals_against": 1.76,
       "xg_for": 1.045,
       "xg_against": 1.76,
-      "estimated_spi": 57.472,
-      "power_rating": 82.989,
+      "estimated_spi": 57.281,
+      "power_rating": 82.912,
       "power_rating_source": "derived-results-xg"
     },
     "烏拉圭": {
-      "matches": 92,
-      "goals_for_per_match": 1.337,
-      "goals_against_per_match": 0.815,
-      "recent_goals_for_per_match": 1,
-      "recent_goals_against_per_match": 0.833,
-      "tempo": 0.917,
+      "matches": 94,
+      "goals_for_per_match": 1.351,
+      "goals_against_per_match": 0.84,
+      "recent_goals_for_per_match": 1.083,
+      "recent_goals_against_per_match": 0.917,
+      "tempo": 1.0,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -578,14 +578,14 @@
       "projected_goals_against": 0.681,
       "xg_for": 1.334,
       "xg_against": 0.681,
-      "estimated_spi": 65.807,
-      "power_rating": 86.323,
+      "estimated_spi": 65.818,
+      "power_rating": 86.327,
       "power_rating_source": "derived-results-xg"
     },
     "伊朗": {
-      "matches": 78,
-      "goals_for_per_match": 2.154,
-      "goals_against_per_match": 0.821,
+      "matches": 80,
+      "goals_for_per_match": 2.1,
+      "goals_against_per_match": 0.8,
       "recent_goals_for_per_match": 1.583,
       "recent_goals_against_per_match": 1.167,
       "tempo": 1.375,
@@ -599,23 +599,23 @@
       "projected_goals_against": 1.425,
       "xg_for": 1.089,
       "xg_against": 1.425,
-      "estimated_spi": 73.833,
-      "power_rating": 89.533,
+      "estimated_spi": 73.644,
+      "power_rating": 89.458,
       "power_rating_source": "derived-results-xg"
     },
     "紐西蘭": {
-      "matches": 51,
-      "goals_for_per_match": 1.804,
-      "goals_against_per_match": 1.078,
+      "matches": 53,
+      "goals_for_per_match": 1.774,
+      "goals_against_per_match": 1.151,
       "recent_goals_for_per_match": 0.833,
-      "recent_goals_against_per_match": 1.833,
-      "tempo": 1.333,
+      "recent_goals_against_per_match": 1.917,
+      "tempo": 1.375,
       "sources": [
         "martj42-international-results",
         "matches.json"
       ],
-      "estimated_spi": 58.363,
-      "power_rating": 83.345,
+      "estimated_spi": 57.048,
+      "power_rating": 82.819,
       "power_rating_source": "derived-results-xg"
     },
     "法國": {
@@ -691,9 +691,9 @@
       "power_rating_source": "derived-results-xg"
     },
     "阿根廷": {
-      "matches": 106,
+      "matches": 107,
       "goals_for_per_match": 2.075,
-      "goals_against_per_match": 0.651,
+      "goals_against_per_match": 0.645,
       "recent_goals_for_per_match": 1.667,
       "recent_goals_against_per_match": 1.5,
       "tempo": 1.583,
@@ -707,8 +707,8 @@
       "projected_goals_against": 1.545,
       "xg_for": 2.03,
       "xg_against": 1.545,
-      "estimated_spi": 74.71,
-      "power_rating": 89.884,
+      "estimated_spi": 74.814,
+      "power_rating": 89.925,
       "power_rating_source": "derived-results-xg"
     },
     "阿爾及利亞": {
@@ -727,9 +727,9 @@
       "power_rating_source": "derived-results-xg"
     },
     "奧地利": {
-      "matches": 81,
-      "goals_for_per_match": 1.914,
-      "goals_against_per_match": 0.988,
+      "matches": 82,
+      "goals_for_per_match": 1.89,
+      "goals_against_per_match": 1.0,
       "recent_goals_for_per_match": 2.667,
       "recent_goals_against_per_match": 0.5,
       "tempo": 1.583,
@@ -737,8 +737,8 @@
         "martj42-international-results",
         "matches.json"
       ],
-      "estimated_spi": 80.833,
-      "power_rating": 92.333,
+      "estimated_spi": 80.568,
+      "power_rating": 92.227,
       "power_rating_source": "derived-results-xg"
     },
     "約旦": {
@@ -5499,13 +5499,100 @@
       ]
     },
     "沙烏地阿拉伯|西班牙": {
-      "matches": 1,
-      "average_total_goals": 5.0,
+      "matches": 2,
+      "average_total_goals": 4.0,
       "recent": [
         {
           "home": "西班牙",
           "away": "沙烏地阿拉伯",
-          "hg": 5,
+          "hg": 4,
+          "ag": 0,
+          "source": "matches.json"
+        },
+        {
+          "home": "西班牙",
+          "away": "沙烏地阿拉伯",
+          "hg": 4,
+          "ag": 0,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "伊朗|比利時": {
+      "matches": 2,
+      "average_total_goals": 0.0,
+      "recent": [
+        {
+          "home": "比利時",
+          "away": "伊朗",
+          "hg": 0,
+          "ag": 0,
+          "source": "matches.json"
+        },
+        {
+          "home": "比利時",
+          "away": "伊朗",
+          "hg": 0,
+          "ag": 0,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "佛得角|烏拉圭": {
+      "matches": 2,
+      "average_total_goals": 4.0,
+      "recent": [
+        {
+          "home": "烏拉圭",
+          "away": "佛得角",
+          "hg": 2,
+          "ag": 2,
+          "source": "matches.json"
+        },
+        {
+          "home": "烏拉圭",
+          "away": "佛得角",
+          "hg": 2,
+          "ag": 2,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "埃及|紐西蘭": {
+      "matches": 3,
+      "average_total_goals": 3.0,
+      "recent": [
+        {
+          "home": "紐西蘭",
+          "away": "埃及",
+          "hg": 1,
+          "ag": 3,
+          "source": "matches.json"
+        },
+        {
+          "home": "埃及",
+          "away": "紐西蘭",
+          "hg": 1,
+          "ag": 0,
+          "source": "martj42-international-results"
+        },
+        {
+          "home": "紐西蘭",
+          "away": "埃及",
+          "hg": 1,
+          "ag": 3,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "奧地利|阿根廷": {
+      "matches": 1,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "阿根廷",
+          "away": "奧地利",
+          "hg": 2,
           "ag": 0,
           "source": "matches.json"
         }
@@ -61340,19 +61427,6 @@
         {
           "home": "Bulgaria",
           "away": "Tanzania",
-          "hg": 1,
-          "ag": 0,
-          "source": "martj42-international-results"
-        }
-      ]
-    },
-    "埃及|紐西蘭": {
-      "matches": 1,
-      "average_total_goals": 1.0,
-      "recent": [
-        {
-          "home": "埃及",
-          "away": "紐西蘭",
           "hg": 1,
           "ag": 0,
           "source": "martj42-international-results"
