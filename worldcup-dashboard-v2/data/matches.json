@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-22T02:15:31.568432+00:00",
+  "updated_at": "2026-06-22T07:42:20.618096+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -595,12 +595,12 @@
       "home": "New Zealand",
       "away": "Egypt",
       "home_score": 1,
-      "away_score": 0,
+      "away_score": 3,
       "home_half_score": 1,
       "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 41,
