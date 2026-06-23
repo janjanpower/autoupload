@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23T14:08:01.136009+00:00",
+  "updated_at": "2026-06-23T16:37:19.375853+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -743,10 +743,30 @@
       "status": "TIMED"
     },
     {
-      "id": 75,
-      "date": "2026-06-29",
+      "id": 104,
+      "date": "2026-07-19",
       "group": "",
-      "home": "Germany",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "group": "",
+      "home": "TBD",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
@@ -783,16 +803,6 @@
       "status": "TIMED"
     },
     {
-      "id": 79,
-      "date": "2026-07-01",
-      "group": "",
-      "home": "Mexico",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
       "id": 104,
       "date": "2026-07-19",
       "group": "",
@@ -807,16 +817,6 @@
       "date": "2026-07-19",
       "group": "",
       "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 82,
-      "date": "2026-07-02",
-      "group": "",
-      "home": "United States",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
