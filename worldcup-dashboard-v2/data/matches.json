@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23T01:47:53.904333+00:00",
+  "updated_at": "2026-06-23T05:52:59.435457+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -640,12 +640,12 @@
       "home": "Norway",
       "away": "Senegal",
       "home_score": 3,
-      "away_score": 1,
+      "away_score": 2,
       "home_half_score": 1,
       "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 44,
@@ -654,13 +654,13 @@
       "group": "",
       "home": "Jordan",
       "away": "Algeria",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 1,
+      "away_score": 2,
+      "home_half_score": 1,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 45,

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23T01:47:53.138794+00:00",
+  "updated_at": "2026-06-23T05:52:58.510719+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -429,8 +429,8 @@
       "home": "Norway",
       "away": "Senegal",
       "home_score": 3,
-      "away_score": 1,
-      "status": "PAUSED"
+      "away_score": 2,
+      "status": "FINISHED"
     },
     {
       "id": 44,
@@ -438,9 +438,9 @@
       "group": "",
       "home": "Jordan",
       "away": "Algeria",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 1,
+      "away_score": 2,
+      "status": "FINISHED"
     },
     {
       "id": 45,
@@ -743,10 +743,30 @@
       "status": "TIMED"
     },
     {
-      "id": 75,
-      "date": "2026-06-29",
+      "id": 104,
+      "date": "2026-07-19",
       "group": "",
-      "home": "Germany",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "group": "",
+      "home": "TBD",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
@@ -783,16 +803,6 @@
       "status": "TIMED"
     },
     {
-      "id": 79,
-      "date": "2026-07-01",
-      "group": "",
-      "home": "Mexico",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
       "id": 104,
       "date": "2026-07-19",
       "group": "",
@@ -807,16 +817,6 @@
       "date": "2026-07-19",
       "group": "",
       "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 82,
-      "date": "2026-07-02",
-      "group": "",
-      "home": "United States",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
