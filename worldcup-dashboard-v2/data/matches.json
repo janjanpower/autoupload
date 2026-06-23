@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-22T23:46:04.494152+00:00",
+  "updated_at": "2026-06-23T01:47:53.904333+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -624,13 +624,13 @@
       "group": "",
       "home": "France",
       "away": "Iraq",
-      "home_score": 1,
+      "home_score": 3,
       "away_score": 0,
       "home_half_score": 1,
       "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "PAUSED"
+      "status": "FINISHED"
     },
     {
       "id": 43,
@@ -639,13 +639,13 @@
       "group": "",
       "home": "Norway",
       "away": "Senegal",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 3,
+      "away_score": 1,
+      "home_half_score": 1,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "IN_PLAY"
     },
     {
       "id": 44,
