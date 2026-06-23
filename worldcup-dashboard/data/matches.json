@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23T21:57:21.871480+00:00",
+  "updated_at": "2026-06-23T23:04:03.935868+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -458,9 +458,9 @@
       "group": "",
       "home": "England",
       "away": "Ghana",
-      "home_score": null,
-      "away_score": null,
-      "status": "LIVE"
+      "home_score": 0,
+      "away_score": 0,
+      "status": "FINISHED"
     },
     {
       "id": 47,
