@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23T16:37:19.375853+00:00",
+  "updated_at": "2026-06-23T18:26:56.947748+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -448,9 +448,9 @@
       "group": "",
       "home": "Portugal",
       "away": "Uzbekistan",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 3,
+      "away_score": 0,
+      "status": "IN_PLAY"
     },
     {
       "id": 46,
@@ -743,10 +743,10 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 75,
+      "date": "2026-06-29",
       "group": "",
-      "home": "TBD",
+      "home": "Germany",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
@@ -783,10 +783,10 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 79,
+      "date": "2026-07-01",
       "group": "",
-      "home": "TBD",
+      "home": "Mexico",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
@@ -813,10 +813,10 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 82,
+      "date": "2026-07-02",
       "group": "",
-      "home": "TBD",
+      "home": "United States",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
