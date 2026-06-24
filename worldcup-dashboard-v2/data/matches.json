@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-24T17:22:39.167856+00:00",
+  "updated_at": "2026-06-24T19:04:02.441926+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -39,10 +39,10 @@
       "group": "",
       "home": "Canada",
       "away": "Bosnia-Herzegovina",
-      "home_score": 1,
-      "away_score": 1,
-      "home_half_score": 0,
-      "away_half_score": 1,
+      "home_score": null,
+      "away_score": null,
+      "home_half_score": null,
+      "away_half_score": null,
       "minute": null,
       "added_time": null,
       "status": "FINISHED"
