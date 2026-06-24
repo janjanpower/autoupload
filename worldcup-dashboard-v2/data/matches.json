@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23T23:04:05.088348+00:00",
+  "updated_at": "2026-06-24T00:05:48.361007+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -699,13 +699,13 @@
       "group": "",
       "home": "Panama",
       "away": "Croatia",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "PAUSED"
     },
     {
       "id": 48,

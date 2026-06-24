@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23T23:04:03.935868+00:00",
+  "updated_at": "2026-06-24T00:05:47.674073+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -468,9 +468,9 @@
       "group": "",
       "home": "Panama",
       "away": "Croatia",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 0,
+      "status": "PAUSED"
     },
     {
       "id": 48,
@@ -743,10 +743,10 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 75,
+      "date": "2026-06-29",
       "group": "",
-      "home": "TBD",
+      "home": "Germany",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
@@ -783,10 +783,10 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 79,
+      "date": "2026-07-01",
       "group": "",
-      "home": "TBD",
+      "home": "Mexico",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
@@ -813,10 +813,10 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 82,
+      "date": "2026-07-02",
       "group": "",
-      "home": "TBD",
+      "home": "United States",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
