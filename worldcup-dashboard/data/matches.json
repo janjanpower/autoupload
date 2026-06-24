@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-24T22:03:15.810858+00:00",
+  "updated_at": "2026-06-24T23:15:16.828043+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -28,8 +28,8 @@
       "group": "",
       "home": "Canada",
       "away": "Bosnia-Herzegovina",
-      "home_score": 1,
-      "away_score": 1,
+      "home_score": null,
+      "away_score": null,
       "status": "FINISHED"
     },
     {
@@ -508,9 +508,9 @@
       "group": "",
       "home": "Morocco",
       "away": "Haiti",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 2,
+      "away_score": 2,
+      "status": "IN_PLAY"
     },
     {
       "id": 52,
@@ -518,9 +518,9 @@
       "group": "",
       "home": "Scotland",
       "away": "Brazil",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 2,
+      "status": "PAUSED"
     },
     {
       "id": 53,
