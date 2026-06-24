@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-24T19:04:01.113751+00:00",
+  "updated_at": "2026-06-24T20:52:41.889008+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -488,9 +488,9 @@
       "group": "",
       "home": "Switzerland",
       "away": "Canada",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 2,
+      "away_score": 1,
+      "status": "IN_PLAY"
     },
     {
       "id": 50,
@@ -498,9 +498,9 @@
       "group": "",
       "home": "Bosnia-Herzegovina",
       "away": "Qatar",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 3,
+      "away_score": 1,
+      "status": "IN_PLAY"
     },
     {
       "id": 51,
@@ -743,16 +743,6 @@
       "status": "TIMED"
     },
     {
-      "id": 75,
-      "date": "2026-06-29",
-      "group": "",
-      "home": "Germany",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
       "id": 104,
       "date": "2026-07-19",
       "group": "",
@@ -783,40 +773,10 @@
       "status": "TIMED"
     },
     {
-      "id": 79,
-      "date": "2026-07-01",
-      "group": "",
-      "home": "Mexico",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
       "id": 104,
       "date": "2026-07-19",
       "group": "",
       "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 104,
-      "date": "2026-07-19",
-      "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 82,
-      "date": "2026-07-02",
-      "group": "",
-      "home": "United States",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
@@ -863,10 +823,50 @@
       "status": "TIMED"
     },
     {
-      "id": 87,
-      "date": "2026-07-03",
+      "id": 104,
+      "date": "2026-07-19",
       "group": "",
-      "home": "Argentina",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "group": "",
+      "home": "TBD",
+      "away": "TBD",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 104,
+      "date": "2026-07-19",
+      "group": "",
+      "home": "TBD",
       "away": "TBD",
       "home_score": null,
       "away_score": null,

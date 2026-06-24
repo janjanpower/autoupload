@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-24T19:04:02.441926+00:00",
+  "updated_at": "2026-06-24T20:52:42.813414+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -39,10 +39,10 @@
       "group": "",
       "home": "Canada",
       "away": "Bosnia-Herzegovina",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 1,
+      "away_score": 1,
+      "home_half_score": 0,
+      "away_half_score": 1,
       "minute": null,
       "added_time": null,
       "status": "FINISHED"
@@ -729,13 +729,13 @@
       "group": "",
       "home": "Switzerland",
       "away": "Canada",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 2,
+      "away_score": 1,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "IN_PLAY"
     },
     {
       "id": 50,
@@ -744,13 +744,13 @@
       "group": "",
       "home": "Bosnia-Herzegovina",
       "away": "Qatar",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 3,
+      "away_score": 1,
+      "home_half_score": 2,
+      "away_half_score": 1,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "IN_PLAY"
     },
     {
       "id": 51,
