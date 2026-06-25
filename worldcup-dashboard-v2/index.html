@@ -486,9 +486,19 @@ function drawBracket(){
   setTimeout(drawTreeLines,20);
 }
 function allTeams(){return Object.values(GROUPS).flat()}
+function teamsWithScenarioMatches(exceptIndex=-1){
+  return allTeams().filter(t=>remainingTeamMatches(t,exceptIndex).length>0);
+}
+function firstScenarioTeam(exceptIndex=-1,preferred=null){
+  if(preferred&&teamExists(preferred)&&remainingTeamMatches(preferred,exceptIndex).length>0)return preferred;
+  return teamsWithScenarioMatches(exceptIndex)[0]||null;
+}
 function loadTargets(){
   teamOptions.innerHTML=allTeams().map(t=>`<option value="${t}"></option>`).join('');
-  if(!SCENARIOS.length)addScenario(allTeams()[0],false);
+  if(!SCENARIOS.length){
+    const team=firstScenarioTeam();
+    if(team)addScenario(team,false);
+  }
   normalizeScenarios();
   renderScoreControl();runScenarioImpact();
 }
@@ -533,14 +543,18 @@ function resetScenarioForTeam(team){
 function normalizeScenarios(){
   const source=[...SCENARIOS];
   SCENARIOS=[];
-  const anchor=source.find(s=>teamExists(s.team))?.team||allTeams()[0];
+  const anchor=firstScenarioTeam(-1,source.find(s=>teamExists(s.team))?.team);
   source.forEach(s=>{
     const current=MATCHES.find(m=>m.id===+s.matchId);
-    const team=teamExists(s.team)?s.team:anchor;
+    const team=firstScenarioTeam(SCENARIOS.length,teamExists(s.team)?s.team:anchor);
+    if(!team)return;
     const match=isScenarioMatchSelectable(current,SCENARIOS.length,team)?current:firstMatchForTeam(team,SCENARIOS.length);
     if(match)SCENARIOS.push(syncScenarioToMatch({...s,team},match));
   });
-  if(!SCENARIOS.length)addScenario(allTeams()[0],false);
+  if(!SCENARIOS.length){
+    const team=firstScenarioTeam();
+    if(team)addScenario(team,false);
+  }
 }
 function primaryScenario(){return SCENARIOS[0]||null}
 function primaryScenarioTeam(){return primaryScenario()?.team||allTeams()[0]}
@@ -564,9 +578,11 @@ function syncScenarioToMatch(s,m,resetScore=false){
 }
 function addScenario(team=primaryScenarioTeam(),rerender=true){
   const index=SCENARIOS.length;
-  const match=firstMatchForTeam(team,index);
+  const targetTeam=firstScenarioTeam(index,team);
+  if(!targetTeam)return;
+  const match=firstMatchForTeam(targetTeam,index);
   if(!match)return;
-  const scenario=syncScenarioToMatch({team},match);
+  const scenario=syncScenarioToMatch({team:targetTeam},match);
   SCENARIOS.push(scenario);
   if(rerender){renderScoreControl();runScenarioImpact()}
 }
