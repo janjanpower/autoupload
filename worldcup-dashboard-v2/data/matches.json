@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-25T20:22:33.874289+00:00",
+  "updated_at": "2026-06-25T21:55:48.429390+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -819,13 +819,13 @@
       "group": "",
       "home": "Ecuador",
       "away": "Germany",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 2,
+      "away_score": 1,
+      "home_half_score": 1,
+      "away_half_score": 1,
       "minute": null,
       "added_time": null,
-      "status": "LIVE"
+      "status": "IN_PLAY"
     },
     {
       "id": 56,
@@ -834,13 +834,13 @@
       "group": "",
       "home": "Curaçao",
       "away": "Ivory Coast",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 0,
+      "away_score": 2,
+      "home_half_score": 0,
+      "away_half_score": 1,
       "minute": null,
       "added_time": null,
-      "status": "LIVE"
+      "status": "IN_PLAY"
     },
     {
       "id": 57,
