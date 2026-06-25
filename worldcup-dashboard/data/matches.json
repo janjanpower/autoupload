@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-25T21:55:47.816193+00:00",
+  "updated_at": "2026-06-25T23:07:26.973421+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -550,7 +550,7 @@
       "away": "Germany",
       "home_score": 2,
       "away_score": 1,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 56,
@@ -560,7 +560,7 @@
       "away": "Ivory Coast",
       "home_score": 0,
       "away_score": 2,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 57,
@@ -568,9 +568,9 @@
       "group": "",
       "home": "Tunisia",
       "away": "Netherlands",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 0,
+      "status": "IN_PLAY"
     },
     {
       "id": 58,
@@ -578,9 +578,9 @@
       "group": "",
       "home": "Japan",
       "away": "Sweden",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 0,
+      "status": "IN_PLAY"
     },
     {
       "id": 59,
