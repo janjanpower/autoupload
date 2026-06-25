@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-25T18:14:41.607006+00:00",
+  "updated_at": "2026-06-25T20:22:33.210598+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -550,7 +550,7 @@
       "away": "Germany",
       "home_score": null,
       "away_score": null,
-      "status": "TIMED"
+      "status": "LIVE"
     },
     {
       "id": 56,
@@ -560,7 +560,7 @@
       "away": "Ivory Coast",
       "home_score": null,
       "away_score": null,
-      "status": "TIMED"
+      "status": "LIVE"
     },
     {
       "id": 57,
