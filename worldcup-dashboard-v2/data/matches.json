@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-25T01:27:09.419734+00:00",
+  "updated_at": "2026-06-25T05:36:38.405632+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -789,13 +789,13 @@
       "group": "",
       "home": "Czechia",
       "away": "Mexico",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 0,
+      "away_score": 3,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 54,
@@ -804,13 +804,13 @@
       "group": "",
       "home": "South Africa",
       "away": "South Korea",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 1,
+      "away_score": 0,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 55,
