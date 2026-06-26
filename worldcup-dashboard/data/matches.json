@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-26T04:45:03.829495+00:00",
+  "updated_at": "2026-06-26T08:21:01.364985+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -723,21 +723,21 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 73,
+      "date": "2026-06-28",
       "group": "",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "South Africa",
+      "away": "Canada",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 74,
+      "date": "2026-06-29",
       "group": "",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "Brazil",
+      "away": "Japan",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
@@ -753,11 +753,11 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 76,
+      "date": "2026-06-30",
       "group": "",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "Netherlands",
+      "away": "Morocco",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
@@ -817,7 +817,7 @@
       "date": "2026-07-02",
       "group": "",
       "home": "United States",
-      "away": "TBD",
+      "away": "Bosnia-Herzegovina",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
@@ -843,20 +843,20 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 85,
+      "date": "2026-07-03",
       "group": "",
-      "home": "TBD",
+      "home": "Switzerland",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 86,
+      "date": "2026-07-03",
       "group": "",
-      "home": "TBD",
+      "home": "Australia",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
