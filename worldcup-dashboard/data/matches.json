@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-26T17:18:15.289036+00:00",
+  "updated_at": "2026-06-26T19:07:31.747415+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -610,7 +610,7 @@
       "away": "France",
       "home_score": null,
       "away_score": null,
-      "status": "TIMED"
+      "status": "LIVE"
     },
     {
       "id": 62,
@@ -620,7 +620,7 @@
       "away": "Iraq",
       "home_score": null,
       "away_score": null,
-      "status": "TIMED"
+      "status": "LIVE"
     },
     {
       "id": 63,
