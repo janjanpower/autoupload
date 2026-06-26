@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-25T23:07:27.830785+00:00",
+  "updated_at": "2026-06-26T00:21:00.125434+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -849,10 +849,10 @@
       "group": "",
       "home": "Tunisia",
       "away": "Netherlands",
-      "home_score": 0,
-      "away_score": 0,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 1,
+      "away_score": 2,
+      "home_half_score": 0,
+      "away_half_score": 2,
       "minute": null,
       "added_time": null,
       "status": "IN_PLAY"
@@ -866,8 +866,8 @@
       "away": "Sweden",
       "home_score": 0,
       "away_score": 0,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
       "status": "IN_PLAY"
