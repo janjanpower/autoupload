@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-26T08:21:01.980549+00:00",
+  "updated_at": "2026-06-26T11:17:56.738337+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -789,13 +789,13 @@
       "group": "",
       "home": "Czechia",
       "away": "Mexico",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 0,
+      "away_score": 3,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 54,
@@ -804,13 +804,13 @@
       "group": "",
       "home": "South Africa",
       "away": "South Korea",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 1,
+      "away_score": 0,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 55,
@@ -819,13 +819,13 @@
       "group": "",
       "home": "Ecuador",
       "away": "Germany",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 2,
+      "away_score": 1,
+      "home_half_score": 1,
+      "away_half_score": 1,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 56,
@@ -834,13 +834,13 @@
       "group": "",
       "home": "Curaçao",
       "away": "Ivory Coast",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 0,
+      "away_score": 2,
+      "home_half_score": 0,
+      "away_half_score": 1,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 57,
@@ -849,13 +849,13 @@
       "group": "",
       "home": "Tunisia",
       "away": "Netherlands",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 1,
+      "away_score": 3,
+      "home_half_score": 0,
+      "away_half_score": 2,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 58,
@@ -864,13 +864,13 @@
       "group": "",
       "home": "Japan",
       "away": "Sweden",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 1,
+      "away_score": 1,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 59,
