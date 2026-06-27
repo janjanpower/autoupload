@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T04:14:53.768348+00:00",
+  "updated_at": "2026-06-27T07:27:26.709051+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -648,9 +648,9 @@
       "group": "",
       "home": "New Zealand",
       "away": "Belgium",
-      "home_score": 0,
-      "away_score": 1,
-      "status": "IN_PLAY"
+      "home_score": 1,
+      "away_score": 5,
+      "status": "FINISHED"
     },
     {
       "id": 66,
@@ -658,9 +658,9 @@
       "group": "",
       "home": "Egypt",
       "away": "Iran",
-      "home_score": null,
-      "away_score": null,
-      "status": "LIVE"
+      "home_score": 1,
+      "away_score": 1,
+      "status": "FINISHED"
     },
     {
       "id": 67,
@@ -763,10 +763,10 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 77,
+      "date": "2026-06-30",
       "group": "",
-      "home": "TBD",
+      "home": "Ivory Coast",
       "away": "TBD",
       "home_score": null,
       "away_score": null,

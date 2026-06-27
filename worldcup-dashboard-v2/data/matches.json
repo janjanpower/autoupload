@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T04:14:54.527977+00:00",
+  "updated_at": "2026-06-27T07:27:27.496529+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -969,13 +969,13 @@
       "group": "",
       "home": "New Zealand",
       "away": "Belgium",
-      "home_score": 0,
-      "away_score": 1,
+      "home_score": 1,
+      "away_score": 5,
       "home_half_score": 0,
       "away_half_score": 1,
       "minute": null,
       "added_time": null,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 66,
@@ -984,13 +984,13 @@
       "group": "",
       "home": "Egypt",
       "away": "Iran",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 1,
+      "away_score": 1,
+      "home_half_score": 1,
+      "away_half_score": 1,
       "minute": null,
       "added_time": null,
-      "status": "LIVE"
+      "status": "FINISHED"
     },
     {
       "id": 67,
