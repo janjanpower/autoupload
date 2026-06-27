@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T22:12:01.975192+00:00",
+  "updated_at": "2026-06-27T23:15:48.824119+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -1000,12 +1000,12 @@
       "home": "Panama",
       "away": "England",
       "home_score": 0,
-      "away_score": 0,
+      "away_score": 2,
       "home_half_score": 0,
       "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 68,
@@ -1014,13 +1014,13 @@
       "group": "",
       "home": "Croatia",
       "away": "Ghana",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 2,
+      "away_score": 1,
+      "home_half_score": 1,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "LIVE"
+      "status": "FINISHED"
     },
     {
       "id": 69,
