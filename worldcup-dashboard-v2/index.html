@@ -405,7 +405,9 @@ function thirdRankingTable(rows){
 }
 function treeNode(match,x,y,kind,champ=false){
   const id=`node-${kind}-${match.id}`;
-  const home=match.a?match.a.team:match.h,away=match.b?match.b.team:match.a,homeSeed=match.a?.seed||'主',awaySeed=match.b?.seed||'客',homeGroup=match.a?.group||'X',awayGroup=match.b?.group||'X';
+  const homeSlot=match.a&&typeof match.a==='object'?match.a:{seed:'主',team:match.h,group:'X'};
+  const awaySlot=match.b&&typeof match.b==='object'?match.b:{seed:'客',team:match.a,group:'X'};
+  const home=homeSlot.team,away=awaySlot.team,homeSeed=homeSlot.seed||'主',awaySeed=awaySlot.seed||'客',homeGroup=homeSlot.group||'X',awayGroup=awaySlot.group||'X';
   const finalCard=['FINAL','THIRD'].includes(match.id)?'finalCard':'';
   return `<div class="node ${finalCard} ${champ?'champ':''}" id="${id}" style="left:${x}%;top:${y}%;transform:translate(-50%,-50%)"><div class=nodeTitle><span>${match.id}</span><span>${match.round||''}</span></div><div class=nTeam><span class=nSeed style="color:${COLORS[homeGroup]||COLORS.X}">${homeSeed}</span>${teamDisplay(home)}</div><div class=nTeam><span class=nSeed style="color:${COLORS[awayGroup]||COLORS.X}">${awaySeed}</span>${teamDisplay(away)}</div></div>`;
 }
@@ -421,7 +423,42 @@ function actualKnockoutMap(){
   return map;
 }
 function bracketPlaceholder(id,round){return{id,date:'',utc_date:'',g:'',h:'待定',a:'待定',hg:null,ag:null,status:'TIMED',done:false,round}}
-function knockoutNode(id,round,map){return map[id]?{...map[id],id,round}:bracketPlaceholder(id,round)}
+function groupPlayedCount(group){
+  return MATCHES.filter(m=>m.g===group&&isPlayed(m)).length;
+}
+function isGroupComplete(group){return groupPlayedCount(group)>=6}
+function allGroupsComplete(){return Object.keys(GROUPS).every(isGroupComplete)}
+function hasActualKnockoutTeams(match){
+  return match&&(!isTbdTeam(match.h)||!isTbdTeam(match.a));
+}
+function bracketSeedSlot(seed,matchId){
+  if(seed==='3'){
+    if(allGroupsComplete()){
+      const group=STATE.thirdMap?.[matchId],row=group?STATE.standings[group]?.[2]:null;
+      if(row)return{seed:`${group}3`,team:row.team,group,rank:3};
+    }
+    return{seed:'最佳3',team:'候選 '+THIRD_RULE[matchId].join('/'),group:null,rank:3};
+  }
+  const group=fixedSeedGroup(seed),rank=+seed.slice(1),row=isGroupComplete(group)?STATE.standings[group]?.[rank-1]:null;
+  return row?{seed,team:row.team,group,rank}:{seed,team:`${seed} 待定`,group,rank};
+}
+function projectedR32Node(id,round){
+  const template=R32_TEMPLATE.find(([matchId])=>matchId===id);
+  if(!template)return bracketPlaceholder(id,round);
+  const [,a,b]=template;
+  return{id,round,a:bracketSeedSlot(a,id),b:bracketSeedSlot(b,id)};
+}
+function knockoutNode(id,round,map){
+  const kind=kindForMatchId(id);
+  if(map[id]&&(kind!=='32'||hasActualKnockoutTeams(map[id])))return{...map[id],id,round};
+  return kind==='32'?projectedR32Node(id,round):bracketPlaceholder(id,round);
+}
+function kindForMatchId(id){
+  if(/^M7[3-9]$|^M8[0-8]$/.test(id))return'32';
+  if(/^M8[9]$|^M9[0-6]$/.test(id))return'16';
+  if(/^M9[7-9]$|^M100$/.test(id))return'8';
+  return'4';
+}
 const TREE_LAYOUTS={
   '32':R32_TEMPLATE.map(([id],i)=>({id,x:i<8?25:75,y:10+(i%8)*11.2,round:'32強'})),
   '16':[
@@ -877,7 +914,9 @@ function pairingLinesForGroups(view,groups,match){
   });
 }
 function targetRowsForReverse(pack,group){
-  return groupRowsForMatchup(pack.standings,group).slice(0,3).map((x,i)=>({team:x.team,rank:i+1}));
+  return groupRowsForMatchup(pack.standings,group).slice(0,3).map((x,i)=>({
+    team:x.team,rank:i+1,points:x.Pts,goalDiff:x.GD,goalsFor:x.GF,wins:x.W
+  }));
 }
 function clamp(n,min,max){return Math.max(min,Math.min(max,n))}
 function poisson(k,lambda){
@@ -995,23 +1034,50 @@ function scorePairProbability(hg,ag,model){
   if(total>=5&&model.tempo<1.15)prob*=.78;
   return Math.max(prob,0.000001);
 }
+function reverseTargetRankMap(targetRows){
+  return new Map((targetRows||[]).map(x=>[x.team,x.rank]));
+}
+function reversePairContextCost(match,pair,model,targetRows){
+  const rankMap=reverseTargetRankMap(targetRows),homeRank=rankMap.get(match.h)||5,awayRank=rankMap.get(match.a)||5;
+  const homeTargeted=homeRank<=3,awayTargeted=awayRank<=3,homeHigher=homeRank<awayRank,awayHigher=awayRank<homeRank;
+  const homeWin=pair.hg>pair.ag,awayWin=pair.ag>pair.hg,draw=pair.hg===pair.ag,total=pair.hg+pair.ag,margin=Math.abs(pair.hg-pair.ag);
+  let cost=0;
+  if(homeHigher&&awayWin)cost+=(homeTargeted&&awayTargeted) ? .42 : .26;
+  if(awayHigher&&homeWin)cost+=(homeTargeted&&awayTargeted) ? .42 : .26;
+  if(homeHigher&&homeWin)cost-=.08;
+  if(awayHigher&&awayWin)cost-=.08;
+  if((homeRank===3||awayRank===3)&&draw)cost+=.05;
+  if(homeTargeted||awayTargeted){
+    if(margin>=3)cost+=.1+margin*.08;
+    if(total>=5)cost+=.12+(total-4)*.08;
+  }
+  const expectedMargin=model.hg-model.ag,actualMargin=pair.hg-pair.ag;
+  cost+=Math.abs(actualMargin-expectedMargin)*.045;
+  if(total===0&&model.tempo>1.45)cost+=.18;
+  if(total>=4&&model.tempo<1.0)cost+=.16;
+  if(model.confidence<.68)cost+=.03*margin+.025*Math.max(0,total-3);
+  return cost;
+}
 function diversifiedScorePairs(pairs){
   const add=(list,item,limit)=>{if(item&&list.length<limit&&!list.some(x=>x.hg===item.hg&&x.ag===item.ag))list.push(item)};
-  const ordered=[...pairs].sort((a,b)=>b.prob-a.prob||a.cost-b.cost),diverse=[];
-  ordered.slice(0,18).forEach(x=>add(diverse,x,36));
-  ordered.filter(x=>x.hg+x.ag>=3).slice(0,8).forEach(x=>add(diverse,x,36));
-  ordered.filter(x=>x.hg+x.ag>=4).slice(0,6).forEach(x=>add(diverse,x,36));
-  ordered.filter(x=>Math.abs(x.hg-x.ag)>=2).slice(0,6).forEach(x=>add(diverse,x,36));
-  ordered.filter(x=>x.hg>=3||x.ag>=3).slice(0,6).forEach(x=>add(diverse,x,36));
+  const ordered=[...pairs].sort((a,b)=>a.cost-b.cost||b.prob-a.prob),diverse=[];
+  ordered.slice(0,20).forEach(x=>add(diverse,x,40));
+  ordered.filter(x=>x.hg+x.ag>=3).slice(0,8).forEach(x=>add(diverse,x,40));
+  ordered.filter(x=>x.hg+x.ag>=4).slice(0,5).forEach(x=>add(diverse,x,40));
+  ordered.filter(x=>Math.abs(x.hg-x.ag)>=2).slice(0,5).forEach(x=>add(diverse,x,40));
+  ordered.filter(x=>x.hg>=3||x.ag>=3).slice(0,5).forEach(x=>add(diverse,x,40));
   ordered.forEach(x=>add(diverse,x,36));
   return diverse;
 }
-function scorePairsForReverse(match){
+function scorePairsForReverse(match,targetRows=[]){
   const model=matchGoalModel(match);
   const pairs=[];
   for(let hg=0;hg<=6;hg++)for(let ag=0;ag<=6;ag++){
     const prob=scorePairProbability(hg,ag,model),goalPenalty=Math.abs(hg-model.hg)+Math.abs(ag-model.ag),confidencePenalty=(1-model.confidence)*.08;
-    pairs.push({hg,ag,prob,cost:-Math.log(prob)+goalPenalty*.08+confidencePenalty,model});
+    const pair={hg,ag,prob,cost:-Math.log(prob)+goalPenalty*.08+confidencePenalty,model};
+    pair.contextCost=reversePairContextCost(match,pair,model,targetRows);
+    pair.cost+=pair.contextCost;
+    pairs.push(pair);
   }
   return diversifiedScorePairs(pairs);
 }
@@ -1023,7 +1089,13 @@ function applyReverseEdits(base,edits){
 function rankPenalty(rows,targetRows){
   return targetRows.reduce((sum,target,index)=>{
     const actual=rows.findIndex(x=>x.team===target.team);
-    return sum+(actual<0?500:Math.abs(actual-index)*100+(actual>2?40:0));
+    const row=rows[actual]||{};
+    const shapePenalty=actual>=0
+      ? Math.abs((row.Pts??target.points??0)-(target.points??row.Pts??0))*5
+        +Math.abs((row.GD??target.goalDiff??0)-(target.goalDiff??row.GD??0))*2
+        +Math.abs((row.GF??target.goalsFor??0)-(target.goalsFor??row.GF??0))
+      : 0;
+    return sum+(actual<0?500:Math.abs(actual-index)*100+(actual>2?40:0)+shapePenalty);
   },0);
 }
 function ranksMatch(rows,targetRows){
@@ -1037,18 +1109,19 @@ function reverseGroupScoreCombos(group,targetRows){
     const rows=rankedGroupRows(ANNEX_C_ENGINE.calculate(base),group);
     return{group,targetLabel,matches:[],solutions:ranksMatch(rows,targetRows)?[{edits:[]}]:[],complete:true};
   }
-  const beamLimit=900,solutionLimit=8;
-  let beam=[{edits:[],penalty:0,modelCost:0,prob:1}];
+  const beamLimit=1100,solutionLimit=10;
+  let beam=[{edits:[],penalty:0,modelCost:0,prob:1,score:0}];
   matches.forEach(match=>{
-    const expanded=[],pairs=scorePairsForReverse(match).slice(0,36);
+    const expanded=[],pairs=scorePairsForReverse(match,targetRows).slice(0,40);
     beam.forEach(state=>{
       pairs.forEach(pair=>{
         const edits=[...state.edits,{id:match.id,hg:pair.hg,ag:pair.ag,prob:pair.prob,cost:pair.cost,style:pair.model.style,expHg:pair.model.hg,expAg:pair.model.ag}];
         const rows=rankedGroupRows(ANNEX_C_ENGINE.calculate(applyReverseEdits(base,edits)),group);
-        expanded.push({edits,penalty:rankPenalty(rows,targetRows),modelCost:state.modelCost+pair.cost,prob:state.prob*pair.prob});
+        const penalty=rankPenalty(rows,targetRows),modelCost=state.modelCost+pair.cost,prob=state.prob*pair.prob;
+        expanded.push({edits,penalty,modelCost,prob,score:penalty+modelCost*16});
       });
     });
-    expanded.sort((a,b)=>a.penalty-b.penalty||a.modelCost-b.modelCost||b.prob-a.prob);
+    expanded.sort((a,b)=>a.score-b.score||a.penalty-b.penalty||a.modelCost-b.modelCost||b.prob-a.prob);
     beam=expanded.slice(0,beamLimit);
   });
   const seen=new Set(),solutions=[];
@@ -1060,7 +1133,7 @@ function reverseGroupScoreCombos(group,targetRows){
     if(seen.has(key))return;
     seen.add(key);solutions.push(state);
   });
-  solutions.sort((a,b)=>a.modelCost-b.modelCost||b.prob-a.prob);
+  solutions.sort((a,b)=>a.score-b.score||a.modelCost-b.modelCost||b.prob-a.prob);
   return{group,targetLabel,matches,solutions,complete:beam.length<beamLimit};
 }
 function combinedReverseCombos(results,applyGroup=null){
