@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-28T00:15:21.747735+00:00",
+  "updated_at": "2026-06-28T04:51:53.785244+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -688,9 +688,9 @@
       "group": "",
       "home": "Colombia",
       "away": "Portugal",
-      "home_score": null,
-      "away_score": null,
-      "status": "LIVE"
+      "home_score": 0,
+      "away_score": 0,
+      "status": "FINISHED"
     },
     {
       "id": 70,
@@ -698,9 +698,9 @@
       "group": "",
       "home": "Congo DR",
       "away": "Uzbekistan",
-      "home_score": null,
-      "away_score": null,
-      "status": "LIVE"
+      "home_score": 3,
+      "away_score": 1,
+      "status": "FINISHED"
     },
     {
       "id": 71,
@@ -708,9 +708,9 @@
       "group": "",
       "home": "Jordan",
       "away": "Argentina",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 1,
+      "away_score": 3,
+      "status": "FINISHED"
     },
     {
       "id": 72,
@@ -718,9 +718,9 @@
       "group": "",
       "home": "Algeria",
       "away": "Austria",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 3,
+      "away_score": 3,
+      "status": "FINISHED"
     },
     {
       "id": 73,

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-28T00:15:22.651688+00:00",
+  "updated_at": "2026-06-28T04:51:54.498774+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -1029,13 +1029,13 @@
       "group": "",
       "home": "Colombia",
       "away": "Portugal",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 0,
+      "away_score": 0,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "LIVE"
+      "status": "FINISHED"
     },
     {
       "id": 70,
@@ -1044,13 +1044,13 @@
       "group": "",
       "home": "Congo DR",
       "away": "Uzbekistan",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 3,
+      "away_score": 1,
+      "home_half_score": 0,
+      "away_half_score": 1,
       "minute": null,
       "added_time": null,
-      "status": "LIVE"
+      "status": "FINISHED"
     },
     {
       "id": 71,
@@ -1059,13 +1059,13 @@
       "group": "",
       "home": "Jordan",
       "away": "Argentina",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 1,
+      "away_score": 3,
+      "home_half_score": 0,
+      "away_half_score": 2,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 72,
@@ -1074,13 +1074,13 @@
       "group": "",
       "home": "Algeria",
       "away": "Austria",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 3,
+      "away_score": 3,
+      "home_half_score": 1,
+      "away_half_score": 1,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 73,
