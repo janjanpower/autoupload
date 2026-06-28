@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T23:15:47.776301+00:00",
+  "updated_at": "2026-06-28T00:15:21.747735+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -690,7 +690,7 @@
       "away": "Portugal",
       "home_score": null,
       "away_score": null,
-      "status": "TIMED"
+      "status": "LIVE"
     },
     {
       "id": 70,
@@ -700,7 +700,7 @@
       "away": "Uzbekistan",
       "home_score": null,
       "away_score": null,
-      "status": "TIMED"
+      "status": "LIVE"
     },
     {
       "id": 71,
