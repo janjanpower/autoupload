@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-29T20:59:17.555203+00:00",
+  "updated_at": "2026-06-29T22:07:43.885246+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -748,8 +748,8 @@
       "group": "",
       "home": "Germany",
       "away": "Paraguay",
-      "home_score": 0,
-      "away_score": 0,
+      "home_score": 1,
+      "away_score": 1,
       "status": "IN_PLAY"
     },
     {
