@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-29T22:07:43.885246+00:00",
+  "updated_at": "2026-06-29T23:12:58.941874+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -748,9 +748,9 @@
       "group": "",
       "home": "Germany",
       "away": "Paraguay",
-      "home_score": 1,
+      "home_score": 2,
       "away_score": 1,
-      "status": "IN_PLAY"
+      "status": "PAUSED"
     },
     {
       "id": 76,
