@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-29T17:28:54.412597+00:00",
+  "updated_at": "2026-06-29T19:20:33.566151+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -738,9 +738,9 @@
       "group": "",
       "home": "Brazil",
       "away": "Japan",
-      "home_score": 0,
-      "away_score": 0,
-      "status": "IN_PLAY"
+      "home_score": 2,
+      "away_score": 1,
+      "status": "FINISHED"
     },
     {
       "id": 75,
