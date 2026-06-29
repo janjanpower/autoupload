@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-06-28T19:45:46.265934+00:00",
+  "updated_at": "2026-06-29T20:15:46.747238+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
-    "teams": 313,
-    "matchups": 3605,
-    "power_rating": 313,
+    "teams": 314,
+    "matchups": 3607,
+    "power_rating": 314,
     "spi": 0,
-    "estimated_spi": 313,
+    "estimated_spi": 314,
     "projected_goals": 43,
     "xg": 43,
     "offense": 0,
@@ -35,18 +35,18 @@
       "power_rating_source": "derived-results-xg"
     },
     "南非": {
-      "matches": 94,
-      "goals_for_per_match": 1.277,
-      "goals_against_per_match": 0.819,
-      "recent_goals_for_per_match": 1.167,
+      "matches": 95,
+      "goals_for_per_match": 1.263,
+      "goals_against_per_match": 0.821,
+      "recent_goals_for_per_match": 0.917,
       "recent_goals_against_per_match": 1.083,
-      "tempo": 1.125,
+      "tempo": 1.0,
       "sources": [
         "martj42-international-results",
         "matches.json"
       ],
-      "estimated_spi": 64.839,
-      "power_rating": 85.936,
+      "estimated_spi": 63.257,
+      "power_rating": 85.303,
       "power_rating_source": "derived-results-xg"
     },
     "大韓民國": {
@@ -85,12 +85,12 @@
       "power_rating_source": "derived-results-xg"
     },
     "加拿大": {
-      "matches": 97,
-      "goals_for_per_match": 1.959,
-      "goals_against_per_match": 0.969,
-      "recent_goals_for_per_match": 1.417,
+      "matches": 98,
+      "goals_for_per_match": 1.949,
+      "goals_against_per_match": 0.959,
+      "recent_goals_for_per_match": 1.5,
       "recent_goals_against_per_match": 1.083,
-      "tempo": 1.25,
+      "tempo": 1.292,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -101,8 +101,8 @@
       "projected_goals_against": 1.236,
       "xg_for": 1.31,
       "xg_against": 1.236,
-      "estimated_spi": 71.296,
-      "power_rating": 88.518,
+      "estimated_spi": 71.853,
+      "power_rating": 88.741,
       "power_rating_source": "derived-results-xg"
     },
     "波士尼亞與赫塞哥維納": {
@@ -910,6 +910,20 @@
       "xg_against": 2.489,
       "estimated_spi": 71.554,
       "power_rating": 88.622,
+      "power_rating_source": "derived-results-xg"
+    },
+    "TBD": {
+      "matches": 4,
+      "goals_for_per_match": 1.0,
+      "goals_against_per_match": 1.0,
+      "recent_goals_for_per_match": 1,
+      "recent_goals_against_per_match": 1,
+      "tempo": 1.0,
+      "sources": [
+        "matches.json"
+      ],
+      "estimated_spi": 55.222,
+      "power_rating": 82.089,
       "power_rating_source": "derived-results-xg"
     },
     "Artsakh": {
@@ -6229,6 +6243,26 @@
           "hg": 3,
           "ag": 3,
           "source": "martj42-international-results"
+        }
+      ]
+    },
+    "TBD|TBD": {
+      "matches": 2,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 0,
+          "ag": 1,
+          "source": "matches.json"
+        },
+        {
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 2,
+          "ag": 1,
+          "source": "matches.json"
         }
       ]
     },
@@ -74906,6 +74940,19 @@
           "away": "Czech Republic",
           "hg": 3,
           "ag": 0,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "加拿大|南非": {
+      "matches": 1,
+      "average_total_goals": 1.0,
+      "recent": [
+        {
+          "home": "南非",
+          "away": "加拿大",
+          "hg": 0,
+          "ag": 1,
           "source": "martj42-international-results"
         }
       ]
