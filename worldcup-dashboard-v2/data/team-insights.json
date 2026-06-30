@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-06-29T20:15:46.747238+00:00",
+  "updated_at": "2026-06-30T20:18:24.845562+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
     "teams": 314,
-    "matchups": 3607,
+    "matchups": 3608,
     "power_rating": 314,
     "spi": 0,
     "estimated_spi": 314,
@@ -142,18 +142,18 @@
       "power_rating_source": "derived-results-xg"
     },
     "巴拉圭": {
-      "matches": 80,
-      "goals_for_per_match": 0.912,
-      "goals_against_per_match": 1.15,
-      "recent_goals_for_per_match": 1.167,
-      "recent_goals_against_per_match": 1.083,
-      "tempo": 1.125,
+      "matches": 81,
+      "goals_for_per_match": 0.914,
+      "goals_against_per_match": 1.148,
+      "recent_goals_for_per_match": 1.25,
+      "recent_goals_against_per_match": 1.167,
+      "tempo": 1.208,
       "sources": [
         "martj42-international-results",
         "matches.json"
       ],
-      "estimated_spi": 57.807,
-      "power_rating": 83.123,
+      "estimated_spi": 57.889,
+      "power_rating": 83.156,
       "power_rating_source": "derived-results-xg"
     },
     "卡達": {
@@ -199,9 +199,9 @@
       "power_rating_source": "derived-results-xg"
     },
     "巴西": {
-      "matches": 110,
-      "goals_for_per_match": 2.073,
-      "goals_against_per_match": 0.764,
+      "matches": 111,
+      "goals_for_per_match": 2.072,
+      "goals_against_per_match": 0.766,
       "recent_goals_for_per_match": 2.667,
       "recent_goals_against_per_match": 1.25,
       "tempo": 1.958,
@@ -215,17 +215,17 @@
       "projected_goals_against": 0.833,
       "xg_for": 2.273,
       "xg_against": 0.833,
-      "estimated_spi": 81.393,
-      "power_rating": 92.557,
+      "estimated_spi": 81.423,
+      "power_rating": 92.569,
       "power_rating_source": "derived-results-xg"
     },
     "摩洛哥": {
-      "matches": 117,
-      "goals_for_per_match": 1.846,
-      "goals_against_per_match": 0.564,
+      "matches": 118,
+      "goals_for_per_match": 1.839,
+      "goals_against_per_match": 0.568,
       "recent_goals_for_per_match": 1.083,
-      "recent_goals_against_per_match": 0.917,
-      "tempo": 1.0,
+      "recent_goals_against_per_match": 1,
+      "tempo": 1.042,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -236,8 +236,8 @@
       "projected_goals_against": 1.322,
       "xg_for": 1.226,
       "xg_against": 1.322,
-      "estimated_spi": 74.038,
-      "power_rating": 89.615,
+      "estimated_spi": 73.496,
+      "power_rating": 89.398,
       "power_rating_source": "derived-results-xg"
     },
     "海地": {
@@ -307,12 +307,12 @@
       "power_rating_source": "derived-results-xg"
     },
     "德國": {
-      "matches": 99,
-      "goals_for_per_match": 2.343,
-      "goals_against_per_match": 1.222,
-      "recent_goals_for_per_match": 1.833,
+      "matches": 100,
+      "goals_for_per_match": 2.33,
+      "goals_against_per_match": 1.22,
+      "recent_goals_for_per_match": 1.333,
       "recent_goals_against_per_match": 1.5,
-      "tempo": 1.667,
+      "tempo": 1.417,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -323,8 +323,8 @@
       "projected_goals_against": 1.213,
       "xg_for": 2.135,
       "xg_against": 1.213,
-      "estimated_spi": 72.591,
-      "power_rating": 89.036,
+      "estimated_spi": 69.546,
+      "power_rating": 87.818,
       "power_rating_source": "derived-results-xg"
     },
     "庫拉索": {
@@ -343,12 +343,12 @@
       "power_rating_source": "derived-results-xg"
     },
     "荷蘭": {
-      "matches": 100,
-      "goals_for_per_match": 2.34,
+      "matches": 101,
+      "goals_for_per_match": 2.327,
       "goals_against_per_match": 0.95,
-      "recent_goals_for_per_match": 2.25,
+      "recent_goals_for_per_match": 1.917,
       "recent_goals_against_per_match": 0.667,
-      "tempo": 1.458,
+      "tempo": 1.292,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -359,17 +359,17 @@
       "projected_goals_against": 1.339,
       "xg_for": 1.757,
       "xg_against": 1.339,
-      "estimated_spi": 82.566,
-      "power_rating": 93.026,
+      "estimated_spi": 80.497,
+      "power_rating": 92.199,
       "power_rating_source": "derived-results-xg"
     },
     "日本": {
-      "matches": 99,
-      "goals_for_per_match": 2.424,
-      "goals_against_per_match": 0.768,
+      "matches": 100,
+      "goals_for_per_match": 2.41,
+      "goals_against_per_match": 0.78,
       "recent_goals_for_per_match": 1.583,
-      "recent_goals_against_per_match": 1.167,
-      "tempo": 1.375,
+      "recent_goals_against_per_match": 1.333,
+      "tempo": 1.458,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -380,8 +380,8 @@
       "projected_goals_against": 1.807,
       "xg_for": 1.534,
       "xg_against": 1.807,
-      "estimated_spi": 77.909,
-      "power_rating": 91.164,
+      "estimated_spi": 76.726,
+      "power_rating": 90.69,
       "power_rating_source": "derived-results-xg"
     },
     "象牙海岸": {
@@ -913,45 +913,17 @@
       "power_rating_source": "derived-results-xg"
     },
     "TBD": {
-      "matches": 4,
-      "goals_for_per_match": 1.0,
-      "goals_against_per_match": 1.0,
-      "recent_goals_for_per_match": 1,
-      "recent_goals_against_per_match": 1,
-      "tempo": 1.0,
+      "matches": 10,
+      "goals_for_per_match": 2.3,
+      "goals_against_per_match": 2.3,
+      "recent_goals_for_per_match": 2.3,
+      "recent_goals_against_per_match": 2.3,
+      "tempo": 2.3,
       "sources": [
         "matches.json"
       ],
-      "estimated_spi": 55.222,
-      "power_rating": 82.089,
-      "power_rating_source": "derived-results-xg"
-    },
-    "Artsakh": {
-      "matches": 2,
-      "goals_for_per_match": 2.0,
-      "goals_against_per_match": 0.5,
-      "recent_goals_for_per_match": 2,
-      "recent_goals_against_per_match": 0.5,
-      "tempo": 1.25,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 77.611,
-      "power_rating": 91.044,
-      "power_rating_source": "derived-results-xg"
-    },
-    "Székely Land": {
-      "matches": 4,
-      "goals_for_per_match": 3.25,
-      "goals_against_per_match": 1.75,
-      "recent_goals_for_per_match": 3.25,
-      "recent_goals_against_per_match": 1.75,
-      "tempo": 2.5,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 77.722,
-      "power_rating": 91.089,
+      "estimated_spi": 55.556,
+      "power_rating": 82.222,
       "power_rating_source": "derived-results-xg"
     },
     "Bhutan": {
@@ -2018,6 +1990,34 @@
       ],
       "estimated_spi": 55.111,
       "power_rating": 82.044,
+      "power_rating_source": "derived-results-xg"
+    },
+    "Székely Land": {
+      "matches": 3,
+      "goals_for_per_match": 4.0,
+      "goals_against_per_match": 1.667,
+      "recent_goals_for_per_match": 4,
+      "recent_goals_against_per_match": 1.667,
+      "tempo": 2.833,
+      "sources": [
+        "martj42-international-results"
+      ],
+      "estimated_spi": 90.167,
+      "power_rating": 96.067,
+      "power_rating_source": "derived-results-xg"
+    },
+    "Artsakh": {
+      "matches": 1,
+      "goals_for_per_match": 2.0,
+      "goals_against_per_match": 0.0,
+      "recent_goals_for_per_match": 2,
+      "recent_goals_against_per_match": 0,
+      "tempo": 1.0,
+      "sources": [
+        "martj42-international-results"
+      ],
+      "estimated_spi": 85.056,
+      "power_rating": 94.022,
       "power_rating_source": "derived-results-xg"
     },
     "Padania": {
@@ -6247,8 +6247,8 @@
       ]
     },
     "TBD|TBD": {
-      "matches": 2,
-      "average_total_goals": 2.0,
+      "matches": 5,
+      "average_total_goals": 4.6,
       "recent": [
         {
           "home": "TBD",
@@ -6263,19 +6263,27 @@
           "hg": 2,
           "ag": 1,
           "source": "matches.json"
-        }
-      ]
-    },
-    "Artsakh|Székely Land": {
-      "matches": 1,
-      "average_total_goals": 3.0,
-      "recent": [
+        },
         {
-          "home": "Artsakh",
-          "away": "Székely Land",
-          "hg": 2,
-          "ag": 1,
-          "source": "martj42-international-results"
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 4,
+          "ag": 5,
+          "source": "matches.json"
+        },
+        {
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 3,
+          "ag": 4,
+          "source": "matches.json"
+        },
+        {
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 1,
+          "ag": 2,
+          "source": "matches.json"
         }
       ]
     },
@@ -46019,7 +46027,7 @@
       ]
     },
     "巴西|日本": {
-      "matches": 2,
+      "matches": 3,
       "average_total_goals": 3.0,
       "recent": [
         {
@@ -46034,6 +46042,13 @@
           "away": "巴西",
           "hg": 3,
           "ag": 2,
+          "source": "martj42-international-results"
+        },
+        {
+          "home": "巴西",
+          "away": "日本",
+          "hg": 2,
+          "ag": 1,
           "source": "martj42-international-results"
         }
       ]
@@ -74952,6 +74967,32 @@
           "home": "南非",
           "away": "加拿大",
           "hg": 0,
+          "ag": 1,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "巴拉圭|德國": {
+      "matches": 1,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "德國",
+          "away": "巴拉圭",
+          "hg": 1,
+          "ag": 1,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "摩洛哥|荷蘭": {
+      "matches": 1,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "荷蘭",
+          "away": "摩洛哥",
+          "hg": 1,
           "ag": 1,
           "source": "martj42-international-results"
         }
