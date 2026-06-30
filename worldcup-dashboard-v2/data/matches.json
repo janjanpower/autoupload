@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-30T00:18:52.190977+00:00",
+  "updated_at": "2026-06-30T04:36:34.921127+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -1119,8 +1119,8 @@
       "group": "",
       "home": "TBD",
       "away": "TBD",
-      "home_score": 5,
-      "away_score": 6,
+      "home_score": 4,
+      "away_score": 5,
       "home_half_score": 0,
       "away_half_score": 1,
       "minute": null,
@@ -1134,13 +1134,13 @@
       "group": "",
       "home": "TBD",
       "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "home_half_score": null,
-      "away_half_score": null,
+      "home_score": 3,
+      "away_score": 4,
+      "home_half_score": 0,
+      "away_half_score": 0,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "FINISHED"
     },
     {
       "id": 77,

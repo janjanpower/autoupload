@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-30T00:18:51.139415+00:00",
+  "updated_at": "2026-06-30T04:36:34.090580+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -748,8 +748,8 @@
       "group": "",
       "home": "Germany",
       "away": "Paraguay",
-      "home_score": 5,
-      "away_score": 6,
+      "home_score": 4,
+      "away_score": 5,
       "status": "FINISHED"
     },
     {
@@ -758,9 +758,9 @@
       "group": "",
       "home": "Netherlands",
       "away": "Morocco",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 4,
+      "away_score": 4,
+      "status": "FINISHED"
     },
     {
       "id": 77,
