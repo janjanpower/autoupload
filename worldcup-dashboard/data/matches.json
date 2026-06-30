@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-30T04:36:34.090580+00:00",
+  "updated_at": "2026-06-30T08:07:54.507104+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -758,7 +758,7 @@
       "group": "",
       "home": "Netherlands",
       "away": "Morocco",
-      "home_score": 4,
+      "home_score": 3,
       "away_score": 4,
       "status": "FINISHED"
     },
@@ -887,26 +887,26 @@
       "date": "2026-07-04",
       "group": "",
       "home": "Canada",
+      "away": "Morocco",
+      "home_score": null,
+      "away_score": null,
+      "status": "TIMED"
+    },
+    {
+      "id": 90,
+      "date": "2026-07-04",
+      "group": "",
+      "home": "Paraguay",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 91,
+      "date": "2026-07-05",
       "group": "",
-      "home": "TBD",
-      "away": "TBD",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
-    },
-    {
-      "id": 104,
-      "date": "2026-07-19",
-      "group": "",
-      "home": "TBD",
+      "home": "Brazil",
       "away": "TBD",
       "home_score": null,
       "away_score": null,
