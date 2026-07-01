@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-01T22:12:41.001333+00:00",
+  "updated_at": "2026-07-01T23:42:11.788419+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -808,9 +808,9 @@
       "group": "",
       "home": "Belgium",
       "away": "Senegal",
-      "home_score": 2,
+      "home_score": 3,
       "away_score": 2,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 82,
