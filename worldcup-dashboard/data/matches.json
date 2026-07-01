@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-01T01:55:22.333978+00:00",
+  "updated_at": "2026-07-01T06:15:46.458625+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -788,9 +788,9 @@
       "group": "",
       "home": "Mexico",
       "away": "Ecuador",
-      "home_score": 0,
+      "home_score": 2,
       "away_score": 0,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 80,
@@ -897,7 +897,7 @@
       "date": "2026-07-04",
       "group": "",
       "home": "Paraguay",
-      "away": "TBD",
+      "away": "France",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
@@ -907,7 +907,7 @@
       "date": "2026-07-05",
       "group": "",
       "home": "Brazil",
-      "away": "TBD",
+      "away": "Norway",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
