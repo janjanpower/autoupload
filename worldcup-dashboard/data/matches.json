@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-01T15:30:53.778184+00:00",
+  "updated_at": "2026-07-01T17:29:25.154214+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -798,9 +798,9 @@
       "group": "",
       "home": "England",
       "away": "Congo DR",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 1,
+      "status": "IN_PLAY"
     },
     {
       "id": 81,
