@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-01T20:14:00.607380+00:00",
+  "updated_at": "2026-07-02T19:50:20.385776+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
     "teams": 314,
-    "matchups": 3609,
+    "matchups": 3611,
     "power_rating": 314,
     "spi": 0,
     "estimated_spi": 314,
@@ -106,27 +106,27 @@
       "power_rating_source": "derived-results-xg"
     },
     "波士尼亞與赫塞哥維納": {
-      "matches": 76,
-      "goals_for_per_match": 1.158,
-      "goals_against_per_match": 1.579,
-      "recent_goals_for_per_match": 1.583,
+      "matches": 77,
+      "goals_for_per_match": 1.143,
+      "goals_against_per_match": 1.584,
+      "recent_goals_for_per_match": 1.5,
       "recent_goals_against_per_match": 1.333,
-      "tempo": 1.458,
+      "tempo": 1.417,
       "sources": [
         "martj42-international-results",
         "matches.json"
       ],
-      "estimated_spi": 56.933,
-      "power_rating": 82.773,
+      "estimated_spi": 56.304,
+      "power_rating": 82.522,
       "power_rating_source": "derived-results-xg"
     },
     "美國": {
-      "matches": 119,
+      "matches": 120,
       "goals_for_per_match": 1.975,
-      "goals_against_per_match": 0.958,
-      "recent_goals_for_per_match": 1.833,
-      "recent_goals_against_per_match": 1.667,
-      "tempo": 1.75,
+      "goals_against_per_match": 0.95,
+      "recent_goals_for_per_match": 1.583,
+      "recent_goals_against_per_match": 1.583,
+      "tempo": 1.583,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -137,8 +137,8 @@
       "projected_goals_against": 1.065,
       "xg_for": 0.985,
       "xg_against": 1.065,
-      "estimated_spi": 71.762,
-      "power_rating": 88.705,
+      "estimated_spi": 70.892,
+      "power_rating": 88.357,
       "power_rating_source": "derived-results-xg"
     },
     "巴拉圭": {
@@ -499,12 +499,12 @@
       "power_rating_source": "derived-results-xg"
     },
     "比利時": {
-      "matches": 100,
-      "goals_for_per_match": 2.27,
-      "goals_against_per_match": 0.85,
-      "recent_goals_for_per_match": 1.833,
-      "recent_goals_against_per_match": 0.917,
-      "tempo": 1.375,
+      "matches": 101,
+      "goals_for_per_match": 2.277,
+      "goals_against_per_match": 0.861,
+      "recent_goals_for_per_match": 1.667,
+      "recent_goals_against_per_match": 1,
+      "tempo": 1.333,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -515,8 +515,8 @@
       "projected_goals_against": 1.399,
       "xg_for": 1.587,
       "xg_against": 1.399,
-      "estimated_spi": 78.836,
-      "power_rating": 91.534,
+      "estimated_spi": 77.354,
+      "power_rating": 90.941,
       "power_rating_source": "derived-results-xg"
     },
     "埃及": {
@@ -640,9 +640,9 @@
       "power_rating_source": "derived-results-xg"
     },
     "塞內加爾": {
-      "matches": 108,
-      "goals_for_per_match": 1.769,
-      "goals_against_per_match": 0.787,
+      "matches": 109,
+      "goals_for_per_match": 1.771,
+      "goals_against_per_match": 0.807,
       "recent_goals_for_per_match": 1.583,
       "recent_goals_against_per_match": 1.667,
       "tempo": 1.625,
@@ -656,8 +656,8 @@
       "projected_goals_against": 0.916,
       "xg_for": 1.135,
       "xg_against": 0.916,
-      "estimated_spi": 69.333,
-      "power_rating": 87.733,
+      "estimated_spi": 69.225,
+      "power_rating": 87.69,
       "power_rating_source": "derived-results-xg"
     },
     "伊拉克": {
@@ -778,24 +778,24 @@
       "power_rating_source": "derived-results-xg"
     },
     "剛果民主共和國": {
-      "matches": 83,
-      "goals_for_per_match": 1.133,
-      "goals_against_per_match": 0.843,
+      "matches": 84,
+      "goals_for_per_match": 1.131,
+      "goals_against_per_match": 0.857,
       "recent_goals_for_per_match": 1.167,
-      "recent_goals_against_per_match": 0.667,
-      "tempo": 0.917,
+      "recent_goals_against_per_match": 0.75,
+      "tempo": 0.958,
       "sources": [
         "martj42-international-results",
         "matches.json"
       ],
-      "estimated_spi": 65.214,
-      "power_rating": 86.085,
+      "estimated_spi": 64.631,
+      "power_rating": 85.852,
       "power_rating_source": "derived-results-xg"
     },
     "英格蘭": {
-      "matches": 108,
-      "goals_for_per_match": 2.204,
-      "goals_against_per_match": 0.657,
+      "matches": 109,
+      "goals_for_per_match": 2.202,
+      "goals_against_per_match": 0.661,
       "recent_goals_for_per_match": 1.667,
       "recent_goals_against_per_match": 1.083,
       "tempo": 1.375,
@@ -809,8 +809,8 @@
       "projected_goals_against": 1.322,
       "xg_for": 1.925,
       "xg_against": 1.322,
-      "estimated_spi": 78.417,
-      "power_rating": 91.367,
+      "estimated_spi": 78.427,
+      "power_rating": 91.371,
       "power_rating_source": "derived-results-xg"
     },
     "克羅埃西亞": {
@@ -913,73 +913,17 @@
       "power_rating_source": "derived-results-xg"
     },
     "TBD": {
-      "matches": 16,
-      "goals_for_per_match": 1.938,
-      "goals_against_per_match": 1.938,
-      "recent_goals_for_per_match": 2.25,
-      "recent_goals_against_per_match": 2.25,
-      "tempo": 2.25,
+      "matches": 20,
+      "goals_for_per_match": 1.9,
+      "goals_against_per_match": 1.9,
+      "recent_goals_for_per_match": 1.5,
+      "recent_goals_against_per_match": 1.5,
+      "tempo": 1.5,
       "sources": [
         "matches.json"
       ],
-      "estimated_spi": 55.889,
-      "power_rating": 82.356,
-      "power_rating_source": "derived-results-xg"
-    },
-    "Laos": {
-      "matches": 31,
-      "goals_for_per_match": 0.806,
-      "goals_against_per_match": 2.452,
-      "recent_goals_for_per_match": 1.083,
-      "recent_goals_against_per_match": 2.75,
-      "tempo": 1.917,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 31.916,
-      "power_rating": 72.766,
-      "power_rating_source": "derived-results-xg"
-    },
-    "Bangladesh": {
-      "matches": 65,
-      "goals_for_per_match": 0.831,
-      "goals_against_per_match": 1.462,
-      "recent_goals_for_per_match": 1.167,
-      "recent_goals_against_per_match": 1.25,
-      "tempo": 1.208,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 52.434,
-      "power_rating": 80.974,
-      "power_rating_source": "derived-results-xg"
-    },
-    "Macau": {
-      "matches": 14,
-      "goals_for_per_match": 0.286,
-      "goals_against_per_match": 2.429,
-      "recent_goals_for_per_match": 0.25,
-      "recent_goals_against_per_match": 2.583,
-      "tempo": 1.417,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 25,
-      "power_rating": 70.0,
-      "power_rating_source": "derived-results-xg"
-    },
-    "Sri Lanka": {
-      "matches": 43,
-      "goals_for_per_match": 0.744,
-      "goals_against_per_match": 1.884,
-      "recent_goals_for_per_match": 0.833,
-      "recent_goals_against_per_match": 1.25,
-      "tempo": 1.042,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 44.633,
-      "power_rating": 77.853,
+      "estimated_spi": 56.111,
+      "power_rating": 82.444,
       "power_rating_source": "derived-results-xg"
     },
     "Mongolia": {
@@ -2326,6 +2270,34 @@
       "power_rating": 85.851,
       "power_rating_source": "derived-results-xg"
     },
+    "Bangladesh": {
+      "matches": 64,
+      "goals_for_per_match": 0.828,
+      "goals_against_per_match": 1.484,
+      "recent_goals_for_per_match": 1.167,
+      "recent_goals_against_per_match": 1.25,
+      "tempo": 1.208,
+      "sources": [
+        "martj42-international-results"
+      ],
+      "estimated_spi": 52.149,
+      "power_rating": 80.86,
+      "power_rating_source": "derived-results-xg"
+    },
+    "Laos": {
+      "matches": 30,
+      "goals_for_per_match": 0.833,
+      "goals_against_per_match": 2.5,
+      "recent_goals_for_per_match": 1.083,
+      "recent_goals_against_per_match": 2.75,
+      "tempo": 1.917,
+      "sources": [
+        "martj42-international-results"
+      ],
+      "estimated_spi": 31.667,
+      "power_rating": 72.667,
+      "power_rating_source": "derived-results-xg"
+    },
     "Guam": {
       "matches": 22,
       "goals_for_per_match": 1.0,
@@ -2380,6 +2352,34 @@
       ],
       "estimated_spi": 47.988,
       "power_rating": 79.195,
+      "power_rating_source": "derived-results-xg"
+    },
+    "Sri Lanka": {
+      "matches": 42,
+      "goals_for_per_match": 0.762,
+      "goals_against_per_match": 1.905,
+      "recent_goals_for_per_match": 0.833,
+      "recent_goals_against_per_match": 1.25,
+      "tempo": 1.042,
+      "sources": [
+        "martj42-international-results"
+      ],
+      "estimated_spi": 44.548,
+      "power_rating": 77.819,
+      "power_rating_source": "derived-results-xg"
+    },
+    "Macau": {
+      "matches": 13,
+      "goals_for_per_match": 0.231,
+      "goals_against_per_match": 2.615,
+      "recent_goals_for_per_match": 0.25,
+      "recent_goals_against_per_match": 2.583,
+      "tempo": 1.417,
+      "sources": [
+        "martj42-international-results"
+      ],
+      "estimated_spi": 25,
+      "power_rating": 70.0,
       "power_rating_source": "derived-results-xg"
     },
     "Gambia": {
@@ -6247,23 +6247,9 @@
       ]
     },
     "TBD|TBD": {
-      "matches": 8,
-      "average_total_goals": 3.875,
+      "matches": 10,
+      "average_total_goals": 3.8,
       "recent": [
-        {
-          "home": "TBD",
-          "away": "TBD",
-          "hg": 4,
-          "ag": 5,
-          "source": "matches.json"
-        },
-        {
-          "home": "TBD",
-          "away": "TBD",
-          "hg": 3,
-          "ag": 4,
-          "source": "matches.json"
-        },
         {
           "home": "TBD",
           "away": "TBD",
@@ -6291,46 +6277,20 @@
           "hg": 2,
           "ag": 1,
           "source": "matches.json"
-        }
-      ]
-    },
-    "Bangladesh|Laos": {
-      "matches": 2,
-      "average_total_goals": 0.5,
-      "recent": [
-        {
-          "home": "Laos",
-          "away": "Bangladesh",
-          "hg": 0,
-          "ag": 1,
-          "source": "martj42-international-results"
         },
         {
-          "home": "Bangladesh",
-          "away": "Laos",
-          "hg": 0,
-          "ag": 0,
-          "source": "martj42-international-results"
-        }
-      ]
-    },
-    "Macau|Sri Lanka": {
-      "matches": 2,
-      "average_total_goals": 2.0,
-      "recent": [
-        {
-          "home": "Macau",
-          "away": "Sri Lanka",
-          "hg": 1,
-          "ag": 0,
-          "source": "martj42-international-results"
-        },
-        {
-          "home": "Sri Lanka",
-          "away": "Macau",
+          "home": "TBD",
+          "away": "TBD",
           "hg": 3,
+          "ag": 2,
+          "source": "matches.json"
+        },
+        {
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 2,
           "ag": 0,
-          "source": "martj42-international-results"
+          "source": "matches.json"
         }
       ]
     },
@@ -8747,6 +8707,19 @@
         }
       ]
     },
+    "Bangladesh|Laos": {
+      "matches": 1,
+      "average_total_goals": 0.0,
+      "recent": [
+        {
+          "home": "Bangladesh",
+          "away": "Laos",
+          "hg": 0,
+          "ag": 0,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
     "Bhutan|Guam": {
       "matches": 1,
       "average_total_goals": 5.0,
@@ -8782,6 +8755,19 @@
           "home": "Pakistan",
           "away": "Cambodia",
           "hg": 1,
+          "ag": 0,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "Macau|Sri Lanka": {
+      "matches": 1,
+      "average_total_goals": 3.0,
+      "recent": [
+        {
+          "home": "Sri Lanka",
+          "away": "Macau",
+          "hg": 3,
           "ag": 0,
           "source": "martj42-international-results"
         }
@@ -41187,13 +41173,20 @@
       ]
     },
     "波士尼亞與赫塞哥維納|美國": {
-      "matches": 1,
-      "average_total_goals": 1.0,
+      "matches": 2,
+      "average_total_goals": 1.5,
       "recent": [
         {
           "home": "美國",
           "away": "波士尼亞與赫塞哥維納",
           "hg": 1,
+          "ag": 0,
+          "source": "martj42-international-results"
+        },
+        {
+          "home": "美國",
+          "away": "波士尼亞與赫塞哥維納",
+          "hg": 2,
           "ag": 0,
           "source": "martj42-international-results"
         }
@@ -75013,6 +75006,32 @@
           "home": "象牙海岸",
           "away": "挪威",
           "hg": 1,
+          "ag": 2,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "剛果民主共和國|英格蘭": {
+      "matches": 1,
+      "average_total_goals": 3.0,
+      "recent": [
+        {
+          "home": "英格蘭",
+          "away": "剛果民主共和國",
+          "hg": 2,
+          "ag": 1,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "塞內加爾|比利時": {
+      "matches": 1,
+      "average_total_goals": 5.0,
+      "recent": [
+        {
+          "home": "比利時",
+          "away": "塞內加爾",
+          "hg": 3,
           "ag": 2,
           "source": "martj42-international-results"
         }
