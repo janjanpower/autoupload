@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-02T05:39:27.555953+00:00",
+  "updated_at": "2026-07-02T08:31:59.185229+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -913,11 +913,11 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 92,
+      "date": "2026-07-06",
       "group": "",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "Mexico",
+      "away": "England",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
@@ -933,11 +933,11 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 94,
+      "date": "2026-07-07",
       "group": "",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "United States",
+      "away": "Belgium",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
