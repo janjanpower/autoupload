@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-03T17:44:35.696613+00:00",
+  "updated_at": "2026-07-03T18:50:25.404037+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -858,9 +858,9 @@
       "group": "",
       "home": "Australia",
       "away": "Egypt",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 1,
+      "status": "IN_PLAY"
     },
     {
       "id": 87,
