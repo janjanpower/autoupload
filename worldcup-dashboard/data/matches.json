@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-03T04:57:17.868657+00:00",
+  "updated_at": "2026-07-03T07:57:29.160248+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -850,7 +850,7 @@
       "away": "Algeria",
       "home_score": 2,
       "away_score": 0,
-      "status": "IN_PLAY"
+      "status": "FINISHED"
     },
     {
       "id": 86,
