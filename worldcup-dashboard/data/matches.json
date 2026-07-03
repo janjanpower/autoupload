@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-03T01:14:14.845227+00:00",
+  "updated_at": "2026-07-03T04:57:17.868657+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -839,8 +839,8 @@
       "home": "Portugal",
       "away": "Croatia",
       "home_score": 2,
-      "away_score": 2,
-      "status": "IN_PLAY"
+      "away_score": 1,
+      "status": "FINISHED"
     },
     {
       "id": 85,
@@ -848,9 +848,9 @@
       "group": "",
       "home": "Switzerland",
       "away": "Algeria",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 2,
+      "away_score": 0,
+      "status": "IN_PLAY"
     },
     {
       "id": 86,
