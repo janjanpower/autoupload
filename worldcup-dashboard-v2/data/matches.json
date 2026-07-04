@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-04T20:32:18.517874+00:00",
+  "updated_at": "2026-07-04T21:29:58.432735+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -1350,7 +1350,7 @@
       "away_half_score": null,
       "minute": null,
       "added_time": null,
-      "status": "TIMED"
+      "status": "LIVE"
     },
     {
       "id": 91,
