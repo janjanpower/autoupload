@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-04T16:11:01.088941+00:00",
+  "updated_at": "2026-07-04T17:17:27.328720+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -888,9 +888,9 @@
       "group": "",
       "home": "Canada",
       "away": "Morocco",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 0,
+      "status": "IN_PLAY"
     },
     {
       "id": 90,
