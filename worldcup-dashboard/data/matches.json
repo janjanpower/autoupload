@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-04T04:47:47.321419+00:00",
+  "updated_at": "2026-07-04T07:30:51.961817+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -923,11 +923,11 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 93,
+      "date": "2026-07-06",
       "group": "",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "Portugal",
+      "away": "Spain",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
@@ -943,21 +943,21 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 95,
+      "date": "2026-07-07",
       "group": "",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "Argentina",
+      "away": "Egypt",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 96,
+      "date": "2026-07-07",
       "group": "",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "Switzerland",
+      "away": "Colombia",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
