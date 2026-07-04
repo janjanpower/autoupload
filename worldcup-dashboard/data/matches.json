@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-03T23:29:23.941506+00:00",
+  "updated_at": "2026-07-04T01:08:13.178658+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -868,9 +868,9 @@
       "group": "",
       "home": "Argentina",
       "away": "Cape Verde Islands",
-      "home_score": 1,
-      "away_score": 1,
-      "status": "IN_PLAY"
+      "home_score": 3,
+      "away_score": 2,
+      "status": "FINISHED"
     },
     {
       "id": 88,
