@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-04T17:17:27.328720+00:00",
+  "updated_at": "2026-07-04T18:14:06.799250+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -890,7 +890,7 @@
       "away": "Morocco",
       "home_score": 0,
       "away_score": 0,
-      "status": "IN_PLAY"
+      "status": "PAUSED"
     },
     {
       "id": 90,
