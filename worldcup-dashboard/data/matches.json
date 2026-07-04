@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-04T22:27:45.315014+00:00",
+  "updated_at": "2026-07-04T23:30:04.083103+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -899,8 +899,8 @@
       "home": "Paraguay",
       "away": "France",
       "home_score": 0,
-      "away_score": 0,
-      "status": "IN_PLAY"
+      "away_score": 1,
+      "status": "FINISHED"
     },
     {
       "id": 91,
