@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-05T20:00:29.644025+00:00",
+  "updated_at": "2026-07-05T21:04:22.942105+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -908,9 +908,9 @@
       "group": "",
       "home": "Brazil",
       "away": "Norway",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 0,
+      "status": "PAUSED"
     },
     {
       "id": 92,
