@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-05T05:08:23.997242+00:00",
+  "updated_at": "2026-07-05T08:11:37.984975+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -963,11 +963,11 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 97,
+      "date": "2026-07-09",
       "group": "",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "France",
+      "away": "Morocco",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
