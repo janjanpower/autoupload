@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-05T23:15:04.599448+00:00",
+  "updated_at": "2026-07-06T00:16:07.119236+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -920,7 +920,7 @@
       "away": "England",
       "home_score": null,
       "away_score": null,
-      "status": "TIMED"
+      "status": "2026-07-06 01:00:00Z"
     },
     {
       "id": 93,
