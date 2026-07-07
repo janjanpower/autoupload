@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T16:05:16.321648+00:00",
+  "updated_at": "2026-07-07T18:09:57.903793+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -948,9 +948,9 @@
       "group": "",
       "home": "Argentina",
       "away": "Egypt",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 3,
+      "away_score": 2,
+      "status": "IN_PLAY"
     },
     {
       "id": 96,
