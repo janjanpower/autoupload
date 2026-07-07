@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T05:14:40.504477+00:00",
+  "updated_at": "2026-07-07T08:42:58.132274+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -973,11 +973,11 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 98,
+      "date": "2026-07-10",
       "group": "",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "Spain",
+      "away": "Belgium",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
