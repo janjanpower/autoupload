@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T01:25:41.515372+00:00",
+  "updated_at": "2026-07-07T05:14:40.504477+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -939,8 +939,8 @@
       "home": "United States",
       "away": "Belgium",
       "home_score": 1,
-      "away_score": 2,
-      "status": "IN_PLAY"
+      "away_score": 4,
+      "status": "FINISHED"
     },
     {
       "id": 95,
