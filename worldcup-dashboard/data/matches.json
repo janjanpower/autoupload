@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-08T04:24:10.891741+00:00",
+  "updated_at": "2026-07-08T06:43:59.395343+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -993,11 +993,11 @@
       "status": "TIMED"
     },
     {
-      "id": 104,
-      "date": "2026-07-19",
+      "id": 100,
+      "date": "2026-07-12",
       "group": "",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "Argentina",
+      "away": "Switzerland",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
