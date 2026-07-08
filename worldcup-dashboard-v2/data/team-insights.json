@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-07-07T20:13:07.931623+00:00",
+  "updated_at": "2026-07-08T19:55:08.350073+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
     "teams": 314,
-    "matchups": 3619,
+    "matchups": 3621,
     "power_rating": 314,
     "spi": 0,
     "estimated_spi": 314,
@@ -178,12 +178,12 @@
       "power_rating_source": "derived-results-xg"
     },
     "瑞士": {
-      "matches": 99,
-      "goals_for_per_match": 1.788,
-      "goals_against_per_match": 1.162,
-      "recent_goals_for_per_match": 1.583,
-      "recent_goals_against_per_match": 1.417,
-      "tempo": 1.5,
+      "matches": 100,
+      "goals_for_per_match": 1.77,
+      "goals_against_per_match": 1.15,
+      "recent_goals_for_per_match": 1.5,
+      "recent_goals_against_per_match": 1.333,
+      "tempo": 1.417,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -195,7 +195,7 @@
       "xg_for": 1.234,
       "xg_against": 1.314,
       "estimated_spi": 67.136,
-      "power_rating": 86.855,
+      "power_rating": 86.854,
       "power_rating_source": "derived-results-xg"
     },
     "巴西": {
@@ -520,12 +520,12 @@
       "power_rating_source": "derived-results-xg"
     },
     "埃及": {
-      "matches": 99,
-      "goals_for_per_match": 1.495,
-      "goals_against_per_match": 0.707,
-      "recent_goals_for_per_match": 1.167,
-      "recent_goals_against_per_match": 1,
-      "tempo": 1.083,
+      "matches": 100,
+      "goals_for_per_match": 1.5,
+      "goals_against_per_match": 0.73,
+      "recent_goals_for_per_match": 1.333,
+      "recent_goals_against_per_match": 1.25,
+      "tempo": 1.292,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -536,8 +536,8 @@
       "projected_goals_against": 1.823,
       "xg_for": 0.995,
       "xg_against": 1.823,
-      "estimated_spi": 68.591,
-      "power_rating": 87.436,
+      "estimated_spi": 67.986,
+      "power_rating": 87.194,
       "power_rating_source": "derived-results-xg"
     },
     "沙烏地阿拉伯": {
@@ -691,9 +691,9 @@
       "power_rating_source": "derived-results-xg"
     },
     "阿根廷": {
-      "matches": 111,
-      "goals_for_per_match": 2.099,
-      "goals_against_per_match": 0.658,
+      "matches": 112,
+      "goals_for_per_match": 2.107,
+      "goals_against_per_match": 0.67,
       "recent_goals_for_per_match": 1.667,
       "recent_goals_against_per_match": 1.5,
       "tempo": 1.583,
@@ -707,8 +707,8 @@
       "projected_goals_against": 1.545,
       "xg_for": 2.03,
       "xg_against": 1.545,
-      "estimated_spi": 75.14,
-      "power_rating": 90.056,
+      "estimated_spi": 75.16,
+      "power_rating": 90.064,
       "power_rating_source": "derived-results-xg"
     },
     "阿爾及利亞": {
@@ -892,12 +892,12 @@
       "power_rating_source": "derived-results-xg"
     },
     "哥倫比亞": {
-      "matches": 94,
-      "goals_for_per_match": 1.521,
-      "goals_against_per_match": 0.809,
-      "recent_goals_for_per_match": 1.5,
-      "recent_goals_against_per_match": 0.833,
-      "tempo": 1.167,
+      "matches": 95,
+      "goals_for_per_match": 1.505,
+      "goals_against_per_match": 0.8,
+      "recent_goals_for_per_match": 1.417,
+      "recent_goals_against_per_match": 0.667,
+      "tempo": 1.042,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -908,56 +908,22 @@
       "projected_goals_against": 2.489,
       "xg_for": 1.807,
       "xg_against": 2.489,
-      "estimated_spi": 70.637,
-      "power_rating": 88.255,
+      "estimated_spi": 71.125,
+      "power_rating": 88.45,
       "power_rating_source": "derived-results-xg"
     },
     "TBD": {
       "matches": 48,
-      "goals_for_per_match": 1.729,
-      "goals_against_per_match": 1.729,
-      "recent_goals_for_per_match": 1.583,
-      "recent_goals_against_per_match": 1.583,
-      "tempo": 1.583,
+      "goals_for_per_match": 1.875,
+      "goals_against_per_match": 1.875,
+      "recent_goals_for_per_match": 2.167,
+      "recent_goals_against_per_match": 2.167,
+      "tempo": 2.167,
       "sources": [
         "matches.json"
       ],
       "estimated_spi": 57.667,
       "power_rating": 83.067,
-      "power_rating_source": "derived-results-xg"
-    },
-    "Denmark": {
-      "matches": 90,
-      "goals_for_per_match": 1.9,
-      "goals_against_per_match": 0.833,
-      "recent_goals_for_per_match": 1.167,
-      "recent_goals_against_per_match": 1,
-      "tempo": 1.083,
-      "sources": [
-        "martj42-international-results",
-        "statsbomb-worldcup",
-        "statsbomb-worldcup-xg"
-      ],
-      "projected_goals_for": 1.44,
-      "projected_goals_against": 1.901,
-      "xg_for": 1.44,
-      "xg_against": 1.901,
-      "estimated_spi": 70.6,
-      "power_rating": 88.24,
-      "power_rating_source": "derived-results-xg"
-    },
-    "Republic of Ireland": {
-      "matches": 73,
-      "goals_for_per_match": 1.178,
-      "goals_against_per_match": 1.068,
-      "recent_goals_for_per_match": 1.5,
-      "recent_goals_against_per_match": 0.833,
-      "tempo": 1.167,
-      "sources": [
-        "martj42-international-results"
-      ],
-      "estimated_spi": 64.042,
-      "power_rating": 85.617,
       "power_rating_source": "derived-results-xg"
     },
     "Faroe Islands": {
@@ -2032,6 +1998,20 @@
       "power_rating": 77.446,
       "power_rating_source": "derived-results-xg"
     },
+    "Republic of Ireland": {
+      "matches": 72,
+      "goals_for_per_match": 1.181,
+      "goals_against_per_match": 1.069,
+      "recent_goals_for_per_match": 1.5,
+      "recent_goals_against_per_match": 0.833,
+      "tempo": 1.167,
+      "sources": [
+        "martj42-international-results"
+      ],
+      "estimated_spi": 64.0,
+      "power_rating": 85.6,
+      "power_rating_source": "derived-results-xg"
+    },
     "Gibraltar": {
       "matches": 68,
       "goals_for_per_match": 0.544,
@@ -2044,6 +2024,26 @@
       ],
       "estimated_spi": 30.792,
       "power_rating": 72.317,
+      "power_rating_source": "derived-results-xg"
+    },
+    "Denmark": {
+      "matches": 89,
+      "goals_for_per_match": 1.91,
+      "goals_against_per_match": 0.831,
+      "recent_goals_for_per_match": 1.167,
+      "recent_goals_against_per_match": 1,
+      "tempo": 1.083,
+      "sources": [
+        "martj42-international-results",
+        "statsbomb-worldcup",
+        "statsbomb-worldcup-xg"
+      ],
+      "projected_goals_for": 1.44,
+      "projected_goals_against": 1.901,
+      "xg_for": 1.44,
+      "xg_against": 1.901,
+      "estimated_spi": 70.652,
+      "power_rating": 88.261,
       "power_rating_source": "derived-results-xg"
     },
     "Georgia": {
@@ -6248,7 +6248,7 @@
     },
     "TBD|TBD": {
       "matches": 24,
-      "average_total_goals": 3.458,
+      "average_total_goals": 3.75,
       "recent": [
         {
           "home": "TBD",
@@ -6288,29 +6288,9 @@
         {
           "home": "TBD",
           "away": "TBD",
-          "hg": 0,
-          "ag": 0,
+          "hg": 4,
+          "ag": 3,
           "source": "matches.json"
-        }
-      ]
-    },
-    "Denmark|Republic of Ireland": {
-      "matches": 2,
-      "average_total_goals": 2.0,
-      "recent": [
-        {
-          "home": "Denmark",
-          "away": "Republic of Ireland",
-          "hg": 1,
-          "ag": 1,
-          "source": "martj42-international-results"
-        },
-        {
-          "home": "Republic of Ireland",
-          "away": "Denmark",
-          "hg": 1,
-          "ag": 1,
-          "source": "martj42-international-results"
         }
       ]
     },
@@ -22358,6 +22338,19 @@
           "away": "Niger",
           "hg": 0,
           "ag": 0,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "Denmark|Republic of Ireland": {
+      "matches": 1,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "Republic of Ireland",
+          "away": "Denmark",
+          "hg": 1,
+          "ag": 1,
           "source": "martj42-international-results"
         }
       ]
@@ -75116,6 +75109,32 @@
           "away": "英格蘭",
           "hg": 2,
           "ag": 3,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "埃及|阿根廷": {
+      "matches": 1,
+      "average_total_goals": 5.0,
+      "recent": [
+        {
+          "home": "阿根廷",
+          "away": "埃及",
+          "hg": 3,
+          "ag": 2,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "哥倫比亞|瑞士": {
+      "matches": 1,
+      "average_total_goals": 0.0,
+      "recent": [
+        {
+          "home": "瑞士",
+          "away": "哥倫比亞",
+          "hg": 0,
+          "ag": 0,
           "source": "martj42-international-results"
         }
       ]
