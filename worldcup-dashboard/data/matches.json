@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09T20:11:15.419370+00:00",
+  "updated_at": "2026-07-09T21:41:35.348488+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -968,7 +968,7 @@
       "group": "",
       "home": "France",
       "away": "Morocco",
-      "home_score": 0,
+      "home_score": 2,
       "away_score": 0,
       "status": "IN_PLAY"
     },
