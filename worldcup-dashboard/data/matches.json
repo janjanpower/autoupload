@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-10T17:40:13.271071+00:00",
+  "updated_at": "2026-07-10T19:07:32.510042+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -978,9 +978,9 @@
       "group": "",
       "home": "Spain",
       "away": "Belgium",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 0,
+      "status": "IN_PLAY"
     },
     {
       "id": 99,
