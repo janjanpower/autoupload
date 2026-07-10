@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09T20:03:31.249082+00:00",
+  "updated_at": "2026-07-10T19:50:14.902216+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
     "teams": 314,
@@ -220,11 +220,11 @@
       "power_rating_source": "derived-results-xg"
     },
     "摩洛哥": {
-      "matches": 119,
-      "goals_for_per_match": 1.849,
-      "goals_against_per_match": 0.563,
-      "recent_goals_for_per_match": 1,
-      "recent_goals_against_per_match": 0.833,
+      "matches": 120,
+      "goals_for_per_match": 1.833,
+      "goals_against_per_match": 0.575,
+      "recent_goals_for_per_match": 0.917,
+      "recent_goals_against_per_match": 0.917,
       "tempo": 0.917,
       "sources": [
         "martj42-international-results",
@@ -236,8 +236,8 @@
       "projected_goals_against": 1.322,
       "xg_for": 1.226,
       "xg_against": 1.322,
-      "estimated_spi": 74.183,
-      "power_rating": 89.673,
+      "estimated_spi": 72.992,
+      "power_rating": 89.197,
       "power_rating_source": "derived-results-xg"
     },
     "海地": {
@@ -619,9 +619,9 @@
       "power_rating_source": "derived-results-xg"
     },
     "法國": {
-      "matches": 110,
-      "goals_for_per_match": 2.227,
-      "goals_against_per_match": 0.9,
+      "matches": 111,
+      "goals_for_per_match": 2.225,
+      "goals_against_per_match": 0.892,
       "recent_goals_for_per_match": 2.25,
       "recent_goals_against_per_match": 1.167,
       "tempo": 1.708,
@@ -635,8 +635,8 @@
       "projected_goals_against": 1.322,
       "xg_for": 1.697,
       "xg_against": 1.322,
-      "estimated_spi": 79.557,
-      "power_rating": 91.823,
+      "estimated_spi": 79.667,
+      "power_rating": 91.867,
       "power_rating_source": "derived-results-xg"
     },
     "塞內加爾": {
@@ -913,17 +913,17 @@
       "power_rating_source": "derived-results-xg"
     },
     "TBD": {
-      "matches": 48,
-      "goals_for_per_match": 1.875,
-      "goals_against_per_match": 1.875,
-      "recent_goals_for_per_match": 2.167,
-      "recent_goals_against_per_match": 2.167,
-      "tempo": 2.167,
+      "matches": 52,
+      "goals_for_per_match": 1.769,
+      "goals_against_per_match": 1.769,
+      "recent_goals_for_per_match": 1.667,
+      "recent_goals_against_per_match": 1.667,
+      "tempo": 1.667,
       "sources": [
         "matches.json"
       ],
-      "estimated_spi": 57.667,
-      "power_rating": 83.067,
+      "estimated_spi": 57.889,
+      "power_rating": 83.156,
       "power_rating_source": "derived-results-xg"
     },
     "Faroe Islands": {
@@ -6247,23 +6247,9 @@
       ]
     },
     "TBD|TBD": {
-      "matches": 24,
-      "average_total_goals": 3.75,
+      "matches": 26,
+      "average_total_goals": 3.538,
       "recent": [
-        {
-          "home": "TBD",
-          "away": "TBD",
-          "hg": 1,
-          "ag": 2,
-          "source": "matches.json"
-        },
-        {
-          "home": "TBD",
-          "away": "TBD",
-          "hg": 2,
-          "ag": 3,
-          "source": "matches.json"
-        },
         {
           "home": "TBD",
           "away": "TBD",
@@ -6290,6 +6276,20 @@
           "away": "TBD",
           "hg": 4,
           "ag": 3,
+          "source": "matches.json"
+        },
+        {
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 2,
+          "ag": 0,
+          "source": "matches.json"
+        },
+        {
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 0,
+          "ag": 0,
           "source": "matches.json"
         }
       ]
@@ -51454,9 +51454,16 @@
       ]
     },
     "摩洛哥|法國": {
-      "matches": 2,
+      "matches": 3,
       "average_total_goals": 2.0,
       "recent": [
+        {
+          "home": "法國",
+          "away": "摩洛哥",
+          "hg": 2,
+          "ag": 0,
+          "source": "martj42-international-results"
+        },
         {
           "home": "法國",
           "away": "摩洛哥",
