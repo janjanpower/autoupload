@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-11T21:02:21.076821+00:00",
+  "updated_at": "2026-07-11T21:57:22.422840+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -918,9 +918,9 @@
       "group": "",
       "home": "Mexico",
       "away": "England",
-      "home_score": 2,
-      "away_score": 3,
-      "status": "FINISHED"
+      "home_score": null,
+      "away_score": null,
+      "status": "2026-07-06 01:00:00Z"
     },
     {
       "id": 93,
@@ -988,9 +988,9 @@
       "group": "",
       "home": "Norway",
       "away": "England",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 1,
+      "away_score": 1,
+      "status": "IN_PLAY"
     },
     {
       "id": 100,
