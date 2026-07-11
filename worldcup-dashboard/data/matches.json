@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-11T22:41:19.410681+00:00",
+  "updated_at": "2026-07-11T23:35:09.666876+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -988,9 +988,9 @@
       "group": "",
       "home": "Norway",
       "away": "England",
-      "home_score": 2,
-      "away_score": 1,
-      "status": "IN_PLAY"
+      "home_score": 1,
+      "away_score": 2,
+      "status": "PAUSED"
     },
     {
       "id": 100,
