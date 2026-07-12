@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-11T23:35:09.666876+00:00",
+  "updated_at": "2026-07-12T01:08:26.333013+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -990,7 +990,7 @@
       "away": "England",
       "home_score": 1,
       "away_score": 2,
-      "status": "PAUSED"
+      "status": "FINISHED"
     },
     {
       "id": 100,
@@ -998,9 +998,9 @@
       "group": "",
       "home": "Argentina",
       "away": "Switzerland",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 0,
+      "status": "IN_PLAY"
     },
     {
       "id": 101,
