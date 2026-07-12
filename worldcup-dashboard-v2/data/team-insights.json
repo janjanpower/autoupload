@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-11T19:30:57.972919+00:00",
+  "updated_at": "2026-07-12T19:30:09.187352+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
     "teams": 314,
@@ -913,17 +913,17 @@
       "power_rating_source": "derived-results-xg"
     },
     "TBD": {
-      "matches": 52,
-      "goals_for_per_match": 1.827,
-      "goals_against_per_match": 1.827,
-      "recent_goals_for_per_match": 1.917,
-      "recent_goals_against_per_match": 1.917,
-      "tempo": 1.917,
+      "matches": 56,
+      "goals_for_per_match": 1.821,
+      "goals_against_per_match": 1.821,
+      "recent_goals_for_per_match": 2,
+      "recent_goals_against_per_match": 2,
+      "tempo": 2.0,
       "sources": [
         "matches.json"
       ],
-      "estimated_spi": 57.889,
-      "power_rating": 83.156,
+      "estimated_spi": 58.111,
+      "power_rating": 83.244,
       "power_rating_source": "derived-results-xg"
     },
     "Faroe Islands": {
@@ -6247,23 +6247,9 @@
       ]
     },
     "TBD|TBD": {
-      "matches": 26,
-      "average_total_goals": 3.654,
+      "matches": 28,
+      "average_total_goals": 3.643,
       "recent": [
-        {
-          "home": "TBD",
-          "away": "TBD",
-          "hg": 0,
-          "ag": 1,
-          "source": "matches.json"
-        },
-        {
-          "home": "TBD",
-          "away": "TBD",
-          "hg": 1,
-          "ag": 4,
-          "source": "matches.json"
-        },
         {
           "home": "TBD",
           "away": "TBD",
@@ -6289,6 +6275,20 @@
           "home": "TBD",
           "away": "TBD",
           "hg": 2,
+          "ag": 1,
+          "source": "matches.json"
+        },
+        {
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 1,
+          "ag": 2,
+          "source": "matches.json"
+        },
+        {
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 3,
           "ag": 1,
           "source": "matches.json"
         }
