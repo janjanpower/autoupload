@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T18:52:51.850885+00:00",
+  "updated_at": "2026-07-14T20:00:50.132684+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -1008,9 +1008,9 @@
       "group": "",
       "home": "France",
       "away": "Spain",
-      "home_score": null,
-      "away_score": null,
-      "status": "TIMED"
+      "home_score": 0,
+      "away_score": 1,
+      "status": "PAUSED"
     },
     {
       "id": 102,
