@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T19:42:53.388367+00:00",
+  "updated_at": "2026-07-15T19:35:33.992513+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
     "teams": 314,
@@ -463,12 +463,12 @@
       "power_rating_source": "derived-results-xg"
     },
     "西班牙": {
-      "matches": 104,
-      "goals_for_per_match": 2.298,
-      "goals_against_per_match": 0.721,
-      "recent_goals_for_per_match": 1.917,
+      "matches": 105,
+      "goals_for_per_match": 2.295,
+      "goals_against_per_match": 0.714,
+      "recent_goals_for_per_match": 2,
       "recent_goals_against_per_match": 0.833,
-      "tempo": 1.375,
+      "tempo": 1.417,
       "sources": [
         "martj42-international-results",
         "matches.json",
@@ -479,8 +479,8 @@
       "projected_goals_against": 1.685,
       "xg_for": 2.366,
       "xg_against": 1.685,
-      "estimated_spi": 81.47,
-      "power_rating": 92.588,
+      "estimated_spi": 82.062,
+      "power_rating": 92.825,
       "power_rating_source": "derived-results-xg"
     },
     "佛得角": {
@@ -619,9 +619,9 @@
       "power_rating_source": "derived-results-xg"
     },
     "法國": {
-      "matches": 111,
-      "goals_for_per_match": 2.225,
-      "goals_against_per_match": 0.892,
+      "matches": 112,
+      "goals_for_per_match": 2.205,
+      "goals_against_per_match": 0.902,
       "recent_goals_for_per_match": 2.25,
       "recent_goals_against_per_match": 1.167,
       "tempo": 1.708,
@@ -635,8 +635,8 @@
       "projected_goals_against": 1.322,
       "xg_for": 1.697,
       "xg_against": 1.322,
-      "estimated_spi": 79.667,
-      "power_rating": 91.867,
+      "estimated_spi": 79.454,
+      "power_rating": 91.782,
       "power_rating_source": "derived-results-xg"
     },
     "塞內加爾": {
@@ -913,17 +913,17 @@
       "power_rating_source": "derived-results-xg"
     },
     "TBD": {
-      "matches": 56,
-      "goals_for_per_match": 1.821,
-      "goals_against_per_match": 1.821,
-      "recent_goals_for_per_match": 2,
-      "recent_goals_against_per_match": 2,
-      "tempo": 2.0,
+      "matches": 60,
+      "goals_for_per_match": 1.733,
+      "goals_against_per_match": 1.733,
+      "recent_goals_for_per_match": 1.167,
+      "recent_goals_against_per_match": 1.167,
+      "tempo": 1.167,
       "sources": [
         "matches.json"
       ],
-      "estimated_spi": 58.111,
-      "power_rating": 83.244,
+      "estimated_spi": 58.333,
+      "power_rating": 83.333,
       "power_rating_source": "derived-results-xg"
     },
     "North Macedonia": {
@@ -6247,23 +6247,9 @@
       ]
     },
     "TBD|TBD": {
-      "matches": 28,
-      "average_total_goals": 3.643,
+      "matches": 30,
+      "average_total_goals": 3.467,
       "recent": [
-        {
-          "home": "TBD",
-          "away": "TBD",
-          "hg": 3,
-          "ag": 2,
-          "source": "matches.json"
-        },
-        {
-          "home": "TBD",
-          "away": "TBD",
-          "hg": 4,
-          "ag": 3,
-          "source": "matches.json"
-        },
         {
           "home": "TBD",
           "away": "TBD",
@@ -6290,6 +6276,20 @@
           "away": "TBD",
           "hg": 3,
           "ag": 1,
+          "source": "matches.json"
+        },
+        {
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 0,
+          "ag": 2,
+          "source": "matches.json"
+        },
+        {
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 0,
+          "ag": 0,
           "source": "matches.json"
         }
       ]
@@ -39621,8 +39621,8 @@
       ]
     },
     "法國|西班牙": {
-      "matches": 3,
-      "average_total_goals": 5.0,
+      "matches": 4,
+      "average_total_goals": 4.25,
       "recent": [
         {
           "home": "西班牙",
@@ -39643,6 +39643,13 @@
           "away": "法國",
           "hg": 5,
           "ag": 4,
+          "source": "martj42-international-results"
+        },
+        {
+          "home": "法國",
+          "away": "西班牙",
+          "hg": 0,
+          "ag": 2,
           "source": "martj42-international-results"
         }
       ]
