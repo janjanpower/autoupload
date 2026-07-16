@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T06:07:23.029975+00:00",
+  "updated_at": "2026-07-16T08:29:21.065126+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -1027,7 +1027,7 @@
       "date": "2026-07-18",
       "group": "",
       "home": "France",
-      "away": "TBD",
+      "away": "England",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
@@ -1037,7 +1037,7 @@
       "date": "2026-07-19",
       "group": "",
       "home": "Spain",
-      "away": "TBD",
+      "away": "Argentina",
       "home_score": null,
       "away_score": null,
       "status": "TIMED"
