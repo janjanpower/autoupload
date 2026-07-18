@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-18T23:00:15.771772+00:00",
+  "updated_at": "2026-07-18T23:55:39.043222+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -1028,9 +1028,9 @@
       "group": "",
       "home": "France",
       "away": "England",
-      "home_score": 3,
-      "away_score": 5,
-      "status": "IN_PLAY"
+      "home_score": 4,
+      "away_score": 6,
+      "status": "FINISHED"
     },
     {
       "id": 104,
