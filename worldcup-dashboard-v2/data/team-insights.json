@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-18T19:25:39.096129+00:00",
+  "updated_at": "2026-07-19T19:30:46.127851+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
     "teams": 316,
@@ -619,9 +619,9 @@
       "power_rating_source": "derived-results-xg"
     },
     "法國": {
-      "matches": 112,
-      "goals_for_per_match": 2.205,
-      "goals_against_per_match": 0.902,
+      "matches": 113,
+      "goals_for_per_match": 2.221,
+      "goals_against_per_match": 0.947,
       "recent_goals_for_per_match": 2.25,
       "recent_goals_against_per_match": 1.167,
       "tempo": 1.708,
@@ -635,8 +635,8 @@
       "projected_goals_against": 1.322,
       "xg_for": 1.697,
       "xg_against": 1.322,
-      "estimated_spi": 79.454,
-      "power_rating": 91.782,
+      "estimated_spi": 79.247,
+      "power_rating": 91.699,
       "power_rating_source": "derived-results-xg"
     },
     "塞內加爾": {
@@ -793,9 +793,9 @@
       "power_rating_source": "derived-results-xg"
     },
     "英格蘭": {
-      "matches": 112,
-      "goals_for_per_match": 2.196,
-      "goals_against_per_match": 0.688,
+      "matches": 113,
+      "goals_for_per_match": 2.23,
+      "goals_against_per_match": 0.717,
       "recent_goals_for_per_match": 1.667,
       "recent_goals_against_per_match": 1.083,
       "tempo": 1.375,
@@ -809,8 +809,8 @@
       "projected_goals_against": 1.322,
       "xg_for": 1.925,
       "xg_against": 1.322,
-      "estimated_spi": 78.303,
-      "power_rating": 91.321,
+      "estimated_spi": 78.397,
+      "power_rating": 91.359,
       "power_rating_source": "derived-results-xg"
     },
     "克羅埃西亞": {
@@ -913,17 +913,17 @@
       "power_rating_source": "derived-results-xg"
     },
     "TBD": {
-      "matches": 60,
-      "goals_for_per_match": 1.783,
-      "goals_against_per_match": 1.783,
-      "recent_goals_for_per_match": 1.417,
-      "recent_goals_against_per_match": 1.417,
-      "tempo": 1.417,
+      "matches": 62,
+      "goals_for_per_match": 1.887,
+      "goals_against_per_match": 1.887,
+      "recent_goals_for_per_match": 2.083,
+      "recent_goals_against_per_match": 2.083,
+      "tempo": 2.083,
       "sources": [
         "matches.json"
       ],
-      "estimated_spi": 58.333,
-      "power_rating": 83.333,
+      "estimated_spi": 58.444,
+      "power_rating": 83.378,
       "power_rating_source": "derived-results-xg"
     },
     "Kenya": {
@@ -6275,16 +6275,9 @@
       ]
     },
     "TBD|TBD": {
-      "matches": 30,
-      "average_total_goals": 3.567,
+      "matches": 31,
+      "average_total_goals": 3.774,
       "recent": [
-        {
-          "home": "TBD",
-          "away": "TBD",
-          "hg": 2,
-          "ag": 0,
-          "source": "matches.json"
-        },
         {
           "home": "TBD",
           "away": "TBD",
@@ -6318,6 +6311,13 @@
           "away": "TBD",
           "hg": 1,
           "ag": 2,
+          "source": "matches.json"
+        },
+        {
+          "home": "TBD",
+          "away": "TBD",
+          "hg": 4,
+          "ag": 6,
           "source": "matches.json"
         }
       ]
@@ -51299,14 +51299,21 @@
       ]
     },
     "法國|英格蘭": {
-      "matches": 2,
-      "average_total_goals": 3.0,
+      "matches": 3,
+      "average_total_goals": 5.333,
       "recent": [
         {
           "home": "英格蘭",
           "away": "法國",
           "hg": 1,
           "ag": 2,
+          "source": "martj42-international-results"
+        },
+        {
+          "home": "法國",
+          "away": "英格蘭",
+          "hg": 4,
+          "ag": 6,
           "source": "martj42-international-results"
         },
         {
