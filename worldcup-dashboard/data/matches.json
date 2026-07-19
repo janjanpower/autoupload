@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-19T20:12:31.933820+00:00",
+  "updated_at": "2026-07-19T21:05:51.344992+00:00",
   "source": "football-data.org",
   "matches": [
     {
@@ -1040,7 +1040,7 @@
       "away": "Argentina",
       "home_score": 0,
       "away_score": 0,
-      "status": "PAUSED"
+      "status": "IN_PLAY"
     }
   ]
 }
