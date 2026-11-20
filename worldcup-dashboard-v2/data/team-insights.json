@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-19T00:19:13.209703+00:00",
+  "updated_at": "2026-11-20T00:35:23.684274+00:00",
   "source": "matches.json, martj42-international-results, statsbomb-worldcup",
   "coverage": {
     "teams": 312,
@@ -38033,26 +38033,6 @@
         }
       ]
     },
-    "Guernsey|Jersey": {
-      "matches": 2,
-      "average_total_goals": 2.0,
-      "recent": [
-        {
-          "home": "Guernsey",
-          "away": "Jersey",
-          "hg": 1,
-          "ag": 2,
-          "source": "martj42-international-results"
-        },
-        {
-          "home": "Jersey",
-          "away": "Guernsey",
-          "hg": 1,
-          "ag": 0,
-          "source": "martj42-international-results"
-        }
-      ]
-    },
     "Matabeleland|Yoruba Nation": {
       "matches": 1,
       "average_total_goals": 2.0,
@@ -38062,6 +38042,26 @@
           "away": "Matabeleland",
           "hg": 1,
           "ag": 1,
+          "source": "martj42-international-results"
+        }
+      ]
+    },
+    "Guernsey|Jersey": {
+      "matches": 2,
+      "average_total_goals": 2.0,
+      "recent": [
+        {
+          "home": "Jersey",
+          "away": "Guernsey",
+          "hg": 1,
+          "ag": 0,
+          "source": "martj42-international-results"
+        },
+        {
+          "home": "Guernsey",
+          "away": "Jersey",
+          "hg": 1,
+          "ag": 2,
           "source": "martj42-international-results"
         }
       ]
